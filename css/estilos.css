@@ -1,0 +1,273 @@
+:root{
+    --verdeOscuro: #0b1e26;
+    --celeste: #acf2f2;
+    --sizeNav: 1rem;
+}
+
+
+body{
+    background-color: var(--verdeOscuro);
+    color: white;
+}
+
+/* <!-- Estilos para el navbar --> */
+
+#cuadroBusqueda{
+    width: 0;
+    opacity: 0;
+    padding: 0;
+    border: 0;
+    transition: all 0.5s ease;
+}
+
+#cuadroBusqueda.mostrar{
+    width: 200px;
+    opacity: 1;
+    padding: .375rem .75rem;
+    border: 1px solid #dee2e6;
+}
+
+.btn-outline-success{
+    border-color: var(--celeste);
+    color: var(--celeste);
+}
+
+.btn-outline-success:hover{
+    background-color: var(--celeste);
+    color: var(--verdeOscuro);
+}
+
+.btn-outline-success:active{
+    background-color: var(--celeste) !important;
+    color: var(--verdeOscuro) !important;
+}
+
+.form-control{
+    background-color: transparent;
+    color: white;
+    border: 1px solid var(--celeste) !important;
+    
+}
+
+.form-control:focus{
+    background-color: transparent;
+    color: white;
+    box-shadow: none;
+}
+
+.btn-user{
+    border: 1px solid var(--celeste);
+    border-radius: 50%;
+    color: var(--celeste);
+}
+
+.btn-user:hover{
+    background-color: var(--celeste);
+    color: var(--verdeOscuro);
+}
+
+.btn-user:active{
+    background-color: var(--celeste) !important;
+    color: var(--verdeOscuro) !important;
+}
+
+.btn-user>i{
+    font-size: var(--sizeNav);
+}
+
+.btn-nav{
+    color: white;
+    transition: color 0.3s ease;
+    font-size: var(--sizeNav);
+    border: 1px solid var(--celeste);
+    border-radius: 10px;
+    width: 15vh;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.btn-nav:hover{
+    color: var(--celeste);
+    background-color: var(--celeste);
+    color: var(--verdeOscuro);    
+}
+
+.icons{
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    display: inline-block; /* Porque los <i> son elementos inline, y transform: scale() no funciona bien sobre elementos inline puros. */
+}
+
+.icons:hover{
+    color: var(--celeste);
+    transform: scale(1.2);
+}
+
+.img{
+    transition: all 0.3s ease;
+}
+
+.img:hover{
+    transform: scale(1.05);
+}
+
+@media (max-width: 991.98px) {
+
+    .navbar-collapse {
+        text-align: center;
+        padding-top: 1rem;
+        display: flex;
+        flex-direction:column;
+    }
+
+    .navbar-nav {
+        margin-bottom: 1.5rem;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 5px 10px;
+    }
+
+    .busquedaYusuario{
+        margin-bottom: 5px;
+        margin: auto;
+    }
+
+    .links{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .navbar-toggler{
+        background-color: transparent;
+        border: 1px solid var(--celeste)
+    }
+
+    .icono-hamb{
+        color: var(--celeste);
+        font-size: 20px;
+        display: inline-block;
+        transition: transform 0.5s ease;
+    }
+
+    .icono-hamb.rotado{
+        transform: rotate(180deg);
+    }
+
+    .navbar-toggler:focus{
+        box-shadow: none;
+    }
+}
+
+.header{
+    background-color: var(--verdeOscuro) !important;
+}
+
+.footer{
+    background-color: var(--verdeOscuro) !important;    
+}
+
+/*------------------------------------------------ BANNER DE PERFIL Y DETALLE ------------------------------------------------  */
+
+.banner-img{
+    width: 100%;
+    height: auto;
+    margin-top: 12%;
+    border: 2px solid var(--celeste);
+}
+
+/*------------------------------------------------ IMAGEN DE PERFIL ------------------------------------------------  */
+
+.perfil-container {
+    margin-top: -25%;   /* Sube todo el bloque para encimarlo al banner */ /*De esta manera muevo el bloque por encima del banner */
+    margin-left: 10%;
+    position: relative;
+    z-index: var(--bs-zindex-fixed) !important;         /* Asegura que quede por encima del banner */
+}
+
+.pfp-contenedor {
+    position: relative;
+    z-index: var(--bs-zindex-fixed) !important;
+    width: 15vw;          /* El contenedor ahora maneja el ancho (15% de la pantalla) */
+    min-width: 100px;     /* Candado de seguridad: que no se encoja de más en celulares */
+    max-width: 250px;     /* Candado de seguridad: que no crezca de más en monitores gigantes */
+    aspect-ratio: 1/1;
+}
+
+.pfp-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    background-color: white; /* Fondo blanco por si la imagen tarda en cargar */
+
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+.usuario-info{
+    padding: 5%;
+}
+
+.debajo-banner{
+    margin-top: 15%;
+}
+
+.reseña{
+    margin-top: 2%;
+    width: 100%;
+    background-color: white;
+    
+}
+
+.estrella{
+    color: gold;
+    display: flex;
+}
+
+.portada{
+    width: 100%;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+.titulo-contenedor{
+    margin-top: -20%;   /* Sube todo el bloque para encimarlo al banner */ /*De esta manera muevo el bloque por encima del banner */
+    margin-left: 10%;
+    position: relative;
+    z-index: var(--bs-zindex-fixed) !important;    /* Asegura que quede por encima del banner */
+    width: 100%;
+    text-align: center;
+}
+
+.titulo-pelicula{
+    position: relative;
+    z-index: var(--bs-zindex-fixed) !important;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+.contenedor-info{
+    margin-top: 15%;
+    max-height: 632px;
+}
+
+.titulo-reseñas{
+    margin-top: 15%;
+}
+
+
+.pfp-img-reseña{
+    height: 20vh;
+    width: auto;
+    aspect-ratio: 1/1 !important;
+}
+
+.botones-detalle{
+    text-align: center;
+}
+
+.btn-agregar{
+    color: var(--celeste) !important;
+}
