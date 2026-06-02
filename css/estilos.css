@@ -4,6 +4,7 @@
     --sizeNav: 1rem;
 }
 
+
 body{
     background-color: var(--verdeOscuro);
     color: white;
@@ -109,4 +110,117 @@ body{
 
 .img:hover{
     transform: scale(1.05);
+}
+
+
+.header{
+    background-color: var(--verdeOscuro) !important;
+}
+
+.footer{
+    background-color: var(--verdeOscuro) !important;    
+}
+
+/*------------------------------------------------ BANNER DE PERFIL Y DETALLE ------------------------------------------------  */
+
+.banner-img{
+    width: 100%;
+    height: auto;
+    margin-top: 12%;
+    border: 2px solid var(--celeste);
+}
+
+/*------------------------------------------------ IMAGEN DE PERFIL ------------------------------------------------  */
+
+.perfil-container {
+    margin-top: -25%;   /* Sube todo el bloque para encimarlo al banner */ /*De esta manera muevo el bloque por encima del banner */
+    margin-left: 10%;
+    position: relative;
+    z-index: var(--bs-zindex-fixed) !important;         /* Asegura que quede por encima del banner */
+}
+
+.pfp-contenedor {
+    position: relative;
+    z-index: var(--bs-zindex-fixed) !important;
+    width: 15vw;          /* El contenedor ahora maneja el ancho (15% de la pantalla) */
+    min-width: 100px;     /* Candado de seguridad: que no se encoja de más en celulares */
+    max-width: 250px;     /* Candado de seguridad: que no crezca de más en monitores gigantes */
+    aspect-ratio: 1/1;
+}
+
+.pfp-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    background-color: white; /* Fondo blanco por si la imagen tarda en cargar */
+
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+.usuario-info{
+    padding: 5%;
+}
+
+.debajo-banner{
+    margin-top: 15%;
+}
+
+.reseña{
+    margin-top: 2%;
+    width: 100%;
+    background-color: white;
+    
+}
+
+.estrella{
+    color: gold;
+    display: flex;
+}
+
+.portada{
+    width: 100%;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+.titulo-contenedor{
+    margin-top: -20%;   /* Sube todo el bloque para encimarlo al banner */ /*De esta manera muevo el bloque por encima del banner */
+    margin-left: 10%;
+    position: relative;
+    z-index: var(--bs-zindex-fixed) !important;    /* Asegura que quede por encima del banner */
+    width: 100%;
+    text-align: center;
+}
+
+.titulo-pelicula{
+    position: relative;
+    z-index: var(--bs-zindex-fixed) !important;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+.contenedor-info{
+    margin-top: 15%;
+    max-height: 632px;
+}
+
+.titulo-reseñas{
+    margin-top: 15%;
+}
+
+
+.pfp-img-reseña{
+    height: 20vh;
+    width: auto;
+    aspect-ratio: 1/1 !important;
+}
+
+.botones-detalle{
+    text-align: center;
+}
+
+.btn-agregar{
+    color: var(--celeste) !important;
 }
