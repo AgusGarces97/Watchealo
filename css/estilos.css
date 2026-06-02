@@ -112,6 +112,53 @@ body{
     transform: scale(1.05);
 }
 
+@media (max-width: 991.98px) {
+
+    .navbar-collapse {
+        text-align: center;
+        padding-top: 1rem;
+        display: flex;
+        flex-direction:column;
+    }
+
+    .navbar-nav {
+        margin-bottom: 1.5rem;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 5px 10px;
+    }
+
+    .busquedaYusuario{
+        margin-bottom: 5px;
+        margin: auto;
+    }
+
+    .links{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .navbar-toggler{
+        background-color: transparent;
+        border: 1px solid var(--celeste)
+    }
+
+    .icono-hamb{
+        color: var(--celeste);
+        font-size: 20px;
+        display: inline-block;
+        transition: transform 0.5s ease;
+    }
+
+    .icono-hamb.rotado{
+        transform: rotate(180deg);
+    }
+
+    .navbar-toggler:focus{
+        box-shadow: none;
+    }
+}
 
 .header{
     background-color: var(--verdeOscuro) !important;
