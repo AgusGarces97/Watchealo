@@ -171,6 +171,7 @@ body{
     margin-top: 2%;
     width: 100%;
     background-color: white;
+    
 }
 
 .estrella{
@@ -203,6 +204,17 @@ body{
 .contenedor-info{
     margin-top: 15%;
     max-height: 632px;
+}
+
+.titulo-reseñas{
+    margin-top: 15%;
+}
+
+
+.pfp-img-reseña{
+    height: 20vh;
+    width: auto;
+    aspect-ratio: 1/1 !important;
 }
 
 .botones-detalle{
