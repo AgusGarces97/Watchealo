@@ -10,36 +10,45 @@
 </head>
 <body>
     <header>
-        <div class="container fixed-top">
+        <div class="container sticky-top mb-3">
             <div class="row">
                 <nav class="navbar navbar-expand-lg navbar-dark mx-auto">
                     <div class="container-fluid mx-5 my-2">
                         <a class="navbar-brand" href="inicio.html"><img src="../img/logo.png" alt="Logo" width="250" height="auto" class="d-inline-block align-text-top img"></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                        <span class="icono-hamb"><i class="bi bi-caret-down-fill"></i></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav mx-auto">
-                                <li class="nav-item px-5">
-                                <a class="nav-link btn-nav" href="#">Explorar</a>
+
+                            <!-- Menú centrado -->
+                            <ul class="navbar-nav mx-auto links">
+                                <li class="nav-item px-2">
+                                    <a class="nav-link btn-nav" href="#">Explorar</a>
                                 </li>
-                                <li class="nav-item px-5">
-                                <a class="nav-link btn-nav" href="#">Listas</a>
+                                <li class="nav-item px-2">
+                                    <a class="nav-link btn-nav" href="#">Listas</a>
                                 </li>
-                                <li class="nav-item px-5">
-                                <a class="nav-link btn-nav" href="#">Contacto</a>
-                                </li>                                
+                                <li class="nav-item px-2">
+                                    <a class="nav-link btn-nav" href="#">Contacto</a>
+                                </li>
                             </ul>
-                            <form class="d-flex p-3" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" id="cuadroBusqueda">
-                                <button class="btn btn-outline-success" type="button" id="busqueda"><i class="bi bi-search"></i></button>
-                            </form>
-                                
-                            <form class="d-flex" role="search">
-                                <a href="perfil.html">                        
-                                <button class="btn btn-user" type="button" id="busqueda"><i class="bi bi-person-fill"></i></button>
+
+                            <!-- Buscador y usuario a la derecha -->
+                            <div class="d-flex flex-row flex-lg-row align-items-center ms-auto busquedaYusuario">
+                                <form class="d-flex me-3">
+                                    <input class="form-control me-2" id="cuadroBusqueda" type="search" placeholder="Buscar...">
+                                    <button class="btn btn-outline-success" id="busqueda" type="button">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </form>
+
+                                <a href="perfil.html">
+                                    <button class="btn btn-user" type="button">
+                                        <i class="bi bi-person-fill"></i>
+                                    </button>
                                 </a>
-                            </form>
+                            </div>
+
                         </div>
                     </div>
                 </nav>
@@ -47,19 +56,23 @@
         </div>
     </header> 
     
+    <main>
+        
+    </main>
+    
     <footer>
-        <div class="container fixed-bottom">
+        <div class="container">
             <div class="row">
-                <div class="col-12 p-4 d-flex justify-content-between align-items-center">
+                <div class="col-12 col-sm-12 p-4 d-flex flex-column flex-lg-row justify-content-between align-items-center text-center">
                     
-                    <a href="#"><img src="../img/logo.png" alt="Logo" width="250" height="auto" class="d-inline-block align-text-top img"></a>
+                    <a href="#"><img src="../img/logo.png" alt="Logo" width="250" height="auto" class="d-inline-block align-text-top img m-3"></a>
 
-                    <p class="mb-0 text-center">
+                    <p class="mb-0 text-center m-3">
                         © 2026 Watchealo. Diseño y Desarrollo a cargo de
                         Cuello Jaqueline, Garcés Agustín y Ponce Ulises
                     </p>
 
-                    <div>
+                    <div class="m-3 d-flex">
                         <a class="px-2" href="#"><i class="bi bi-facebook icons"></i></a>
                         <a class="px-2" href="#"><i class="bi bi-instagram icons"></i></a>
                         <a class="px-2" href="#"><i class="bi bi-twitter icons"></i></a>
