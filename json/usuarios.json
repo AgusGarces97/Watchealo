@@ -1,0 +1,20 @@
+[
+    {
+        "username": "AgusGarces",
+        "email": "agussdash88@gmail.com",
+        "contraseña": "Agustin",
+        "fechaNac": "2003-02-27"
+    },
+    {
+        "username": "UliPonce",
+        "email": "ulises.ponce72@gmail.com",
+        "contraseña": "Ulises",
+        "fechaNac": "2002-10-05"
+    },
+    {
+        "username": "JakiCuello",
+        "email": "jakicuellolima@gmail.com",
+        "contraseña": "Jaqueline",
+        "fechaNac": "2002-02-20"
+    }
+]

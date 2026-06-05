@@ -72,6 +72,10 @@
                             <i class="bi bi-pencil-square"></i> Editar Perfil
                         </button>
 
+                        <button type="button" class="btn btn-outline-danger btn-sm fw-bold" id="btn-cerrar-sesion" style="position: absolute; top: 15px; right: 180px; border-radius: 20px; padding: 6px 16px; z-index: 1050;">
+                            <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                        </button>
+
                         <!-----------------------FOTO DE PERFIL Y NOMBRE DE USUARIO------------------------------------>
                         <div class="row perfil-container">
                                     <div class="d-flex align-items-center px-0">
@@ -218,18 +222,23 @@
                         <h1>Login</h1>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-12 d-flex flex-column">
-                        <input type="text" placeholder="Nombre de Usuario">
-                        <input type="text" placeholder="Contraseña">
+                <form id="formulario_login">
+                    <div class="row">
+                        <div class="col-12 d-flex flex-column align-items-center">
+                            <input type="text" id="login-username" class="form-control mb-3" placeholder="Nombre de Usuario o Email" required>
+                            <input type="password" id="login-password" class="form-control mb-3" placeholder="Contraseña" required>
+                            
+                            <button type="submit" class="btn btn-outline-success rounded-pill px-4 py-2 fw-bold mb-3">
+                                Iniciar Sesión
+                            </button>
+                        </div>
                     </div>
-                </div>
+                </form>
                 <div class="row">
                     <div class="col-12 text-center">
                         <h6>No tienes Cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#FormularioRegistro">Registrate</a></h6>
                     </div>
                 </div>
-                    
             </div>
         </div>
 
