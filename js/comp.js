@@ -1,3 +1,99 @@
+//================================================
+//======================= CLASES =================
+//================================================
+
+class PeliculaSerie{
+    constructor(id, titulo, portada, genero, sinopsis, caps, duracion, puntuacion, creador, actores, banner){
+        this.id = id;
+        this.titulo = titulo;
+        this.portada = portada;
+        this.genero = genero;
+        this.sinopsis = sinopsis;
+        this.caps = caps;
+        this.duracion = duracion;
+        this.puntuacion = puntuacion;
+        this.creador = creador;
+        this.actores = actores;
+        this.banner = banner;
+    }
+}
+
+
+class Usuario{
+    constructor(username, email, contraseña, fechaNac){
+        this.username = username;
+        this.email = email;
+        this.contraseña = contraseña;
+        this.fechaNac = fechaNac;
+    }
+}
+
+// =========================================================
+// PRECARGA DE DATOS DESDE ARCHIVOS JSON A LOCALSTORAGE
+// =========================================================
+
+// 1. Función para cargar usuarios.json
+async function precargarUsuarios() {
+    // Solo actuamos si NO existe la clave "usuarios" en el localStorage
+    if (!localStorage.getItem("usuarios")) {
+        try {
+            // NOTA: Ajustá la ruta según dónde tengas guardado el JSON (ej: '../json/usuarios.json')
+            const respuesta = await fetch("../json/usuarios.json"); 
+            
+            if (!respuesta.ok) {
+                throw new Error(`Error al leer usuarios.json: ${respuesta.status}`);
+            }
+            
+            const datosUsuarios = await respuesta.json();
+            
+            // Guardamos el array completo convertido a texto
+            localStorage.setItem("usuarios", JSON.stringify(datosUsuarios));
+            console.log("¡Usuarios precargados con éxito en localStorage!");
+            
+        } catch (error) {
+            console.error("Hubo un problema al precargar los usuarios:", error);
+        }
+    }
+}
+
+// 2. Función para cargar pelis_y_series.json
+async function precargarPelisYSeries() {
+    // Solo actuamos si NO existe la clave "peliculas_series" en el localStorage
+    if (!localStorage.getItem("peliculas_series")) {
+        try {
+            // NOTA: Ajustá la ruta si el archivo está en otra carpeta (ej: 'pelis_y_series.json')
+            const respuesta = await fetch("../json/pelis_y_series.json");
+            
+            if (!respuesta.ok) {
+                throw new Error(`Error al leer pelis_y_series.json: ${respuesta.status}`);
+            }
+            
+            const datosPelisSeries = await respuesta.json();
+            
+            // Guardamos el array de películas/series en el localStorage
+            localStorage.setItem("peliculas_series", JSON.stringify(datosPelisSeries));
+            console.log("¡Películas y series precargadas con éxito en localStorage!");
+            
+        } catch (error) {
+            console.error("Hubo un problema al precargar películas y series:", error);
+        }
+    }
+}
+
+// =========================================================
+// EJECUCIÓN AL CARGAR LA PÁGINA
+// =========================================================
+document.addEventListener("DOMContentLoaded", () => {
+    // Llamamos a las funciones de precarga apenas el HTML esté listo
+    precargarUsuarios();
+    precargarPelisYSeries();
+    
+    // Comprobar el estado de la sesión apenas se monta el DOM
+    comprobarSesion();
+});
+
+
+
 /* Mostrar cuadro de búsqueda */
 const cuadroBusqueda = document.getElementById('cuadroBusqueda');
 const busqueda = document.getElementById('busqueda');
@@ -20,24 +116,6 @@ collapse.addEventListener('hide.bs.collapse', () => {
 
 
 /* Carga de Datos de Película */
-
-
-
-class PeliculaSerie{
-    constructor(id, titulo, portada, genero, sinopsis, caps, duracion, puntuacion, creador, actores, banner){
-        this.id = id;
-        this.titulo = titulo;
-        this.portada = portada;
-        this.genero = genero;
-        this.sinopsis = sinopsis;
-        this.caps = caps;
-        this.duracion = duracion;
-        this.puntuacion = puntuacion;
-        this.creador = creador;
-        this.actores = actores;
-        this.banner = banner;
-    }
-}
 
 let Arreglo_Pelis_Series = [];
 
@@ -518,7 +596,7 @@ contraseña.addEventListener("change", () => {
     }
 });
 
-// 3. CONTROL DE CONFIRMAR CONTRASEÑA (Debe ser idéntica a la primera)
+// CONTROL DE CONFIRMAR CONTRASEÑA (Debe ser idéntica a la primera)
 confirmContraseña.addEventListener("change", () => {
         if (confirmContraseña.value !== contraseña.value || confirmContraseña.value === "") {
             errorConfirmContraseña.style.display = "block";
@@ -537,12 +615,21 @@ confirmContraseña.addEventListener("change", () => {
         }
 });
 
-// 4. CONTROL DE FECHA DE NACIMIENTO (Validar que no esté vacía y que sea mayor de edad opcional)
+// CONTROL DE FECHA DE NACIMIENTO (Validar que no esté vacía y que sea mayor de edad opcional)
 fechaNac.addEventListener("change", () => {
-    if (fechaNac.value === "") {
+    
+    // 2. Convertimos el string "YYYY-MM-DD" en un objeto Date real de JS de forma segura
+    const [anio, mes, dia] = fechaNac.value.split("-").map(Number);
+    const fechaNacimiento = new Date(anio, mes - 1, dia); // Los meses en JS van de 0 a 11
+
+    // 3. Calculamos la fecha límite (Hoy hace 18 años)
+    const hoy = new Date();
+    const fechaLimite = new Date(hoy.getFullYear() - 18, hoy.getMonth(), hoy.getDate());
+
+    if (fechaNac.value === "" || fechaNacimiento > fechaLimite) {
         errorFechaNac.style.display = "block";
         errorFechaNac.innerHTML = `
-            <p class="text-danger"><i class="bi bi-exclaminations-circle"></i> Por favor, seleccione su fecha de nacimiento </p>
+            <p class="text-danger"><i class="bi bi-exclaminations-circle"></i> Por favor, seleccione una fecha de nacimiento válida(+18) </p>
         `;
         fechaNac.style.border = "3px solid red";
         algunError = true;
@@ -628,31 +715,185 @@ btnCrearCuenta.addEventListener("click", ()=>{
             );
                
     }else{
-        mostrarAviso(
-                `<i class="bi bi-patch-check-fill text-success"></i> ¡Bienvenido/a!`,
-                `<p class="mb-0 fs-5 text-center">¡Tu registro en <span style="color: var(--celeste);" class="fw-bold">Watchealo</span> se completó de manera exitosa!</p>`,
-                true
-            );
-        const modalElemento = document.getElementById("FormularioRegistro");
-        const modalBootstrap = bootstrap.Modal.getInstance(modalElemento);
-        
-        if (modalBootstrap) {
-        modalBootstrap.hide();
-        }
-        errorUserName.style.display = "none";
-        errorEmail.style.display = "none";
-        errorContraseña.style.display = "none";
-        errorConfirmContraseña.style.display = "none";
-        errorFechaNac.style.display = "none";
-        formRegistro.reset();
+    
+    // =========================================================
+    // GUARDAR EN LOCALSTORAGE
+    // =========================================================
 
-        // CAMBIO DE CONTENIDO SIN LOGEAR A CONTENIDO LOGEADO FALTA MANTENER LA SESION
-        document.getElementById("contenido-sin-logear").style.display = "none";
-        document.getElementById("contenido-logeado").style.display = "block";
+    // Obtener la lista de usuarios ya registrados (si no existe, inicializa un array vacío)
+    let listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+    // CONTROL DE DUPLICADOS: Validar si el username o email ya existen
+    const usuarioExiste = listaUsuarios.some(user => user.username === userName.value);
+    const emailExiste = listaUsuarios.some(user => user.email === email.value);
+
+    if (usuarioExiste) {
+        mostrarAviso(
+            `<i class="bi bi-exclamation-triangle-fill text-warning"></i> Error de registro`,
+            `<p class="mb-0 fs-5 text-center">El nombre de usuario <b>${userName.value}</b> ya está en uso.</p>`,
+            false
+        );
+        userName.style.border = "3px solid red";
+        return; // Frenamos el registro aquí
+    }
+
+    if (emailExiste) {
+        mostrarAviso(
+            `<i class="bi bi-exclamation-triangle-fill text-warning"></i> Error de registro`,
+            `<p class="mb-0 fs-5 text-center">El correo electrónico <b>${email.value}</b> ya está registrado.</p>`,
+            false
+        );
+        email.style.border = "3px solid red";
+        return; // Frenamos el registro aquí
+    }
+
+    // Si no está duplicado, creamos el nuevo objeto usando tu clase Usuario
+    const nuevoUsuario = new Usuario(
+        userName.value,
+        email.value,
+        contraseña.value,
+        fechaNac.value
+    );
+
+    // Agregamos el nuevo usuario al arreglo
+    listaUsuarios.push(nuevoUsuario);
+
+    // Guardamos el arreglo actualizado en el localStorage
+    localStorage.setItem("usuarios", JSON.stringify(listaUsuarios));
+
+    // =========================================================
+    // CONTINÚA LÓGICA VISUAL (Cerrar modal, avisos, etc.)
+    // =========================================================
+    mostrarAviso(
+        `<i class="bi bi-patch-check-fill text-success"></i> ¡Bienvenido/a!`,
+        `<p class="mb-0 fs-5 text-center">¡Tu registro en <span style="color: var(--celeste);" class="fw-bold">Watchealo</span> se completó de manera exitosa!</p>`,
+        true
+    );
+
+    const modalElemento = document.getElementById("FormularioRegistro");
+    const modalBootstrap = bootstrap.Modal.getInstance(modalElemento);
+    
+    if (modalBootstrap) {
+        modalBootstrap.hide();
+    }
+
+    // Limpiamos los bordes y reseteamos el formulario
+    errorUserName.style.display = "none";
+    errorEmail.style.display = "none";
+    errorContraseña.style.display = "none";
+    errorConfirmContraseña.style.display = "none";
+    errorFechaNac.style.display = "none";
+    
+    formRegistro.reset();
+
+    // CAMBIO DE CONTENIDO A LOGEADO
+    document.getElementById("contenido-sin-logear").style.display = "none";
+    document.getElementById("contenido-logeado").style.display = "block"; 
+    
+    // (Opcional) Guardar también qué usuario inició sesión actualmente:
+    localStorage.setItem("usuarioLogeado", JSON.stringify(nuevoUsuario));
 
     }
 });
 
+// =========================================================
+// GESTIÓN DE SESIÓN (LOGIN, PERSISTENCIA Y LOGOUT)
+// =========================================================
+
+// Captura de elementos del DOM basándonos en tu perfil.html
+const formLogin = document.getElementById("formulario_login");
+const loginUser = document.getElementById("login-username");
+const loginPass = document.getElementById("login-password");
+const btnLogout = document.getElementById("btn-cerrar-sesion");
+
+// Contenedores principales de vistas
+const conSinLogear = document.getElementById("contenido-sin-logear");
+const conLogeado = document.getElementById("contenido-logeado");
+
+// Campos del Perfil a rellenar dinámicamente
+const perfilUsername = document.getElementById("username");
+
+/**
+ * Controla qué vista mostrar (Login o Perfil) según el localStorage
+ */
+function comprobarEstadoSesion() {
+    const usuarioActivo = JSON.parse(localStorage.getItem("usuarioLogeado"));
+
+    if (usuarioActivo) {
+        // Ocultamos formulario de login y mostramos el perfil del usuario
+        if (conSinLogear) conSinLogear.style.display = "none";
+        if (conLogeado) conLogeado.style.display = "block";
+        
+        // Inyectamos el nombre del usuario logeado en el <h2> del perfil
+        if (perfilUsername) {
+            perfilUsername.textContent = `@${usuarioActivo.username}`;
+        }
+    } else {
+        // Si no hay sesión, forzamos mostrar el login y ocultar el perfil
+        if (conSinLogear) conSinLogear.style.display = "block";
+        if (conLogeado) conLogeado.style.display = "none";
+    }
+}
+
+// LLAMADO INMEDIATO: Se ejecuta al cargar o actualizar la página (F5)
+comprobarEstadoSesion();
+
+// ESCUCHA DEL ENVÍO DEL FORMULARIO DE LOGIN
+if (formLogin) {
+    formLogin.addEventListener("submit", (evento) => {
+        evento.preventDefault(); // Evita que la página se recargue por defecto
+
+        const valorUser = loginUser.value.trim();
+        const valorPass = loginPass.value.trim();
+
+        // Traemos el array completo de usuarios del localStorage
+        const baseUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+        // Buscamos coincidencia por Username ó por Email, y que coincida la contraseña
+        const usuarioValido = baseUsuarios.find(u => 
+            (u.username === valorUser || u.email === valorUser) && u.contraseña === valorPass
+        );
+
+        if (usuarioValido) {
+            // Guardamos la sesión del usuario de forma persistente
+            localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioValido));
+            
+            // Reseteamos el formulario
+            formLogin.reset();
+
+            // Usamos tu función nativa para mostrar avisos lindos del sistema
+            mostrarAviso(
+                `<i class="bi bi-check-circle-fill text-success"></i> ¡Ingreso Exitoso!`,
+                `<p class="mb-0 fs-5 text-center">Hola de nuevo, <span class="fw-bold text-info">${usuarioValido.username}</span>. Cargando tu perfil...</p>`,
+                true
+            );
+
+            // Refrescamos la interfaz para mostrar el perfil instantáneamente
+            comprobarEstadoSesion();
+        } else {
+            // Credenciales incorrectas
+            mostrarAviso(
+                `<i class="bi bi-shield-x text-danger"></i> Error de Ingreso`,
+                `<p class="mb-0 fs-5 text-center">El usuario/correo o la contraseña no son correctos.</p>`,
+                false
+            );
+            loginPass.value = ""; // Limpiamos la contraseña por comodidad
+        }
+    });
+}
+
+// ESCUCHA DEL BOTÓN CERRAR SESIÓN
+if (btnLogout) {
+    btnLogout.addEventListener("click", (evento) => {
+        evento.preventDefault();
+        
+        // Removemos únicamente la sesión activa del navegador
+        localStorage.removeItem("usuarioLogeado");
+        
+        // Volvemos a evaluar el estado para bloquear el perfil y mostrar el Login
+        comprobarEstadoSesion();
+    });
+}
 
 
 
