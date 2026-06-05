@@ -10,199 +10,244 @@
 </head>
 <body>
     <header>
-        <div class="container-fluid fixed-top header">
+        <div class="container sticky-top mb-3">
             <div class="row">
                 <nav class="navbar navbar-expand-lg navbar-dark mx-auto">
                     <div class="container-fluid mx-5 my-2">
                         <a class="navbar-brand" href="inicio.html"><img src="../img/logo.png" alt="Logo" width="250" height="auto" class="d-inline-block align-text-top img"></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                        <span class="icono-hamb"><i class="bi bi-caret-down-fill"></i></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav mx-auto">
-                                <li class="nav-item px-5">
-                                <a class="nav-link btn-nav" href="#">Explorar</a>
+
+                            <!-- Menú centrado -->
+                            <ul class="navbar-nav mx-auto links">
+                                <li class="nav-item px-2">
+                                    <a class="nav-link btn-nav" href="#">Explorar</a>
                                 </li>
-                                <li class="nav-item px-5">
-                                <a class="nav-link btn-nav" href="#">Listas</a>
+                                <li class="nav-item px-2">
+                                    <a class="nav-link btn-nav" href="#">Listas</a>
                                 </li>
-                                <li class="nav-item px-5">
-                                <a class="nav-link btn-nav" href="#">Contacto</a>
-                                </li>                                
+                                <li class="nav-item px-2">
+                                    <a class="nav-link btn-nav" href="#">Contacto</a>
+                                </li>
                             </ul>
-                            <form class="d-flex p-3" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" id="cuadroBusqueda">
-                                <button class="btn btn-outline-success" type="button" id="busqueda"><i class="bi bi-search"></i></button>
-                            </form>
-                                
-                            <form class="d-flex" role="search">                        
-                                <button class="btn btn-user" type="button" id="busqueda"><i class="bi bi-person-fill"></i></button>
-                            </form>
+
+                            <!-- Buscador y usuario a la derecha -->
+                            <div class="d-flex flex-row flex-lg-row align-items-center ms-auto busquedaYusuario">
+                                <form class="d-flex me-3">
+                                    <input class="form-control me-2" id="cuadroBusqueda" type="search" placeholder="Buscar...">
+                                    <button class="btn btn-outline-success" id="busqueda" type="button">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </form>
+
+                                <a href="perfil.html">
+                                    <button class="btn btn-user" type="button">
+                                        <i class="bi bi-person-fill"></i>
+                                    </button>
+                                </a>
+                            </div>
+
                         </div>
                     </div>
                 </nav>
             </div>
         </div>
-    </header>
+    </header> 
 
     <main>
+        <div id="contenido-logeado" style="display: none;">
+                    <!-----------------------BANNER------------------------------------>
+                <div class="container-fluid px-0 position-relative">
+                        <img src="../img/banner.avif" alt="banner" class="img-fluid w-100 banner-img" id="vista-banner">
+                        
+                        <input type="file" id="input-banner" accept="image/*" style="display: none;">
+                        
+                        <button type="button" class="btn-cambiar-banner" id="btn-cambiar-banner" style="display: none;">
+                            <i class="bi bi-camera-fill"></i> CAMBIAR BANNER
+                        </button>
 
-        <!-----------------------BANNER------------------------------------>
-        <div class="container-fluid px-0">
-            <div class="row">
-                <!-- Agregar un boton para editar el banner y la pfp -->
-                 <img src="../img/banner.avif" alt="banner" class="img-fluid w-100 banner-img">
-            </div>
-        </div>
-        <!----------------------------------------------------------------->
+                        <button type="button" class="btn-editar-perfil-general" id="btn-editar-perfil-general">
+                            <i class="bi bi-pencil-square"></i> Editar Perfil
+                        </button>
 
-        <!-----------------------FOTO DE PERFIL Y NOMBRE DE USUARIO------------------------------------>
-        <div class="container perfil-container">
-            <div class="row">
-                <div class="d-flex align-items-center px-0">
-                    
-                    <div class="col-4 pfp-contenedor">
-                        <img src="../img/pfp.jpg" alt="Foto de perfil" class="pfp-img rounded-circle">
-                    </div>
+                        <!-----------------------FOTO DE PERFIL Y NOMBRE DE USUARIO------------------------------------>
+                        <div class="row perfil-container">
+                                    <div class="d-flex align-items-center px-0">
+                                        
+                                        <div class="col-4 pfp-contenedor">
+                                                <img src="../img/pfp.jpg" alt="Foto de perfil" class="pfp-img rounded-circle" id="vista-pfp">
+                                                
+                                                <input type="file" id="input-pfp" accept="image/*" style="display: none;">
+                                                
+                                                <button type="button" class="btn-cambiar-pfp" id="btn-cambiar-pfp" style="display: none;">
+                                                    <i class="bi bi-camera-fill"></i>
+                                                </button>
+                                        </div>
 
-                    <div class="col-8 usuario-info">
-                        <h2 class="fw-bold">Nombre de Usuario</h2>
-                    </div>
-
+                                        <div class="col-8 usuario-info">
+                                            <div id="cont_nombre_de_usuario usuario-info">
+                                                <h2 class="fw-bold" id="username">Nombre de Usuario</h2>
+                                            </div>
+                                            <button type="button" class="btn btn-outline-info btn-sm rounded-pill px-3 py-1" id="btn-cambiar-username" style="display: none; border-color: var(--celeste); color: var(--celeste);">
+                                                <i class="bi bi-pencil-fill"></i> Cambiar Nombre de Usuario
+                                            </button>
+                                        </div>
+                                        
+                                    </div>
+                        </div>
+                        <!-----------------------------------------------------------------> 
                 </div>
-            </div>
-        </div>
-        <!-----------------------------------------------------------------> 
+                <!----------------------------------------------------------------->
 
-       
-        
-        <div class="container-fluid mx-auto px-3 ">
-            <div class="row debajo-banner"> 
-                <!-----------------------BIOGRAFÍA ------------------------------------>
-                <div class="col-md-8">
-                            <h1>Biografía</h1>
-                                <p class="text-white border border-white">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus architecto magni quam, quis atque dolorum mollitia in necessitatibus ex quae repudiandae incidunt, qui magnam. Neque hic iure perferendis placeat optio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ipsa iusto, reiciendis soluta id quas molestiae odit quasi, sint qui quaerat velit a itaque nesciunt! Repellendus illo iusto suscipit fugit!
-                                </p>
+                
+                
+            
+
+            
+                
+                <div class="container-fluid mx-auto px-3">
+                    <div class="row debajo-banner"> 
+                        <!-----------------------BIOGRAFÍA ------------------------------------>
+                        <div class="col-md-8">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <h1 class="mb-0">Biografía</h1>
+                                <button type="button" class="btn btn-outline-info btn-sm rounded-pill px-3 py-1" id="btn-editar-bio" style="border-color: var(--celeste); color: var(--celeste); display: none;">
+                                    <i class="bi bi-pencil-fill"></i> Editar
+                                </button>
+                            </div>
+            
+                                <div id="contenedor-bio-interactivo">
+                                    <p class="text-white border border-white p-3 rounded mb-0" id="texto-bio">
+                                        ¡Hola! Contanos un poco sobre tus gustos en series y películas...
+                                    </p>
+                                </div> 
+                        </div>
+                        <!-----------------------------------------------------------------> 
+                        <!-----------------------FAVORITOS ------------------------------------>
+                                    <h2>Favoritos</h2>
+                                    <div class="container-fluid">
+                                        <div class="row my-2 contenedor_favoritos">
+                                            
+                                        </div>
+                                    </div>
+                        <!----------------------------------------------------------------->     
+                        </div>
+                        <!------------------------------------------------------ RESEÑAS ------------------------------------------------------>
+                        <div class="col-md-4 rounded">
+                            <h2>Mis Reseñas</h2>
+                            <div class="reseñas_perfil">
+                                <!--TARJETA 1-->
+                                    <div class="row reseña align-items-center rounded">
+                                                    
+                                        <div class="col-4">
+                                            <img src="../img/portada.jpg" class="rounded mb-0 portada" alt="portada">
+                                        </div>
+                                                        
+                                        <div class="col-8">
+                                                        
+                                            <h5 class="card-title mb-1 text-truncate fw-bold text-dark fs-6">Título del Elemento</h5>
+                                                        
+                                            <div class="mb-2 estrella">
+                                                <i class="bi bi-star"></i>
+                                            </div>
+                                                        
+                                                <p class="card-text text-dark mb-0">
+                                                            Esta es la descripción del elemento de la tarjeta. Cumple la función del tercer bloque inferior del boceto.
+                                                </p>
+                                                        
+                                        </div>
+                                    </div>
+                                <!--------------------------------------->
+                                <!--TARJETA 2-->
+                                    <div class="row reseña align-items-center rounded">
+                                                    
+                                        <div class="col-4">
+                                            <img src="../img/portada.jpg" class="rounded mb-0 portada" alt="portada">
+                                        </div>
+                                                        
+                                        <div class="col-8">
+                                                        
+                                            <h5 class="card-title mb-1 text-truncate fw-bold text-dark fs-6">Título del Elemento</h5>
+                                                        
+                                            <div class="mb-2 estrella">
+                                                <i class="bi bi-star"></i>
+                                            </div>
+                                                        
+                                                <p class="card-text text-dark mb-0">
+                                                            Esta es la descripción del elemento de la tarjeta. Cumple la función del tercer bloque inferior del boceto.
+                                                </p>
+                                                        
+                                        </div>
+                                    </div>
+                                <!--------------------------------------->
+                                <!--TARJETA 3-->
+                                    <div class="row reseña align-items-center rounded">
+                                                    
+                                        <div class="col-4">
+                                            <img src="../img/portada.jpg" class="rounded mb-0 portada" alt="portada">
+                                        </div>
+                                                        
+                                        <div class="col-8">
+                                                        
+                                            <h5 class="card-title mb-1 text-truncate fw-bold text-dark fs-6">Título del Elemento</h5>
+                                                        
+                                            <div class="mb-2 estrella">
+                                                <i class="bi bi-star"></i>
+                                            </div>
+                                                        
+                                                <p class="card-text text-dark mb-0">
+                                                            Esta es la descripción del elemento de la tarjeta. Cumple la función del tercer bloque inferior del boceto.
+                                                </p>
+                                                        
+                                        </div>
+                                    </div>
+                                <!--------------------------------------->
+                            </div>
+                        </div>
+                </div>
+                
                 <!-----------------------------------------------------------------> 
-                <!-----------------------FAVORITOS ------------------------------------>
-                            <h2>Favoritos</h2>
-                            <div class="container-fluid">
-                                <div class="row my-2">
-                                    <div class="col-4">
-                                        <img src="../img/portada.jpg" alt="portada" class="w-100 rounded">
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="../img/portada.jpg" alt="portada" class="w-100 rounded">
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="../img/portada.jpg" alt="portada" class="w-100 rounded">
-                                    </div>
-                                </div>
-                                <div class="row my-2">
-                                    <div class="col-4">
-                                        <img src="../img/portada.jpg" alt="portada" class="w-100 rounded">
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="../img/portada.jpg" alt="portada" class="w-100 rounded">
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="../img/portada.jpg" alt="portada" class="w-100 rounded">
-                                    </div>
-                                </div>
-                            </div>
-                <!----------------------------------------------------------------->     
+        </div>
+        
+        <div id="contenido-sin-logear">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1>Login</h1>
+                    </div>
                 </div>
-                <!------------------------------------------------------ RESEÑAS ------------------------------------------------------>
-                <div class="col-4 rounded">
-                    <!--TARJETA 1-->
-                        <div class="row reseña align-items-center rounded">
-                                        
-                            <div class="col-4">
-                                <img src="../img/portada.jpg" class="rounded mb-0 portada" alt="portada">
-                            </div>
-                                            
-                            <div class="col-8">
-                                            
-                                <h5 class="card-title mb-1 text-truncate fw-bold text-dark fs-6">Título del Elemento</h5>
-                                            
-                                <div class="mb-2 estrella">
-                                    <i class="bi bi-star"></i>
-                                </div>
-                                            
-                                    <p class="card-text text-dark mb-0">
-                                                Esta es la descripción del elemento de la tarjeta. Cumple la función del tercer bloque inferior del boceto.
-                                    </p>
-                                            
-                            </div>
-                        </div>
-                    <!--------------------------------------->
-                    <!--TARJETA 2-->
-                        <div class="row reseña align-items-center rounded">
-                                        
-                            <div class="col-4">
-                                <img src="../img/portada.jpg" class="rounded mb-0 portada" alt="portada">
-                            </div>
-                                            
-                            <div class="col-8">
-                                            
-                                <h5 class="card-title mb-1 text-truncate fw-bold text-dark fs-6">Título del Elemento</h5>
-                                            
-                                <div class="mb-2 estrella">
-                                    <i class="bi bi-star"></i>
-                                </div>
-                                            
-                                    <p class="card-text text-dark mb-0">
-                                                Esta es la descripción del elemento de la tarjeta. Cumple la función del tercer bloque inferior del boceto.
-                                    </p>
-                                            
-                            </div>
-                        </div>
-                    <!--------------------------------------->
-                    <!--TARJETA 3-->
-                        <div class="row reseña align-items-center rounded">
-                                        
-                            <div class="col-4">
-                                <img src="../img/portada.jpg" class="rounded mb-0 portada" alt="portada">
-                            </div>
-                                            
-                            <div class="col-8">
-                                            
-                                <h5 class="card-title mb-1 text-truncate fw-bold text-dark fs-6">Título del Elemento</h5>
-                                            
-                                <div class="mb-2 estrella">
-                                    <i class="bi bi-star"></i>
-                                </div>
-                                            
-                                    <p class="card-text text-dark mb-0">
-                                                Esta es la descripción del elemento de la tarjeta. Cumple la función del tercer bloque inferior del boceto.
-                                    </p>
-                                            
-                            </div>
-                        </div>
-                    <!--------------------------------------->
+                <div class="row">
+                    <div class="col-12 d-flex flex-column">
+                        <input type="text" placeholder="Nombre de Usuario">
+                        <input type="text" placeholder="Contraseña">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h6>No tienes Cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#FormularioRegistro">Registrate</a></h6>
+                    </div>
+                </div>
                     
-                </div>
             </div>
         </div>
-        <!-----------------------------------------------------------------> 
-
 
     </main>
 
     <footer>
-        <div class="container my-3 footer">
+        <div class="container" id="container-footer">
             <div class="row">
-                <div class="col-12 p-4 d-flex justify-content-between align-items-center">
+                <div class="col-12 col-sm-12 p-4 d-flex flex-column flex-lg-row justify-content-between align-items-center text-center">
                     
-                    <a href="#"><img src="../img/logo.png" alt="Logo" width="250" height="auto" class="d-inline-block align-text-top img"></a>
+                    <a href="#"><img src="../img/logo.png" alt="Logo" width="250" height="auto" class="d-inline-block align-text-top img m-3"></a>
 
-                    <p class="mb-0 text-center">
+                    <p class="mb-0 text-center m-3">
                         © 2026 Watchealo. Diseño y Desarrollo a cargo de
                         Cuello Jaqueline, Garcés Agustín y Ponce Ulises
                     </p>
 
-                    <div>
+                    <div class="m-3 d-flex">
                         <a class="px-2" href="#"><i class="bi bi-facebook icons"></i></a>
                         <a class="px-2" href="#"><i class="bi bi-instagram icons"></i></a>
                         <a class="px-2" href="#"><i class="bi bi-twitter icons"></i></a>
@@ -213,6 +258,88 @@
         </div>
     </footer>
 
+                    <!-- Modal REGISTRO -->
+                        <div class="modal fade" id="FormularioRegistro" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Crea tu cuenta</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                    <div class="modal-body">
+                                        <form id="formulario_registro">
+                                            <div class="mb-3">
+                                                <label for="input-username" class="form-label">Nombre de Usuario</label>
+                                                <input type="text" class="form-control" id="input-username" aria-describedby="username-aviso">
+                                                <div id="username-aviso" class="form-text" style="display: none;">
+
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="input-email" class="form-label">Email</label>
+                                                <input type="email" class="form-control" id="input-email" aria-describedby="email-help">
+                                                <div id="email-aviso" class="form-text" style="display: none;">
+
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="input-password" class="form-label">Contraseña</label>
+                                                <input type="password" class="form-control" id="input-password" aria-describedby="password-aviso">
+                                                <div id="password-aviso" class="form-text" style="display: none;">
+
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="input-confirmPassword" class="form-label">Confirmar Contraseña</label>
+                                                <input type="password" class="form-control" id="input-confirmPassword" aria-describedby="confirmPassword-aviso">
+                                                <div id="confirmPassword-aviso" class="form-text" style="display: none;">
+
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="input-fechaNac" class="form-label">Fecha de Nacimiento</label>
+                                                <input type="date" class="form-control" id="input-fechaNac" aria-describedby="fechaNac-aviso">
+                                                <div id="fechaNac-aviso" class="form-text" style="display: none;">
+
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 form-check">
+                                                <input type="checkbox" class="form-check-input" id="input-terminos" aria-describedby="terminos-aviso">
+                                                <label class="form-check-label" for="input-terminos">Acepta los términos y condiciones</label>
+                                                <div id="terminos-aviso" class="row form-text ml-0" style="display: none;">
+                                                    
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn btn-primary" id="boton-crear">Crear Cuenta</button>
+                                        </form>
+                                    </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Understood</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    <!-- Modal de Aviso del Sistema -->
+                        <div class="modal fade" id="modalAvisoSistema" tabindex="-1" aria-labelledby="modalAvisoLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content" style="background-color: var(--verdeOscuro); border: 2px solid var(--celeste); color: white;">
+                                        <div class="modal-header" style="border-bottom: 1px solid rgba(172, 242, 242, 0.15);">
+                                            <h5 class="modal-title fw-bold" id="modalAvisoLabel" style="color: var(--celeste);">
+                                                </h5>
+                                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body py-4" id="modalAvisoBody">
+                                            </div>
+                                        <div class="modal-footer" style="border-top: 1px solid rgba(172, 242, 242, 0.15);">
+                                            <button type="button" class="btn btn-outline-info rounded-pill px-4" id="btnCerrarAviso" data-bs-dismiss="modal" style="border-color: var(--celeste); color: var(--celeste);">
+                                                Entendido
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="../js/comp.js"></script>
 </body>
