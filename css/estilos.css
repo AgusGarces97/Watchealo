@@ -114,6 +114,8 @@ body{
 
 @media (max-width: 991.98px) {
 
+
+    /* TODO ESTO ES PARA EL NAV */
     .navbar-collapse {
         text-align: center;
         padding-top: 1rem;
@@ -158,7 +160,26 @@ body{
     .navbar-toggler:focus{
         box-shadow: none;
     }
+    /**********************************************/
+
+    
+
+
 }
+
+@media (max-width: 767px) {
+    .reseñas_perfil{
+        display: flex;
+        flex-direction: row;
+        
+    }
+
+    .reseña{
+        margin: 0% 10%;
+    }
+}
+
+
 
 .header{
     background-color: var(--verdeOscuro) !important;
@@ -170,17 +191,25 @@ body{
 
 /*------------------------------------------------ BANNER DE PERFIL Y DETALLE ------------------------------------------------  */
 
+/* Añadimos position relative al padre del banner para poder posicionar el texto adentro */
+header + main > .container-fluid.px-0 {
+    position: relative;
+}
+
 .banner-img{
     width: 100%;
     height: auto;
-    margin-top: 12%;
+    max-height: 40vh; /* Te sugiero subirlo un toque a 40vh para que luzca más en pantallas grandes */
+    object-fit: cover; /* Evita que la imagen se estire feo */
     border: 2px solid var(--celeste);
+    display: block;
 }
 
 /*------------------------------------------------ IMAGEN DE PERFIL ------------------------------------------------  */
 
+
 .perfil-container {
-    margin-top: -25%;   /* Sube todo el bloque para encimarlo al banner */ /*De esta manera muevo el bloque por encima del banner */
+    margin-top: -250px;   /* Sube todo el bloque para encimarlo al banner */ /*De esta manera muevo el bloque por encima del banner */
     margin-left: 10%;
     position: relative;
     z-index: var(--bs-zindex-fixed) !important;         /* Asegura que quede por encima del banner */
@@ -201,13 +230,13 @@ body{
     aspect-ratio: 1/1;
     object-fit: cover;
     background-color: white; /* Fondo blanco por si la imagen tarda en cargar */
-
+    transform: translate(0%, -30%);
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
 
 .usuario-info{
-    padding: 5%;
+    transform: translate(5%, -30%);
 }
 
 .debajo-banner{
@@ -233,28 +262,31 @@ body{
 /*-------------------------------------------------------------------------------------------------------*/
 
 .titulo-contenedor{
-    margin-top: -20%;   /* Sube todo el bloque para encimarlo al banner */ /*De esta manera muevo el bloque por encima del banner */
-    margin-left: 10%;
-    position: relative;
-    z-index: var(--bs-zindex-fixed) !important;    /* Asegura que quede por encima del banner */
-    width: 100%;
+    position: absolute;
+    bottom: 20px; /* Se queda fijo a 20px del borde inferior del banner, no importa el ancho */
+    top: 50%; /* Lo desplaza al 50% desde el borde superior del banner */
+    left: 50%; /* Lo desplaza al 50% desde el borde izquierdo */
+    transform: translate(-50%, -35%); /* Lo centra perfectamente */
+    z-index: 10;
+    width: 90%;
     text-align: center;
+    /* Un sutil text-shadow ayuda a que el texto se lea siempre, por más que el banner sea claro */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .titulo-pelicula{
-    position: relative;
-    z-index: var(--bs-zindex-fixed) !important;
+    font-weight: bold;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
 
 .contenedor-info{
-    margin-top: 15%;
-    max-height: 632px;
+    margin-top: 3rem; /* En vez de un % descontrolado, usamos un margen fijo y limpio */
+    /* Quitamos el max-height para que si la sinopsis es larga en celulares, no se corte el diseño */
 }
 
 .titulo-reseñas{
-    margin-top: 15%;
+    margin-top: 4rem; /* Separación fija y predecible */
 }
 
 
@@ -270,4 +302,300 @@ body{
 
 .btn-agregar{
     color: var(--celeste) !important;
+}
+
+
+/* --- BOTÓN PARA CAMBIAR FOTO DE PERFIL --- */
+.btn-cambiar-pfp {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: var(--verdeOscuro);
+    border: 2px solid var(--celeste);
+    color: var(--celeste);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    z-index: calc(var(--bs-zindex-fixed) + 1) !important;
+}
+
+.btn-cambiar-pfp:hover {
+    background-color: var(--celeste);
+    color: var(--verdeOscuro);
+    transform: scale(1.1);
+}
+
+.btn-cambiar-pfp i {
+    font-size: 1.1rem;
+}
+
+/* --- BOTÓN PARA CAMBIAR EL BANNER --- */
+.btn-cambiar-banner {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: var(--verdeOscuro);
+    border: 2px solid var(--celeste);
+    color: var(--celeste);
+    border-radius: 20px;
+    padding: 6px 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    z-index: 10 !important;
+}
+
+.btn-cambiar-banner:hover {
+    background-color: var(--celeste);
+    color: var(--verdeOscuro);
+    transform: scale(1.05);
+}
+
+.btn-cambiar-banner i {
+    font-size: 1rem;
+}
+
+/* --- BOTÓN EDICIÓN DE BIOGRAFÍA --- */
+#btn-editar-bio:hover {
+    background-color: var(--celeste) !important;
+    color: var(--verdeOscuro) !important;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+/* --- ESTILO PARA EL TEXTAREA DE EDICIÓN --- */
+.textarea-bio-edicion {
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    border: 1px solid var(--celeste);
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical; /* Permite al usuario estirarlo solo hacia abajo */
+}
+
+.textarea-bio-edicion:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(172, 242, 242, 0.5);
+}
+
+
+/* --- BOTÓN EDICIÓN DE USERNAME --- */
+#btn-cambiar-username:hover {
+    background-color: var(--celeste) !important;
+    color: var(--verdeOscuro) !important;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+/* --- BOTÓN GENERAL EDITAR PERFIL (ARRIBA A LA DERECHA) --- */
+.btn-editar-perfil-general {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--verdeOscuro);
+    border: 2px solid var(--celeste);
+    color: var(--celeste);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* Un z-index alto para asegurar que flote perfectamente por encima de todo */
+    z-index: calc(var(--bs-zindex-fixed) + 1) !important; 
+}
+
+.btn-editar-perfil-general:hover {
+    background-color: var(--celeste);
+    color: var(--verdeOscuro);
+    transform: scale(1.05);
+}
+
+.btn-editar-perfil-general i {
+    font-size: 0.95rem;
+}
+
+
+/* Estilo del MODAL de REGISTRO */
+
+.modal-body{
+    background-color: var(--verdeOscuro);
+    color: var(--celeste);
+    font-weight: bold;
+}
+
+.modal-header{
+    background-color: var(--verdeOscuro);
+    color: var(--celeste);
+}
+
+
+.modal-footer{
+    background-color: var(--verdeOscuro);
+    color: var(--celeste);
+}
+
+/* --- BOTÓN DEL MODAL DE AVISO --- */
+#btnCerrarAviso {
+    transition: all 0.3s ease;
+}
+
+#btnCerrarAviso:hover {
+    background-color: var(--celeste) !important;
+    color: var(--verdeOscuro) !important;
+    transform: scale(1.05);
+}
+
+/* =========================================================
+   SECCIÓN DE LOGIN - WATCHEALO INTERFAZ
+   ========================================================= */
+
+/* Contenedor principal del Login */
+#contenido-sin-logear {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh; /* Centra la tarjeta verticalmente en pantalla */
+    padding: 2rem 0;
+}
+
+/* Transformamos el .container del login en una tarjeta premium */
+#contenido-sin-logear .container {
+    max-width: 420px; /* Ancho ideal para un cuadro de login */
+    background-color: rgba(11, 30, 38, 0.65); /* Fondo oscuro con transparencia */
+    border: 2px solid rgba(172, 242, 242, 0.25); /* Borde celeste sutil */
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    backdrop-filter: blur(8px); /* Efecto esmerilado */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(172, 242, 242, 0.03);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contenido-sin-logear .container:hover {
+    border-color: rgba(172, 242, 242, 0.5);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(172, 242, 242, 0.1);
+}
+
+/* Título "Login" */
+#contenido-sin-logear h1 {
+    color: var(--celeste);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(172, 242, 242, 0.2);
+}
+
+/* Configuración de los Inputs de Login */
+#contenido-sin-logear .flex-column input {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: white;
+    border: 1px solid rgba(172, 242, 242, 0.3);
+    border-radius: 8px;
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Estado Focus (Cuando haces clic para escribir) */
+#contenido-sin-logear .flex-column input:focus {
+    outline: none;
+    border-color: var(--celeste);
+    background-color: rgba(172, 242, 242, 0.05);
+    box-shadow: 0 0 10px rgba(172, 242, 242, 0.3);
+}
+
+/* Estilo del texto indicativo (Placeholder) */
+#contenido-sin-logear .flex-column input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Texto de "No tienes Cuenta?" */
+#contenido-sin-logear h6 {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    font-weight: 400;
+}
+
+/* Enlace "Registrate" */
+#contenido-sin-logear h6 a {
+    color: var(--celeste);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+#contenido-sin-logear h6 a:hover {
+    color: white;
+    text-shadow: 0 0 8px var(--celeste);
+}
+
+/* =========================================================
+   ESTILOS ADICIONALES PARA EL MODAL DE REGISTRO
+   ========================================================= */
+#FormularioRegistro .modal-content {
+    background-color: var(--verdeOscuro);
+    border: 2px solid var(--celeste);
+    color: white;
+    border-radius: 14px;
+}
+
+#FormularioRegistro .modal-header {
+    border-bottom: 1px solid rgba(172, 242, 242, 0.15);
+}
+
+#FormularioRegistro .modal-title {
+    color: var(--celeste);
+    font-weight: 600;
+}
+
+#FormularioRegistro .modal-footer {
+    border-top: 1px solid rgba(172, 242, 242, 0.15);
+}
+
+#FormularioRegistro .btn-primary, #boton-crear {
+    background-color: transparent;
+    border: 1px solid var(--celeste);
+    color: var(--celeste);
+    border-radius: 30px;
+    padding: 6px 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+#FormularioRegistro .btn-primary:hover, #boton-crear:hover {
+    background-color: var(--celeste);
+    color: var(--verdeOscuro);
+    box-shadow: 0 0 12px rgba(172, 242, 242, 0.4);
+}
+
+#FormularioRegistro .btn-secondary {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.7);
+    border-radius: 30px;
+    padding: 6px 20px;
+}
+
+#FormularioRegistro .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: white;
 }
