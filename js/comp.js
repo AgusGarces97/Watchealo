@@ -1,3 +1,13 @@
+// INICIO - Más vistos
+
+/* Bookmark toggle */
+document.querySelectorAll('.btn-bookmark').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        btn.classList.toggle('guardado');
+    });
+});
+
 //================================================
 //======================= CLASES =================
 //================================================

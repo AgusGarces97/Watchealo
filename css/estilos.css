@@ -519,152 +519,381 @@ body{
     #Carousel .carousel-control-next { right: 4px; }
 }
 
-/*------------------------------------------------ BANNER DE PERFIL Y DETALLE ------------------------------------------------  */
+/*------------------------------------------------  SECCIÓN: MÁS VISTAS ------------------------------------------------  */
 
-/* Añadimos position relative al padre del banner para poder posicionar el texto adentro */
+.mas-vistas-wrap {
+    padding: 1rem 0 3rem;
+}
+
+.mas-vistas-header {
+    margin-bottom: 1.2rem;
+}
+
+.mas-vistas-titulo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mas-vistas-titulo i {
+    color: var(--celeste);
+}
+
+.card.pelicula-card {
+    background-color: #0f2835;
+    border: 1px solid rgba(172, 242, 242, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+.card.pelicula-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.pelicula-img-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-img-top.pelicula-img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-radius: 0;
+    transition: filter 0.3s ease;
+}
+
+.card.pelicula-card:hover .card-img-top.pelicula-img {
+    filter: brightness(0.65);
+}
+
+/* Botón bookmark sobre la imagen */
+.btn-bookmark {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid rgba(172, 242, 242, 0.4);
+    background: rgba(11, 30, 38, 0.7);
+    backdrop-filter: blur(4px);
+    color: rgba(172, 242, 242, 0.7);
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0;
+    transform: scale(0.85);
+}
+
+.card.pelicula-card:hover .btn-bookmark {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Estado guardado — siempre visible aunque no haya hover */
+.btn-bookmark.guardado {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    background: var(--celeste);
+    border-color: var(--celeste);
+    color: var(--verdeOscuro);
+}
+
+/* Mismo icono pero relleno al guardar */
+.btn-bookmark i.bi-bookmark      { display: inline; }
+.btn-bookmark i.bi-bookmark-fill { display: none;   }
+.btn-bookmark.guardado i.bi-bookmark      { display: none;   }
+.btn-bookmark.guardado i.bi-bookmark-fill { display: inline; }
+
+.card-body.pelicula-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    gap: 6px;
+    background-color: #0f2835;
+}
+
+.card-title.pelicula-titulo {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0;
+}
+
+.pelicula-rating {
+    font-size: 11px;
+    color: var(--celeste);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    flex-shrink: 0;
+}
+
+.pelicula-rating i {
+    font-size: 10px;
+}
+
+/*------------------------------------------------  SECCIÓN: CONTACTO ------------------------------------------------  */
+
+.contacto-wrap {
+    padding: 2rem 0 4rem;
+}
+
+.contacto-titulo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1.4rem;
+}
+
+.contacto-titulo i { color: var(--celeste); }
+
+.card.contacto-card {
+    --bs-card-bg: #0f2835;
+    --bs-card-border-color: rgba(172, 242, 242, 0.15);
+    --bs-card-border-radius: 12px;
+}
+
+.card.contacto-card .card-body {
+    padding: 2rem;
+}
+
+/* Labels */
+.contacto-card .form-label {
+    color: rgba(172, 242, 242, 0.85);
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+/* Inputs y textarea */
+.contacto-card .form-control {
+    background-color: rgba(11, 30, 38, 0.7) !important;
+    border: 1px solid rgba(172, 242, 242, 0.25) !important;
+    border-radius: 8px;
+    color: white !important;
+    font-size: 13.5px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contacto-card .form-control:focus {
+    border-color: var(--celeste) !important;
+    box-shadow: 0 0 0 3px rgba(172, 242, 242, 0.12) !important;
+    background-color: rgba(11, 30, 38, 0.9) !important;
+}
+
+.contacto-card .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Feedback de validación */
+.contacto-card .invalid-feedback {
+    font-size: 11.5px;
+    color: #f08080;
+}
+
+.contacto-card .form-control.is-invalid {
+    border-color: #f08080 !important;
+}
+
+/* Botón enviar */
+.btn-enviar {
+    background-color: transparent;
+    border: 1px solid var(--celeste);
+    color: var(--celeste);
+    border-radius: 8px;
+    padding: 8px 28px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+
+.btn-enviar:hover {
+    background-color: var(--celeste);
+    color: var(--verdeOscuro);
+}
+
+.btn-enviar:active {
+    background-color: var(--celeste) !important;
+    color: var(--verdeOscuro) !important;
+}
+
+/* Alerta de confirmación */
+.alert-confirmacion {
+    display: none;
+    background-color: rgba(172, 242, 242, 0.1);
+    border: 1px solid rgba(172, 242, 242, 0.35);
+    border-radius: 8px;
+    color: var(--celeste);
+    font-size: 13.5px;
+    padding: 12px 16px;
+    margin-top: 1rem;
+    align-items: center;
+    gap: 8px;
+}
+
+.alert-confirmacion.visible {
+    display: flex;
+}
+
+.alert-confirmacion i {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+/*------------------------------------------------ BANNER DE PERFIL ------------------------------------------------*/
+
 header + main > .container-fluid.px-0 {
     position: relative;
 }
 
-.banner-img{
+.banner-wrapper {
+    position: relative;
+}
+
+.banner-img {
     width: 100%;
     height: auto;
-    max-height: 40vh; /* Te sugiero subirlo un toque a 40vh para que luzca más en pantallas grandes */
-    object-fit: cover; /* Evita que la imagen se estire feo */
+    max-height: 40vh;
+    object-fit: cover;
     border: 2px solid var(--celeste);
     display: block;
 }
 
-/*------------------------------------------------ IMAGEN DE PERFIL ------------------------------------------------  */
+/* Botón cerrar sesión sobre el banner */
+.btn-cerrar-sesion-banner {
+    position: absolute;
+    top: 15px;
+    right: 200px;
+    border-radius: 20px;
+    padding: 6px 16px;
+    z-index: 1050;
+}
 
+/*------------------------------------------------ FOTO DE PERFIL + USERNAME ------------------------------------------------*/
 
-.perfil-container {
-    margin-top: -250px;   /* Sube todo el bloque para encimarlo al banner */ /*De esta manera muevo el bloque por encima del banner */
-    margin-left: 10%;
-    position: relative;
-    z-index: var(--bs-zindex-fixed) !important;         /* Asegura que quede por encima del banner */
+.perfil-header-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 5%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1040;
+    transform: translateY(-50%);
 }
 
 .pfp-contenedor {
     position: relative;
-    z-index: var(--bs-zindex-fixed) !important;
-    width: 15vw;          /* El contenedor ahora maneja el ancho (15% de la pantalla) */
-    min-width: 100px;     /* Candado de seguridad: que no se encoja de más en celulares */
-    max-width: 250px;     /* Candado de seguridad: que no crezca de más en monitores gigantes */
-    aspect-ratio: 1/1;
+    flex-shrink: 0;
+    width: clamp(90px, 12vw, 180px);
+    aspect-ratio: 1 / 1;
 }
 
 .pfp-img {
     width: 100%;
-    height: auto;
-    aspect-ratio: 1/1;
+    height: 100%;
     object-fit: cover;
-    background-color: white; /* Fondo blanco por si la imagen tarda en cargar */
-    transform: translate(0%, -30%);
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-
-.usuario-info{
-    transform: translate(5%, -30%);
-}
-
-.debajo-banner{
-    margin-top: 15%;
-}
-
-.reseña{
-    margin-top: 2%;
-    width: 100%;
     background-color: white;
-    
+    border: 3px solid var(--celeste);
+    display: block;
 }
 
-.estrella{
-    color: gold;
-    display: flex;
-}
-
-.portada{
-    width: 100%;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-
-.titulo-contenedor{
-    position: absolute;
-    bottom: 20px; /* Se queda fijo a 20px del borde inferior del banner, no importa el ancho */
-    top: 50%; /* Lo desplaza al 50% desde el borde superior del banner */
-    left: 50%; /* Lo desplaza al 50% desde el borde izquierdo */
-    transform: translate(-50%, -35%); /* Lo centra perfectamente */
-    z-index: 10;
-    width: 90%;
-    text-align: center;
-    /* Un sutil text-shadow ayuda a que el texto se lea siempre, por más que el banner sea claro */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-}
-
-.titulo-pelicula{
-    font-weight: bold;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-
-.contenedor-info{
-    margin-top: 3rem; /* En vez de un % descontrolado, usamos un margen fijo y limpio */
-    /* Quitamos el max-height para que si la sinopsis es larga en celulares, no se corte el diseño */
-}
-
-.titulo-reseñas{
-    margin-top: 4rem; /* Separación fija y predecible */
-}
-
-
-.pfp-img-reseña{
-    height: 20vh;
-    width: auto;
-    aspect-ratio: 1/1 !important;
-}
-
-.botones-detalle{
-    text-align: center;
-}
-
-.btn-agregar{
-    color: var(--celeste) !important;
-}
-
-
-/* --- BOTÓN PARA CAMBIAR FOTO DE PERFIL --- */
+/* Botón cámara — centrado debajo de la foto */
 .btn-cambiar-pfp {
     position: absolute;
-    bottom: 5px;
-    right: 5px;
+    bottom: -14px;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: var(--verdeOscuro);
     border: 2px solid var(--celeste);
     color: var(--celeste);
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
     cursor: pointer;
-    z-index: calc(var(--bs-zindex-fixed) + 1) !important;
+    transition: all 0.3s ease;
+    z-index: 1050;
 }
 
 .btn-cambiar-pfp:hover {
     background-color: var(--celeste);
     color: var(--verdeOscuro);
-    transform: scale(1.1);
+    transform: translateX(-50%) scale(1.1);
 }
 
 .btn-cambiar-pfp i {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
 }
 
-/* --- BOTÓN PARA CAMBIAR EL BANNER --- */
+.usuario-info-row {
+    padding-bottom: 0.5rem;
+}
+
+.usuario-info-row h2 {
+    color: white;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.8);
+    font-size: clamp(1.1rem, 3vw, 1.8rem);
+}
+
+/*------------------------------------------------ SECCIÓN PRINCIPAL ------------------------------------------------*/
+
+.seccion-principal {
+    padding-top: 1.5rem;
+    padding-bottom: 3rem;
+}
+
+/*------------------------------------------------ RESEÑAS ------------------------------------------------*/
+
+.reseña {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 8px;
+}
+
+.reseña .portada {
+    object-fit: cover;
+    aspect-ratio: 2 / 3;
+    border-radius: 4px;
+}
+
+.estrella {
+    color: gold;
+    display: flex;
+    gap: 2px;
+    font-size: 0.85rem;
+}
+
+.portada {
+    width: 100%;
+}
+
+/*------------------------------------------------ BOTÓN CAMBIAR BANNER ------------------------------------------------*/
+
 .btn-cambiar-banner {
     position: absolute;
     bottom: 15px;
@@ -681,7 +910,7 @@ header + main > .container-fluid.px-0 {
     gap: 8px;
     transition: all 0.3s ease;
     cursor: pointer;
-    z-index: 10 !important;
+    z-index: 10;
 }
 
 .btn-cambiar-banner:hover {
@@ -694,42 +923,8 @@ header + main > .container-fluid.px-0 {
     font-size: 1rem;
 }
 
-/* --- BOTÓN EDICIÓN DE BIOGRAFÍA --- */
-#btn-editar-bio:hover {
-    background-color: var(--celeste) !important;
-    color: var(--verdeOscuro) !important;
-    transform: scale(1.1);
-    transition: all 0.3s ease;
-}
+/*------------------------------------------------ BOTÓN EDITAR PERFIL GENERAL ------------------------------------------------*/
 
-/* --- ESTILO PARA EL TEXTAREA DE EDICIÓN --- */
-.textarea-bio-edicion {
-    width: 100%;
-    background-color: transparent;
-    color: white;
-    border: 1px solid var(--celeste);
-    border-radius: 8px;
-    padding: 1rem;
-    font-family: inherit;
-    font-size: 1rem;
-    resize: vertical; /* Permite al usuario estirarlo solo hacia abajo */
-}
-
-.textarea-bio-edicion:focus {
-    outline: none;
-    box-shadow: 0 0 8px rgba(172, 242, 242, 0.5);
-}
-
-
-/* --- BOTÓN EDICIÓN DE USERNAME --- */
-#btn-cambiar-username:hover {
-    background-color: var(--celeste) !important;
-    color: var(--verdeOscuro) !important;
-    transform: scale(1.05);
-    transition: all 0.3s ease;
-}
-
-/* --- BOTÓN GENERAL EDITAR PERFIL (ARRIBA A LA DERECHA) --- */
 .btn-editar-perfil-general {
     position: absolute;
     top: 15px;
@@ -746,8 +941,7 @@ header + main > .container-fluid.px-0 {
     gap: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    /* Un z-index alto para asegurar que flote perfectamente por encima de todo */
-    z-index: calc(var(--bs-zindex-fixed) + 1) !important; 
+    z-index: 1050;
 }
 
 .btn-editar-perfil-general:hover {
@@ -760,27 +954,101 @@ header + main > .container-fluid.px-0 {
     font-size: 0.95rem;
 }
 
+/*------------------------------------------------ BOTÓN EDITAR BIOGRAFÍA ------------------------------------------------*/
 
-/* Estilo del MODAL de REGISTRO */
+#btn-editar-bio:hover {
+    background-color: var(--celeste) !important;
+    color: var(--verdeOscuro) !important;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
 
-.modal-body{
+/*------------------------------------------------ TEXTAREA BIOGRAFÍA ------------------------------------------------*/
+
+.textarea-bio-edicion {
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    border: 1px solid var(--celeste);
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.textarea-bio-edicion:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(172, 242, 242, 0.5);
+}
+
+/*------------------------------------------------ BOTÓN EDITAR USERNAME ------------------------------------------------*/
+
+#btn-cambiar-username:hover {
+    background-color: var(--celeste) !important;
+    color: var(--verdeOscuro) !important;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+/*------------------------------------------------ DETALLE DE PELÍCULA/SERIE ------------------------------------------------*/
+
+.titulo-contenedor {
+    position: absolute;
+    bottom: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+    z-index: 10;
+    width: 90%;
+    text-align: center;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.titulo-pelicula {
+    font-weight: bold;
+}
+
+.contenedor-info {
+    margin-top: 3rem;
+}
+
+.titulo-reseñas {
+    margin-top: 4rem;
+}
+
+.pfp-img-reseña {
+    height: 20vh;
+    width: auto;
+    aspect-ratio: 1/1 !important;
+}
+
+.botones-detalle {
+    text-align: center;
+}
+
+.btn-agregar {
+    color: var(--celeste) !important;
+}
+
+/*------------------------------------------------ MODAL REGISTRO ------------------------------------------------*/
+
+.modal-body {
     background-color: var(--verdeOscuro);
     color: var(--celeste);
     font-weight: bold;
 }
 
-.modal-header{
+.modal-header {
     background-color: var(--verdeOscuro);
     color: var(--celeste);
 }
 
-
-.modal-footer{
+.modal-footer {
     background-color: var(--verdeOscuro);
     color: var(--celeste);
 }
 
-/* --- BOTÓN DEL MODAL DE AVISO --- */
 #btnCerrarAviso {
     transition: all 0.3s ease;
 }
@@ -791,96 +1059,6 @@ header + main > .container-fluid.px-0 {
     transform: scale(1.05);
 }
 
-/* =========================================================
-   SECCIÓN DE LOGIN - WATCHEALO INTERFAZ
-   ========================================================= */
-
-/* Contenedor principal del Login */
-#contenido-sin-logear {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 75vh; /* Centra la tarjeta verticalmente en pantalla */
-    padding: 2rem 0;
-}
-
-/* Transformamos el .container del login en una tarjeta premium */
-#contenido-sin-logear .container {
-    max-width: 420px; /* Ancho ideal para un cuadro de login */
-    background-color: rgba(11, 30, 38, 0.65); /* Fondo oscuro con transparencia */
-    border: 2px solid rgba(172, 242, 242, 0.25); /* Borde celeste sutil */
-    border-radius: 16px;
-    padding: 2.5rem 2rem;
-    backdrop-filter: blur(8px); /* Efecto esmerilado */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(172, 242, 242, 0.03);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-#contenido-sin-logear .container:hover {
-    border-color: rgba(172, 242, 242, 0.5);
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(172, 242, 242, 0.1);
-}
-
-/* Título "Login" */
-#contenido-sin-logear h1 {
-    color: var(--celeste);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
-    text-shadow: 0 0 10px rgba(172, 242, 242, 0.2);
-}
-
-/* Configuración de los Inputs de Login */
-#contenido-sin-logear .flex-column input {
-    background-color: rgba(255, 255, 255, 0.03);
-    color: white;
-    border: 1px solid rgba(172, 242, 242, 0.3);
-    border-radius: 8px;
-    padding: 0.8rem 1.2rem;
-    margin-bottom: 1.25rem;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-/* Estado Focus (Cuando haces clic para escribir) */
-#contenido-sin-logear .flex-column input:focus {
-    outline: none;
-    border-color: var(--celeste);
-    background-color: rgba(172, 242, 242, 0.05);
-    box-shadow: 0 0 10px rgba(172, 242, 242, 0.3);
-}
-
-/* Estilo del texto indicativo (Placeholder) */
-#contenido-sin-logear .flex-column input::placeholder {
-    color: rgba(255, 255, 255, 0.4);
-}
-
-/* Texto de "No tienes Cuenta?" */
-#contenido-sin-logear h6 {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.95rem;
-    margin-top: 1rem;
-    font-weight: 400;
-}
-
-/* Enlace "Registrate" */
-#contenido-sin-logear h6 a {
-    color: var(--celeste);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.2s ease;
-}
-
-#contenido-sin-logear h6 a:hover {
-    color: white;
-    text-shadow: 0 0 8px var(--celeste);
-}
-
-/* =========================================================
-   ESTILOS ADICIONALES PARA EL MODAL DE REGISTRO
-   ========================================================= */
 #FormularioRegistro .modal-content {
     background-color: var(--verdeOscuro);
     border: 2px solid var(--celeste);
@@ -930,3 +1108,161 @@ header + main > .container-fluid.px-0 {
     color: white;
 }
 
+/*------------------------------------------------ LOGIN ------------------------------------------------*/
+
+#contenido-sin-logear {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+    padding: 2rem 0;
+}
+
+#contenido-sin-logear .container {
+    max-width: 420px;
+    background-color: rgba(11, 30, 38, 0.65);
+    border: 2px solid rgba(172, 242, 242, 0.25);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(172, 242, 242, 0.03);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contenido-sin-logear .container:hover {
+    border-color: rgba(172, 242, 242, 0.5);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(172, 242, 242, 0.1);
+}
+
+#contenido-sin-logear h1 {
+    color: var(--celeste);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(172, 242, 242, 0.2);
+}
+
+#contenido-sin-logear .flex-column input {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: white;
+    border: 1px solid rgba(172, 242, 242, 0.3);
+    border-radius: 8px;
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#contenido-sin-logear .flex-column input:focus {
+    outline: none;
+    border-color: var(--celeste);
+    background-color: rgba(172, 242, 242, 0.05);
+    box-shadow: 0 0 10px rgba(172, 242, 242, 0.3);
+}
+
+#contenido-sin-logear .flex-column input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+#contenido-sin-logear h6 {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    font-weight: 400;
+}
+
+#contenido-sin-logear h6 a {
+    color: var(--celeste);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+#contenido-sin-logear h6 a:hover {
+    color: white;
+    text-shadow: 0 0 8px var(--celeste);
+}
+
+/*------------------------------------------------ RESPONSIVO PERFIL ------------------------------------------------*/
+ 
+@media (max-width: 767px) {
+    .perfil-header-row {
+        margin-top: -70px;
+        padding: 0 4% 0 4%;
+        gap: 0.75rem;
+    }
+ 
+    .btn-editar-perfil-general {
+        top: 10px;
+        right: 10px;
+        font-size: 0.75rem;
+        padding: 4px 10px;
+    }
+ 
+    .btn-cerrar-sesion-banner {
+        /* En tablet lo movemos debajo del banner, a la izquierda */
+        top: 10px;
+        right: auto;
+        left: 10px;
+        font-size: 0.75rem;
+        padding: 4px 10px;
+    }
+ 
+    .btn-cambiar-banner {
+        /* Mismo tamaño visual que editar perfil en mobile */
+        font-size: 0.75rem;
+        padding: 4px 10px;
+        gap: 5px;
+    }
+ 
+    /* En mobile las reseñas van en fila horizontal con scroll */
+    .reseñas_perfil {
+        flex-direction: row !important;
+        overflow-x: auto;
+        gap: 0.75rem;
+        padding-bottom: 0.5rem;
+    }
+ 
+    .reseñas_perfil .reseña {
+        min-width: 240px;
+        flex-shrink: 0;
+    }
+}
+ 
+/* Mobile L (425px) y menor */
+@media (max-width: 425px) {
+    .perfil-header-row {
+        margin-top: -60px;
+    }
+ 
+    .usuario-info-row h2 {
+        font-size: 1rem;
+    }
+ 
+    /* Botones del banner alineados arriba, uno a cada lado */
+    .btn-editar-perfil-general,
+    .btn-cerrar-sesion-banner {
+        top: 8px;
+        font-size: 0.7rem;
+        padding: 3px 8px;
+    }
+ 
+    .btn-cerrar-sesion-banner {
+        left: 8px;
+        right: auto;
+    }
+ 
+    .btn-editar-perfil-general {
+        right: 8px;
+    }
+ 
+    .btn-cambiar-banner {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+        bottom: 8px;
+        right: 8px;
+    }
+}
+ 
