@@ -1,0 +1,15 @@
+[
+  {
+    "id": "the-walking-dead",
+    "titulo": "The Walking Dead",
+    "portada": "../img/twd_portada.jpg",
+    "genero": "Drama, Terror, Ciencia Ficción",
+    "sinopsis": "La serie sigue las aventuras de Rick Grimes, un oficial de policía quien tras ser herido en servicio despierta en un mundo apocalíptico plagado de zombies...",
+    "caps": 177,
+    "duracion": "45 min",
+    "puntuacion": 9.2,
+    "creador": "Robert Kirkman",
+    "actores": ["Andrew Lincoln", "Norman Reedus", "Melissa McBride"],
+    "banner": "../img/twd_banner.jpg"
+  }
+]

@@ -10,62 +10,69 @@
 </head>
 <body>
     <header>
-        <div class="container-fluid fixed-top header">
+        <div class="container sticky-top mb-3">
             <div class="row">
                 <nav class="navbar navbar-expand-lg navbar-dark mx-auto">
                     <div class="container-fluid mx-5 my-2">
                         <a class="navbar-brand" href="inicio.html"><img src="../img/logo.png" alt="Logo" width="250" height="auto" class="d-inline-block align-text-top img"></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                        <span class="icono-hamb"><i class="bi bi-caret-down-fill"></i></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav mx-auto">
-                                <li class="nav-item px-5">
-                                <a class="nav-link btn-nav" href="#">Explorar</a>
+
+                            <!-- Menú centrado -->
+                            <ul class="navbar-nav mx-auto links">
+                                <li class="nav-item px-2">
+                                    <a class="nav-link btn-nav" href="#">Explorar</a>
                                 </li>
-                                <li class="nav-item px-5">
-                                <a class="nav-link btn-nav" href="#">Listas</a>
+                                <li class="nav-item px-2">
+                                    <a class="nav-link btn-nav" href="#">Listas</a>
                                 </li>
-                                <li class="nav-item px-5">
-                                <a class="nav-link btn-nav" href="#">Contacto</a>
-                                </li>                                
+                                <li class="nav-item px-2">
+                                    <a class="nav-link btn-nav" href="#">Contacto</a>
+                                </li>
                             </ul>
-                            <form class="d-flex p-3" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" id="cuadroBusqueda">
-                                <button class="btn btn-outline-success" type="button" id="busqueda"><i class="bi bi-search"></i></button>
-                            </form>
-                                
-                            <form class="d-flex" role="search">                        
-                                <button class="btn btn-user" type="button" id="busqueda"><i class="bi bi-person-fill"></i></button>
-                            </form>
+
+                            <!-- Buscador y usuario a la derecha -->
+                            <div class="d-flex flex-row flex-lg-row align-items-center ms-auto busquedaYusuario">
+                                <form class="d-flex me-3">
+                                    <input class="form-control me-2" id="cuadroBusqueda" type="search" placeholder="Buscar...">
+                                    <button class="btn btn-outline-success" id="busqueda" type="button">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </form>
+
+                                <a href="perfil.html">
+                                    <button class="btn btn-user" type="button">
+                                        <i class="bi bi-person-fill"></i>
+                                    </button>
+                                </a>
+                            </div>
+
                         </div>
                     </div>
                 </nav>
             </div>
         </div>
-    </header> 
+    </header>  
     <main>
         <!-----------------------BANNER ------------------------------------>
-        <div class="container-fluid px-0">
-            <div class="row">
-                <!-- Agregar un boton para editar el banner y la pfp -->
-                 <img src="../img/banner.avif" alt="banner" class="img-fluid w-100 banner-img">
-            </div>
-        </div>
-        <!----------------------------------------------------------------->
-
-        <!-----------------------INFO ENCIMA DEL BANNER ------------------------------------>
-        <div class="container titulo-contenedor">
-            <div class="row ">
-                <div class="col-12 titulo-pelicula">
-                    <h1>The Walking Dead Temporada 1</h1>
+        <div class="container-fluid px-0 position-relative">
+            <!-- Agregar un boton para editar el banner y la pfp -->
+            <img src="../img/banner.avif" alt="banner" class="img-fluid w-100 banner-img" id="banner">
+            <!-----------------------INFO ENCIMA DEL BANNER ------------------------------------>
+            <div class="titulo-contenedor">
+                <div class="row">
+                    <div class="col-12 titulo-pelicula" id="titulo">
+                        
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <h1>No Se</h1>
+                <div class="row">
+                    <div class="col-12 fs-5 text-muted" id="genero">
+                        
+                    </div>
                 </div>
-            </div>
+            </div>     
         </div>
         <!----------------------------------------------------------------->
 
@@ -75,10 +82,12 @@
             <div class="row">
                 <!-----------------------PORTADA Y BOTONES ------------------------------------>
                 <div class="col-4 portada_detalle">
-                    <img src="../img/portada.jpg" alt="port-detalle" class="w-100 rounded mb-2">
+                    <img src="../img/portada.jpg" alt="port-detalle" class="w-100 rounded mb-2" id="portada_detalle">
                     <div class="row botones-detalle">
                         <div class="col-4">
-                            <button type="button" class="btn btn-dark text-warning w-100"> <i class="bi bi-star"></i></button>
+                            <button type="button" class="btn btn-dark text-warning w-100" id="btn-favs" onclick="agregarAFavoritos('the-walking-dead')"> 
+                                <i class="bi bi-star"></i>
+                            </button>
                         </div>
                         <div class="col-8">
                             <button type="button" class="btn btn-dark btn-agregar w-100">Agregar</button>
@@ -88,25 +97,15 @@
                 <!----------------------------------------------------------------->
                 <!----------------------- SINOPSIS Y DEMÁS INFO ------------------------------------>
                 <div class="col-8">
-                    <div class="sinopsis">
-                        <p>La serie sigue las aventuras de Rick Grimes, un oficial de policía quien tras ser herido en servicio y pasar varias semanas en coma despierta en un mundo apocalíptico plagado de zombies donde la población ha dejado de existir. Luego de deducir que su familia podría continuar con vida, Rick emprende un viaje para tratar de encontrarlos y es así que llega hasta un pequeño grupo de sobrevivientes en las afueras de Atlanta donde por coincidencias del destino logra reunirse con aquellos a quienes estaba buscando. Rápidamente Rick asume el liderazgo del grupo y mientras ayuda a todos para tratar de sobrevivir a los caminantes, pronto se da cuenta de que muchas veces los vivos pueden ser mas peligrosos que los muertos.</p>
+                    <div class="sinopsis" id="sinopsis">
+                        
                     </div>
                     <div class="datos-peli">
-                        <h6>Capítulos: <h6 class="cant_caps">16</h6></h6>
-                        <h6>Puntuación: <h6 class="puntaje">9.2</h6></h6>
-                        <h6>Creador: <h6 class="creador">Robert Kirkman</h6></h6>
-                        <a class="text-primary small d-block fw-semibold text-decoration-none mb-1" 
-                        data-bs-toggle="collapse" 
-                        href="#infocollapse" 
-                        role="button" 
-                        aria-expanded="false" 
-                        aria-controls="collapseDescripcion1">
-                            Ver más...
-                        </a>
-                        <div class="collapse" id="infocollapse">
-                            <h6>Duración de Capítulos: <h6 class="duracion_caps">50 mins</h6></h6>
-                            <h6>Actores: <h6 class="actores">Andrew Lincoln, Norman Reedus, Melissa Mcbride</h6></h6>
-                        </div>
+                        <h6>Capítulos: <div id="caps"> </div> </h6>
+                        <h6>Puntuación: <div id="puntuacion"> </div> </h6>
+                        <h6>Creador: <div id="creador"> </div></h6>
+                        <h6>Duración de Capítulos: <div id="duracion"> </div></h6>
+                        <h6>Actores: <div id="actores"> </div></h6>
                     </div>
                 </div>
                 <!----------------------------------------------------------------->
@@ -117,8 +116,12 @@
         <!----------------------- RESEÑAS ------------------------------------>
         <div class="container-fluid">
             <div class="row titulo-reseñas">
-                <div class="col-12 ">
+                <div class="col-8">
                     <h3>Reseñas más relevantes</h3>
+                </div>
+
+                <div class="col-4">
+                    <button type="button" class="btn btn-dark btn-agregar w-100">Agregar Reseña</button>
                 </div>
             </div>
                 <!-------------------------------- RESEÑA 1 -------------------------------->
@@ -181,18 +184,18 @@
                 
     </main>
     <footer>
-        <div class="container my-3 footer">
+        <div class="container">
             <div class="row">
-                <div class="col-12 p-4 d-flex justify-content-between align-items-center">
+                <div class="col-12 col-sm-12 p-4 d-flex flex-column flex-lg-row justify-content-between align-items-center text-center">
                     
-                    <a href="#"><img src="../img/logo.png" alt="Logo" width="250" height="auto" class="d-inline-block align-text-top img"></a>
+                    <a href="#"><img src="../img/logo.png" alt="Logo" width="250" height="auto" class="d-inline-block align-text-top img m-3"></a>
 
-                    <p class="mb-0 text-center">
+                    <p class="mb-0 text-center m-3">
                         © 2026 Watchealo. Diseño y Desarrollo a cargo de
                         Cuello Jaqueline, Garcés Agustín y Ponce Ulises
                     </p>
 
-                    <div>
+                    <div class="m-3 d-flex">
                         <a class="px-2" href="#"><i class="bi bi-facebook icons"></i></a>
                         <a class="px-2" href="#"><i class="bi bi-instagram icons"></i></a>
                         <a class="px-2" href="#"><i class="bi bi-twitter icons"></i></a>
