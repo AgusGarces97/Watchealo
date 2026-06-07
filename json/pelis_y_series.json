@@ -15,7 +15,7 @@
       "Norman Reedus",
       "Melissa McBride"
     ],
-    "banner": "../img/twd_banner.jpg"
+    "banner": "../img/the-walking-dead_banner.png"
   },
   {
     "id": "stranger-things",
@@ -33,7 +33,7 @@
       "Finn Wolfhard",
       "David Harbour"
     ],
-    "banner": "../img/"
+    "banner": "../img/stranger-things_banner.png"
   },
   {
     "id": "dark",
@@ -51,7 +51,7 @@
       "Lisa Vicari",
       "Maja Schöne"
     ],
-    "banner": "../img/"
+    "banner": "../img/dark_banner.png"
   },
   {
     "id": "american-horror-story",
@@ -69,7 +69,7 @@
       "Evan Peters",
       "Jessica Lange"
     ],
-    "banner": "../img/"
+    "banner": "../img/american-horror-story_banner.png"
   },
   {
     "id": "the-haunting-of-hill-house",
@@ -87,7 +87,7 @@
       "Oliver Jackson-Cohen",
       "Carla Gugino"
     ],
-    "banner": "../img/"
+    "banner": "../img/the-haunting-of-hill-house_banner.png"
   },
   {
     "id": "el-conjuro",
@@ -105,12 +105,12 @@
       "Patrick Wilson",
       "Lili Taylor"
     ],
-    "banner": "../img/"
+    "banner": "../img/el-conjuro_banner.png"
   },
   {
     "id": "it",
     "titulo": "It",
-    "portada": "../img/it_portada.jpg",
+    "portada": "../img/it_portada.webp",
     "genero": "Terror, Suspenso",
     "sinopsis": "Un grupo de niños enfrenta a una entidad maligna que toma la forma de un payaso para alimentarse del miedo.",
     "caps": "Película",
@@ -123,7 +123,7 @@
       "Jaeden Martell",
       "Sophia Lillis"
     ],
-    "banner": "../img/"
+    "banner": "../img/it_banner.png"
   },
   {
     "id": "la-monja",
@@ -141,7 +141,7 @@
       "Demián Bichir",
       "Jonas Bloquet"
     ],
-    "banner": "../img/"
+    "banner": "../img/la-monja_banner.png"
   },
   {
     "id": "scream",
@@ -159,7 +159,7 @@
       "Courteney Cox",
       "David Arquette"
     ],
-    "banner": "../img/"
+    "banner": "../img/scream_banner.png"
   },
   {
     "id": "el-aro",
@@ -177,7 +177,7 @@
       "Martin Henderson",
       "Daveigh Chase"
     ],
-    "banner": "../img/"
+    "banner": "../img/el-aro_banner.png"
   },
   {
     "id": "breaking-bad",
@@ -195,7 +195,7 @@
       "Aaron Paul",
       "Anna Gunn"
     ],
-    "banner": "../img/"
+    "banner": "../img/breaking-bad_banner.png"
   },
   {
     "id": "the-bear",
@@ -213,7 +213,7 @@
       "Ayo Edebiri",
       "Ebon Moss-Bachrach"
     ],
-    "banner": "../img/"
+    "banner": "../img/the-bear_banner.png"
   },
   {
     "id": "greys-anatomy",
@@ -231,7 +231,7 @@
       "Chandra Wilson",
       "James Pickens Jr."
     ],
-    "banner": "../img/"
+    "banner": "../img/greys-anatomy_banner.png"
   },
   {
     "id": "this-is-us",
@@ -249,7 +249,7 @@
       "Mandy Moore",
       "Sterling K. Brown"
     ],
-    "banner": "../img/"
+    "banner": "../img/this-is-us_banner.png"
   },
   {
     "id": "the-crown",
@@ -267,7 +267,7 @@
       "Olivia Colman",
       "Imelda Staunton"
     ],
-    "banner": "../img/"
+    "banner": "../img/the-crown_banner.png"
   },
   {
     "id": "oppenheimer",
@@ -285,7 +285,7 @@
       "Emily Blunt",
       "Robert Downey Jr."
     ],
-    "banner": "../img/"
+    "banner": "../img/oppenheimer_banner.png"
   },
   {
     "id": "parasite",
@@ -303,7 +303,7 @@
       "Choi Woo-shik",
       "Park So-dam"
     ],
-    "banner": "../img/"
+    "banner": "../img/parasite_banner.png"
   },
   {
     "id": "joker",
@@ -321,7 +321,7 @@
       "Robert De Niro",
       "Zazie Beetz"
     ],
-    "banner": "../img/"
+    "banner": "../img/joker_banner.jpg" 
   },
   {
     "id": "titanic",
@@ -339,7 +339,7 @@
       "Kate Winslet",
       "Billy Zane"
     ],
-    "banner": "../img/"
+    "banner": "../img/titanic_banner.png"
   },
   {
     "id": "gladiador",
@@ -357,12 +357,12 @@
       "Joaquin Phoenix",
       "Connie Nielsen"
     ],
-    "banner": "../img/"
+    "banner": "../img/gladiador_banner.png"
   },
   {
     "id": "black-mirror",
     "titulo": "Black Mirror",
-    "portada": "../img/black-mirror_portada.jpg",
+    "portada": "../img/black-mirror_portada.png",
     "genero": "Ciencia Ficción, Drama, Suspenso",
     "sinopsis": "Cada episodio muestra historias independientes sobre tecnología, sociedad y futuros inquietantes.",
     "caps": 27,
@@ -375,7 +375,7 @@
       "Daniel Kaluuya",
       "Jesse Plemons"
     ],
-    "banner": "../img/"
+    "banner": "../img/black-mirror_banner.png"
   },
   {
     "id": "the-100",
@@ -393,7 +393,7 @@
       "Bob Morley",
       "Marie Avgeropoulos"
     ],
-    "banner": "../img/"
+    "banner": "../img/the-100_banner.jpg"
   },
   {
     "id": "lost-in-space",
@@ -411,7 +411,7 @@
       "Toby Stephens",
       "Maxwell Jenkins"
     ],
-    "banner": "../img/"
+    "banner": "../img/lost-in-space_banner.png"
   },
   {
     "id": "westworld",
@@ -429,7 +429,7 @@
       "Thandiwe Newton",
       "Jeffrey Wright"
     ],
-    "banner": "../img/"
+    "banner": "../img/westworld_banner.png"
   },
   {
     "id": "the-mandalorian",
@@ -447,7 +447,7 @@
       "Carl Weathers",
       "Giancarlo Esposito"
     ],
-    "banner": "../img/"
+    "banner": "../img/the-mandalorian_banner.jpg"
   },
   {
     "id": "inception",
