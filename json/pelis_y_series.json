@@ -7,12 +7,16 @@
     "sinopsis": "La serie sigue las aventuras de Rick Grimes, un oficial de policía quien tras ser herido en servicio despierta en un mundo apocalíptico plagado de zombies...",
     "caps": 177,
     "duracion": "45 min",
-    "puntuacion": 9.2,
+    "puntuacion": [],
     "creador": "Robert Kirkman",
-    "actores": ["Andrew Lincoln", "Norman Reedus", "Melissa McBride"],
+    "actores": [
+      "Andrew Lincoln",
+      "Norman Reedus",
+      "Melissa McBride"
+    ],
     "banner": "../img/twd_banner.jpg"
   },
-    {
+  {
     "id": "stranger-things",
     "titulo": "Stranger Things",
     "portada": "../img/stranger-things_portada.jpg",
@@ -20,9 +24,13 @@
     "sinopsis": "Un grupo de amigos descubre secretos sobrenaturales, experimentos del gobierno y una dimensión oscura que amenaza a su pueblo.",
     "caps": 34,
     "duracion": "50 min",
-    "puntuacion": 8.7,
+    "puntuacion": [],
     "creador": "The Duffer Brothers",
-    "actores": ["Millie Bobby Brown", "Finn Wolfhard", "David Harbour"],
+    "actores": [
+      "Millie Bobby Brown",
+      "Finn Wolfhard",
+      "David Harbour"
+    ],
     "banner": "../img/"
   },
   {
@@ -33,9 +41,13 @@
     "sinopsis": "La desaparición de un niño revela secretos familiares y una compleja trama relacionada con viajes en el tiempo.",
     "caps": 26,
     "duracion": "50 min",
-    "puntuacion": 8.8,
+    "puntuacion": [],
     "creador": "Baran bo Odar",
-    "actores": ["Louis Hofmann", "Lisa Vicari", "Maja Schöne"],
+    "actores": [
+      "Louis Hofmann",
+      "Lisa Vicari",
+      "Maja Schöne"
+    ],
     "banner": "../img/"
   },
   {
@@ -46,9 +58,13 @@
     "sinopsis": "Cada temporada presenta una historia diferente de terror, misterio y fenómenos sobrenaturales.",
     "caps": 132,
     "duracion": "45 min",
-    "puntuacion": 8.0,
+    "puntuacion": [],
     "creador": "Ryan Murphy",
-    "actores": ["Sarah Paulson", "Evan Peters", "Jessica Lange"],
+    "actores": [
+      "Sarah Paulson",
+      "Evan Peters",
+      "Jessica Lange"
+    ],
     "banner": "../img/"
   },
   {
@@ -59,9 +75,13 @@
     "sinopsis": "Una familia marcada por una casa embrujada debe enfrentar sus recuerdos, traumas y presencias sobrenaturales.",
     "caps": 10,
     "duracion": "55 min",
-    "puntuacion": 8.6,
+    "puntuacion": [],
     "creador": "Mike Flanagan",
-    "actores": ["Victoria Pedretti", "Oliver Jackson-Cohen", "Carla Gugino"],
+    "actores": [
+      "Victoria Pedretti",
+      "Oliver Jackson-Cohen",
+      "Carla Gugino"
+    ],
     "banner": "../img/"
   },
   {
@@ -72,9 +92,13 @@
     "sinopsis": "Dos investigadores paranormales ayudan a una familia aterrorizada por una presencia oscura en su casa.",
     "caps": "Película",
     "duracion": "1h 52min",
-    "puntuacion": 7.5,
+    "puntuacion": [],
     "creador": "James Wan",
-    "actores": ["Vera Farmiga", "Patrick Wilson", "Lili Taylor"],
+    "actores": [
+      "Vera Farmiga",
+      "Patrick Wilson",
+      "Lili Taylor"
+    ],
     "banner": "../img/"
   },
   {
@@ -85,9 +109,13 @@
     "sinopsis": "Un grupo de niños enfrenta a una entidad maligna que toma la forma de un payaso para alimentarse del miedo.",
     "caps": "Película",
     "duracion": "2h 15min",
-    "puntuacion": 7.3,
+    "puntuacion": [],
     "creador": "Andy Muschietti",
-    "actores": ["Bill Skarsgård", "Jaeden Martell", "Sophia Lillis"],
+    "actores": [
+      "Bill Skarsgård",
+      "Jaeden Martell",
+      "Sophia Lillis"
+    ],
     "banner": "../img/"
   },
   {
@@ -98,9 +126,13 @@
     "sinopsis": "Una entidad demoníaca amenaza a una abadía y revela oscuros secretos relacionados con el universo de El Conjuro.",
     "caps": "Película",
     "duracion": "1h 36min",
-    "puntuacion": 6.1,
+    "puntuacion": [],
     "creador": "Corin Hardy",
-    "actores": ["Taissa Farmiga", "Demián Bichir", "Jonas Bloquet"],
+    "actores": [
+      "Taissa Farmiga",
+      "Demián Bichir",
+      "Jonas Bloquet"
+    ],
     "banner": "../img/"
   },
   {
@@ -111,9 +143,13 @@
     "sinopsis": "Un asesino enmascarado aterroriza a un grupo de jóvenes mientras sigue reglas inspiradas en películas de terror.",
     "caps": "Película",
     "duracion": "1h 51min",
-    "puntuacion": 7.4,
+    "puntuacion": [],
     "creador": "Wes Craven",
-    "actores": ["Neve Campbell", "Courteney Cox", "David Arquette"],
+    "actores": [
+      "Neve Campbell",
+      "Courteney Cox",
+      "David Arquette"
+    ],
     "banner": "../img/"
   },
   {
@@ -124,12 +160,15 @@
     "sinopsis": "Una periodista investiga una cinta de video maldita relacionada con una serie de muertes misteriosas.",
     "caps": "Película",
     "duracion": "1h 55min",
-    "puntuacion": 7.1,
+    "puntuacion": [],
     "creador": "Gore Verbinski",
-    "actores": ["Naomi Watts", "Martin Henderson", "Daveigh Chase"],
+    "actores": [
+      "Naomi Watts",
+      "Martin Henderson",
+      "Daveigh Chase"
+    ],
     "banner": "../img/"
   },
-
   {
     "id": "breaking-bad",
     "titulo": "Breaking Bad",
@@ -138,9 +177,13 @@
     "sinopsis": "Un profesor de química comienza a fabricar drogas para asegurar el futuro económico de su familia.",
     "caps": 62,
     "duracion": "47 min",
-    "puntuacion": 9.5,
+    "puntuacion": [],
     "creador": "Vince Gilligan",
-    "actores": ["Bryan Cranston", "Aaron Paul", "Anna Gunn"],
+    "actores": [
+      "Bryan Cranston",
+      "Aaron Paul",
+      "Anna Gunn"
+    ],
     "banner": "../img/"
   },
   {
@@ -151,9 +194,13 @@
     "sinopsis": "Un chef de alta cocina regresa a Chicago para administrar el restaurante familiar tras la muerte de su hermano.",
     "caps": 28,
     "duracion": "30 min",
-    "puntuacion": 8.7,
+    "puntuacion": [],
     "creador": "Christopher Storer",
-    "actores": ["Jeremy Allen White", "Ayo Edebiri", "Ebon Moss-Bachrach"],
+    "actores": [
+      "Jeremy Allen White",
+      "Ayo Edebiri",
+      "Ebon Moss-Bachrach"
+    ],
     "banner": "../img/"
   },
   {
@@ -164,9 +211,13 @@
     "sinopsis": "Un grupo de médicos enfrenta desafíos profesionales, personales y amorosos dentro de un hospital.",
     "caps": 430,
     "duracion": "43 min",
-    "puntuacion": 7.6,
+    "puntuacion": [],
     "creador": "Shonda Rhimes",
-    "actores": ["Ellen Pompeo", "Chandra Wilson", "James Pickens Jr."],
+    "actores": [
+      "Ellen Pompeo",
+      "Chandra Wilson",
+      "James Pickens Jr."
+    ],
     "banner": "../img/"
   },
   {
@@ -177,9 +228,13 @@
     "sinopsis": "La historia de una familia se cuenta a través de diferentes etapas de su vida, mostrando vínculos, pérdidas y emociones.",
     "caps": 106,
     "duracion": "45 min",
-    "puntuacion": 8.7,
+    "puntuacion": [],
     "creador": "Dan Fogelman",
-    "actores": ["Milo Ventimiglia", "Mandy Moore", "Sterling K. Brown"],
+    "actores": [
+      "Milo Ventimiglia",
+      "Mandy Moore",
+      "Sterling K. Brown"
+    ],
     "banner": "../img/"
   },
   {
@@ -190,9 +245,13 @@
     "sinopsis": "La serie retrata la vida de la reina Isabel II y los acontecimientos políticos y personales de la familia real británica.",
     "caps": 60,
     "duracion": "55 min",
-    "puntuacion": 8.6,
+    "puntuacion": [],
     "creador": "Peter Morgan",
-    "actores": ["Claire Foy", "Olivia Colman", "Imelda Staunton"],
+    "actores": [
+      "Claire Foy",
+      "Olivia Colman",
+      "Imelda Staunton"
+    ],
     "banner": "../img/"
   },
   {
@@ -203,9 +262,13 @@
     "sinopsis": "La historia del físico J. Robert Oppenheimer y su papel en el desarrollo de la bomba atómica.",
     "caps": "Película",
     "duracion": "3h",
-    "puntuacion": 8.3,
+    "puntuacion": [],
     "creador": "Christopher Nolan",
-    "actores": ["Cillian Murphy", "Emily Blunt", "Robert Downey Jr."],
+    "actores": [
+      "Cillian Murphy",
+      "Emily Blunt",
+      "Robert Downey Jr."
+    ],
     "banner": "../img/"
   },
   {
@@ -216,9 +279,13 @@
     "sinopsis": "Una familia pobre se infiltra en la vida de una familia rica, generando consecuencias inesperadas.",
     "caps": "Película",
     "duracion": "2h 12min",
-    "puntuacion": 8.5,
+    "puntuacion": [],
     "creador": "Bong Joon-ho",
-    "actores": ["Song Kang-ho", "Choi Woo-shik", "Park So-dam"],
+    "actores": [
+      "Song Kang-ho",
+      "Choi Woo-shik",
+      "Park So-dam"
+    ],
     "banner": "../img/"
   },
   {
@@ -229,9 +296,13 @@
     "sinopsis": "Un hombre marginado por la sociedad cae lentamente en la locura y se transforma en una figura criminal.",
     "caps": "Película",
     "duracion": "2h 2min",
-    "puntuacion": 8.4,
+    "puntuacion": [],
     "creador": "Todd Phillips",
-    "actores": ["Joaquin Phoenix", "Robert De Niro", "Zazie Beetz"],
+    "actores": [
+      "Joaquin Phoenix",
+      "Robert De Niro",
+      "Zazie Beetz"
+    ],
     "banner": "../img/"
   },
   {
@@ -242,9 +313,13 @@
     "sinopsis": "Dos jóvenes de clases sociales diferentes se enamoran durante el viaje inaugural del Titanic.",
     "caps": "Película",
     "duracion": "3h 14min",
-    "puntuacion": 7.9,
+    "puntuacion": [],
     "creador": "James Cameron",
-    "actores": ["Leonardo DiCaprio", "Kate Winslet", "Billy Zane"],
+    "actores": [
+      "Leonardo DiCaprio",
+      "Kate Winslet",
+      "Billy Zane"
+    ],
     "banner": "../img/"
   },
   {
@@ -255,12 +330,15 @@
     "sinopsis": "Un general romano traicionado se convierte en gladiador y busca venganza contra el emperador que destruyó su vida.",
     "caps": "Película",
     "duracion": "2h 35min",
-    "puntuacion": 8.5,
+    "puntuacion": [],
     "creador": "Ridley Scott",
-    "actores": ["Russell Crowe", "Joaquin Phoenix", "Connie Nielsen"],
+    "actores": [
+      "Russell Crowe",
+      "Joaquin Phoenix",
+      "Connie Nielsen"
+    ],
     "banner": "../img/"
   },
-
   {
     "id": "black-mirror",
     "titulo": "Black Mirror",
@@ -269,9 +347,13 @@
     "sinopsis": "Cada episodio muestra historias independientes sobre tecnología, sociedad y futuros inquietantes.",
     "caps": 27,
     "duracion": "60 min",
-    "puntuacion": 8.7,
+    "puntuacion": [],
     "creador": "Charlie Brooker",
-    "actores": ["Bryce Dallas Howard", "Daniel Kaluuya", "Jesse Plemons"],
+    "actores": [
+      "Bryce Dallas Howard",
+      "Daniel Kaluuya",
+      "Jesse Plemons"
+    ],
     "banner": "../img/"
   },
   {
@@ -282,9 +364,13 @@
     "sinopsis": "Un grupo de jóvenes es enviado a la Tierra desde una estación espacial para comprobar si el planeta vuelve a ser habitable.",
     "caps": 100,
     "duracion": "43 min",
-    "puntuacion": 7.6,
+    "puntuacion": [],
     "creador": "Jason Rothenberg",
-    "actores": ["Eliza Taylor", "Bob Morley", "Marie Avgeropoulos"],
+    "actores": [
+      "Eliza Taylor",
+      "Bob Morley",
+      "Marie Avgeropoulos"
+    ],
     "banner": "../img/"
   },
   {
@@ -295,9 +381,13 @@
     "sinopsis": "Una familia de colonos espaciales lucha por sobrevivir luego de quedar perdida en un planeta desconocido.",
     "caps": 28,
     "duracion": "50 min",
-    "puntuacion": 7.3,
+    "puntuacion": [],
     "creador": "Matt Sazama",
-    "actores": ["Molly Parker", "Toby Stephens", "Maxwell Jenkins"],
+    "actores": [
+      "Molly Parker",
+      "Toby Stephens",
+      "Maxwell Jenkins"
+    ],
     "banner": "../img/"
   },
   {
@@ -308,9 +398,13 @@
     "sinopsis": "Un parque futurista con androides revela preguntas sobre la conciencia, el control y la libertad.",
     "caps": 36,
     "duracion": "60 min",
-    "puntuacion": 8.5,
+    "puntuacion": [],
     "creador": "Jonathan Nolan",
-    "actores": ["Evan Rachel Wood", "Thandiwe Newton", "Jeffrey Wright"],
+    "actores": [
+      "Evan Rachel Wood",
+      "Thandiwe Newton",
+      "Jeffrey Wright"
+    ],
     "banner": "../img/"
   },
   {
@@ -321,9 +415,13 @@
     "sinopsis": "Un cazarrecompensas solitario viaja por la galaxia mientras protege a una criatura muy especial.",
     "caps": 24,
     "duracion": "40 min",
-    "puntuacion": 8.6,
+    "puntuacion": [],
     "creador": "Jon Favreau",
-    "actores": ["Pedro Pascal", "Carl Weathers", "Giancarlo Esposito"],
+    "actores": [
+      "Pedro Pascal",
+      "Carl Weathers",
+      "Giancarlo Esposito"
+    ],
     "banner": "../img/"
   },
   {
@@ -334,9 +432,13 @@
     "sinopsis": "Un ladrón especializado en entrar en los sueños acepta una misión casi imposible: implantar una idea en la mente de una persona.",
     "caps": "Película",
     "duracion": "2h 28min",
-    "puntuacion": 8.8,
+    "puntuacion": [],
     "creador": "Christopher Nolan",
-    "actores": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"],
+    "actores": [
+      "Leonardo DiCaprio",
+      "Joseph Gordon-Levitt",
+      "Elliot Page"
+    ],
     "banner": "../img/"
   },
   {
@@ -347,9 +449,13 @@
     "sinopsis": "Un grupo de astronautas viaja a través de un agujero de gusano en busca de un nuevo hogar para la humanidad.",
     "caps": "Película",
     "duracion": "2h 49min",
-    "puntuacion": 8.6,
+    "puntuacion": [],
     "creador": "Christopher Nolan",
-    "actores": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
+    "actores": [
+      "Matthew McConaughey",
+      "Anne Hathaway",
+      "Jessica Chastain"
+    ],
     "banner": "../img/"
   },
   {
@@ -360,9 +466,13 @@
     "sinopsis": "Un joven heredero se enfrenta a un destino extraordinario en un planeta desértico clave para el futuro del universo.",
     "caps": "Película",
     "duracion": "2h 35min",
-    "puntuacion": 8.0,
+    "puntuacion": [],
     "creador": "Denis Villeneuve",
-    "actores": ["Timothée Chalamet", "Zendaya", "Oscar Isaac"],
+    "actores": [
+      "Timothée Chalamet",
+      "Zendaya",
+      "Oscar Isaac"
+    ],
     "banner": "../img/"
   },
   {
@@ -373,9 +483,13 @@
     "sinopsis": "Un exmarine llega a Pandora y se ve envuelto en el conflicto entre los humanos y los habitantes del planeta.",
     "caps": "Película",
     "duracion": "2h 42min",
-    "puntuacion": 7.9,
+    "puntuacion": [],
     "creador": "James Cameron",
-    "actores": ["Sam Worthington", "Zoe Saldaña", "Sigourney Weaver"],
+    "actores": [
+      "Sam Worthington",
+      "Zoe Saldaña",
+      "Sigourney Weaver"
+    ],
     "banner": "../img/"
   },
   {
@@ -386,531 +500,693 @@
     "sinopsis": "Un programador descubre que el mundo que conoce es una simulación controlada por máquinas.",
     "caps": "Película",
     "duracion": "2h 16min",
-    "puntuacion": 8.7,
+    "puntuacion": [],
     "creador": "Lana Wachowski",
-    "actores": ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"],
+    "actores": [
+      "Keanu Reeves",
+      "Laurence Fishburne",
+      "Carrie-Anne Moss"
+    ],
     "banner": "../img/"
   },
-{
-  "id": "cobra-kai",
-  "titulo": "Cobra Kai",
-  "portada": "../img/cobra-kai_portada.jpg",
-  "genero": "Acción, Comedia, Drama",
-  "sinopsis": "Décadas después de su rivalidad, Johnny Lawrence y Daniel LaRusso vuelven a cruzar sus caminos a través del karate.",
-  "caps": 65,
-  "duracion": "30 min",
-  "puntuacion": 8.5,
-  "creador": "Josh Heald",
-  "actores": ["Ralph Macchio", "William Zabka", "Xolo Maridueña"],
-  "banner": "../img/"
-},
-{
-  "id": "the-boys",
-  "titulo": "The Boys",
-  "portada": "../img/the-boys_portada.webp",
-  "genero": "Acción, Comedia, Drama",
-  "sinopsis": "Un grupo decide enfrentarse a superhéroes corruptos que abusan de su poder y fama.",
-  "caps": 32,
-  "duracion": "60 min",
-  "puntuacion": 8.7,
-  "creador": "Eric Kripke",
-  "actores": ["Karl Urban", "Jack Quaid", "Antony Starr"],
-  "banner": "../img/"
-},
-{
-  "id": "arrow",
-  "titulo": "Arrow",
-  "portada": "../img/arrow_portada.jpg",
-  "genero": "Acción, Drama, Aventura",
-  "sinopsis": "Oliver Queen regresa a su ciudad convertido en un vigilante decidido a combatir el crimen.",
-  "caps": 170,
-  "duracion": "42 min",
-  "puntuacion": 7.5,
-  "creador": "Greg Berlanti",
-  "actores": ["Stephen Amell", "Katie Cassidy", "David Ramsey"],
-  "banner": "../img/"
-},
-{
-  "id": "la-casa-de-papel",
-  "titulo": "La Casa de Papel",
-  "portada": "../img/la-casa-de-papel_portada.webp",
-  "genero": "Acción, Drama, Suspenso",
-  "sinopsis": "Un grupo de atracadores ejecuta un plan minucioso para asaltar lugares emblemáticos de España.",
-  "caps": 41,
-  "duracion": "50 min",
-  "puntuacion": 8.2,
-  "creador": "Álex Pina",
-  "actores": ["Álvaro Morte", "Úrsula Corberó", "Pedro Alonso"],
-  "banner": "../img/"
-},
-{
-  "id": "the-witcher",
-  "titulo": "The Witcher",
-  "portada": "../img/the-whitcher_portada.webp",
-  "genero": "Acción, Drama, Aventura",
-  "sinopsis": "Geralt de Rivia, un cazador de monstruos, recorre un mundo lleno de magia, conflictos y criaturas peligrosas.",
-  "caps": 24,
-  "duracion": "60 min",
-  "puntuacion": 8.0,
-  "creador": "Lauren Schmidt Hissrich",
-  "actores": ["Henry Cavill", "Anya Chalotra", "Freya Allan"],
-  "banner": "../img/"
-},
-{
-  "id": "john-wick",
-  "titulo": "John Wick",
-  "portada": "../img/john-wick_portada.webp",
-  "genero": "Acción, Suspenso",
-  "sinopsis": "Un exasesino vuelve al mundo criminal para vengarse de quienes le arrebataron lo que más quería.",
-  "caps": "Película",
-  "duracion": "1h 41min",
-  "puntuacion": 7.4,
-  "creador": "Chad Stahelski",
-  "actores": ["Keanu Reeves", "Michael Nyqvist", "Alfie Allen"],
-  "banner": "../img/"
-},
-{
-  "id": "rapidos-y-furiosos",
-  "titulo": "Rápidos y Furiosos",
-  "portada": "../img/rapidos-y-furiosos_portada.jpg",
-  "genero": "Acción, Aventura",
-  "sinopsis": "Un policía encubierto se infiltra en el mundo de las carreras callejeras y el crimen organizado.",
-  "caps": "Película",
-  "duracion": "1h 46min",
-  "puntuacion": 6.8,
-  "creador": "Rob Cohen",
-  "actores": ["Vin Diesel", "Paul Walker", "Michelle Rodriguez"],
-  "banner": "../img/"
-},
-{
-  "id": "mision-imposible",
-  "titulo": "Misión Imposible",
-  "portada": "../img/mision-imposible_portada.jpg",
-  "genero": "Acción, Suspenso, Aventura",
-  "sinopsis": "Ethan Hunt debe enfrentar misiones de alto riesgo para evitar amenazas internacionales.",
-  "caps": "Película",
-  "duracion": "1h 50min",
-  "puntuacion": 7.2,
-  "creador": "Brian De Palma",
-  "actores": ["Tom Cruise", "Jon Voight", "Emmanuelle Béart"],
-  "banner": "../img/"
-},
-{
-  "id": "mad-max-fury-road",
-  "titulo": "Mad Max: Fury Road",
-  "portada": "../img/mad-max-fury-road_portada.jpg",
-  "genero": "Acción, Ciencia Ficción, Aventura",
-  "sinopsis": "En un mundo postapocalíptico, Max se une a Furiosa para escapar de un tirano y su ejército.",
-  "caps": "Película",
-  "duracion": "2h",
-  "puntuacion": 8.1,
-  "creador": "George Miller",
-  "actores": ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"],
-  "banner": "../img/"
-},
-{
-  "id": "top-gun-maverick",
-  "titulo": "Top Gun: Maverick",
-  "portada": "../img/top-gun-maverick_portada.webp",
-  "genero": "Acción, Drama",
-  "sinopsis": "Maverick vuelve como instructor para preparar a un grupo de pilotos en una misión extremadamente peligrosa.",
-  "caps": "Película",
-  "duracion": "2h 10min",
-  "puntuacion": 8.3,
-  "creador": "Joseph Kosinski",
-  "actores": ["Tom Cruise", "Miles Teller", "Jennifer Connelly"],
-  "banner": "../img/"
-},
-
-{
-  "id": "friends",
-  "titulo": "Friends",
-  "portada": "../img/friends_portada.jpg",
-  "genero": "Comedia, Romance",
-  "sinopsis": "Seis amigos viven situaciones cotidianas, amorosas y laborales en la ciudad de Nueva York.",
-  "caps": 236,
-  "duracion": "22 min",
-  "puntuacion": 8.9,
-  "creador": "David Crane",
-  "actores": ["Jennifer Aniston", "Courteney Cox", "Matthew Perry"],
-  "banner": "../img/"
-},
-{
-  "id": "the-office",
-  "titulo": "The Office",
-  "portada": "../img/the-office_portada.webp",
-  "genero": "Comedia",
-  "sinopsis": "Los empleados de una oficina viven situaciones absurdas bajo la dirección de un jefe excéntrico.",
-  "caps": 201,
-  "duracion": "22 min",
-  "puntuacion": 9.0,
-  "creador": "Greg Daniels",
-  "actores": ["Steve Carell", "Rainn Wilson", "John Krasinski"],
-  "banner": "../img/"
-},
-{
-  "id": "brooklyn-nine-nine",
-  "titulo": "Brooklyn Nine-Nine",
-  "portada": "../img/brooklyn-nine-nine_portada.jpg",
-  "genero": "Comedia, Acción",
-  "sinopsis": "Un grupo de detectives combina investigaciones policiales con situaciones cómicas dentro de una comisaría.",
-  "caps": 153,
-  "duracion": "22 min",
-  "puntuacion": 8.4,
-  "creador": "Michael Schur",
-  "actores": ["Andy Samberg", "Melissa Fumero", "Andre Braugher"],
-  "banner": "../img/"
-},
-{
-  "id": "modern-family",
-  "titulo": "Modern Family",
-  "portada": "../img/modern-family_portada.jpg",
-  "genero": "Comedia, Drama",
-  "sinopsis": "Tres familias relacionadas entre sí muestran con humor los desafíos de la vida familiar moderna.",
-  "caps": 250,
-  "duracion": "22 min",
-  "puntuacion": 8.5,
-  "creador": "Christopher Lloyd",
-  "actores": ["Ed O'Neill", "Sofía Vergara", "Julie Bowen"],
-  "banner": "../img/"
-},
-{
-  "id": "how-i-met-your-mother",
-  "titulo": "How I Met Your Mother",
-  "portada": "../img/how-i-met-your-mother_portada.webp",
-  "genero": "Comedia, Romance",
-  "sinopsis": "Ted cuenta a sus hijos la historia de cómo conoció a su madre, recordando amistades, amores y momentos divertidos.",
-  "caps": 208,
-  "duracion": "22 min",
-  "puntuacion": 8.3,
-  "creador": "Carter Bays",
-  "actores": ["Josh Radnor", "Jason Segel", "Cobie Smulders"],
-  "banner": "../img/"
-},
-{
-  "id": "son-como-ninos",
-  "titulo": "Son Como Niños",
-  "portada": "../img/son-como-ninos_portada.jpg",
-  "genero": "Comedia",
-  "sinopsis": "Un grupo de amigos de la infancia se reúne con sus familias y revive momentos divertidos del pasado.",
-  "caps": "Película",
-  "duracion": "1h 42min",
-  "puntuacion": 6.0,
-  "creador": "Dennis Dugan",
-  "actores": ["Adam Sandler", "Kevin James", "Chris Rock"],
-  "banner": "../img/"
-},
-{
-  "id": "legalmente-rubia",
-  "titulo": "Legalmente Rubia",
-  "portada": "../img/legalmente-rubia_portada.webp",
-  "genero": "Comedia, Romance",
-  "sinopsis": "Elle Woods ingresa a la universidad de Harvard decidida a demostrar que es mucho más que una apariencia.",
-  "caps": "Película",
-  "duracion": "1h 36min",
-  "puntuacion": 6.5,
-  "creador": "Robert Luketic",
-  "actores": ["Reese Witherspoon", "Luke Wilson", "Selma Blair"],
-  "banner": "../img/"
-},
-{
-  "id": "que-paso-ayer",
-  "titulo": "¿Qué Pasó Ayer?",
-  "portada": "../img/que-paso-ayer_portada.jpg",
-  "genero": "Comedia",
-  "sinopsis": "Tres amigos despiertan sin recordar lo sucedido durante una despedida de soltero en Las Vegas.",
-  "caps": "Película",
-  "duracion": "1h 40min",
-  "puntuacion": 7.7,
-  "creador": "Todd Phillips",
-  "actores": ["Bradley Cooper", "Ed Helms", "Zach Galifianakis"],
-  "banner": "../img/"
-},
-{
-  "id": "jumanji-bienvenidos-a-la-jungla",
-  "titulo": "Jumanji: Bienvenidos a la Jungla",
-  "portada": "../img/jumanji-bienvenidos-a-la-jungla_portada.jpg",
-  "genero": "Comedia, Acción, Aventura",
-  "sinopsis": "Cuatro jóvenes quedan atrapados dentro de un videojuego y deben superar pruebas para regresar a casa.",
-  "caps": "Película",
-  "duracion": "1h 59min",
-  "puntuacion": 6.9,
-  "creador": "Jake Kasdan",
-  "actores": ["Dwayne Johnson", "Kevin Hart", "Karen Gillan"],
-  "banner": "../img/"
-},
-{
-  "id": "la-propuesta",
-  "titulo": "La Propuesta",
-  "portada": "../img/la-propuesta_portada.jpg",
-  "genero": "Comedia, Romance",
-  "sinopsis": "Una editora obliga a su asistente a fingir un compromiso para evitar ser deportada.",
-  "caps": "Película",
-  "duracion": "1h 48min",
-  "puntuacion": 6.7,
-  "creador": "Anne Fletcher",
-  "actores": ["Sandra Bullock", "Ryan Reynolds", "Betty White"],
-  "banner": "../img/"
-},
-{
-  "id": "bridgerton",
-  "titulo": "Bridgerton",
-  "portada": "../img/bridgerton_portada.jpg",
-  "genero": "Romance, Drama",
-  "sinopsis": "La alta sociedad londinense vive entre romances, secretos familiares y escándalos sociales.",
-  "caps": 24,
-  "duracion": "60 min",
-  "puntuacion": 7.4,
-  "creador": "Chris Van Dusen",
-  "actores": ["Phoebe Dynevor", "Regé-Jean Page", "Nicola Coughlan"],
-  "banner": "../img/"
-},
-{
-  "id": "emily-in-paris",
-  "titulo": "Emily in Paris",
-  "portada": "../img/emily-in-paris_portada.jpg",
-  "genero": "Romance, Comedia, Drama",
-  "sinopsis": "Una joven estadounidense se muda a París por trabajo y vive nuevas experiencias amorosas, laborales y culturales.",
-  "caps": 40,
-  "duracion": "30 min",
-  "puntuacion": 6.9,
-  "creador": "Darren Star",
-  "actores": ["Lily Collins", "Ashley Park", "Lucas Bravo"],
-  "banner": "../img/"
-},
-{
-  "id": "yo-nunca",
-  "titulo": "Yo Nunca",
-  "portada": "../img/yo-nunca_portada.jpg",
-  "genero": "Romance, Comedia, Drama",
-  "sinopsis": "Una adolescente intenta mejorar su vida social mientras enfrenta conflictos familiares, escolares y amorosos.",
-  "caps": 40,
-  "duracion": "30 min",
-  "puntuacion": 7.9,
-  "creador": "Mindy Kaling",
-  "actores": ["Maitreyi Ramakrishnan", "Darren Barnet", "Jaren Lewison"],
-  "banner": "../img/"
-},
-{
-  "id": "outlander",
-  "titulo": "Outlander",
-  "portada": "../img/outlander_portada.webp",
-  "genero": "Romance, Drama, Aventura",
-  "sinopsis": "Una enfermera viaja misteriosamente al pasado y vive una historia de amor marcada por la guerra y el destino.",
-  "caps": 83,
-  "duracion": "60 min",
-  "puntuacion": 8.4,
-  "creador": "Ronald D. Moore",
-  "actores": ["Caitríona Balfe", "Sam Heughan", "Tobias Menzies"],
-  "banner": "../img/"
-},
-{
-  "id": "normal-people",
-  "titulo": "Normal People",
-  "portada": "../img/normal-people_portada.webp",
-  "genero": "Romance, Drama",
-  "sinopsis": "Dos jóvenes viven una relación intensa y compleja a lo largo de diferentes etapas de sus vidas.",
-  "caps": 12,
-  "duracion": "30 min",
-  "puntuacion": 8.4,
-  "creador": "Sally Rooney",
-  "actores": ["Daisy Edgar-Jones", "Paul Mescal", "Sarah Greene"],
-  "banner": "../img/"
-},
-{
-  "id": "bajo-la-misma-estrella",
-  "titulo": "Bajo la Misma Estrella",
-  "portada": "../img/bajo-la-misma-estrella_portada.jpg",
-  "genero": "Romance, Drama",
-  "sinopsis": "Dos adolescentes con cáncer se conocen en un grupo de apoyo y comienzan una historia de amor conmovedora.",
-  "caps": "Película",
-  "duracion": "2h 6min",
-  "puntuacion": 7.7,
-  "creador": "Josh Boone",
-  "actores": ["Shailene Woodley", "Ansel Elgort", "Laura Dern"],
-  "banner": "../img/"
-},
-{
-  "id": "diario-de-una-pasion",
-  "titulo": "Diario de una Pasión",
-  "portada": "../img/diario-de-una-pasion_portada.jpg",
-  "genero": "Romance, Drama",
-  "sinopsis": "Una pareja vive una historia de amor marcada por las diferencias sociales, el paso del tiempo y la memoria.",
-  "caps": "Película",
-  "duracion": "2h 3min",
-  "puntuacion": 7.8,
-  "creador": "Nick Cassavetes",
-  "actores": ["Ryan Gosling", "Rachel McAdams", "James Garner"],
-  "banner": "../img/"
-},
-{
-  "id": "orgullo-y-prejuicio",
-  "titulo": "Orgullo y Prejuicio",
-  "portada": "../img/orgullo-y-prejuicio_portada.jpg",
-  "genero": "Romance, Drama",
-  "sinopsis": "Elizabeth Bennet y el señor Darcy enfrentan prejuicios, orgullo y diferencias sociales en una historia clásica de amor.",
-  "caps": "Película",
-  "duracion": "2h 9min",
-  "puntuacion": 7.8,
-  "creador": "Joe Wright",
-  "actores": ["Keira Knightley", "Matthew Macfadyen", "Rosamund Pike"],
-  "banner": "../img/"
-},
-{
-  "id": "a-dos-metros-de-ti",
-  "titulo": "A Dos Metros de Ti",
-  "portada": "../img/a-dos-metros-de-ti_portada.webp",
-  "genero": "Romance, Drama",
-  "sinopsis": "Dos jóvenes con fibrosis quística se enamoran, aunque deben mantenerse separados por razones médicas.",
-  "caps": "Película",
-  "duracion": "1h 56min",
-  "puntuacion": 7.2,
-  "creador": "Justin Baldoni",
-  "actores": ["Haley Lu Richardson", "Cole Sprouse", "Moises Arias"],
-  "banner": "../img/"
-},
-{
-  "id": "yo-antes-de-ti",
-  "titulo": "Yo Antes de Ti",
-  "portada": "../img/yo-antes-de-ti_portada.jpg",
-  "genero": "Romance, Drama",
-  "sinopsis": "Una joven comienza a trabajar como cuidadora de un hombre que cambió su vida tras un accidente.",
-  "caps": "Película",
-  "duracion": "1h 50min",
-  "puntuacion": 7.4,
-  "creador": "Thea Sharrock",
-  "actores": ["Emilia Clarke", "Sam Claflin", "Janet McTeer"],
-  "banner": "../img/"
-},
-
-{
-  "id": "you",
-  "titulo": "You",
-  "portada": "../img/you_portada.webp",
-  "genero": "Suspenso, Drama, Romance",
-  "sinopsis": "Un hombre obsesivo se involucra peligrosamente en la vida de las personas que desea.",
-  "caps": 40,
-  "duracion": "45 min",
-  "puntuacion": 7.7,
-  "creador": "Greg Berlanti",
-  "actores": ["Penn Badgley", "Victoria Pedretti", "Elizabeth Lail"],
-  "banner": "../img/"
-},
-{
-  "id": "mindhunter",
-  "titulo": "Mindhunter",
-  "portada": "../img/mindhunter_portada.jpg",
-  "genero": "Suspenso, Drama",
-  "sinopsis": "Agentes del FBI entrevistan asesinos seriales para comprender sus mentes y resolver futuros crímenes.",
-  "caps": 19,
-  "duracion": "50 min",
-  "puntuacion": 8.6,
-  "creador": "Joe Penhall",
-  "actores": ["Jonathan Groff", "Holt McCallany", "Anna Torv"],
-  "banner": "../img/"
-},
-{
-  "id": "true-detective",
-  "titulo": "True Detective",
-  "portada": "../img/true-detective_portada.jpg",
-  "genero": "Suspenso, Drama",
-  "sinopsis": "Detectives investigan crímenes complejos mientras enfrentan conflictos personales y secretos oscuros.",
-  "caps": 30,
-  "duracion": "60 min",
-  "puntuacion": 8.9,
-  "creador": "Nic Pizzolatto",
-  "actores": ["Matthew McConaughey", "Woody Harrelson", "Mahershala Ali"],
-  "banner": "../img/"
-},
-{
-  "id": "la-chica-de-nieve",
-  "titulo": "La Chica de Nieve",
-  "portada": "../img/la-chica-de-nieve_portada.webp",
-  "genero": "Suspenso, Drama",
-  "sinopsis": "Una periodista investiga la desaparición de una niña durante una cabalgata, enfrentando secretos y pistas inquietantes.",
-  "caps": 6,
-  "duracion": "45 min",
-  "puntuacion": 6.8,
-  "creador": "Jesús Mesas Silva",
-  "actores": ["Milena Smit", "José Coronado", "Aixa Villagrán"],
-  "banner": "../img/"
-},
-{
-  "id": "el-inocente",
-  "titulo": "El Inocente",
-  "portada": "../img/el-inocente_portada.jpg",
-  "genero": "Suspenso, Drama",
-  "sinopsis": "Un hombre intenta rehacer su vida, pero un crimen del pasado vuelve a perseguirlo.",
-  "caps": 8,
-  "duracion": "50 min",
-  "puntuacion": 7.8,
-  "creador": "Oriol Paulo",
-  "actores": ["Mario Casas", "Aura Garrido", "Alexandra Jiménez"],
-  "banner": "../img/"
-},
-{
-  "id": "perdida",
-  "titulo": "Perdida",
-  "portada": "../img/perdida_portada.jpg",
-  "genero": "Suspenso, Drama",
-  "sinopsis": "La desaparición de una mujer revela secretos, mentiras y sospechas dentro de su matrimonio.",
-  "caps": "Película",
-  "duracion": "2h 29min",
-  "puntuacion": 8.1,
-  "creador": "David Fincher",
-  "actores": ["Ben Affleck", "Rosamund Pike", "Neil Patrick Harris"],
-  "banner": "../img/"
-},
-{
-  "id": "la-isla-siniestra",
-  "titulo": "La Isla Siniestra",
-  "portada": "../img/la-isla-siniestra_portada.jpg",
-  "genero": "Suspenso, Drama",
-  "sinopsis": "Un agente federal investiga la desaparición de una paciente en un hospital psiquiátrico ubicado en una isla.",
-  "caps": "Película",
-  "duracion": "2h 18min",
-  "puntuacion": 8.2,
-  "creador": "Martin Scorsese",
-  "actores": ["Leonardo DiCaprio", "Mark Ruffalo", "Ben Kingsley"],
-  "banner": "../img/"
-},
-{
-  "id": "fragmentado",
-  "titulo": "Fragmentado",
-  "portada": "../img/fragmentado_portada.webp",
-  "genero": "Suspenso, Terror",
-  "sinopsis": "Un hombre con múltiples personalidades secuestra a tres jóvenes, revelando una amenaza cada vez más peligrosa.",
-  "caps": "Película",
-  "duracion": "1h 57min",
-  "puntuacion": 7.3,
-  "creador": "M. Night Shyamalan",
-  "actores": ["James McAvoy", "Anya Taylor-Joy", "Betty Buckley"],
-  "banner": "../img/"
-},
-{
-  "id": "el-silencio-de-los-inocentes",
-  "titulo": "El Silencio de los Inocentes",
-  "portada": "../img/el-silencio-de-los-inocentes_portada.jpg",
-  "genero": "Suspenso, Terror, Drama",
-  "sinopsis": "Una agente del FBI busca la ayuda de un brillante asesino encarcelado para capturar a otro criminal.",
-  "caps": "Película",
-  "duracion": "1h 58min",
-  "puntuacion": 8.6,
-  "creador": "Jonathan Demme",
-  "actores": ["Jodie Foster", "Anthony Hopkins", "Scott Glenn"],
-  "banner": "../img/"
-},
-{
-  "id": "prisioneros",
-  "titulo": "Prisioneros",
-  "portada": "../img/prisioneros_portada.jpg",
-  "genero": "Suspenso, Drama",
-  "sinopsis": "La desaparición de dos niñas lleva a un padre desesperado a tomar decisiones extremas mientras la policía investiga.",
-  "caps": "Película",
-  "duracion": "2h 33min",
-  "puntuacion": 8.1,
-  "creador": "Denis Villeneuve",
-  "actores": ["Hugh Jackman", "Jake Gyllenhaal", "Viola Davis"],
-  "banner": "../img/"
-}
+  {
+    "id": "cobra-kai",
+    "titulo": "Cobra Kai",
+    "portada": "../img/cobra-kai_portada.jpg",
+    "genero": "Acción, Comedia, Drama",
+    "sinopsis": "Décadas después de su rivalidad, Johnny Lawrence y Daniel LaRusso vuelven a cruzar sus caminos a través del karate.",
+    "caps": 65,
+    "duracion": "30 min",
+    "puntuacion": [],
+    "creador": "Josh Heald",
+    "actores": [
+      "Ralph Macchio",
+      "William Zabka",
+      "Xolo Maridueña"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "the-boys",
+    "titulo": "The Boys",
+    "portada": "../img/the-boys_portada.webp",
+    "genero": "Acción, Comedia, Drama",
+    "sinopsis": "Un grupo decide enfrentarse a superhéroes corruptos que abusan de su poder y fama.",
+    "caps": 32,
+    "duracion": "60 min",
+    "puntuacion": [],
+    "creador": "Eric Kripke",
+    "actores": [
+      "Karl Urban",
+      "Jack Quaid",
+      "Antony Starr"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "arrow",
+    "titulo": "Arrow",
+    "portada": "../img/arrow_portada.jpg",
+    "genero": "Acción, Drama, Aventura",
+    "sinopsis": "Oliver Queen regresa a su ciudad convertido en un vigilante decidido a combatir el crimen.",
+    "caps": 170,
+    "duracion": "42 min",
+    "puntuacion": [],
+    "creador": "Greg Berlanti",
+    "actores": [
+      "Stephen Amell",
+      "Katie Cassidy",
+      "David Ramsey"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "la-casa-de-papel",
+    "titulo": "La Casa de Papel",
+    "portada": "../img/la-casa-de-papel_portada.webp",
+    "genero": "Acción, Drama, Suspenso",
+    "sinopsis": "Un grupo de atracadores ejecuta un plan minucioso para asaltar lugares emblemáticos de España.",
+    "caps": 41,
+    "duracion": "50 min",
+    "puntuacion": [],
+    "creador": "Álex Pina",
+    "actores": [
+      "Álvaro Morte",
+      "Úrsula Corberó",
+      "Pedro Alonso"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "the-witcher",
+    "titulo": "The Witcher",
+    "portada": "../img/the-whitcher_portada.webp",
+    "genero": "Acción, Drama, Aventura",
+    "sinopsis": "Geralt de Rivia, un cazador de monstruos, recorre un mundo lleno de magia, conflictos y criaturas peligrosas.",
+    "caps": 24,
+    "duracion": "60 min",
+    "puntuacion": [],
+    "creador": "Lauren Schmidt Hissrich",
+    "actores": [
+      "Henry Cavill",
+      "Anya Chalotra",
+      "Freya Allan"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "john-wick",
+    "titulo": "John Wick",
+    "portada": "../img/john-wick_portada.webp",
+    "genero": "Acción, Suspenso",
+    "sinopsis": "Un exasesino vuelve al mundo criminal para vengarse de quienes le arrebataron lo que más quería.",
+    "caps": "Película",
+    "duracion": "1h 41min",
+    "puntuacion": [],
+    "creador": "Chad Stahelski",
+    "actores": [
+      "Keanu Reeves",
+      "Michael Nyqvist",
+      "Alfie Allen"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "rapidos-y-furiosos",
+    "titulo": "Rápidos y Furiosos",
+    "portada": "../img/rapidos-y-furiosos_portada.jpg",
+    "genero": "Acción, Aventura",
+    "sinopsis": "Un policía encubierto se infiltra en el mundo de las carreras callejeras y el crimen organizado.",
+    "caps": "Película",
+    "duracion": "1h 46min",
+    "puntuacion": [],
+    "creador": "Rob Cohen",
+    "actores": [
+      "Vin Diesel",
+      "Paul Walker",
+      "Michelle Rodriguez"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "mision-imposible",
+    "titulo": "Misión Imposible",
+    "portada": "../img/mision-imposible_portada.jpg",
+    "genero": "Acción, Suspenso, Aventura",
+    "sinopsis": "Ethan Hunt debe enfrentar misiones de alto riesgo para evitar amenazas internacionales.",
+    "caps": "Película",
+    "duracion": "1h 50min",
+    "puntuacion": [],
+    "creador": "Brian De Palma",
+    "actores": [
+      "Tom Cruise",
+      "Jon Voight",
+      "Emmanuelle Béart"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "mad-max-fury-road",
+    "titulo": "Mad Max: Fury Road",
+    "portada": "../img/mad-max-fury-road_portada.jpg",
+    "genero": "Acción, Ciencia Ficción, Aventura",
+    "sinopsis": "En un mundo postapocalíptico, Max se une a Furiosa para escapar de un tirano y su ejército.",
+    "caps": "Película",
+    "duracion": "2h",
+    "puntuacion": [],
+    "creador": "George Miller",
+    "actores": [
+      "Tom Hardy",
+      "Charlize Theron",
+      "Nicholas Hoult"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "top-gun-maverick",
+    "titulo": "Top Gun: Maverick",
+    "portada": "../img/top-gun-maverick_portada.webp",
+    "genero": "Acción, Drama",
+    "sinopsis": "Maverick vuelve como instructor para preparar a un grupo de pilotos en una misión extremadamente peligrosa.",
+    "caps": "Película",
+    "duracion": "2h 10min",
+    "puntuacion": [],
+    "creador": "Joseph Kosinski",
+    "actores": [
+      "Tom Cruise",
+      "Miles Teller",
+      "Jennifer Connelly"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "friends",
+    "titulo": "Friends",
+    "portada": "../img/friends_portada.jpg",
+    "genero": "Comedia, Romance",
+    "sinopsis": "Seis amigos viven situaciones cotidianas, amorosas y laborales en la ciudad de Nueva York.",
+    "caps": 236,
+    "duracion": "22 min",
+    "puntuacion": [],
+    "creador": "David Crane",
+    "actores": [
+      "Jennifer Aniston",
+      "Courteney Cox",
+      "Matthew Perry"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "the-office",
+    "titulo": "The Office",
+    "portada": "../img/the-office_portada.webp",
+    "genero": "Comedia",
+    "sinopsis": "Los empleados de una oficina viven situaciones absurdas bajo la dirección de un jefe excéntrico.",
+    "caps": 201,
+    "duracion": "22 min",
+    "puntuacion": [],
+    "creador": "Greg Daniels",
+    "actores": [
+      "Steve Carell",
+      "Rainn Wilson",
+      "John Krasinski"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "brooklyn-nine-nine",
+    "titulo": "Brooklyn Nine-Nine",
+    "portada": "../img/brooklyn-nine-nine_portada.jpg",
+    "genero": "Comedia, Acción",
+    "sinopsis": "Un grupo de detectives combina investigaciones policiales con situaciones cómicas dentro de una comisaría.",
+    "caps": 153,
+    "duracion": "22 min",
+    "puntuacion": [],
+    "creador": "Michael Schur",
+    "actores": [
+      "Andy Samberg",
+      "Melissa Fumero",
+      "Andre Braugher"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "modern-family",
+    "titulo": "Modern Family",
+    "portada": "../img/modern-family_portada.jpg",
+    "genero": "Comedia, Drama",
+    "sinopsis": "Tres familias relacionadas entre sí muestran con humor los desafíos de la vida familiar moderna.",
+    "caps": 250,
+    "duracion": "22 min",
+    "puntuacion": [],
+    "creador": "Christopher Lloyd",
+    "actores": [
+      "Ed O'Neill",
+      "Sofía Vergara",
+      "Julie Bowen"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "how-i-met-your-mother",
+    "titulo": "How I Met Your Mother",
+    "portada": "../img/how-i-met-your-mother_portada.webp",
+    "genero": "Comedia, Romance",
+    "sinopsis": "Ted cuenta a sus hijos la historia de cómo conoció a su madre, recordando amistades, amores y momentos divertidos.",
+    "caps": 208,
+    "duracion": "22 min",
+    "puntuacion": [],
+    "creador": "Carter Bays",
+    "actores": [
+      "Josh Radnor",
+      "Jason Segel",
+      "Cobie Smulders"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "son-como-ninos",
+    "titulo": "Son Como Niños",
+    "portada": "../img/son-como-ninos_portada.jpg",
+    "genero": "Comedia",
+    "sinopsis": "Un grupo de amigos de la infancia se reúne con sus familias y revive momentos divertidos del pasado.",
+    "caps": "Película",
+    "duracion": "1h 42min",
+    "puntuacion": [],
+    "creador": "Dennis Dugan",
+    "actores": [
+      "Adam Sandler",
+      "Kevin James",
+      "Chris Rock"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "legalmente-rubia",
+    "titulo": "Legalmente Rubia",
+    "portada": "../img/legalmente-rubia_portada.webp",
+    "genero": "Comedia, Romance",
+    "sinopsis": "Elle Woods ingresa a la universidad de Harvard decidida a demostrar que es mucho más que una apariencia.",
+    "caps": "Película",
+    "duracion": "1h 36min",
+    "puntuacion": [],
+    "creador": "Robert Luketic",
+    "actores": [
+      "Reese Witherspoon",
+      "Luke Wilson",
+      "Selma Blair"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "que-paso-ayer",
+    "titulo": "¿Qué Pasó Ayer?",
+    "portada": "../img/que-paso-ayer_portada.jpg",
+    "genero": "Comedia",
+    "sinopsis": "Tres amigos despiertan sin recordar lo sucedido durante una despedida de soltero en Las Vegas.",
+    "caps": "Película",
+    "duracion": "1h 40min",
+    "puntuacion": [],
+    "creador": "Todd Phillips",
+    "actores": [
+      "Bradley Cooper",
+      "Ed Helms",
+      "Zach Galifianakis"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "jumanji-bienvenidos-a-la-jungla",
+    "titulo": "Jumanji: Bienvenidos a la Jungla",
+    "portada": "../img/jumanji-bienvenidos-a-la-jungla_portada.jpg",
+    "genero": "Comedia, Acción, Aventura",
+    "sinopsis": "Cuatro jóvenes quedan atrapados dentro de un videojuego y deben superar pruebas para regresar a casa.",
+    "caps": "Película",
+    "duracion": "1h 59min",
+    "puntuacion": [],
+    "creador": "Jake Kasdan",
+    "actores": [
+      "Dwayne Johnson",
+      "Kevin Hart",
+      "Karen Gillan"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "la-propuesta",
+    "titulo": "La Propuesta",
+    "portada": "../img/la-propuesta_portada.jpg",
+    "genero": "Comedia, Romance",
+    "sinopsis": "Una editora obliga a su asistente a fingir un compromiso para evitar ser deportada.",
+    "caps": "Película",
+    "duracion": "1h 48min",
+    "puntuacion": [],
+    "creador": "Anne Fletcher",
+    "actores": [
+      "Sandra Bullock",
+      "Ryan Reynolds",
+      "Betty White"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "bridgerton",
+    "titulo": "Bridgerton",
+    "portada": "../img/bridgerton_portada.jpg",
+    "genero": "Romance, Drama",
+    "sinopsis": "La alta sociedad londinense vive entre romances, secretos familiares y escándalos sociales.",
+    "caps": 24,
+    "duracion": "60 min",
+    "puntuacion": [],
+    "creador": "Chris Van Dusen",
+    "actores": [
+      "Phoebe Dynevor",
+      "Regé-Jean Page",
+      "Nicola Coughlan"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "emily-in-paris",
+    "titulo": "Emily in Paris",
+    "portada": "../img/emily-in-paris_portada.jpg",
+    "genero": "Romance, Comedia, Drama",
+    "sinopsis": "Una joven estadounidense se muda a París por trabajo y vive nuevas experiencias amorosas, laborales y culturales.",
+    "caps": 40,
+    "duracion": "30 min",
+    "puntuacion": [],
+    "creador": "Darren Star",
+    "actores": [
+      "Lily Collins",
+      "Ashley Park",
+      "Lucas Bravo"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "yo-nunca",
+    "titulo": "Yo Nunca",
+    "portada": "../img/yo-nunca_portada.jpg",
+    "genero": "Romance, Comedia, Drama",
+    "sinopsis": "Una adolescente intenta mejorar su vida social mientras enfrenta conflictos familiares, escolares y amorosos.",
+    "caps": 40,
+    "duracion": "30 min",
+    "puntuacion": [],
+    "creador": "Mindy Kaling",
+    "actores": [
+      "Maitreyi Ramakrishnan",
+      "Darren Barnet",
+      "Jaren Lewison"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "outlander",
+    "titulo": "Outlander",
+    "portada": "../img/outlander_portada.webp",
+    "genero": "Romance, Drama, Aventura",
+    "sinopsis": "Una enfermera viaja misteriosamente al pasado y vive una historia de amor marcada por la guerra y el destino.",
+    "caps": 83,
+    "duracion": "60 min",
+    "puntuacion": [],
+    "creador": "Ronald D. Moore",
+    "actores": [
+      "Caitríona Balfe",
+      "Sam Heughan",
+      "Tobias Menzies"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "normal-people",
+    "titulo": "Normal People",
+    "portada": "../img/normal-people_portada.webp",
+    "genero": "Romance, Drama",
+    "sinopsis": "Dos jóvenes viven una relación intensa y compleja a lo largo de diferentes etapas de sus vidas.",
+    "caps": 12,
+    "duracion": "30 min",
+    "puntuacion": [],
+    "creador": "Sally Rooney",
+    "actores": [
+      "Daisy Edgar-Jones",
+      "Paul Mescal",
+      "Sarah Greene"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "bajo-la-misma-estrella",
+    "titulo": "Bajo la Misma Estrella",
+    "portada": "../img/bajo-la-misma-estrella_portada.jpg",
+    "genero": "Romance, Drama",
+    "sinopsis": "Dos adolescentes con cáncer se conocen en un grupo de apoyo y comienzan una historia de amor conmovedora.",
+    "caps": "Película",
+    "duracion": "2h 6min",
+    "puntuacion": [],
+    "creador": "Josh Boone",
+    "actores": [
+      "Shailene Woodley",
+      "Ansel Elgort",
+      "Laura Dern"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "diario-de-una-pasion",
+    "titulo": "Diario de una Pasión",
+    "portada": "../img/diario-de-una-pasion_portada.jpg",
+    "genero": "Romance, Drama",
+    "sinopsis": "Una pareja vive una historia de amor marcada por las diferencias sociales, el paso del tiempo y la memoria.",
+    "caps": "Película",
+    "duracion": "2h 3min",
+    "puntuacion": [],
+    "creador": "Nick Cassavetes",
+    "actores": [
+      "Ryan Gosling",
+      "Rachel McAdams",
+      "James Garner"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "orgullo-y-prejuicio",
+    "titulo": "Orgullo y Prejuicio",
+    "portada": "../img/orgullo-y-prejuicio_portada.jpg",
+    "genero": "Romance, Drama",
+    "sinopsis": "Elizabeth Bennet y el señor Darcy enfrentan prejuicios, orgullo y diferencias sociales en una historia clásica de amor.",
+    "caps": "Película",
+    "duracion": "2h 9min",
+    "puntuacion": [],
+    "creador": "Joe Wright",
+    "actores": [
+      "Keira Knightley",
+      "Matthew Macfadyen",
+      "Rosamund Pike"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "a-dos-metros-de-ti",
+    "titulo": "A Dos Metros de Ti",
+    "portada": "../img/a-dos-metros-de-ti_portada.webp",
+    "genero": "Romance, Drama",
+    "sinopsis": "Dos jóvenes con fibrosis quística se enamoran, aunque deben mantenerse separados por razones médicas.",
+    "caps": "Película",
+    "duracion": "1h 56min",
+    "puntuacion": [],
+    "creador": "Justin Baldoni",
+    "actores": [
+      "Haley Lu Richardson",
+      "Cole Sprouse",
+      "Moises Arias"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "yo-antes-de-ti",
+    "titulo": "Yo Antes de Ti",
+    "portada": "../img/yo-antes-de-ti_portada.jpg",
+    "genero": "Romance, Drama",
+    "sinopsis": "Una joven comienza a trabajar como cuidadora de un hombre que cambió su vida tras un accidente.",
+    "caps": "Película",
+    "duracion": "1h 50min",
+    "puntuacion": [],
+    "creador": "Thea Sharrock",
+    "actores": [
+      "Emilia Clarke",
+      "Sam Claflin",
+      "Janet McTeer"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "you",
+    "titulo": "You",
+    "portada": "../img/you_portada.webp",
+    "genero": "Suspenso, Drama, Romance",
+    "sinopsis": "Un hombre obsesivo se involucra peligrosamente en la vida de las personas que desea.",
+    "caps": 40,
+    "duracion": "45 min",
+    "puntuacion": [],
+    "creador": "Greg Berlanti",
+    "actores": [
+      "Penn Badgley",
+      "Victoria Pedretti",
+      "Elizabeth Lail"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "mindhunter",
+    "titulo": "Mindhunter",
+    "portada": "../img/mindhunter_portada.jpg",
+    "genero": "Suspenso, Drama",
+    "sinopsis": "Agentes del FBI entrevistan asesinos seriales para comprender sus mentes y resolver futuros crímenes.",
+    "caps": 19,
+    "duracion": "50 min",
+    "puntuacion": [],
+    "creador": "Joe Penhall",
+    "actores": [
+      "Jonathan Groff",
+      "Holt McCallany",
+      "Anna Torv"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "true-detective",
+    "titulo": "True Detective",
+    "portada": "../img/true-detective_portada.jpg",
+    "genero": "Suspenso, Drama",
+    "sinopsis": "Detectives investigan crímenes complejos mientras enfrentan conflictos personales y secretos oscuros.",
+    "caps": 30,
+    "duracion": "60 min",
+    "puntuacion": [],
+    "creador": "Nic Pizzolatto",
+    "actores": [
+      "Matthew McConaughey",
+      "Woody Harrelson",
+      "Mahershala Ali"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "la-chica-de-nieve",
+    "titulo": "La Chica de Nieve",
+    "portada": "../img/la-chica-de-nieve_portada.webp",
+    "genero": "Suspenso, Drama",
+    "sinopsis": "Una periodista investiga la desaparición de una niña durante una cabalgata, enfrentando secretos y pistas inquietantes.",
+    "caps": 6,
+    "duracion": "45 min",
+    "puntuacion": [],
+    "creador": "Jesús Mesas Silva",
+    "actores": [
+      "Milena Smit",
+      "José Coronado",
+      "Aixa Villagrán"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "el-inocente",
+    "titulo": "El Inocente",
+    "portada": "../img/el-inocente_portada.jpg",
+    "genero": "Suspenso, Drama",
+    "sinopsis": "Un hombre intenta rehacer su vida, pero un crimen del pasado vuelve a perseguirlo.",
+    "caps": 8,
+    "duracion": "50 min",
+    "puntuacion": [],
+    "creador": "Oriol Paulo",
+    "actores": [
+      "Mario Casas",
+      "Aura Garrido",
+      "Alexandra Jiménez"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "perdida",
+    "titulo": "Perdida",
+    "portada": "../img/perdida_portada.jpg",
+    "genero": "Suspenso, Drama",
+    "sinopsis": "La desaparición de una mujer revela secretos, mentiras y sospechas dentro de su matrimonio.",
+    "caps": "Película",
+    "duracion": "2h 29min",
+    "puntuacion": [],
+    "creador": "David Fincher",
+    "actores": [
+      "Ben Affleck",
+      "Rosamund Pike",
+      "Neil Patrick Harris"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "la-isla-siniestra",
+    "titulo": "La Isla Siniestra",
+    "portada": "../img/la-isla-siniestra_portada.jpg",
+    "genero": "Suspenso, Drama",
+    "sinopsis": "Un agente federal investiga la desaparición de una paciente en un hospital psiquiátrico ubicado en una isla.",
+    "caps": "Película",
+    "duracion": "2h 18min",
+    "puntuacion": [],
+    "creador": "Martin Scorsese",
+    "actores": [
+      "Leonardo DiCaprio",
+      "Mark Ruffalo",
+      "Ben Kingsley"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "fragmentado",
+    "titulo": "Fragmentado",
+    "portada": "../img/fragmentado_portada.webp",
+    "genero": "Suspenso, Terror",
+    "sinopsis": "Un hombre con múltiples personalidades secuestra a tres jóvenes, revelando una amenaza cada vez más peligrosa.",
+    "caps": "Película",
+    "duracion": "1h 57min",
+    "puntuacion": [],
+    "creador": "M. Night Shyamalan",
+    "actores": [
+      "James McAvoy",
+      "Anya Taylor-Joy",
+      "Betty Buckley"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "el-silencio-de-los-inocentes",
+    "titulo": "El Silencio de los Inocentes",
+    "portada": "../img/el-silencio-de-los-inocentes_portada.jpg",
+    "genero": "Suspenso, Terror, Drama",
+    "sinopsis": "Una agente del FBI busca la ayuda de un brillante asesino encarcelado para capturar a otro criminal.",
+    "caps": "Película",
+    "duracion": "1h 58min",
+    "puntuacion": [],
+    "creador": "Jonathan Demme",
+    "actores": [
+      "Jodie Foster",
+      "Anthony Hopkins",
+      "Scott Glenn"
+    ],
+    "banner": "../img/"
+  },
+  {
+    "id": "prisioneros",
+    "titulo": "Prisioneros",
+    "portada": "../img/prisioneros_portada.jpg",
+    "genero": "Suspenso, Drama",
+    "sinopsis": "La desaparición de dos niñas lleva a un padre desesperado a tomar decisiones extremas mientras la policía investiga.",
+    "caps": "Película",
+    "duracion": "2h 33min",
+    "puntuacion": [],
+    "creador": "Denis Villeneuve",
+    "actores": [
+      "Hugh Jackman",
+      "Jake Gyllenhaal",
+      "Viola Davis"
+    ],
+    "banner": "../img/"
+  }
 ]
