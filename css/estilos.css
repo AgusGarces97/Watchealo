@@ -1625,3 +1625,61 @@ header + main > .container-fluid.px-0 {
     background-color: var(--verdeOscuro);
     color: white;
 }
+
+
+/* Fondo oscuro y centrado */
+  .modal-overlay {
+    display: none; /* Cambiar a 'flex' para mostrar */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(11, 22, 28, 0.9); /* Color oscuro base de la web */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  /* Contenedor del modal */
+  .modal-container {
+    background-color: #0b161c;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+  }
+
+  /* Estilo del input (con borde minimalista similar a los botones de la navbar) */
+  #inputPuntuacion {
+    width: 80%;
+    padding: 10px;
+    margin: 20px 0;
+    background: transparent;
+    border: 1px solid #fff;
+    color: white;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  /* Estilo de botones (replicando el estilo 'Explorar'/'Listas') */
+  .modal-buttons {
+     display: flex; 
+     gap: 10px; 
+     justify-content: center;
+     }
+
+    .btn-cancelar, .btn-enviar{
+    padding: 8px 20px;
+    border: 1px solid #fff;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: 0.3s;
+    }
+
+  .btn-cancelar:hover, .btn-enviar:hover {
+    background: #fff;
+    color: #0b161c;
+  }

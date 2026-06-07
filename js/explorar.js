@@ -68,7 +68,6 @@ function aplicarFiltros() {
     mostrarResultados(resultados);
 }
 
-
 function mostrarResultados(lista) {
 
     contenedorExplorar.innerHTML = "";
@@ -85,13 +84,15 @@ function mostrarResultados(lista) {
     }
 
     lista.forEach(function(pelicula) {
+        
         contenedorExplorar.innerHTML += crearTarjetaExplorar(pelicula);
     });
 }
 
 
 function crearTarjetaExplorar(pelicula) {
-    return `
+    const listaPelis = JSON.parse(localStorage.getItem('peliculas_series'));
+        return `
         <div class="col">
             <a href="detalle.html?id=${pelicula.id}" class="text-decoration-none">
 
@@ -114,4 +115,5 @@ function crearTarjetaExplorar(pelicula) {
             </a>
         </div>
     `;
+    
 }

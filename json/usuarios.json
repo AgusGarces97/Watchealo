@@ -7,7 +7,7 @@
         "fotoPerfil": "../img/pfp-default.webp",
         "banner": "../img/banner-default.jpg",
         "biografia": "¡Hola! Contanos un poco sobre tus gustos en series y películas...",
-        "pelis_puntuadas": "[{'the-walking-dead', '9.8'}]",
+        "pelis_puntuadas": [],
         "reseñas": [],
         "favoritos": []
     },
@@ -19,7 +19,7 @@
         "fotoPerfil": "../img/pfp-default.webp",
         "banner": "../img/banner-default.jpg",
         "biografia": "¡Hola! Contanos un poco sobre tus gustos en series y películas...",
-        "pelis_puntuadas": "[{'the-walking-dead', '9.8'}]",
+        "pelis_puntuadas": [],
         "reseñas": [],
         "favoritos": []
     },
@@ -31,7 +31,7 @@
         "fotoPerfil": "../img/pfp-default.webp",
         "banner": "../img/banner-default.jpg",
         "biografia": "¡Hola! Contanos un poco sobre tus gustos en series y películas...",
-        "pelis_puntuadas": "[{'the-walking-dead', '9.8'}]",
+        "pelis_puntuadas": [],
         "reseñas": [],
         "favoritos": []
     }
