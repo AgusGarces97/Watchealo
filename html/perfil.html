@@ -89,8 +89,10 @@
                     </div>
 
                     <!-- Info usuario -->
-                    <div class="usuario-info-row">
-                        <h2 class="fw-bold mb-1" id="username">Nombre de Usuario</h2>
+                    <div class="usuario-info-row" >
+                        <div id="cont_nombre_de_usuario">
+                             <h2 class="fw-bold mb-1" id="username">Nombre de Usuario</h2>
+                        </div>
                         <button type="button" class="btn btn-outline-info btn-sm rounded-pill px-3 py-1" id="btn-cambiar-username" style="display: none; border-color: var(--celeste); color: var(--celeste);">
                             <i class="bi bi-pencil-fill"></i> Cambiar Nombre de Usuario
                         </button>
@@ -126,7 +128,7 @@
                         <!-----------------------FAVORITOS ------------------------------------>
                         <div>
                             <h2 class="fs-4 mb-3">Favoritos</h2>
-                            <div class="row g-2 contenedor_favoritos">
+                            <div class="row g-2 contenedor_favoritos" id="contenedor-favoritos">
                                 <!-- Se rellena dinámicamente -->
                             </div>
                         </div>
@@ -136,87 +138,9 @@
                     <!-- COLUMNA DERECHA: Reseñas -->
                     <div class="col-12 col-lg-4">
                         <h2 class="fs-4 mb-3">Mis Reseñas</h2>
-                        <div class="reseñas_perfil d-flex flex-column gap-3">
+                        <div class="reseñas_perfil d-flex flex-column gap-3" id="contenedor-reseñas-perfil">
 
-                            <!--TARJETA 1-->
-                            <div class="row reseña align-items-center rounded g-0">
-                                <div class="col-4">
-                                    <img src="../img/portada.jpg" class="rounded portada w-100" alt="portada">
-                                </div>
-                                <div class="col-8 ps-3">
-                                    <h5 class="card-title mb-1 text-truncate fw-bold text-dark fs-6">Título del Elemento</h5>
-                                    <div class="mb-1 estrella">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                    <p class="card-text text-dark mb-0 small">
-                                        Esta es la descripción del elemento de la tarjeta.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!--TARJETA 2-->
-                            <div class="row reseña align-items-center rounded g-0">
-                                <div class="col-4">
-                                    <img src="../img/portada.jpg" class="rounded portada w-100" alt="portada">
-                                </div>
-                                <div class="col-8 ps-3">
-                                    <h5 class="card-title mb-1 text-truncate fw-bold text-dark fs-6">Título del Elemento</h5>
-                                    <div class="mb-1 estrella">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                    <p class="card-text text-dark mb-0 small">
-                                        Esta es la descripción del elemento de la tarjeta.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!--TARJETA 3-->
-                            <div class="row reseña align-items-center rounded g-0">
-                                <div class="col-4">
-                                    <img src="../img/portada.jpg" class="rounded portada w-100" alt="portada">
-                                </div>
-                                <div class="col-8 ps-3">
-                                    <h5 class="card-title mb-1 text-truncate fw-bold text-dark fs-6">Título del Elemento</h5>
-                                    <div class="mb-1 estrella">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                    <p class="card-text text-dark mb-0 small">
-                                        Esta es la descripción del elemento de la tarjeta.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!--TARJETA 4-->
-                            <div class="row reseña align-items-center rounded g-0">
-                                <div class="col-4">
-                                    <img src="../img/portada.jpg" class="rounded portada w-100" alt="portada">
-                                </div>
-                                <div class="col-8 ps-3">
-                                    <h5 class="card-title mb-1 text-truncate fw-bold text-dark fs-6">Título del Elemento</h5>
-                                    <div class="mb-1 estrella">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                    <p class="card-text text-dark mb-0 small">
-                                        Esta es la descripción del elemento de la tarjeta.
-                                    </p>
-                                </div>
-                            </div>
+                            
 
                         </div>
                     </div>

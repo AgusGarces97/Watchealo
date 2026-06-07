@@ -13,8 +13,8 @@ document.querySelectorAll('.btn-bookmark').forEach(btn => {
 //======================= CLASES =================
 //================================================
 
-class PeliculaSerie {
-    constructor(id, titulo, portada, genero, sinopsis, caps, duracion, puntuacion, creador, actores, banner) {
+class PeliculaSerie{
+    constructor(id, titulo, portada, genero, sinopsis, caps, duracion, puntuacion, creador, actores, banner, reseñas){
         this.id = id;
         this.titulo = titulo;
         this.portada = portada;
@@ -26,12 +26,13 @@ class PeliculaSerie {
         this.creador = creador;
         this.actores = actores;
         this.banner = banner;
+        this.reseñas = reseñas;
     }
 }
 
 
-class Usuario {
-    constructor(username, email, contraseña, fechaNac, fotoPerfil, banner, biografia, pelis_puntuadas) {
+class Usuario{
+    constructor(username, email, contraseña, fechaNac, fotoPerfil, banner, biografia, pelis_puntuadas, reseñas, favoritos){
         this.username = username;
         this.email = email;
         this.contraseña = contraseña;
@@ -40,6 +41,8 @@ class Usuario {
         this.banner = banner;
         this.biografia = biografia;
         this.pelis_puntuadas = pelis_puntuadas;
+        this.reseñas = reseñas;
+        this.favoritos = favoritos;
     }
 }
 
@@ -160,20 +163,7 @@ window.addEventListener('load', () => {
             Arreglo_Pelis_Series = [];
 
             datosJSON.forEach(p => {
-                let pelicula = new PeliculaSerie(
-                    p.id,
-                    p.titulo,
-                    p.portada,
-                    p.genero,
-                    p.sinopsis,
-                    p.caps,
-                    p.duracion,
-                    p.puntuacion,
-                    p.creador,
-                    p.actores,
-                    p.banner
-                );
-
+                let pelicula = new PeliculaSerie(p.id, p.titulo, p.portada, p.genero, p.sinopsis, p.caps, p.duracion, p.puntuacion, p.creador, p.actores, p.banner, p.reseñas);
                 Arreglo_Pelis_Series.push(pelicula);
             });
 
@@ -181,10 +171,7 @@ window.addEventListener('load', () => {
             // DETALLE.HTML dinámico
             // Lee el id de la URL. Ejemplo: detalle.html?id=dark
             if (document.getElementById("titulo")) {
-                const parametros = new URLSearchParams(window.location.search);
-                const idPelicula = parametros.get("id") || "the-walking-dead"; //Mostratá the-walking-dead por defecto si no encuentra el id de la película.
-
-                renderizarDetalles(idPelicula);
+                renderizarDetalles();
             }
 
 
@@ -195,82 +182,49 @@ window.addEventListener('load', () => {
                 cargarBannerPerfil();
                 cargarBiografia();
                 cargarNombreUsuario();
+                cargarReseñasPerfil();
             }
 
         })
         .catch(err => console.error("Error cargando el JSON:", err));
 });
 
+// FUNCIÓN PARA PINTAR LOS DATOS EN LA PESTAÑA DETALLES
+function renderizarDetalles() {
 
-// FUNCIÓN PARA PINTAR LOS DATOS EN DETALLE.HTML
-function renderizarDetalles(id_pelicula) {
 
-    const peliEncontrada = Arreglo_Pelis_Series.find(peli => peli.id === id_pelicula);
+    // 1. Obtenemos los parámetros de la URL actual
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // 2. Capturamos el valor específico del parámetro 'id'
+    const idPelicula = urlParams.get('id');
+
+    // Buscamos directamente el objeto que coincida con el id
+    let ListaPeliculasSeries = JSON.parse(localStorage.getItem('peliculas_series'));
+    const peliEncontrada = ListaPeliculasSeries.find(peli => peli.id === idPelicula);
+
+    // TODA LA LOGICA PARA CALCULAR EL PROMEDIO DE PUNTUACIONES DE LA PELICULA O SERIE
+    let sumatotal = 0;
+    for(i=0; i<peliEncontrada.puntuacion.length; i++){
+        sumatotal += peliEncontrada.puntuacion[i]; 
+    }
+    let puntaje = sumatotal / peliEncontrada.puntuacion.length;
+    /////////////////////////////////////////////////////////////////////////////////////
 
     if (peliEncontrada) {
-
-        if (portadaDetalle) {
-            portadaDetalle.src = peliEncontrada.portada;
-            portadaDetalle.alt = peliEncontrada.titulo;
-        }
-
-        if (bannerDetalle) {
-            bannerDetalle.src = peliEncontrada.banner;
-            bannerDetalle.alt = peliEncontrada.titulo;
-        }
-
-        if (tituloDetalle) {
-            tituloDetalle.innerHTML = `<h1>${peliEncontrada.titulo}</h1>`;
-        }
-
-        if (generoDetalle) {
-            generoDetalle.innerHTML = `<h3>${peliEncontrada.genero}</h3>`;
-        }
-
-        if (sinopsisDetalle) {
-            sinopsisDetalle.innerHTML = `<p>${peliEncontrada.sinopsis}</p>`;
-        }
-
-        if (capsDetalle) {
-            capsDetalle.innerHTML = `<p>${peliEncontrada.caps}</p>`;
-        }
-
-        if (puntuacionDetalle) {
-            puntuacionDetalle.innerHTML = `<p>${peliEncontrada.puntuacion}</p>`;
-        }
-
-        if (creadorDetalle) {
-            creadorDetalle.innerHTML = `<p>${peliEncontrada.creador}</p>`;
-        }
-
-        if (duracionDetalle) {
-            duracionDetalle.innerHTML = `<p>${peliEncontrada.duracion}</p>`;
-        }
-
-        if (actoresDetalle) {
-            const listaActores = peliEncontrada.actores.join(', ');
-            actoresDetalle.innerHTML = `<p>${listaActores}</p>`;
-        }
-
-
-        // FAVORITOS DINÁMICOS
-        // Antes siempre agregaba the-walking-dead. Ahora agrega la peli/serie actual.
-        const btnFavs = document.getElementById("btn-favs");
-
-        if (btnFavs) {
-            btnFavs.onclick = function() {
-                agregarAFavoritos(peliEncontrada.id);
-            };
-        }
-
-
-        // MODAL DE RESEÑA DINÁMICO
-        const inputTituloReseña = document.getElementById("reseña-peli-titulo");
-
-        if (inputTituloReseña) {
-            inputTituloReseña.value = peliEncontrada.titulo;
-        }
-
+        portadaDetalle.src = peliEncontrada.portada;
+        bannerDetalle.src = peliEncontrada.banner;
+        
+        tituloDetalle.innerHTML = `<h1>${peliEncontrada.titulo}</h1>`;
+        generoDetalle.innerHTML = `<h3>${peliEncontrada.genero}</h3>`;
+        sinopsisDetalle.innerHTML = `<p>${peliEncontrada.sinopsis}</p>`;
+        capsDetalle.innerHTML = `<p>${peliEncontrada.caps}</p>`;
+        puntuacionDetalle.innerHTML = `<p>${puntaje.toFixed(2)}</p>`;
+        creadorDetalle.innerHTML = `<p>${peliEncontrada.creador}</p>`;
+        duracionDetalle.innerHTML = `<p>${peliEncontrada.duracion}</p>`;
+        
+        const listaActores = peliEncontrada.actores.join(', ');
+        actoresDetalle.innerHTML = `<p>${listaActores}</p>`;
     } else {
         console.error("No se encontró ninguna película con el ID: " + id_pelicula);
 
@@ -282,6 +236,49 @@ function renderizarDetalles(id_pelicula) {
             sinopsisDetalle.innerHTML = `<p>Volvé a listas o explorar e intentá nuevamente.</p>`;
         }
     }
+
+    const reseñasGuardadas = JSON.parse(localStorage.getItem('reseñasTodaPagina'));
+
+
+    // DETECTA CUALES SON LAS RESEÑAS DE ESA PELICULA Y MOSTRARLAS DE ACUERDO A ESO
+    const contenedorReseñas = document.getElementById('contenedor-reseñas-detalle');
+    reseñasGuardadas.forEach(reseña => {
+                for(i=0; i<peliEncontrada.reseñas.length; i++){
+                    if(reseña.id === peliEncontrada.reseñas[i]){
+                        const tarjetaHTML = `
+                            <div class="card border-0 p-3 mb-3" style="background-color: rgba(255,255,255,0.02); border-left: 3px solid var(--celeste) !important; border-radius: 10px;">
+                                <div class="d-flex align-items-center mb-2">
+                                    <img src="${reseña.fotoUsuario}" alt="Avatar ${reseña.nombreUsuario}" class="rounded-circle me-3" width="45" height="45" style="object-fit: cover; border: 2px solid var(--celeste);">
+                                    <div>
+                                        <h6 class="mb-0 fw-bold text-white">${reseña.nombreUsuario}</h6>
+                                        <div class="d-flex align-items-center mt-1">
+                                            <div class="me-2">${reseña.estrellasHTML}</div>
+                                            <small class="text-muted">(${reseña.puntuacion}/10 pts)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mb-0 mt-2 text-white-50" style="font-size: 0.95rem; line-height: 1.5;">
+                                    ${reseña.comentarioTexto}
+                                </p>
+                            </div>
+                        `;
+                        contenedorReseñas.insertAdjacentHTML("beforeend", tarjetaHTML);
+                    }
+                }
+        });
+    ////////////////////////////////////////////////////////////////////////////////
+
+    let usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
+    // Cambiar la estrella a estrella llena (Aun no funciona)
+    for(i=0; i<usuarioLogeado.favoritos.length; i++){
+        if(peliEncontrada.titulo === usuarioLogeado.favoritos[i]){
+            document.getElementById('btn-favs').innerHTML = `
+                <i class="bi bi-star-filled"></i>
+            `;
+        }
+    }
+    
+
 }
 
 
@@ -289,34 +286,58 @@ function renderizarDetalles(id_pelicula) {
 //   LÓGICA DE FAVORITOS LOCALSTORAGE
 // ==========================================
 
-function agregarAFavoritos(id_pelicula) {
-    let favoritos = JSON.parse(localStorage.getItem('mis_favoritos')) || [];
+// FUNCIÓN PARA AGREGAR FAVORITOS DESDE DETALLE.HTML
+function agregarAFavoritos() {
+    
+    // 1. Obtenemos los parámetros de la URL actual
+    const urlParams = new URLSearchParams(window.location.search);
 
-    if (!favoritos.includes(id_pelicula)) {
-        favoritos.push(id_pelicula);
-        localStorage.setItem('mis_favoritos', JSON.stringify(favoritos));
+    // 2. Capturamos el valor específico del parámetro 'id'
+    const idPelicula = urlParams.get('id');
+
+    const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
+    const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
+
+    // Validamos que no se duplique la película
+    if (!usuarioLogeado.favoritos.includes(idPelicula)) {
+
+        // Agrego la id de la pelicula a la propiedad de favoritos del usuarioLogeado
+        usuarioLogeado.favoritos.push(idPelicula);
+        // Actualizo al usuarioLogeado en el localStorage
+        localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
+        //Actualizo esto tambien para la lista de todos los usuarios
+        for(i=0; i<listaUsuarios.length; i++){
+            if(listaUsuarios[i].email === usuarioLogeado.email){
+                listaUsuarios[i].favoritos = usuarioLogeado.favoritos;
+            }
+        }
+        localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
+        ////////////////////////////////////////////////////////////////
         alert("¡Agregada a tus favoritos en tu perfil!");
     } else {
         alert("Esta serie ya está en tus favoritos.");
     }
+
 }
 
 
+// FUNCIÓN PARA RENDERIZAR FAVORITOS EN PERFIL.HTML
 function renderizarFavoritosPerfil() {
     const contenedorFavoritos = document.querySelector(".contenedor_favoritos");
 
     if (!contenedorFavoritos) return;
 
-    let favoritos = JSON.parse(localStorage.getItem('mis_favoritos')) || [];
+    contenedorFavoritos.innerHTML = ""; // Limpiamos carga previa
 
-    contenedorFavoritos.innerHTML = "";
+    let usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
 
-    if (favoritos.length === 0) {
+    if (usuarioLogeado.favoritos.length === 0) {
         contenedorFavoritos.innerHTML = `<p class="text-muted">Aún no agregaste series o películas a tus favoritos.</p>`;
         return;
     }
 
-    favoritos.forEach(idFav => {
+    // Recorremos los IDs guardados y buscamos sus datos en el arreglo global
+    usuarioLogeado.favoritos.forEach(idFav => {
         const peli = Arreglo_Pelis_Series.find(p => p.id === idFav);
 
         if (peli) {
@@ -361,11 +382,10 @@ if (btnCambiarPfp && inputPfp && vistaPfp) {
                 vistaPfp.src = imagenBase64;
 
                 const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
+                usuarioLogeado.fotoPerfil = imagenBase64;
+                //Guardo ese cambio en el localStorage
+                localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado)); 
 
-                if (usuarioLogeado) {
-                    usuarioLogeado.fotoPerfil = imagenBase64;
-                    localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado));
-                }
             };
 
             lector.readAsDataURL(archivo);
@@ -411,11 +431,9 @@ if (btnCambiarBanner && inputBanner && vistaBanner) {
                 vistaBanner.src = imagenBase64;
 
                 const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
-
-                if (usuarioLogeado) {
-                    usuarioLogeado.banner = imagenBase64;
-                    localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado));
-                }
+                usuarioLogeado.banner = imagenBase64;
+                // Guardo ese cambio en el localStorage
+                localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado)); 
             };
 
             lector.readAsDataURL(archivo);
@@ -478,12 +496,12 @@ if (btnEditarBio && contenedorBioInteractivo) {
                 <p class="text-white border border-white p-3 rounded mb-0" id="texto-bio">${nuevoTexto}</p>
             `;
 
+            // Asigno esa nueva biografía a la propiedad biografía del usuarioLogeado
             const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
-
-            if (usuarioLogeado) {
-                usuarioLogeado.biografia = nuevoTexto;
-                localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado));
-            }
+            usuarioLogeado.biografia = textareaEl.value;
+            console.log(usuarioLogeado.biografia);
+            // Guardo el Cambio de manera permanente
+            localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado)); 
 
             btnEditarBio.innerHTML = `<i class="bi bi-pencil-fill"></i> Editar`;
             btnEditarBio.classList.replace('btn-success', 'btn-outline-info');
@@ -499,7 +517,6 @@ function cargarBiografia() {
 
     if (textoBio) {
         const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
-
         if (usuarioLogeado) {
             textoBio.innerText = usuarioLogeado.biografia || "¡Hola! Contanos un poco sobre tus gustos en series y películas...";
         }
@@ -532,8 +549,8 @@ if (botonUserName && contNombreUsuario) {
             botonUserName.innerHTML = `<i class="bi bi-check-lg"></i> Guardar Nombre`;
             botonUserName.classList.replace('btn-outline-info', 'btn-success');
             botonUserName.style.borderColor = '#198754';
-            botonUserName.style.color = '#fff';
-
+            botonUserName.style.color = '#fff'; 
+ 
         } else {
 
             editandoUsername = false;
@@ -544,12 +561,20 @@ if (botonUserName && contNombreUsuario) {
             if (nuevoNombre === "") {
                 nuevoNombre = "Nombre de Usuario";
             }
-
+            console.log(nuevoNombre);
+            // 2. Volvemos a inyectar el h2 estático adentro del div contenedor
             contNombreUsuario.innerHTML = `
                 <h2 class="fw-bold" id="username">${nuevoNombre}</h2>
             `;
 
-            localStorage.setItem('nombre_usuario', nuevoNombre);
+            // Asigno ese nuevo username a la propiedad username del usuarioLogeado
+            const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
+            usuarioLogeado.username = nuevoNombre;
+            // Guardo ese cambio en el localStorage
+            localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado)); 
+
+            // 3. Guardamos de forma permanente
+            //localStorage.setItem('nombre_usuario', nuevoNombre);
 
             botonUserName.innerHTML = `<i class="bi bi-pencil-fill"></i> Cambiar Nombre de Usuario`;
             botonUserName.classList.replace('btn-success', 'btn-outline-info');
@@ -564,19 +589,18 @@ function cargarNombreUsuario() {
     const elUsername = document.getElementById("username");
 
     if (elUsername) {
-        const nombreGuardado = localStorage.getItem('nombre_usuario');
-
-        if (nombreGuardado) {
-            elUsername.textContent = nombreGuardado;
+        const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
+        if (usuarioLogeado) {
+            elUsername.textContent = usuarioLogeado.username;
         }
     }
 }
 
 
-// ==========================================
-//   BOTÓN PARA EDITAR PERFIL GENERAL
-// ==========================================
 
+
+
+// BOTON PARA EDITAR PERFIL GENERAL
 const editarPerfil = document.getElementById("btn-editar-perfil-general");
 
 if (editarPerfil) {
@@ -827,7 +851,41 @@ if (btnCrearCuenta) {
 
         } else {
 
-            let listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    // Si no está duplicado, creamos el nuevo objeto usando tu clase Usuario
+    const nuevoUsuario = new Usuario(
+        userName.value,
+        email.value,
+        contraseña.value,
+        fechaNac.value,
+        "../img/pfp-default.webp",
+        "../img/banner-default.jpg",
+        "¡Hola! Contanos un poco sobre tus gustos en series y películas...",
+        [],
+        [],
+        []
+    );
+
+    // Agregamos el nuevo usuario al arreglo
+    listaUsuarios.push(nuevoUsuario);
+
+    // Guardamos el arreglo actualizado en el localStorage
+    localStorage.setItem("usuarios", JSON.stringify(listaUsuarios));
+
+    // =========================================================
+    // CONTINÚA LÓGICA VISUAL (Cerrar modal, avisos, etc.)
+    // =========================================================
+    mostrarAviso(
+        `<i class="bi bi-patch-check-fill text-success"></i> ¡Bienvenido/a!`,
+        `<p class="mb-0 fs-5 text-center">¡Tu registro en <span style="color: var(--celeste);" class="fw-bold">Watchealo</span> se completó de manera exitosa!</p>`,
+        true
+    );
+
+    const modalElemento = document.getElementById("FormularioRegistro");
+    const modalBootstrap = bootstrap.Modal.getInstance(modalElemento);
+    
+    if (modalBootstrap) {
+        modalBootstrap.hide();
+    }
 
             const usuarioExiste = listaUsuarios.some(user => user.username === userName.value);
             const emailExiste = listaUsuarios.some(user => user.email === email.value);
@@ -909,8 +967,9 @@ const btnLogout = document.getElementById("btn-cerrar-sesion");
 const conSinLogear = document.getElementById("contenido-sin-logear");
 const conLogeado = document.getElementById("contenido-logeado");
 
-const perfilUsername = document.getElementById("username");
-
+// Campos del Perfil a rellenar dinámicamente
+const perfilUsername = document.getElementById("username"); //nombre de usuario
+const perfilBiografia = document.getElementById('texto-bio'); // biografía
 
 function comprobarEstadoSesion() {
     const usuarioActivo = JSON.parse(localStorage.getItem("usuarioLogeado"));
@@ -918,9 +977,13 @@ function comprobarEstadoSesion() {
     if (usuarioActivo) {
         if (conSinLogear) conSinLogear.style.display = "none";
         if (conLogeado) conLogeado.style.display = "block";
-
-        if (perfilUsername) {
-            perfilUsername.textContent = `${usuarioActivo.username}`;
+        
+        // Inyectamos el nombre del usuario logeado en el <h2> del perfil
+        if (perfilUsername && vistaBanner && vistaPfp) {
+            perfilUsername.textContent = usuarioActivo.username;
+            vistaBanner.src = usuarioActivo.banner;
+            vistaPfp.src = usuarioActivo.fotoPerfil;
+            perfilBiografia.textContent = usuarioActivo.biografia;
         }
 
     } else {
@@ -933,6 +996,7 @@ function comprobarEstadoSesion() {
 comprobarEstadoSesion();
 
 
+// ESCUCHA DEL ENVÍO DEL FORMULARIO DE LOGIN
 if (formLogin) {
     formLogin.addEventListener("submit", (evento) => {
         evento.preventDefault();
@@ -961,6 +1025,13 @@ if (formLogin) {
                 true
             );
 
+            // Para que cargue las reseñas del perfil apenas inicie sesion
+            cargarReseñasPerfil();
+
+            // Para que cargue los favoritos del perfil apenas inicie sesion
+            renderizarFavoritosPerfil();
+
+            // Refrescamos la interfaz para mostrar el perfil instantáneamente
             comprobarEstadoSesion();
 
         } else {
@@ -975,16 +1046,51 @@ if (formLogin) {
     });
 }
 
+// Arreglo para la lista de Usuarios completa
+let usuariosCargados = JSON.parse(localStorage.getItem("usuarios")) || [];
 
+// ESCUCHA DEL BOTÓN CERRAR SESIÓN
 if (btnLogout) {
     btnLogout.addEventListener("click", (evento) => {
         evento.preventDefault();
+        
+        const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
+        for(i=0; i<usuariosCargados.length; i++){
+            if (usuarioLogeado.email === usuariosCargados[i].email){
+                usuariosCargados[i] = usuarioLogeado;
+            }   
+        }
+        
+        // Guardo el cambio en el localStorage antes de removerlo
+        localStorage.setItem("usuarios", JSON.stringify(usuariosCargados));
 
+        // Removemos únicamente la sesión activa del navegador
         localStorage.removeItem("usuarioLogeado");
 
+        // Para que borre las reseñas del perfil apenas cierre sesion
+        document.getElementById("contenedor-reseñas-perfil").innerHTML = "";
+
+        // Borrar los favoritos cuando se cierre la sesion
+        document.getElementById("contenedor-favoritos").innerHTML = "";
+        localStorage.removeItem("mis_favoritos");
+        
+        // Volvemos a evaluar el estado para bloquear el perfil y mostrar el Login
         comprobarEstadoSesion();
     });
 }
+
+
+class Reseña{
+    constructor(id, fotoUsuario, nombreUsuario, estrellasHTML, puntuacion, comentarioTexto){
+        this.id = id;
+        this.fotoUsuario = fotoUsuario;
+        this.nombreUsuario = nombreUsuario;
+        this.estrellasHTML = estrellasHTML;
+        this.puntuacion = puntuacion;
+        this.comentarioTexto = comentarioTexto;
+    }
+}
+
 
 
 // =========================================================
@@ -994,34 +1100,8 @@ if (btnLogout) {
 document.addEventListener("DOMContentLoaded", () => {
     const formReseña = document.getElementById("formulario-reseña");
     const contenedorReseñas = document.getElementById("contenedor-reseñas-detalle");
-
-    if (contenedorReseñas) {
-        const reseñasGuardadas = JSON.parse(localStorage.getItem("reseñas_detalle")) || [];
-
-        reseñasGuardadas.forEach(reseña => {
-            const tarjetaHTML = `
-                <div class="card border-0 p-3 mb-3" style="background-color: rgba(255,255,255,0.02); border-left: 3px solid var(--celeste) !important; border-radius: 10px;">
-                    <div class="d-flex align-items-center mb-2">
-                        <img src="${reseña.fotoUsuario}" alt="Avatar ${reseña.nombreUsuario}" class="rounded-circle me-3" width="45" height="45" style="object-fit: cover; border: 2px solid var(--celeste);">
-                        <div>
-                            <h6 class="mb-0 fw-bold text-white">${reseña.nombreUsuario}</h6>
-                            <div class="d-flex align-items-center mt-1">
-                                <div class="me-2">${reseña.estrellasHTML}</div>
-                                <small class="text-muted">(${reseña.puntuacion}/10 pts)</small>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="mb-0 mt-2 text-white-50" style="font-size: 0.95rem; line-height: 1.5;">
-                        ${reseña.comentarioTexto}
-                    </p>
-                </div>
-            `;
-
-            contenedorReseñas.insertAdjacentHTML("beforeend", tarjetaHTML);
-        });
-    }
-
-
+    
+    // ESCUCHAR EL ENVÍO DE NUEVAS RESEÑAS
     if (formReseña) {
         formReseña.addEventListener("submit", (e) => {
             e.preventDefault();
@@ -1063,19 +1143,57 @@ document.addEventListener("DOMContentLoaded", () => {
                 estrellasHTML += '<i class="bi bi-star text-muted me-1"></i>';
             }
 
-            const nuevaReseñaObj = {
-                fotoUsuario,
-                nombreUsuario,
-                estrellasHTML,
-                puntuacion,
-                comentarioTexto
-            };
+            // 1. Intentamos obtener el contador actual. 
+            // Si no existe (es la primera vez), usamos 0.
+            let contador = localStorage.getItem('miContador');
 
-            const reseñasGuardadas = JSON.parse(localStorage.getItem("reseñas_detalle")) || [];
+            // Convertimos a número. Si era null, el contador empieza en 0.
+            contador = contador ? parseInt(contador) : 0;
 
+            // 2. Incrementamos el contador
+            contador++;
+
+            // 3. Guardamos el nuevo valor en el localStorage
+            localStorage.setItem('miContador', contador);
+
+            // GUARDAR EN LOCALSTORAGE (La más nueva al principio)
+            const nuevaReseñaObj = new Reseña(contador, fotoUsuario,nombreUsuario,estrellasHTML,puntuacion, comentarioTexto);
+
+
+            const ListaPeliculasSeries = JSON.parse(localStorage.getItem("peliculas_series"));
+            // 1. Obtenemos los parámetros de la URL actual
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // 2. Capturamos el valor específico del parámetro 'id'
+            const idPelicula = urlParams.get('id');
+
+            // GUARDO LA ID DE LA RESEÑA EN LA PROPIEDAD DE LA PELICULA O SERIE
+            for(i=0; i<ListaPeliculasSeries.length; i++){
+                if(ListaPeliculasSeries[i].id === idPelicula){
+                    ListaPeliculasSeries[i].reseñas.push(nuevaReseñaObj.id);
+                }
+            }
+
+            // Actualizo estos datos en el LOCAL STORAGE
+            localStorage.setItem("peliculas_series", JSON.stringify(ListaPeliculasSeries));
+
+            const reseñasGuardadas = JSON.parse(localStorage.getItem("reseñasTodaPagina")) || [];
             reseñasGuardadas.unshift(nuevaReseñaObj);
+            localStorage.setItem("reseñasTodaPagina", JSON.stringify(reseñasGuardadas));
 
-            localStorage.setItem("reseñas_detalle", JSON.stringify(reseñasGuardadas));
+            // VINCULO LA RESEÑA AL USUARIO LOGEADO Y ACTUALIZO AL USUARIO LOGEADO
+            usuarioLogeado.reseñas.push(nuevaReseñaObj.id);
+            localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
+
+            // AHORA ACTUALIZO EN LISTA DE USUARIOS
+            for(i=0; i<usuariosCargados.length; i++){
+            if (usuarioLogeado.email === usuariosCargados[i].email){
+                usuariosCargados[i] = usuarioLogeado;
+            }   
+        }
+        
+        // Guardo el cambio en el localStorage antes de removerlo
+        localStorage.setItem("usuarios", JSON.stringify(usuariosCargados));
 
             const nuevaTarjetaReseña = `
                 <div class="card border-0 p-3 mb-3" style="background-color: rgba(255,255,255,0.02); border-left: 3px solid var(--celeste) !important; border-radius: 10px;">
@@ -1113,3 +1231,46 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+// Funcion para cargar las reseñas a su perfil correspondiente
+function cargarReseñasPerfil(){
+    const contenedorReseñasPerfil = document.getElementById("contenedor-reseñas-perfil");
+    contenedorReseñasPerfil.innerHTML = "";
+    if(contenedorReseñasPerfil){
+        const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
+        const todasReseñas = JSON.parse(localStorage.getItem('reseñasTodaPagina'));
+        if(usuarioLogeado){
+            for(i=0; i<usuarioLogeado.reseñas.length; i++){
+                let reseñaEncontrada = todasReseñas.find(r => (usuarioLogeado.reseñas[i] === r.id));
+                if(reseñaEncontrada){
+                    const nuevaTarjetaReseña = `
+                            <div class="card border-0 p-3 mb-3" style="background-color: rgba(255,255,255,0.02); border-left: 3px solid var(--celeste) !important; border-radius: 10px;">
+                                <div class="d-flex align-items-center mb-2">
+                                    <img src="${reseñaEncontrada.fotoUsuario}" alt="Avatar ${reseñaEncontrada.nombreUsuario}" class="rounded-circle me-3" width="45" height="45" style="object-fit: cover; border: 2px solid var(--celeste);">
+                                    <div>
+                                        <h6 class="mb-0 fw-bold text-white">${reseñaEncontrada.nombreUsuario}</h6>
+                                        <div class="d-flex align-items-center mt-1">
+                                            <div class="me-2">${reseñaEncontrada.estrellasHTML}</div>
+                                            <small class="text-muted">(${reseñaEncontrada.puntuacion}/10 pts)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mb-0 mt-2 text-white-50" style="font-size: 0.95rem; line-height: 1.5;">
+                                    ${reseñaEncontrada.comentarioTexto}
+                                </p>
+                            </div>
+                    `;
+                    if(contenedorReseñasPerfil){
+                        contenedorReseñasPerfil.insertAdjacentHTML("afterbegin", nuevaTarjetaReseña);
+                    }
+                    
+                }                
+            }
+        }else{
+            contenedorReseñasPerfil.innerHTML = "";
+        }
+    }
+}
+
+
+
