@@ -3,18 +3,30 @@
         "username": "AgusGarces",
         "email": "agussdash88@gmail.com",
         "contraseña": "Agustin",
-        "fechaNac": "2003-02-27"
+        "fechaNac": "2003-02-27",
+        "fotoPerfil": "../img/pfp-default.webp",
+        "banner": "../img/banner-default.jpg",
+        "biografia": "¡Hola! Contanos un poco sobre tus gustos en series y películas...",
+        "pelis_puntuadas": "[{'the-walking-dead', '9.8'}]"
     },
     {
         "username": "UliPonce",
         "email": "ulises.ponce72@gmail.com",
         "contraseña": "Ulises",
-        "fechaNac": "2002-10-05"
+        "fechaNac": "2002-10-05",
+        "fotoPerfil": "../img/pfp-default.webp",
+        "banner": "../img/banner-default.jpg",
+        "biografia": "¡Hola! Contanos un poco sobre tus gustos en series y películas...",
+        "pelis_puntuadas": "[{'the-walking-dead', '9.8'}]"
     },
     {
         "username": "JakiCuello",
-        "email": "jakicuellolima@gmail.com",
+        "email": "jakicuello665@gmail.com",
         "contraseña": "Jaqueline",
-        "fechaNac": "2002-02-20"
+        "fechaNac": "2003-07-05",
+        "fotoPerfil": "../img/pfp-default.webp",
+        "banner": "../img/banner-default.jpg",
+        "biografia": "¡Hola! Contanos un poco sobre tus gustos en series y películas...",
+        "pelis_puntuadas": "[{'the-walking-dead', '9.8'}]"
     }
 ]
