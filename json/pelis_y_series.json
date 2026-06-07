@@ -10,7 +10,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Robert Kirkman",
-    "actores": ["Andrew Lincoln", "Norman Reedus", "Melissa McBride"],
+    "actores": [
+      "Andrew Lincoln",
+      "Norman Reedus",
+      "Melissa McBride"
+    ],
     "banner": "../img/twd_banner.jpg"
   },
   {
@@ -24,7 +28,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "The Duffer Brothers",
-    "actores": ["Millie Bobby Brown", "Finn Wolfhard", "David Harbour"],
+    "actores": [
+      "Millie Bobby Brown",
+      "Finn Wolfhard",
+      "David Harbour"
+    ],
     "banner": "../img/"
   },
   {
@@ -38,7 +46,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Baran bo Odar",
-    "actores": ["Louis Hofmann", "Lisa Vicari", "Maja Schöne"],
+    "actores": [
+      "Louis Hofmann",
+      "Lisa Vicari",
+      "Maja Schöne"
+    ],
     "banner": "../img/"
   },
   {
@@ -52,7 +64,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Ryan Murphy",
-    "actores": ["Sarah Paulson", "Evan Peters", "Jessica Lange"],
+    "actores": [
+      "Sarah Paulson",
+      "Evan Peters",
+      "Jessica Lange"
+    ],
     "banner": "../img/"
   },
   {
@@ -66,7 +82,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Mike Flanagan",
-    "actores": ["Victoria Pedretti", "Oliver Jackson-Cohen", "Carla Gugino"],
+    "actores": [
+      "Victoria Pedretti",
+      "Oliver Jackson-Cohen",
+      "Carla Gugino"
+    ],
     "banner": "../img/"
   },
   {
@@ -80,7 +100,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "James Wan",
-    "actores": ["Vera Farmiga", "Patrick Wilson", "Lili Taylor"],
+    "actores": [
+      "Vera Farmiga",
+      "Patrick Wilson",
+      "Lili Taylor"
+    ],
     "banner": "../img/"
   },
   {
@@ -94,7 +118,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Andy Muschietti",
-    "actores": ["Bill Skarsgård", "Jaeden Martell", "Sophia Lillis"],
+    "actores": [
+      "Bill Skarsgård",
+      "Jaeden Martell",
+      "Sophia Lillis"
+    ],
     "banner": "../img/"
   },
   {
@@ -108,7 +136,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Corin Hardy",
-    "actores": ["Taissa Farmiga", "Demián Bichir", "Jonas Bloquet"],
+    "actores": [
+      "Taissa Farmiga",
+      "Demián Bichir",
+      "Jonas Bloquet"
+    ],
     "banner": "../img/"
   },
   {
@@ -122,7 +154,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Wes Craven",
-    "actores": ["Neve Campbell", "Courteney Cox", "David Arquette"],
+    "actores": [
+      "Neve Campbell",
+      "Courteney Cox",
+      "David Arquette"
+    ],
     "banner": "../img/"
   },
   {
@@ -136,7 +172,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Gore Verbinski",
-    "actores": ["Naomi Watts", "Martin Henderson", "Daveigh Chase"],
+    "actores": [
+      "Naomi Watts",
+      "Martin Henderson",
+      "Daveigh Chase"
+    ],
     "banner": "../img/"
   },
   {
@@ -150,7 +190,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Vince Gilligan",
-    "actores": ["Bryan Cranston", "Aaron Paul", "Anna Gunn"],
+    "actores": [
+      "Bryan Cranston",
+      "Aaron Paul",
+      "Anna Gunn"
+    ],
     "banner": "../img/"
   },
   {
@@ -164,7 +208,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Christopher Storer",
-    "actores": ["Jeremy Allen White", "Ayo Edebiri", "Ebon Moss-Bachrach"],
+    "actores": [
+      "Jeremy Allen White",
+      "Ayo Edebiri",
+      "Ebon Moss-Bachrach"
+    ],
     "banner": "../img/"
   },
   {
@@ -178,7 +226,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Shonda Rhimes",
-    "actores": ["Ellen Pompeo", "Chandra Wilson", "James Pickens Jr."],
+    "actores": [
+      "Ellen Pompeo",
+      "Chandra Wilson",
+      "James Pickens Jr."
+    ],
     "banner": "../img/"
   },
   {
@@ -192,7 +244,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Dan Fogelman",
-    "actores": ["Milo Ventimiglia", "Mandy Moore", "Sterling K. Brown"],
+    "actores": [
+      "Milo Ventimiglia",
+      "Mandy Moore",
+      "Sterling K. Brown"
+    ],
     "banner": "../img/"
   },
   {
@@ -206,7 +262,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Peter Morgan",
-    "actores": ["Claire Foy", "Olivia Colman", "Imelda Staunton"],
+    "actores": [
+      "Claire Foy",
+      "Olivia Colman",
+      "Imelda Staunton"
+    ],
     "banner": "../img/"
   },
   {
@@ -220,7 +280,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Christopher Nolan",
-    "actores": ["Cillian Murphy", "Emily Blunt", "Robert Downey Jr."],
+    "actores": [
+      "Cillian Murphy",
+      "Emily Blunt",
+      "Robert Downey Jr."
+    ],
     "banner": "../img/"
   },
   {
@@ -234,7 +298,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Bong Joon-ho",
-    "actores": ["Song Kang-ho", "Choi Woo-shik", "Park So-dam"],
+    "actores": [
+      "Song Kang-ho",
+      "Choi Woo-shik",
+      "Park So-dam"
+    ],
     "banner": "../img/"
   },
   {
@@ -248,7 +316,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Todd Phillips",
-    "actores": ["Joaquin Phoenix", "Robert De Niro", "Zazie Beetz"],
+    "actores": [
+      "Joaquin Phoenix",
+      "Robert De Niro",
+      "Zazie Beetz"
+    ],
     "banner": "../img/"
   },
   {
@@ -262,7 +334,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "James Cameron",
-    "actores": ["Leonardo DiCaprio", "Kate Winslet", "Billy Zane"],
+    "actores": [
+      "Leonardo DiCaprio",
+      "Kate Winslet",
+      "Billy Zane"
+    ],
     "banner": "../img/"
   },
   {
@@ -276,7 +352,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Ridley Scott",
-    "actores": ["Russell Crowe", "Joaquin Phoenix", "Connie Nielsen"],
+    "actores": [
+      "Russell Crowe",
+      "Joaquin Phoenix",
+      "Connie Nielsen"
+    ],
     "banner": "../img/"
   },
   {
@@ -290,7 +370,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Charlie Brooker",
-    "actores": ["Bryce Dallas Howard", "Daniel Kaluuya", "Jesse Plemons"],
+    "actores": [
+      "Bryce Dallas Howard",
+      "Daniel Kaluuya",
+      "Jesse Plemons"
+    ],
     "banner": "../img/"
   },
   {
@@ -304,7 +388,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Jason Rothenberg",
-    "actores": ["Eliza Taylor", "Bob Morley", "Marie Avgeropoulos"],
+    "actores": [
+      "Eliza Taylor",
+      "Bob Morley",
+      "Marie Avgeropoulos"
+    ],
     "banner": "../img/"
   },
   {
@@ -318,7 +406,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Matt Sazama",
-    "actores": ["Molly Parker", "Toby Stephens", "Maxwell Jenkins"],
+    "actores": [
+      "Molly Parker",
+      "Toby Stephens",
+      "Maxwell Jenkins"
+    ],
     "banner": "../img/"
   },
   {
@@ -332,7 +424,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Jonathan Nolan",
-    "actores": ["Evan Rachel Wood", "Thandiwe Newton", "Jeffrey Wright"],
+    "actores": [
+      "Evan Rachel Wood",
+      "Thandiwe Newton",
+      "Jeffrey Wright"
+    ],
     "banner": "../img/"
   },
   {
@@ -346,7 +442,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Jon Favreau",
-    "actores": ["Pedro Pascal", "Carl Weathers", "Giancarlo Esposito"],
+    "actores": [
+      "Pedro Pascal",
+      "Carl Weathers",
+      "Giancarlo Esposito"
+    ],
     "banner": "../img/"
   },
   {
@@ -360,7 +460,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Christopher Nolan",
-    "actores": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"],
+    "actores": [
+      "Leonardo DiCaprio",
+      "Joseph Gordon-Levitt",
+      "Elliot Page"
+    ],
     "banner": "../img/"
   },
   {
@@ -374,7 +478,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Christopher Nolan",
-    "actores": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
+    "actores": [
+      "Matthew McConaughey",
+      "Anne Hathaway",
+      "Jessica Chastain"
+    ],
     "banner": "../img/"
   },
   {
@@ -388,7 +496,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "Denis Villeneuve",
-    "actores": ["Timothée Chalamet", "Zendaya", "Oscar Isaac"],
+    "actores": [
+      "Timothée Chalamet",
+      "Zendaya",
+      "Oscar Isaac"
+    ],
     "banner": "../img/"
   },
   {
@@ -402,7 +514,11 @@
     "puntuacion": [],
     "reseñas": [],
     "creador": "James Cameron",
-    "actores": ["Sam Worthington", "Zoe Saldaña", "Sigourney Weaver"],
+    "actores": [
+      "Sam Worthington",
+      "Zoe Saldaña",
+      "Sigourney Weaver"
+    ],
     "banner": "../img/"
   },
   {
