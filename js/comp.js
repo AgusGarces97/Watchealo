@@ -30,11 +30,15 @@ class PeliculaSerie{
 
 
 class Usuario{
-    constructor(username, email, contraseña, fechaNac){
+    constructor(username, email, contraseña, fechaNac, fotoPerfil, banner, biografia, pelis_puntuadas){
         this.username = username;
         this.email = email;
         this.contraseña = contraseña;
         this.fechaNac = fechaNac;
+        this.fotoPerfil = fotoPerfil;
+        this.banner = banner;
+        this.biografia = biografia;
+        this.pelis_puntuadas = pelis_puntuadas;
     }
 }
 
@@ -42,7 +46,7 @@ class Usuario{
 // PRECARGA DE DATOS DESDE ARCHIVOS JSON A LOCALSTORAGE
 // =========================================================
 
-// 1. Función para cargar usuarios.json
+//Función para cargar usuarios.json
 async function precargarUsuarios() {
     // Solo actuamos si NO existe la clave "usuarios" en el localStorage
     if (!localStorage.getItem("usuarios")) {
@@ -66,7 +70,7 @@ async function precargarUsuarios() {
     }
 }
 
-// 2. Función para cargar pelis_y_series.json
+// Función para cargar pelis_y_series.json
 async function precargarPelisYSeries() {
     // Solo actuamos si NO existe la clave "peliculas_series" en el localStorage
     if (!localStorage.getItem("peliculas_series")) {
@@ -78,17 +82,17 @@ async function precargarPelisYSeries() {
                 throw new Error(`Error al leer pelis_y_series.json: ${respuesta.status}`);
             }
             
-            const datosPelisSeries = await respuesta.json();
+            const datosPelisSeries = await respuesta.json(); //captura los objetos del json
             
             // Guardamos el array de películas/series en el localStorage
             localStorage.setItem("peliculas_series", JSON.stringify(datosPelisSeries));
-            console.log("¡Películas y series precargadas con éxito en localStorage!");
             
         } catch (error) {
             console.error("Hubo un problema al precargar películas y series:", error);
         }
     }
 }
+
 
 // =========================================================
 // EJECUCIÓN AL CARGAR LA PÁGINA
@@ -98,8 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
     precargarUsuarios();
     precargarPelisYSeries();
     
-    // Comprobar el estado de la sesión apenas se monta el DOM
-    comprobarSesion();
 });
 
 
@@ -142,6 +144,7 @@ const actoresDetalle = document.getElementById("actores");
 const bannerDetalle = document.getElementById("banner");
 
 // EJECUCIÓN AUTOMÁTICA AL CARGAR LA PÁGINA
+// ENCARGADO DE RENDERIZAR LOS DETALLES DE LA PESTAÑA DETALLES.HTML Y PERFIL.HTML
 window.addEventListener('load', () => {
 
     // Traer los datos del JSON
@@ -159,7 +162,7 @@ window.addEventListener('load', () => {
             // COMPROBACIÓN DE PÁGINA:
             // Si existe 'tituloDetalle', estamos en detalle.html
             if (document.getElementById("titulo")) {
-                renderizarDetalles("the-walking-dead");
+                renderizarDetalles("the-walking-dead"); //De momento tiene un valor concreto "the-walking-dead", pero luego hay que hacerlo dinámico
             }
             
             // Si existe el contenedor de favoritos, estamos en perfil.html
@@ -176,7 +179,7 @@ window.addEventListener('load', () => {
         .catch(err => console.error("Error cargando el JSON:", err));
 });
 
-// FUNCIÓN PARA PINTAR LOS DATOS
+// FUNCIÓN PARA PINTAR LOS DATOS EN LA PESTAÑA DETALLES
 function renderizarDetalles(id_pelicula) {
     // Buscamos directamente el objeto que coincida con el id
     const peliEncontrada = Arreglo_Pelis_Series.find(peli => peli.id === id_pelicula);
@@ -204,7 +207,7 @@ function renderizarDetalles(id_pelicula) {
 //   LÓGICA DE FAVORITOS (LOCALSTORAGE)
 // ==========================================
 
-// 1. FUNCIÓN PARA AGREGAR DESDE DETALLE.HTML
+// FUNCIÓN PARA AGREGAR FAVORITOS DESDE DETALLE.HTML
 function agregarAFavoritos(id_pelicula) {
     // Obtenemos los favoritos actuales del localStorage (si no hay ninguno, inicializamos array vacío)
     let favoritos = JSON.parse(localStorage.getItem('mis_favoritos')) || [];
@@ -219,7 +222,7 @@ function agregarAFavoritos(id_pelicula) {
     }
 }
 
-// 2. FUNCIÓN PARA RENDERIZAR EN PERFIL.HTML
+// FUNCIÓN PARA RENDERIZAR FAVORITOS EN PERFIL.HTML
 function renderizarFavoritosPerfil() {
     const contenedorFavoritos = document.querySelector(".contenedor_favoritos");
     
@@ -253,6 +256,8 @@ function renderizarFavoritosPerfil() {
     });
 }
 
+////////////////////////////////////////////////////
+
 
 // ==========================================
 //   LÓGICA PARA CAMBIAR FOTO DE PERFIL
@@ -279,17 +284,24 @@ if (btnCambiarPfp && inputPfp && vistaPfp) {
 
             // Cuando la lectura termine con éxito, procesamos el resultado
             lector.onload = function(e) {
-                const imagenBase64 = e.target.result;
+                const imagenBase64 = e.target.result; //Crea una constante para guardar la imagen seleccionada "imagenBase64"
 
                 // Cambiamos la vista previa en el DOM inmediatamente
                 vistaPfp.src = imagenBase64;
 
+                // Asigno esa nueva imagen a la propiedad fotoPerfil del usuarioLogeado
+                const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
+                usuarioLogeado.fotoPerfil = imagenBase64;
+                localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado)); 
+
                 // Guardamos la imagen en el localStorage
-                localStorage.setItem('pfp_usuario', imagenBase64);
+                //localStorage.setItem('pfp_usuario', imagenBase64);
             };
 
             // Leemos el archivo local convirtiéndolo a una cadena de texto Base64
             lector.readAsDataURL(archivo);
+
+            
         }
     });
 }
@@ -297,9 +309,9 @@ if (btnCambiarPfp && inputPfp && vistaPfp) {
 // 3. FUNCIÓN PARA CARGAR LA FOTO GUARDADA AL ENTRAR A LA PÁGINA
 function cargarFotoPerfil() {
     if (vistaPfp) {
-        const fotoGuardada = localStorage.getItem('pfp_usuario');
-        if (fotoGuardada) {
-            vistaPfp.src = fotoGuardada;
+        const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
+        if (usuarioLogeado) {
+            vistaPfp.src = usuarioLogeado.fotoPerfil || "../img/default-avatar.png";
         }
     }
 }
@@ -333,9 +345,13 @@ if (btnCambiarBanner && inputBanner && vistaBanner) {
 
                 // Actualizamos la vista previa en el momento
                 vistaBanner.src = imagenBase64;
+                // Asigno esa nueva imagen a la propiedad banner del usuarioLogeado
+                const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
+                usuarioLogeado.banner = imagenBase64;
+                localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado)); 
 
                 // Guardamos en localStorage
-                localStorage.setItem('banner_usuario', imagenBase64);
+                //localStorage.setItem('banner_usuario', imagenBase64);
             };
 
             lector.readAsDataURL(archivo);
@@ -346,9 +362,9 @@ if (btnCambiarBanner && inputBanner && vistaBanner) {
 // 3. FUNCIÓN PARA CARGAR EL BANNER GUARDADO AL ENTRAR A LA PÁGINA
 function cargarBannerPerfil() {
     if (vistaBanner) {
-        const bannerGuardado = localStorage.getItem('banner_usuario');
-        if (bannerGuardado) {
-            vistaBanner.src = bannerGuardado;
+        const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
+        if (usuarioLogeado) {
+            vistaBanner.src = usuarioLogeado.banner || "../img/banner-default.jpg";
         }
     }
 }
@@ -403,8 +419,13 @@ if (btnEditarBio && contenedorBioInteractivo) {
                 <p class="text-white border border-white p-3 rounded mb-0" id="texto-bio">${nuevoTexto}</p>
             `;
 
+            // Asigno esa nueva imagen a la propiedad fotoPerfil del usuarioLogeado
+                const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
+                usuarioLogeado.biografia = textareaEl.value;
+                localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado)); 
+
             // 3. Guardamos el cambio de forma permanente
-            localStorage.setItem('biografia_usuario', nuevoTexto);
+            //localStorage.setItem('biografia_usuario', nuevoTexto);
 
             // 4. Devolvemos el botón a su estado original de "Editar"
             btnEditarBio.innerHTML = `<i class="bi bi-pencil-fill"></i> Editar`;
@@ -419,9 +440,9 @@ if (btnEditarBio && contenedorBioInteractivo) {
 function cargarBiografia() {
     const textoBio = document.getElementById('texto-bio');
     if (textoBio) {
-        const bioGuardada = localStorage.getItem('biografia_usuario');
-        if (bioGuardada) {
-            textoBio.innerText = bioGuardada;
+        const usuarioLogeado = localStorage.getItem("usuarioLogeado");
+        if (usuarioLogeado) {
+            textoBio.innerText = usuarioLogeado.biografia;
         }
     }
 }
@@ -541,27 +562,30 @@ const errorTerminos = document.getElementById("terminos-aviso");
 let algunError = false;
 
 
-// CONTROL DE USERNAME
-userName.addEventListener("change", () => {
-    if (userName.value.trim().length <= 1) {
-        errorUserName.style.display = "block";
-        errorUserName.innerHTML = `
-            <p class="text-danger mb-1"><i class="bi bi-exclamation-circle-fill"></i> El nombre de usuario debe tener al menos 2 caracteres.</p>
-        `;
-        userName.style.border = "3px solid red";
-        algunError = true;
-    } else {
-        errorUserName.style.display = "block";
-        errorUserName.innerHTML = `
-            <p class="text-success mb-1"><i class="bi bi-check-circle-fill"></i> Nombre de usuario disponible y correcto.</p>
-        `;
-        userName.style.border = "3px solid green";
-        algunError = false;
-    }
-});
+// CONTROL DE USERNAME (Protegido para que no rompa en otras páginas)
+if (userName) {
+    userName.addEventListener("change", () => {
+        if (userName.value.trim().length <= 1) {
+            errorUserName.style.display = "block";
+            errorUserName.innerHTML = `
+                <p class="text-danger mb-1"><i class="bi bi-exclamation-circle-fill"></i> El nombre de usuario debe tener al menos 2 caracteres.</p>
+            `;
+            userName.style.border = "3px solid red";
+            algunError = true;
+        } else {
+            errorUserName.style.display = "block";
+            errorUserName.innerHTML = `
+                <p class="text-success mb-1"><i class="bi bi-check-circle-fill"></i> Nombre de usuario disponible y correcto.</p>
+            `;
+            userName.style.border = "3px solid green";
+            algunError = false;
+        }
+    });
+}
 
 // CONTROL DE EMAIL
-email.addEventListener("change", () => {
+if(email){
+    email.addEventListener("change", () => {
     // Expresión regular estándar para verificar texto + @ + texto + . + texto
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -581,9 +605,12 @@ email.addEventListener("change", () => {
         algunError = false;
     }
 });
+}
 
 // CONTROL DE CONTRASEÑA (Mínimo 6 caracteres)
-contraseña.addEventListener("change", () => {
+if(contraseña){
+    
+    contraseña.addEventListener("change", () => {
     if (contraseña.value.length < 6) {
         errorContraseña.style.display = "block";
         errorContraseña.innerHTML = `
@@ -605,8 +632,11 @@ contraseña.addEventListener("change", () => {
         confirmContraseña.dispatchEvent(new Event('change'));
     }
 });
+}
 
 // CONTROL DE CONFIRMAR CONTRASEÑA (Debe ser idéntica a la primera)
+if(confirmContraseña){
+    
 confirmContraseña.addEventListener("change", () => {
         if (confirmContraseña.value !== contraseña.value || confirmContraseña.value === "") {
             errorConfirmContraseña.style.display = "block";
@@ -624,8 +654,11 @@ confirmContraseña.addEventListener("change", () => {
             algunError = false;
         }
 });
+}
 
 // CONTROL DE FECHA DE NACIMIENTO (Validar que no esté vacía y que sea mayor de edad opcional)
+if(fechaNac){
+    
 fechaNac.addEventListener("change", () => {
     
     // 2. Convertimos el string "YYYY-MM-DD" en un objeto Date real de JS de forma segura
@@ -653,8 +686,11 @@ fechaNac.addEventListener("change", () => {
         algunError = false;
     }
 });
+}
 
-// 5. CONTROL DE TÉRMINOS Y CONDICIONES (Checkboxes usan evento 'change')
+// CONTROL DE TÉRMINOS Y CONDICIONES (Checkboxes usan evento 'change')
+if(terminos){
+    
 terminos.addEventListener("change", () => {
     if (!terminos.checked) {
         errorTerminos.style.display = "block";
@@ -667,6 +703,8 @@ terminos.addEventListener("change", () => {
         algunError = false;
     }
 });
+
+}
 
 // =========================================================
 // FUNCIÓN AUXILIAR PARA MOSTRAR EL MODAL DE AVISO
@@ -706,7 +744,8 @@ function mostrarAviso(titulo, mensajeHTML, esExito = false) {
 const formRegistro = document.getElementById("formulario_registro");
 const btnCrearCuenta = document.getElementById("boton-crear");
 
-btnCrearCuenta.addEventListener("click", ()=>{
+if(btnCrearCuenta){
+    btnCrearCuenta.addEventListener("click", ()=>{
 
     userName.dispatchEvent(new Event('change'));
     email.dispatchEvent(new Event('change'));
@@ -762,7 +801,8 @@ btnCrearCuenta.addEventListener("click", ()=>{
         userName.value,
         email.value,
         contraseña.value,
-        fechaNac.value
+        fechaNac.value,
+        "../img/pfp-default.webp"
     );
 
     // Agregamos el nuevo usuario al arreglo
@@ -800,11 +840,13 @@ btnCrearCuenta.addEventListener("click", ()=>{
     document.getElementById("contenido-sin-logear").style.display = "none";
     document.getElementById("contenido-logeado").style.display = "block"; 
     
-    // (Opcional) Guardar también qué usuario inició sesión actualmente:
+    // Guardar también qué usuario inició sesión actualmente:
     localStorage.setItem("usuarioLogeado", JSON.stringify(nuevoUsuario));
 
     }
 });
+}
+
 
 // =========================================================
 // GESTIÓN DE SESIÓN (LOGIN, PERSISTENCIA Y LOGOUT)
@@ -821,7 +863,7 @@ const conSinLogear = document.getElementById("contenido-sin-logear");
 const conLogeado = document.getElementById("contenido-logeado");
 
 // Campos del Perfil a rellenar dinámicamente
-const perfilUsername = document.getElementById("username");
+const perfilUsername = document.getElementById("username"); //nombre de usuario
 
 /**
  * Controla qué vista mostrar (Login o Perfil) según el localStorage
@@ -836,7 +878,7 @@ function comprobarEstadoSesion() {
         
         // Inyectamos el nombre del usuario logeado en el <h2> del perfil
         if (perfilUsername) {
-            perfilUsername.textContent = `@${usuarioActivo.username}`;
+            perfilUsername.textContent = `${usuarioActivo.username}`;
         }
     } else {
         // Si no hay sesión, forzamos mostrar el login y ocultar el perfil
@@ -866,6 +908,9 @@ if (formLogin) {
 
         if (usuarioValido) {
             // Guardamos la sesión del usuario de forma persistente
+            if (!usuarioValido.fotoPerfil) {
+                usuarioValido.fotoPerfil = "../img/default-avatar.png";
+            }
             localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioValido));
             
             // Reseteamos el formulario
@@ -906,4 +951,126 @@ if (btnLogout) {
 }
 
 
+// =========================================================
+// PUBLICAR RESEÑA (PERSISTENTE EN LOCALSTORAGE)
+// =========================================================
+document.addEventListener("DOMContentLoaded", () => {
+    const formReseña = document.getElementById("formulario-reseña");
+    const contenedorReseñas = document.getElementById("contenedor-reseñas-detalle");
+    
+    // CARGAR RESEÑAS DESDE LOCALSTORAGE AL CARGAR LA PÁGINA
+    if (contenedorReseñas) {
+        const reseñasGuardadas = JSON.parse(localStorage.getItem("reseñas_detalle")) || [];
+        
+        reseñasGuardadas.forEach(reseña => {
+            const tarjetaHTML = `
+                <div class="card border-0 p-3 mb-3" style="background-color: rgba(255,255,255,0.02); border-left: 3px solid var(--celeste) !important; border-radius: 10px;">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="${reseña.fotoUsuario}" alt="Avatar ${reseña.nombreUsuario}" class="rounded-circle me-3" width="45" height="45" style="object-fit: cover; border: 2px solid var(--celeste);">
+                        <div>
+                            <h6 class="mb-0 fw-bold text-white">${reseña.nombreUsuario}</h6>
+                            <div class="d-flex align-items-center mt-1">
+                                <div class="me-2">${reseña.estrellasHTML}</div>
+                                <small class="text-muted">(${reseña.puntuacion}/10 pts)</small>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mb-0 mt-2 text-white-50" style="font-size: 0.95rem; line-height: 1.5;">
+                        ${reseña.comentarioTexto}
+                    </p>
+                </div>
+            `;
+            contenedorReseñas.insertAdjacentHTML("beforeend", tarjetaHTML);
+        });
+    }
+    
+    // ESCUCHAR EL ENVÍO DE NUEVAS RESEÑAS
+    if (formReseña) {
+        formReseña.addEventListener("submit", (e) => {
+            e.preventDefault();
+            
+            // Validar sesión activa
+            const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
+            if (!usuarioLogeado) {
+                alert("Debes iniciar sesión para publicar una reseña.");
+                return;
+            }
+            
+            // Obtener puntuación
+            const radioSeleccionado = document.querySelector('input[name="puntuacion"]:checked');
+            if (!radioSeleccionado) {
+                alert("Por favor, selecciona una puntuación con estrellas.");
+                return;
+            }
+            const puntuacion = parseInt(radioSeleccionado.value);
+            
+            // Capturar comentario y datos de usuario
+            const comentarioTexto = document.getElementById("reseña-comentario").value;
+            const nombreUsuario = usuarioLogeado.username;
+            const fotoUsuario = usuarioLogeado.fotoPerfil || "../img/default-avatar.png"; 
+
+            // Construir las estrellas interactivas
+            let estrellasHTML = "";
+            let estrellasLlenas = Math.floor(puntuacion / 2);
+            let tieneMediaEstrella = (puntuacion % 2) !== 0;
+
+            for (let i = 0; i < estrellasLlenas; i++) {
+                estrellasHTML += '<i class="bi bi-star-fill me-1" style="color: var(--celeste);"></i>';
+            }
+            if (tieneMediaEstrella) {
+                estrellasHTML += '<i class="bi bi-star-half me-1" style="color: var(--celeste);"></i>';
+                estrellasLlenas++; 
+            }
+            for (let i = estrellasLlenas; i < 5; i++) {
+                estrellasHTML += '<i class="bi bi-star text-muted me-1"></i>';
+            }
+
+            // GUARDAR EN LOCALSTORAGE (La más nueva al principio)
+            const nuevaReseñaObj = {
+                fotoUsuario,
+                nombreUsuario,
+                estrellasHTML,
+                puntuacion,
+                comentarioTexto
+            };
+
+            const reseñasGuardadas = JSON.parse(localStorage.getItem("reseñas_detalle")) || [];
+            reseñasGuardadas.unshift(nuevaReseñaObj);
+            localStorage.setItem("reseñas_detalle", JSON.stringify(reseñasGuardadas));
+
+            // CONSTRUIR E INYECTAR LA TARJETA EN VIVO (Inmediato)
+            const nuevaTarjetaReseña = `
+                <div class="card border-0 p-3 mb-3" style="background-color: rgba(255,255,255,0.02); border-left: 3px solid var(--celeste) !important; border-radius: 10px;">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="${fotoUsuario}" alt="Avatar ${nombreUsuario}" class="rounded-circle me-3" width="45" height="45" style="object-fit: cover; border: 2px solid var(--celeste);">
+                        <div>
+                            <h6 class="mb-0 fw-bold text-white">${nombreUsuario}</h6>
+                            <div class="d-flex align-items-center mt-1">
+                                <div class="me-2">${estrellasHTML}</div>
+                                <small class="text-muted">(${puntuacion}/10 pts)</small>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mb-0 mt-2 text-white-50" style="font-size: 0.95rem; line-height: 1.5;">
+                        ${comentarioTexto}
+                    </p>
+                </div>
+            `;
+
+            if (contenedorReseñas) {
+                contenedorReseñas.insertAdjacentHTML("afterbegin", nuevaTarjetaReseña);
+            }
+
+            // Resetear el formulario y cerrar el modal limpiamente
+            formReseña.reset();
+            const modalElemento = document.getElementById("modalDejarReseña");
+            if (modalElemento) {
+                const instanciaModal = bootstrap.Modal.getInstance(modalElemento);
+                if (instanciaModal) {
+                    instanciaModal.hide();
+                }
+            }
+        });
+    }
+});
 

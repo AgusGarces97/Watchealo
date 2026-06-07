@@ -786,7 +786,17 @@ header + main > .container-fluid.px-0 {
     border-radius: 20px;
     padding: 6px 16px;
     z-index: 1050;
+    background-color: var(--verdeOscuro);
+    color: var(--celeste);
+    border: 2px solid var(--celeste) !important;
 }
+
+.btn-cerrar-sesion-banner:hover{
+    background-color: var(--celeste);
+    color: var(--verdeOscuro);
+    transform: scale(1.05);
+}
+
 
 /*------------------------------------------------ FOTO DE PERFIL + USERNAME ------------------------------------------------*/
 
@@ -1208,8 +1218,11 @@ header + main > .container-fluid.px-0 {
         left: 10px;
         font-size: 0.75rem;
         padding: 4px 10px;
+        background-color: var(--verdeOscuro);
+        color: var(--celeste);
+        border: 2px solid var(--celeste) !important;
     }
- 
+
     .btn-cambiar-banner {
         /* Mismo tamaño visual que editar perfil en mobile */
         font-size: 0.75rem;
@@ -1252,6 +1265,7 @@ header + main > .container-fluid.px-0 {
     .btn-cerrar-sesion-banner {
         left: 8px;
         right: auto;
+        
     }
  
     .btn-editar-perfil-general {
@@ -1266,6 +1280,182 @@ header + main > .container-fluid.px-0 {
     }
 }
  
+
+
+/* =========================================================
+   ESTILOS ADICIONALES: MODAL DEJAR RESEÑA
+   ========================================================= */
+.modal-reseña-content {
+    background-color: var(--verdeOscuro);
+    border: 2px solid var(--celeste);
+    color: white;
+    border-radius: 14px;
+    box-shadow: 0 0 25px rgba(172, 242, 242, 0.15);
+}
+
+.modal-reseña-header {
+    border-bottom: 1px solid rgba(172, 242, 242, 0.15);
+}
+
+.modal-reseña-header .modal-title {
+    color: var(--celeste);
+    letter-spacing: 0.5px;
+}
+
+.modal-reseña-body .form-label {
+    color: var(--celeste);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* Inputs y Cajas de Texto del Formulario */
+.input-reseña, .textarea-reseña {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+    color: white !important;
+    border: 1px solid rgba(172, 242, 242, 0.25) !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Estilo para el input deshabilitado del título */
+.input-reseña[readonly] {
+    background-color: rgba(255, 255, 255, 0.01) !important;
+    border-color: rgba(172, 242, 242, 0.1) !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    cursor: not-allowed;
+}
+
+.textarea-reseña:focus {
+    outline: none;
+    border-color: var(--celeste) !important;
+    background-color: rgba(172, 242, 242, 0.05) !important;
+    box-shadow: 0 0 8px rgba(172, 242, 242, 0.25) !important;
+}
+
+/* =========================================================
+   SISTEMA DE CALIFICACIÓN POR ESTRELLAS (HTML + CSS)
+   ========================================================= */
+.rating-estrellas {
+    display: flex;
+    flex-direction: row-reverse; /* Voltea el orden para que el selector '~' afecte a las previas */
+    justify-content: center;
+    gap: 12px;
+    font-size: 2rem;
+    margin-top: 5px;
+}
+
+/* Ocultamos los botoncitos radio nativos */
+.rating-estrellas input {
+    display: none;
+}
+
+/* Aspecto inicial apagado de las estrellas */
+.rating-estrellas label {
+    color: rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.1s ease;
+}
+
+/* Iluminación al pasar el mouse por encima (efecto cascada) */
+.rating-estrellas label:hover,
+.rating-estrellas label:hover ~ label,
+/* Mantener iluminadas las estrellas seleccionadas */
+.rating-estrellas input:checked ~ label {
+    color: var(--celeste);
+    text-shadow: 0 0 10px rgba(172, 242, 242, 0.6);
+}
+
+/* Pequeño pulso al cliquear una estrella */
+.rating-estrellas label:active {
+    transform: scale(1.2);
+}
+
+/* =========================================================
+   BOTONES DEL PIE DEL MODAL
+   ========================================================= */
+.modal-reseña-footer {
+    border-top: 1px solid rgba(172, 242, 242, 0.15);
+}
+
+.btn-cancelar-reseña {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-cancelar-reseña:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.btn-publicar-reseña {
+    background-color: var(--verdeOscuro);
+    border: 2px solid var(--celeste);
+    color: var(--celeste);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-publicar-reseña:hover {
+    background-color: var(--celeste);
+    color: var(--verdeOscuro);
+    transform: scale(1.05);
+}
+
+/* =========================================================
+   SISTEMA DE CALIFICACIÓN POR MEDIAS ESTRELLAS (1 AL 10)
+   ========================================================= */
+.rating-estrellas-media {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    font-size: 2.5rem; /* Tamaño total del ícono */
+    margin-top: 5px;
+}
+
+.rating-estrellas-media input {
+    display: none;
+}
+
+.rating-estrellas-media label {
+    color: rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    transition: color 0.2s ease, text-shadow 0.2s ease, transform 0.1s ease;
+    width: 1.25rem; /* Mitad exacta del ancho visual de la estrella */
+    height: 2.5rem;
+    display: inline-block;
+    overflow: hidden;
+}
+
+/* Las medias estrellas muestran la mitad izquierda */
+.rating-estrellas-media label.half {
+    direction: ltr;
+}
+
+/* Las estrellas completas completan la mitad derecha */
+.rating-estrellas-media label.full {
+    direction: rtl;
+}
+
+/* Iluminación inteligente en cascada al pasar el mouse o seleccionar */
+.rating-estrellas-media label:hover,
+.rating-estrellas-media label:hover ~ label,
+.rating-estrellas-media input:checked ~ label {
+    color: var(--celeste) !important;
+    text-shadow: 0 0 12px rgba(172, 242, 242, 0.6);
+}
+
+.rating-estrellas-media label:active {
+    transform: scale(1.2);
+}
 /*------------------------------------------------ CARRUSELES DE LISTAS ------------------------------------------------*/
 
 .carrusel-listas {
