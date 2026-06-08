@@ -1,11 +1,56 @@
-// INICIO - Más vistos
+// INICIO 
+// HEADER
+const navbar = document.querySelector(".navbar");
 
-/* Bookmark toggle */
-document.querySelectorAll('.btn-bookmark').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        btn.classList.toggle('guardado');
-    });
+window.addEventListener("scroll", () => {
+    
+    if (window.scrollY > 0) {
+        navbar.classList.add("navbar-scroll");
+    } 
+    
+    else {
+        navbar.classList.remove("navbar-scroll");
+    }
+
+});
+
+/* Mostrar cuadro de búsqueda */
+const cuadroBusqueda = document.getElementById('cuadroBusqueda');
+const busqueda = document.getElementById('busqueda');
+
+busqueda.addEventListener('click', () => {
+    cuadroBusqueda.classList.toggle('mostrar');
+});
+
+/* Rotar ícon del toggle */
+const collapse = document.getElementById('navbarNav');
+const icono = document.querySelector('.icono-hamb');
+
+collapse.addEventListener('show.bs.collapse', () => {
+    icono.classList.add('rotado');
+});
+
+collapse.addEventListener('hide.bs.collapse', () => {
+    icono.classList.remove('rotado');
+});
+
+// BUSQUEDA NAVBAR
+
+const formBusqueda = document.getElementById("busquedaNav");
+
+formBusqueda.addEventListener("submit", (e) => {
+
+    e.preventDefault();
+
+    const texto = cuadroBusqueda.value.trim();
+
+    if(texto !== ""){
+
+        window.location.href =
+        `explorar.html?busqueda=${encodeURIComponent(texto)}`;
+
+    }
+
 });
 
 //================================================
@@ -106,29 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
     precargarPelisYSeries();
     
 });
-
-
-
-/* Mostrar cuadro de búsqueda */
-const cuadroBusqueda = document.getElementById('cuadroBusqueda');
-const busqueda = document.getElementById('busqueda');
-
-busqueda.addEventListener('click', () => {
-    cuadroBusqueda.classList.toggle('mostrar');
-});
-
-/* Rotar ícon del toggle */
-const collapse = document.getElementById('navbarNav');
-const icono = document.querySelector('.icono-hamb');
-
-collapse.addEventListener('show.bs.collapse', () => {
-    icono.classList.add('rotado');
-});
-
-collapse.addEventListener('hide.bs.collapse', () => {
-    icono.classList.remove('rotado');
-});
-
 
 /* Carga de Datos de Película */
 
