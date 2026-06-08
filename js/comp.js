@@ -38,6 +38,7 @@ collapse.addEventListener('hide.bs.collapse', () => {
 
 const formBusqueda = document.getElementById("busquedaNav");
 
+
 formBusqueda.addEventListener("submit", (e) => {
 
     e.preventDefault();
@@ -58,7 +59,7 @@ formBusqueda.addEventListener("submit", (e) => {
 //================================================
 
 class PeliculaSerie{
-    constructor(id, titulo, portada, genero, sinopsis, caps, duracion, puntuacion, creador, actores, banner, reseñas){
+    constructor(id, titulo, portada, genero, sinopsis, caps, duracion, puntuacion, creador, actores, banner, reseñas, puntuacionTotal){
         this.id = id;
         this.titulo = titulo;
         this.portada = portada;
@@ -71,6 +72,7 @@ class PeliculaSerie{
         this.actores = actores;
         this.banner = banner;
         this.reseñas = reseñas;
+        this.puntuacionTotal = puntuacionTotal;
     }
 }
 
@@ -168,6 +170,7 @@ const duracionDetalle = document.getElementById("duracion");
 const actoresDetalle = document.getElementById("actores");
 const bannerDetalle = document.getElementById("banner");
 
+
 // EJECUCIÓN AUTOMÁTICA AL CARGAR LA PÁGINA
 // ENCARGADO DE RENDERIZAR LOS DETALLES DE LA PESTAÑA DETALLES.HTML Y PERFIL.HTML
 window.addEventListener('load', () => {
@@ -180,7 +183,7 @@ window.addEventListener('load', () => {
             // Llenamos el arreglo con instancias de la clase
             Arreglo_Pelis_Series = []; // Aseguramos vaciado limpio
             datosJSON.forEach(p => {
-                let pelicula = new PeliculaSerie(p.id, p.titulo, p.portada, p.genero, p.sinopsis, p.caps, p.duracion, p.puntuacion, p.creador, p.actores, p.banner, p.reseñas);
+                let pelicula = new PeliculaSerie(p.id, p.titulo, p.portada, p.genero, p.sinopsis, p.caps, p.duracion, p.puntuacion, p.creador, p.actores, p.banner, p.reseñas, p.puntuacionTotal);
                 Arreglo_Pelis_Series.push(pelicula);
             });
 
@@ -233,6 +236,7 @@ function renderizarDetalles() {
         puntaje = sumatotal / peliEncontrada.puntuacion.length;
     }
 
+    peliEncontrada.puntuacionTotal = puntaje.toFixed(2);
 
     /////////////////////////////////////////////////////////////////////////////////////
 
@@ -244,7 +248,7 @@ function renderizarDetalles() {
         generoDetalle.innerHTML = `<h3>${peliEncontrada.genero}</h3>`;
         sinopsisDetalle.innerHTML = `<p>${peliEncontrada.sinopsis}</p>`;
         capsDetalle.innerHTML = `<p>${peliEncontrada.caps}</p>`;
-        puntuacionDetalle.innerHTML = `<p>${String(puntaje.toFixed(2))}</p>`;
+        puntuacionDetalle.innerHTML = `<p>${peliEncontrada.puntuacionTotal}</p>`;
         creadorDetalle.innerHTML = `<p>${peliEncontrada.creador}</p>`;
         duracionDetalle.innerHTML = `<p>${peliEncontrada.duracion}</p>`;
         
@@ -259,7 +263,14 @@ function renderizarDetalles() {
 
     // DETECTA CUALES SON LAS RESEÑAS DE ESA PELICULA Y MOSTRARLAS DE ACUERDO A ESO
     const contenedorReseñas = document.getElementById('contenedor-reseñas-detalle');
-    reseñasGuardadas.forEach(reseña => {
+    if(peliEncontrada.reseñas.length === 0){
+        contenedorReseñas.innerHTML = `
+        <p> No hay reseñas cargadas </p>
+        `;
+        return;
+    }
+    if(reseñasGuardadas){
+        reseñasGuardadas.forEach(reseña => {
                 for(i=0; i<peliEncontrada.reseñas.length; i++){
                     if(reseña.id === peliEncontrada.reseñas[i]){
                         const tarjetaHTML = `
@@ -283,6 +294,8 @@ function renderizarDetalles() {
                     }
                 }
         });
+    }
+    
     ////////////////////////////////////////////////////////////////////////////////
 
     let usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
@@ -341,12 +354,14 @@ function agregarAFavoritos() {
 function renderizarFavoritosPerfil() {
     const contenedorFavoritos = document.querySelector(".contenedor_favoritos");
     
+    
     // Si no estamos en la página de perfil (porque no existe ese contenedor), salimos de la función
     if (!contenedorFavoritos) return;
 
     contenedorFavoritos.innerHTML = ""; // Limpiamos carga previa
 
     let usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
+    let listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
 
     if (usuarioLogeado.favoritos.length === 0) {
         contenedorFavoritos.innerHTML = `<p class="text-muted">Aún no agregaste series o películas a tus favoritos.</p>`;
@@ -776,7 +791,7 @@ confirmContraseña.addEventListener("change", () => {
 });
 }
 
-// CONTROL DE FECHA DE NACIMIENTO (Validar que no esté vacía y que sea mayor de edad opcional)
+// CONTROL DE FECHA DE NACIMIENTO (Validar que no esté vacía y que sea mayor de edad)
 if(fechaNac){
     
 fechaNac.addEventListener("change", () => {
@@ -968,6 +983,7 @@ if(btnCrearCuenta){
     // Guardar también qué usuario inició sesión actualmente:
     localStorage.setItem("usuarioLogeado", JSON.stringify(nuevoUsuario));
 
+    comprobarEstadoSesion();
     }
 });
 }
@@ -1073,18 +1089,21 @@ if (formLogin) {
     });
 }
 
-// Arreglo para la lista de Usuarios completa
-let usuariosCargados = JSON.parse(localStorage.getItem("usuarios")) || [];
 
 // ESCUCHA DEL BOTÓN CERRAR SESIÓN
 if (btnLogout) {
     btnLogout.addEventListener("click", (evento) => {
         evento.preventDefault();
-        
+        // Arreglo para la lista de Usuarios completa
+        let usuariosCargados = JSON.parse(localStorage.getItem("usuarios")) || [];
+
         const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
         for(i=0; i<usuariosCargados.length; i++){
             if (usuarioLogeado.email === usuariosCargados[i].email){
+                console.log(usuarioLogeado.email);
+                console.log(usuariosCargados[i].email);
                 usuariosCargados[i] = usuarioLogeado;
+                console.log(usuariosCargados);
             }   
         }
         
@@ -1315,7 +1334,8 @@ const botonPuntuar = document.getElementById("btn-puntuar");
 const botonEnviarPuntuacion = document.getElementById("btn-enviar-puntuacion");
 const botonCancelarPuntuacion = document.getElementById("btn-cancelar-puntuacion");
 
-botonPuntuar.addEventListener('click', () => {
+if(botonPuntuar){
+    botonPuntuar.addEventListener('click', () => {
     const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
     const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
     const Puntuacion = document.getElementById('inputPuntuacion').value;
@@ -1336,17 +1356,20 @@ botonPuntuar.addEventListener('click', () => {
     document.getElementById('inputPuntuacion').value = "";
     document.getElementById('modalPuntuar').style.display = 'flex'; 
 });
+}
 
 
 
-botonCancelarPuntuacion.addEventListener('click', ()=>{
+if(botonCancelarPuntuacion){
+    botonCancelarPuntuacion.addEventListener('click', ()=>{
     document.getElementById('modalPuntuar').style.display = 'none';
     document.getElementById('inputPuntuacion').value = "";
 });
+}
 
 
-
-botonEnviarPuntuacion.addEventListener('click', ()=>{
+if(botonEnviarPuntuacion){
+    botonEnviarPuntuacion.addEventListener('click', ()=>{
     const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
     const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
     const Puntuacion = document.getElementById('inputPuntuacion').value;
@@ -1356,7 +1379,8 @@ botonEnviarPuntuacion.addEventListener('click', ()=>{
     const urlParams = new URLSearchParams(window.location.search);
     // 2. Capturamos el valor específico del parámetro 'id'
     const idPelicula = urlParams.get('id');
-    
+
+    // CASO DE QUE LA PELI YA HAYA SIDO PUNTUADA
     for(i=0; i<usuarioLogeado.pelis_puntuadas.length; i++){
         if(idPelicula === usuarioLogeado.pelis_puntuadas[i].idPeli){
             // A) Guardar la Puntuacion en "pelis-puntuadas" del usuario
@@ -1365,9 +1389,9 @@ botonEnviarPuntuacion.addEventListener('click', ()=>{
 
             localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
 
-            for(i=0; i<listaUsuarios.lenth; i++){
+            for(i=0; i<listaUsuarios.length; i++){
                 if(listaUsuarios[i].email === usuarioLogeado.email){
-                    listaUsuarios[i].pelis = usuarioLogeado; //VER SI SIRVE SOBREESCRIBIR, SINO ASIGNAMOS SOLAMENTE LA PROPIEDAD
+                    listaUsuarios[i] = usuarioLogeado; //VER SI SIRVE SOBREESCRIBIR, SINO ASIGNAMOS SOLAMENTE LA PROPIEDAD
                 }
             }
             localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
@@ -1380,10 +1404,23 @@ botonEnviarPuntuacion.addEventListener('click', ()=>{
                     for(j=0; j<listaPeliculas[i].puntuacion.length; j++){
                         if(listaPeliculas[i].puntuacion[j].email === usuarioLogeado.email){
                             listaPeliculas[i].puntuacion[j] = Puntaje;
+                            //
                         }
+                        
                     }
+
+                    // AL ENCONTRAR LA PELICULA DE LA URL, TAMBIEN ASIGNAMOS LA puntuacionTotal
+                    let sumaTotal = 0;
+                    for(c=0; c<listaPeliculas[i].puntuacion.length; c++){
+                        sumaTotal += parseFloat(listaPeliculas[i].puntuacion[c].puntaje);
+                    }
+                    let promedio = sumaTotal/listaPeliculas[i].puntuacion.length;
+                    listaPeliculas[i].puntuacionTotal = promedio;
+                    
                 }
             }
+
+            
 
             localStorage.setItem('peliculas_series', JSON.stringify(listaPeliculas));
             document.getElementById('modalPuntuar').style.display = 'none';
@@ -1397,9 +1434,9 @@ botonEnviarPuntuacion.addEventListener('click', ()=>{
     usuarioLogeado.pelis_puntuadas.push(Peli_Puntuada);
     localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
 
-    for(i=0; i<listaUsuarios.lenth; i++){
+    for(i=0; i<listaUsuarios.length; i++){
         if(listaUsuarios[i].email === usuarioLogeado.email){
-            listaUsuarios[i].pelis = usuarioLogeado; //VER SI SIRVE SOBREESCRIBIR, SINO ASIGNAMOS SOLAMENTE LA PROPIEDAD
+            listaUsuarios[i] = usuarioLogeado; //VER SI SIRVE SOBREESCRIBIR, SINO ASIGNAMOS SOLAMENTE LA PROPIEDAD
         }
     }
     localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
@@ -1409,6 +1446,16 @@ botonEnviarPuntuacion.addEventListener('click', ()=>{
     for(i=0; i<listaPeliculas.length; i++){
         if(idPelicula === listaPeliculas[i].id){
             listaPeliculas[i].puntuacion.push(Puntaje);
+
+            // AL ENCONTRAR LA PELICULA DE LA URL, TAMBIEN ASIGNAMOS LA puntuacionTotal
+            let sumaTotal = 0;
+                    for(c=0; c<listaPeliculas[i].puntuacion.length; c++){
+                        sumaTotal += parseFloat(listaPeliculas[i].puntuacion[c].puntaje);
+                    }
+                    let promedio = parseFloat(sumaTotal/listaPeliculas[i].puntuacion.length);
+                    listaPeliculas[i].puntuacionTotal = promedio;
+                    console.log(promedio); ////////////////
+                    
         }
     }
 
@@ -1418,3 +1465,245 @@ botonEnviarPuntuacion.addEventListener('click', ()=>{
 
 });
 
+
+}
+
+function mostrarMejorPuntuados() {
+    const contenedorMejorPuntuados = document.getElementById("contenedor-mejor-puntuados");
+    const listaPelis = JSON.parse(localStorage.getItem('peliculas_series'));
+
+    let listaPelisOrdenada = listaPelis.slice();
+    
+    
+        // Ordenar por puntuación de mayor a menor
+        listaPelisOrdenada.sort((a, b) => b.puntuacionTotal - a.puntuacionTotal);
+
+    
+    
+    contenedorMejorPuntuados.innerHTML = "";
+            let tarjetaHTML = `
+            <div class="row g-3 row-cols-2 row-cols-md-5">
+                        <!--TOP 1-->
+                        
+                        <div>
+                            <a href="detalle.html?id=${listaPelisOrdenada[0].id}" class="text-decoration-none">
+                                <div class="card pelicula-card">
+                                    <span class="ranking-label">1</span>
+                                    <div class="pelicula-img-wrap">
+                                        <img src="${listaPelisOrdenada[0].portada}" class="card-img-top pelicula-img" alt="Inception">
+                                    </div>
+                                    <div class="card-body pelicula-info">
+                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[0].titulo}</span>
+                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[0].puntuacionTotal}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!--TOP 2-->
+                        <div>
+                            <a href="detalle.html?id=${listaPelisOrdenada[1].id}" class="text-decoration-none">
+                                <div class="card pelicula-card">
+                                    <span class="ranking-label">2</span>
+                                    <div class="pelicula-img-wrap">
+                                        <img src="${listaPelisOrdenada[1].portada}" class="card-img-top pelicula-img" alt="Inception">
+                                    </div>
+                                    <div class="card-body pelicula-info">
+                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[1].titulo}</span>
+                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[1].puntuacionTotal}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--TOP 3-->
+                        <div>
+                            <a href="detalle.html?id=${listaPelisOrdenada[2].id}" class="text-decoration-none">
+                                <div class="card pelicula-card">
+                                    <span class="ranking-label">3</span>
+                                    <div class="pelicula-img-wrap">
+                                        <img src="${listaPelisOrdenada[2].portada}" class="card-img-top pelicula-img" alt="Inception">
+                                    </div>
+                                    <div class="card-body pelicula-info">
+                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[2].titulo}</span>
+                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[2].puntuacionTotal}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--TOP 4-->
+                        <div>
+                            <a href="detalle.html?id=${listaPelisOrdenada[3].id}" class="text-decoration-none">
+                                <div class="card pelicula-card">
+                                    <span class="ranking-label">4</span>
+                                    <div class="pelicula-img-wrap">
+                                        <img src="${listaPelisOrdenada[3].portada}" class="card-img-top pelicula-img" alt="Inception">
+                                    </div>
+                                    <div class="card-body pelicula-info">
+                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[3].titulo}</span>
+                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[3].puntuacionTotal}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--TOP 5-->
+                        <div>
+                            <a href="detalle.html?id=${listaPelisOrdenada[4].id}" class="text-decoration-none">
+                                <div class="card pelicula-card">
+                                <span class="ranking-label">5</span>
+                                    <div class="pelicula-img-wrap">
+                                        <img src="${listaPelisOrdenada[4].portada}" class="card-img-top pelicula-img" alt="Inception">
+                                    </div>
+                                    <div class="card-body pelicula-info">
+                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[4].titulo}</span>
+                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[4].puntuacionTotal}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>          
+            </div>
+            <div class="row g-3 row-cols-2 row-cols-md-5">
+                        <!--TOP 6-->
+                        <div>
+                            <a href="detalle.html?id=${listaPelisOrdenada[5].id}" class="text-decoration-none">
+                                <div class="card pelicula-card">
+                                    <span class="ranking-label">6</span>
+                                    <div class="pelicula-img-wrap">
+                                        <img src="${listaPelisOrdenada[5].portada}" class="card-img-top pelicula-img" alt="Inception">
+                                    </div>
+                                    <div class="card-body pelicula-info">
+                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[5].titulo}</span>
+                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[5].puntuacionTotal}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--TOP 7-->
+                        <div>
+                            <a href="detalle.html?id=${listaPelisOrdenada[6].id}" class="text-decoration-none">
+                                <div class="card pelicula-card">
+                                    <span class="ranking-label">7</span>
+                                    <div class="pelicula-img-wrap">
+                                        <img src="${listaPelisOrdenada[6].portada}" class="card-img-top pelicula-img" alt="Inception">
+                                    </div>
+                                    <div class="card-body pelicula-info">
+                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[6].titulo}</span>
+                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[6].puntuacionTotal}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--TOP 8-->
+                        <div>
+                            <a href="detalle.html?id=${listaPelisOrdenada[7].id}" class="text-decoration-none">
+                                <div class="card pelicula-card">
+                                    <span class="ranking-label">8</span>
+                                    <div class="pelicula-img-wrap">
+                                        <img src="${listaPelisOrdenada[7].portada}" class="card-img-top pelicula-img" alt="Inception">
+                                    </div>
+                                    <div class="card-body pelicula-info">
+                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[7].titulo}</span>
+                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[7].puntuacionTotal}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--TOP 9-->
+                        <div>
+                            <a href="detalle.html?id=${listaPelisOrdenada[8].id}" class="text-decoration-none">
+                                <div class="card pelicula-card">
+                                    <span class="ranking-label">9</span>
+                                    <div class="pelicula-img-wrap">
+                                        <img src="${listaPelisOrdenada[8].portada}" class="card-img-top pelicula-img" alt="Inception">
+                                    </div>
+                                    <div class="card-body pelicula-info">
+                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[8].titulo}</span>
+                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[8].puntuacionTotal}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--TOP 10-->
+                        <div>
+                            <a href="detalle.html?id=${listaPelisOrdenada[9].id}" class="text-decoration-none">
+                                <div class="card pelicula-card">
+                                    <span class="ranking-label">10</span>
+                                    <div class="pelicula-img-wrap">
+                                        <img src="${listaPelisOrdenada[9].portada}" class="card-img-top pelicula-img" alt="Inception">
+                                    </div>
+                                    <div class="card-body pelicula-info">
+                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[9].titulo}</span>
+                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[9].puntuacionTotal}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+            </div>
+            
+                        
+            `;
+            contenedorMejorPuntuados.insertAdjacentHTML("afterbegin", tarjetaHTML);
+        
+
+}
+
+
+mostrarMejorPuntuados();
+document.addEventListener('load', mostrarMejorPuntuados());
+
+function mostrarMasRecientes(){
+    const contenedorCarrusel = document.getElementById("contenedor-carrusel");
+    const listaPelis = JSON.parse(localStorage.getItem('peliculas_series'));
+
+    let listaPelisOrdenada = listaPelis.slice();
+    
+    
+        // Función auxiliar para convertir "dd-mm-yyyy" a un objeto Date
+            const convertirAFecha = (fechaStr) => {
+            const [dia, mes, anio] = fechaStr.split('-').map(Number);
+            // Nota: en JS los meses van de 0 a 11, por eso restamos 1 al mes
+            return new Date(anio, mes - 1, dia);
+            };
+
+        // Ordenar de más reciente a más antigua
+        listaPelisOrdenada.sort((a, b) => {
+        return convertirAFecha(b.fechaEstreno) - convertirAFecha(a.fechaEstreno);
+        });
+
+    contenedorCarrusel.innerHTML = "";
+    for(i=0; i<4; i++){
+        const tarjetaHTML = `
+        <!-- SLIDE 1 -->
+            <div class="carousel-item active">
+                    <img class="backdrop" src="${listaPelisOrdenada[i].banner}" alt="1-backdrop">
+                    <span class="badge-trailer">Tráiler Oficial</span>
+                    <div class="badge-rating">
+                        <i class="bi bi-star-fill"></i> ${listaPelisOrdenada[i].puntuacionTotal}
+                    </div>
+                    <a class="btn-play" href="${listaPelisOrdenada[i].trailer}" target="_blank" title="Ver tráiler">
+                                    <i class="bi bi-play-fill"></i>
+                    </a>
+                    <div class="carousel-caption">
+                        <div class="caption-inner">
+                            <img class="caption-poster" src="${listaPelisOrdenada[i].portada}" alt="1-poster">
+                            <div class="caption-info">
+                                <p class="caption-genre">${listaPelisOrdenada[i].genero}</p>
+                                <h5 class="caption-title">${listaPelisOrdenada[i].titulo}</h5>
+                                <div class="caption-meta">
+                                    <span><i class="bi bi-calendar3"></i> ${listaPelisOrdenada[i].fechaEstreno}</span>
+                                    <span><i class="bi bi-clock"></i> ${listaPelisOrdenada[i].duracion}</span>
+                                    <span><i class="bi bi-camera-video"></i>${listaPelisOrdenada[i].director}</span>
+                                </div>
+                                <p class="caption-desc">${listaPelisOrdenada[i].sinopsis}</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+    `;
+    contenedorCarrusel.insertAdjacentHTML("afterbegin", tarjetaHTML);
+    }
+    
+}
+
+mostrarMasRecientes();
+document.addEventListener('load', mostrarMasRecientes());

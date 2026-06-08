@@ -1811,3 +1811,31 @@ main > .container-fluid.px-0.position-relative::after {
     background: #fff;
     color: #0b161c;
   }
+
+  /* Necesario para que el número se posicione respecto a la tarjeta */
+.pelicula-card {
+    position: relative;
+}
+
+  .ranking-label {
+    position: absolute;
+    top: 5px;    /* Ajusta según el margen que quieras */
+    left: 5px;  /* Ajusta según el margen que quieras */
+    z-index: 2;  /* Para que quede por encima de la imagen */
+    font-size: 1.5rem; /* Tamaño grande tipo "Top 10" */
+    font-weight: 500;
+    color: var(--celeste);
+    font-family: sans-serif;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); /* Sombra para que resalte */
+
+    /* Estilos del fondo */
+    background-color: var(--verdeOscuro); /* Negro semitransparente */
+    padding: 0px 2px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    
+    /* Opcional: un borde fino para darle más estilo */
+    border: 2px solid var(--celeste);
+    
+    pointer-events: none; /* Crucial para que no bloquee los clics */
+
+}
