@@ -1489,27 +1489,82 @@ header + main > .container-fluid.px-0 {
 
 .carrusel-listas {
     position: relative;
+    padding: 0 3rem;
 }
 
+/* Botones completos */
 .carrusel-listas .carousel-control-prev,
 .carrusel-listas .carousel-control-next {
-    width: 5%;
+    width: 42px;
+    height: 42px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(11, 30, 38, 0.75);
+    border: 1px solid rgba(172, 242, 242, 0.3);
+    border-radius: 50%;
+    backdrop-filter: blur(6px);
+    opacity: 1;
+    transition: all 0.2s ease;
 }
 
+/* Ubicación de cada botón */
 .carrusel-listas .carousel-control-prev {
-    left: -5%;
+    left: 0;
 }
 
 .carrusel-listas .carousel-control-next {
-    right: -5%;
+    right: 0;
 }
 
+/* Hover igual al carrusel de inicio */
+.carrusel-listas .carousel-control-prev:hover,
+.carrusel-listas .carousel-control-next:hover {
+    background: var(--celeste);
+    border-color: var(--celeste);
+}
+
+/* Íconos */
 .carrusel-listas .carousel-control-prev-icon,
 .carrusel-listas .carousel-control-next-icon {
-    background-color: var(--verdeOscuro);
-    border: 1px solid var(--celeste);
-    border-radius: 50%;
-    padding: 1.2rem;
+    width: 16px;
+    height: 16px;
+}
+
+/* Ícono oscuro cuando el botón se pone celeste */
+.carrusel-listas .carousel-control-prev:hover .carousel-control-prev-icon,
+.carrusel-listas .carousel-control-next:hover .carousel-control-next-icon {
+    filter: invert(1) brightness(0);
+}
+
+/* Responsive para que no se salgan en pantallas chicas */
+@media (max-width: 768px) {
+    .carrusel-listas {
+        padding: 0 2.3rem;
+    }
+
+    .carrusel-listas .carousel-control-prev,
+    .carrusel-listas .carousel-control-next {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+@media (max-width: 425px) {
+    .carrusel-listas {
+        padding: 0 2rem;
+    }
+
+    .carrusel-listas .carousel-control-prev,
+    .carrusel-listas .carousel-control-next {
+        width: 32px;
+        height: 32px;
+    }
+
+    .carrusel-listas .carousel-control-prev-icon,
+    .carrusel-listas .carousel-control-next-icon {
+        width: 13px;
+        height: 13px;
+    }
 }
 
 /*------------------------------------------------ MAIN DE LISTAS ------------------------------------------------*/
