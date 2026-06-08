@@ -170,6 +170,8 @@ const creadorDetalle = document.getElementById("creador");
 const duracionDetalle = document.getElementById("duracion");
 const actoresDetalle = document.getElementById("actores");
 const bannerDetalle = document.getElementById("banner");
+const estrenoDetalle = document.getElementById("fecha-salida");
+const directorDetalle = document.getElementById("director");
 
 
 // EJECUCIÓN AUTOMÁTICA AL CARGAR LA PÁGINA
@@ -249,9 +251,11 @@ function renderizarDetalles() {
         generoDetalle.innerHTML = `<h3>${peliEncontrada.genero}</h3>`;
         sinopsisDetalle.innerHTML = `<p>${peliEncontrada.sinopsis}</p>`;
         capsDetalle.innerHTML = `<p>${peliEncontrada.caps}</p>`;
-        puntuacionDetalle.innerHTML = `<p>${peliEncontrada.puntuacionTotal}</p>`;
+        puntuacionDetalle.innerHTML = `<p><i class="bi bi-star-fill"></i>${peliEncontrada.puntuacionTotal}</p>`;
         creadorDetalle.innerHTML = `<p>${peliEncontrada.creador}</p>`;
         duracionDetalle.innerHTML = `<p>${peliEncontrada.duracion}</p>`;
+        estrenoDetalle.innerHTML = `<p>${peliEncontrada.fechaEstreno}</p>`;
+        directorDetalle.innerHTML = `<p>${peliEncontrada.director}</p>`;
         
         const listaActores = peliEncontrada.actores.join(', ');
         actoresDetalle.innerHTML = `<p>${listaActores}</p>`;
