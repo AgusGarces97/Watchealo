@@ -9,10 +9,10 @@
     <title>Inicio</title>
 </head>
 <body>
-    <header>
-        <div class="container sticky-top mb-3">
-            <div class="row ">
-                <nav class="navbar navbar-expand-lg navbar-dark mx-auto">
+    <header class="sticky-top">
+        <div class="container mb-3">
+            <div class="row">
+                <nav class="navbar navbar-expand-lg navbar-dark mx-auto bg-dark">
                     <div class="container-fluid mx-2 my-2">
                         <a class="navbar-brand" href="inicio.html"><img src="../img/logo.png" alt="Logo" width="250" height="auto" class="d-inline-block align-text-top img"></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,9 +35,9 @@
 
                             <!-- Buscador y usuario a la derecha -->
                             <div class="d-flex flex-row flex-lg-row align-items-center ms-auto busquedaYusuario">
-                                <form class="d-flex me-3">
+                                <form id="busquedaNav" class="d-flex me-3">
                                     <input class="form-control me-2" id="cuadroBusqueda" type="search" placeholder="Buscar...">
-                                    <button class="btn btn-outline-success" id="busqueda" type="button">
+                                    <button class="btn btn-outline-success" id="busqueda" type="submit">
                                         <i class="bi bi-search"></i>
                                     </button>
                                 </form>

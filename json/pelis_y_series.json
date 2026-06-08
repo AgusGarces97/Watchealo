@@ -7,6 +7,7 @@
     "sinopsis": "La serie sigue las aventuras de Rick Grimes, un oficial de policía quien tras ser herido en servicio despierta en un mundo apocalíptico plagado de zombies...",
     "caps": 177,
     "duracion": "45 min",
+    "anio": 2010,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Robert Kirkman",
@@ -25,6 +26,7 @@
     "sinopsis": "Un grupo de amigos descubre secretos sobrenaturales, experimentos del gobierno y una dimensión oscura que amenaza a su pueblo.",
     "caps": 34,
     "duracion": "50 min",
+    "anio": 2016,
     "puntuacion": [],
     "reseñas": [],
     "creador": "The Duffer Brothers",
@@ -43,6 +45,7 @@
     "sinopsis": "La desaparición de un niño revela secretos familiares y una compleja trama relacionada con viajes en el tiempo.",
     "caps": 26,
     "duracion": "50 min",
+    "anio": 2017,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Baran bo Odar",
@@ -61,6 +64,7 @@
     "sinopsis": "Cada temporada presenta una historia diferente de terror, misterio y fenómenos sobrenaturales.",
     "caps": 132,
     "duracion": "45 min",
+    "anio": 2011,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Ryan Murphy",
@@ -79,6 +83,7 @@
     "sinopsis": "Una familia marcada por una casa embrujada debe enfrentar sus recuerdos, traumas y presencias sobrenaturales.",
     "caps": 10,
     "duracion": "55 min",
+    "anio": 2018,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Mike Flanagan",
@@ -97,6 +102,7 @@
     "sinopsis": "Dos investigadores paranormales ayudan a una familia aterrorizada por una presencia oscura en su casa.",
     "caps": "Película",
     "duracion": "1h 52min",
+    "anio": 2013,
     "puntuacion": [],
     "reseñas": [],
     "creador": "James Wan",
@@ -115,6 +121,7 @@
     "sinopsis": "Un grupo de niños enfrenta a una entidad maligna que toma la forma de un payaso para alimentarse del miedo.",
     "caps": "Película",
     "duracion": "2h 15min",
+    "anio": 2017,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Andy Muschietti",
@@ -133,6 +140,7 @@
     "sinopsis": "Una entidad demoníaca amenaza a una abadía y revela oscuros secretos relacionados con el universo de El Conjuro.",
     "caps": "Película",
     "duracion": "1h 36min",
+    "anio": 2018,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Corin Hardy",
@@ -151,6 +159,7 @@
     "sinopsis": "Un asesino enmascarado aterroriza a un grupo de jóvenes mientras sigue reglas inspiradas en películas de terror.",
     "caps": "Película",
     "duracion": "1h 51min",
+    "anio": 1996,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Wes Craven",
@@ -169,6 +178,7 @@
     "sinopsis": "Una periodista investiga una cinta de video maldita relacionada con una serie de muertes misteriosas.",
     "caps": "Película",
     "duracion": "1h 55min",
+    "anio": 2002,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Gore Verbinski",
@@ -187,6 +197,7 @@
     "sinopsis": "Un profesor de química comienza a fabricar drogas para asegurar el futuro económico de su familia.",
     "caps": 62,
     "duracion": "47 min",
+    "anio": 2008,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Vince Gilligan",
@@ -205,6 +216,7 @@
     "sinopsis": "Un chef de alta cocina regresa a Chicago para administrar el restaurante familiar tras la muerte de su hermano.",
     "caps": 28,
     "duracion": "30 min",
+    "anio": 2022,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Christopher Storer",
@@ -223,6 +235,7 @@
     "sinopsis": "Un grupo de médicos enfrenta desafíos profesionales, personales y amorosos dentro de un hospital.",
     "caps": 430,
     "duracion": "43 min",
+    "anio": 2005,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Shonda Rhimes",
@@ -241,6 +254,7 @@
     "sinopsis": "La historia de una familia se cuenta a través de diferentes etapas de su vida, mostrando vínculos, pérdidas y emociones.",
     "caps": 106,
     "duracion": "45 min",
+    "anio": 2016,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Dan Fogelman",
@@ -259,6 +273,7 @@
     "sinopsis": "La serie retrata la vida de la reina Isabel II y los acontecimientos políticos y personales de la familia real británica.",
     "caps": 60,
     "duracion": "55 min",
+    "anio": 2016,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Peter Morgan",
@@ -277,6 +292,7 @@
     "sinopsis": "La historia del físico J. Robert Oppenheimer y su papel en el desarrollo de la bomba atómica.",
     "caps": "Película",
     "duracion": "3h",
+    "anio": 2023,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Christopher Nolan",
@@ -295,6 +311,7 @@
     "sinopsis": "Una familia pobre se infiltra en la vida de una familia rica, generando consecuencias inesperadas.",
     "caps": "Película",
     "duracion": "2h 12min",
+    "anio": 2019,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Bong Joon-ho",
@@ -313,6 +330,7 @@
     "sinopsis": "Un hombre marginado por la sociedad cae lentamente en la locura y se transforma en una figura criminal.",
     "caps": "Película",
     "duracion": "2h 2min",
+    "anio": 2019,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Todd Phillips",
@@ -321,7 +339,7 @@
       "Robert De Niro",
       "Zazie Beetz"
     ],
-    "banner": "../img/joker_banner.jpg" 
+    "banner": "../img/joker_banner.jpg"
   },
   {
     "id": "titanic",
@@ -331,6 +349,7 @@
     "sinopsis": "Dos jóvenes de clases sociales diferentes se enamoran durante el viaje inaugural del Titanic.",
     "caps": "Película",
     "duracion": "3h 14min",
+    "anio": 1997,
     "puntuacion": [],
     "reseñas": [],
     "creador": "James Cameron",
@@ -349,6 +368,7 @@
     "sinopsis": "Un general romano traicionado se convierte en gladiador y busca venganza contra el emperador que destruyó su vida.",
     "caps": "Película",
     "duracion": "2h 35min",
+    "anio": 2000,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Ridley Scott",
@@ -367,6 +387,7 @@
     "sinopsis": "Cada episodio muestra historias independientes sobre tecnología, sociedad y futuros inquietantes.",
     "caps": 27,
     "duracion": "60 min",
+    "anio": 2011,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Charlie Brooker",
@@ -385,6 +406,7 @@
     "sinopsis": "Un grupo de jóvenes es enviado a la Tierra desde una estación espacial para comprobar si el planeta vuelve a ser habitable.",
     "caps": 100,
     "duracion": "43 min",
+    "anio": 2014,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Jason Rothenberg",
@@ -403,6 +425,7 @@
     "sinopsis": "Una familia de colonos espaciales lucha por sobrevivir luego de quedar perdida en un planeta desconocido.",
     "caps": 28,
     "duracion": "50 min",
+    "anio": 2018,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Matt Sazama",
@@ -421,6 +444,7 @@
     "sinopsis": "Un parque futurista con androides revela preguntas sobre la conciencia, el control y la libertad.",
     "caps": 36,
     "duracion": "60 min",
+    "anio": 2016,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Jonathan Nolan",
@@ -439,6 +463,7 @@
     "sinopsis": "Un cazarrecompensas solitario viaja por la galaxia mientras protege a una criatura muy especial.",
     "caps": 24,
     "duracion": "40 min",
+    "anio": 2019,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Jon Favreau",
@@ -457,6 +482,7 @@
     "sinopsis": "Un ladrón especializado en entrar en los sueños acepta una misión casi imposible: implantar una idea en la mente de una persona.",
     "caps": "Película",
     "duracion": "2h 28min",
+    "anio": 2010,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Christopher Nolan",
@@ -465,7 +491,7 @@
       "Joseph Gordon-Levitt",
       "Elliot Page"
     ],
-    "banner": "../img/"
+    "banner": "../img/inception_banner.png"
   },
   {
     "id": "interstellar",
@@ -475,6 +501,7 @@
     "sinopsis": "Un grupo de astronautas viaja a través de un agujero de gusano en busca de un nuevo hogar para la humanidad.",
     "caps": "Película",
     "duracion": "2h 49min",
+    "anio": 2014,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Christopher Nolan",
@@ -483,7 +510,7 @@
       "Anne Hathaway",
       "Jessica Chastain"
     ],
-    "banner": "../img/"
+    "banner": "../img/interestellar_banner.png"
   },
   {
     "id": "dune",
@@ -493,6 +520,7 @@
     "sinopsis": "Un joven heredero se enfrenta a un destino extraordinario en un planeta desértico clave para el futuro del universo.",
     "caps": "Película",
     "duracion": "2h 35min",
+    "anio": 2021,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Denis Villeneuve",
@@ -501,7 +529,7 @@
       "Zendaya",
       "Oscar Isaac"
     ],
-    "banner": "../img/"
+    "banner": "../img/dune_banner.png"
   },
   {
     "id": "avatar",
@@ -511,6 +539,7 @@
     "sinopsis": "Un exmarine llega a Pandora y se ve envuelto en el conflicto entre los humanos y los habitantes del planeta.",
     "caps": "Película",
     "duracion": "2h 42min",
+    "anio": 2009,
     "puntuacion": [],
     "reseñas": [],
     "creador": "James Cameron",
@@ -519,7 +548,7 @@
       "Zoe Saldaña",
       "Sigourney Weaver"
     ],
-    "banner": "../img/"
+    "banner": "../img/avatar_banner.png"
   },
   {
     "id": "matrix",
@@ -529,11 +558,16 @@
     "sinopsis": "Un programador descubre que el mundo que conoce es una simulación controlada por máquinas.",
     "caps": "Película",
     "duracion": "2h 16min",
+    "anio": 1999,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Lana Wachowski",
-    "actores": ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"],
-    "banner": "../img/"
+    "actores": [
+      "Keanu Reeves",
+      "Laurence Fishburne",
+      "Carrie-Anne Moss"
+    ],
+    "banner": "../img/matrix_banner.png"
   },
   {
     "id": "cobra-kai",
@@ -543,11 +577,16 @@
     "sinopsis": "Décadas después de su rivalidad, Johnny Lawrence y Daniel LaRusso vuelven a cruzar sus caminos a través del karate.",
     "caps": 65,
     "duracion": "30 min",
+    "anio": 2018,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Josh Heald",
-    "actores": ["Ralph Macchio", "William Zabka", "Xolo Maridueña"],
-    "banner": "../img/"
+    "actores": [
+      "Ralph Macchio",
+      "William Zabka",
+      "Xolo Maridueña"
+    ],
+    "banner": "../img/cobra-kai_banner.png"
   },
   {
     "id": "the-boys",
@@ -557,11 +596,16 @@
     "sinopsis": "Un grupo decide enfrentarse a superhéroes corruptos que abusan de su poder y fama.",
     "caps": 32,
     "duracion": "60 min",
+    "anio": 2019,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Eric Kripke",
-    "actores": ["Karl Urban", "Jack Quaid", "Antony Starr"],
-    "banner": "../img/"
+    "actores": [
+      "Karl Urban",
+      "Jack Quaid",
+      "Antony Starr"
+    ],
+    "banner": "../img/the-boys_banner.png"
   },
   {
     "id": "arrow",
@@ -571,11 +615,16 @@
     "sinopsis": "Oliver Queen regresa a su ciudad convertido en un vigilante decidido a combatir el crimen.",
     "caps": 170,
     "duracion": "42 min",
+    "anio": 2012,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Greg Berlanti",
-    "actores": ["Stephen Amell", "Katie Cassidy", "David Ramsey"],
-    "banner": "../img/"
+    "actores": [
+      "Stephen Amell",
+      "Katie Cassidy",
+      "David Ramsey"
+    ],
+    "banner": "../img/arrow_banner.png"
   },
   {
     "id": "la-casa-de-papel",
@@ -585,11 +634,16 @@
     "sinopsis": "Un grupo de atracadores ejecuta un plan minucioso para asaltar lugares emblemáticos de España.",
     "caps": 41,
     "duracion": "50 min",
+    "anio": 2017,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Álex Pina",
-    "actores": ["Álvaro Morte", "Úrsula Corberó", "Pedro Alonso"],
-    "banner": "../img/"
+    "actores": [
+      "Álvaro Morte",
+      "Úrsula Corberó",
+      "Pedro Alonso"
+    ],
+    "banner": "../img/la-casa-de-papel_banner.png"
   },
   {
     "id": "the-witcher",
@@ -599,11 +653,16 @@
     "sinopsis": "Geralt de Rivia, un cazador de monstruos, recorre un mundo lleno de magia, conflictos y criaturas peligrosas.",
     "caps": 24,
     "duracion": "60 min",
+    "anio": 2019,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Lauren Schmidt Hissrich",
-    "actores": ["Henry Cavill", "Anya Chalotra", "Freya Allan"],
-    "banner": "../img/"
+    "actores": [
+      "Henry Cavill",
+      "Anya Chalotra",
+      "Freya Allan"
+    ],
+    "banner": "../img/the-witcher_banner.png"
   },
   {
     "id": "john-wick",
@@ -613,11 +672,16 @@
     "sinopsis": "Un exasesino vuelve al mundo criminal para vengarse de quienes le arrebataron lo que más quería.",
     "caps": "Película",
     "duracion": "1h 41min",
+    "anio": 2014,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Chad Stahelski",
-    "actores": ["Keanu Reeves", "Michael Nyqvist", "Alfie Allen"],
-    "banner": "../img/"
+    "actores": [
+      "Keanu Reeves",
+      "Michael Nyqvist",
+      "Alfie Allen"
+    ],
+    "banner": "../img/john-wick_banner.png"
   },
   {
     "id": "rapidos-y-furiosos",
@@ -627,11 +691,16 @@
     "sinopsis": "Un policía encubierto se infiltra en el mundo de las carreras callejeras y el crimen organizado.",
     "caps": "Película",
     "duracion": "1h 46min",
+    "anio": 2001,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Rob Cohen",
-    "actores": ["Vin Diesel", "Paul Walker", "Michelle Rodriguez"],
-    "banner": "../img/"
+    "actores": [
+      "Vin Diesel",
+      "Paul Walker",
+      "Michelle Rodriguez"
+    ],
+    "banner": "../img/rapidos-y-furiosos_banner.png"
   },
   {
     "id": "mision-imposible",
@@ -641,11 +710,16 @@
     "sinopsis": "Ethan Hunt debe enfrentar misiones de alto riesgo para evitar amenazas internacionales.",
     "caps": "Película",
     "duracion": "1h 50min",
+    "anio": 1996,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Brian De Palma",
-    "actores": ["Tom Cruise", "Jon Voight", "Emmanuelle Béart"],
-    "banner": "../img/"
+    "actores": [
+      "Tom Cruise",
+      "Jon Voight",
+      "Emmanuelle Béart"
+    ],
+    "banner": "../img/mision-imposible_banner.png"
   },
   {
     "id": "mad-max-fury-road",
@@ -655,11 +729,16 @@
     "sinopsis": "En un mundo postapocalíptico, Max se une a Furiosa para escapar de un tirano y su ejército.",
     "caps": "Película",
     "duracion": "2h",
+    "anio": 2015,
     "puntuacion": [],
     "reseñas": [],
     "creador": "George Miller",
-    "actores": ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"],
-    "banner": "../img/"
+    "actores": [
+      "Tom Hardy",
+      "Charlize Theron",
+      "Nicholas Hoult"
+    ],
+    "banner": "../img/mad-max-fury-road_banner.png"
   },
   {
     "id": "top-gun-maverick",
@@ -669,11 +748,16 @@
     "sinopsis": "Maverick vuelve como instructor para preparar a un grupo de pilotos en una misión extremadamente peligrosa.",
     "caps": "Película",
     "duracion": "2h 10min",
+    "anio": 2022,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Joseph Kosinski",
-    "actores": ["Tom Cruise", "Miles Teller", "Jennifer Connelly"],
-    "banner": "../img/"
+    "actores": [
+      "Tom Cruise",
+      "Miles Teller",
+      "Jennifer Connelly"
+    ],
+    "banner": "../img/top-gun-maverick_banner.png"
   },
   {
     "id": "friends",
@@ -683,11 +767,16 @@
     "sinopsis": "Seis amigos viven situaciones cotidianas, amorosas y laborales en la ciudad de Nueva York.",
     "caps": 236,
     "duracion": "22 min",
+    "anio": 1994,
     "puntuacion": [],
     "reseñas": [],
     "creador": "David Crane",
-    "actores": ["Jennifer Aniston", "Courteney Cox", "Matthew Perry"],
-    "banner": "../img/"
+    "actores": [
+      "Jennifer Aniston",
+      "Courteney Cox",
+      "Matthew Perry"
+    ],
+    "banner": "../img/friends_banner.jpg"
   },
   {
     "id": "the-office",
@@ -697,11 +786,16 @@
     "sinopsis": "Los empleados de una oficina viven situaciones absurdas bajo la dirección de un jefe excéntrico.",
     "caps": 201,
     "duracion": "22 min",
+    "anio": 2005,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Greg Daniels",
-    "actores": ["Steve Carell", "Rainn Wilson", "John Krasinski"],
-    "banner": "../img/"
+    "actores": [
+      "Steve Carell",
+      "Rainn Wilson",
+      "John Krasinski"
+    ],
+    "banner": "../img/the-office_banner.png"
   },
   {
     "id": "brooklyn-nine-nine",
@@ -711,11 +805,16 @@
     "sinopsis": "Un grupo de detectives combina investigaciones policiales con situaciones cómicas dentro de una comisaría.",
     "caps": 153,
     "duracion": "22 min",
+    "anio": 2013,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Michael Schur",
-    "actores": ["Andy Samberg", "Melissa Fumero", "Andre Braugher"],
-    "banner": "../img/"
+    "actores": [
+      "Andy Samberg",
+      "Melissa Fumero",
+      "Andre Braugher"
+    ],
+    "banner": "../img/brooklyn-nine-nine_banner.png"
   },
   {
     "id": "modern-family",
@@ -725,11 +824,16 @@
     "sinopsis": "Tres familias relacionadas entre sí muestran con humor los desafíos de la vida familiar moderna.",
     "caps": 250,
     "duracion": "22 min",
+    "anio": 2009,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Christopher Lloyd",
-    "actores": ["Ed O'Neill", "Sofía Vergara", "Julie Bowen"],
-    "banner": "../img/"
+    "actores": [
+      "Ed O'Neill",
+      "Sofía Vergara",
+      "Julie Bowen"
+    ],
+    "banner": "../img/modern-family_banner.png"
   },
   {
     "id": "how-i-met-your-mother",
@@ -739,11 +843,16 @@
     "sinopsis": "Ted cuenta a sus hijos la historia de cómo conoció a su madre, recordando amistades, amores y momentos divertidos.",
     "caps": 208,
     "duracion": "22 min",
+    "anio": 2005,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Carter Bays",
-    "actores": ["Josh Radnor", "Jason Segel", "Cobie Smulders"],
-    "banner": "../img/"
+    "actores": [
+      "Josh Radnor",
+      "Jason Segel",
+      "Cobie Smulders"
+    ],
+    "banner": "../img/how-i-met-your-mother_banner.png"
   },
   {
     "id": "son-como-ninos",
@@ -753,11 +862,16 @@
     "sinopsis": "Un grupo de amigos de la infancia se reúne con sus familias y revive momentos divertidos del pasado.",
     "caps": "Película",
     "duracion": "1h 42min",
+    "anio": 2010,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Dennis Dugan",
-    "actores": ["Adam Sandler", "Kevin James", "Chris Rock"],
-    "banner": "../img/"
+    "actores": [
+      "Adam Sandler",
+      "Kevin James",
+      "Chris Rock"
+    ],
+    "banner": "../img/son-como-ninos_banner.png"
   },
   {
     "id": "legalmente-rubia",
@@ -767,11 +881,16 @@
     "sinopsis": "Elle Woods ingresa a la universidad de Harvard decidida a demostrar que es mucho más que una apariencia.",
     "caps": "Película",
     "duracion": "1h 36min",
+    "anio": 2001,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Robert Luketic",
-    "actores": ["Reese Witherspoon", "Luke Wilson", "Selma Blair"],
-    "banner": "../img/"
+    "actores": [
+      "Reese Witherspoon",
+      "Luke Wilson",
+      "Selma Blair"
+    ],
+    "banner": "../img/legalmente-rubia_banner.png"
   },
   {
     "id": "que-paso-ayer",
@@ -781,11 +900,16 @@
     "sinopsis": "Tres amigos despiertan sin recordar lo sucedido durante una despedida de soltero en Las Vegas.",
     "caps": "Película",
     "duracion": "1h 40min",
+    "anio": 2009,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Todd Phillips",
-    "actores": ["Bradley Cooper", "Ed Helms", "Zach Galifianakis"],
-    "banner": "../img/"
+    "actores": [
+      "Bradley Cooper",
+      "Ed Helms",
+      "Zach Galifianakis"
+    ],
+    "banner": "../img/que-paso-ayer_banner.png"
   },
   {
     "id": "jumanji-bienvenidos-a-la-jungla",
@@ -795,11 +919,16 @@
     "sinopsis": "Cuatro jóvenes quedan atrapados dentro de un videojuego y deben superar pruebas para regresar a casa.",
     "caps": "Película",
     "duracion": "1h 59min",
+    "anio": 2017,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Jake Kasdan",
-    "actores": ["Dwayne Johnson", "Kevin Hart", "Karen Gillan"],
-    "banner": "../img/"
+    "actores": [
+      "Dwayne Johnson",
+      "Kevin Hart",
+      "Karen Gillan"
+    ],
+    "banner": "../img/jumanji-bienvenidos-a-la-jungla_banner.png"
   },
   {
     "id": "la-propuesta",
@@ -809,11 +938,16 @@
     "sinopsis": "Una editora obliga a su asistente a fingir un compromiso para evitar ser deportada.",
     "caps": "Película",
     "duracion": "1h 48min",
+    "anio": 2009,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Anne Fletcher",
-    "actores": ["Sandra Bullock", "Ryan Reynolds", "Betty White"],
-    "banner": "../img/"
+    "actores": [
+      "Sandra Bullock",
+      "Ryan Reynolds",
+      "Betty White"
+    ],
+    "banner": "../img/la-propuesta_banner.png"
   },
   {
     "id": "bridgerton",
@@ -823,11 +957,16 @@
     "sinopsis": "La alta sociedad londinense vive entre romances, secretos familiares y escándalos sociales.",
     "caps": 24,
     "duracion": "60 min",
+    "anio": 2020,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Chris Van Dusen",
-    "actores": ["Phoebe Dynevor", "Regé-Jean Page", "Nicola Coughlan"],
-    "banner": "../img/"
+    "actores": [
+      "Phoebe Dynevor",
+      "Regé-Jean Page",
+      "Nicola Coughlan"
+    ],
+    "banner": "../img/bridgerton_banner.png"
   },
   {
     "id": "emily-in-paris",
@@ -837,11 +976,16 @@
     "sinopsis": "Una joven estadounidense se muda a París por trabajo y vive nuevas experiencias amorosas, laborales y culturales.",
     "caps": 40,
     "duracion": "30 min",
+    "anio": 2020,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Darren Star",
-    "actores": ["Lily Collins", "Ashley Park", "Lucas Bravo"],
-    "banner": "../img/"
+    "actores": [
+      "Lily Collins",
+      "Ashley Park",
+      "Lucas Bravo"
+    ],
+    "banner": "../img/emily-in-paris_banner.png"
   },
   {
     "id": "yo-nunca",
@@ -851,11 +995,16 @@
     "sinopsis": "Una adolescente intenta mejorar su vida social mientras enfrenta conflictos familiares, escolares y amorosos.",
     "caps": 40,
     "duracion": "30 min",
+    "anio": 2020,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Mindy Kaling",
-    "actores": ["Maitreyi Ramakrishnan", "Darren Barnet", "Jaren Lewison"],
-    "banner": "../img/"
+    "actores": [
+      "Maitreyi Ramakrishnan",
+      "Darren Barnet",
+      "Jaren Lewison"
+    ],
+    "banner": "../img/yo-nunca_banner.png"
   },
   {
     "id": "outlander",
@@ -865,11 +1014,16 @@
     "sinopsis": "Una enfermera viaja misteriosamente al pasado y vive una historia de amor marcada por la guerra y el destino.",
     "caps": 83,
     "duracion": "60 min",
+    "anio": 2014,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Ronald D. Moore",
-    "actores": ["Caitríona Balfe", "Sam Heughan", "Tobias Menzies"],
-    "banner": "../img/"
+    "actores": [
+      "Caitríona Balfe",
+      "Sam Heughan",
+      "Tobias Menzies"
+    ],
+    "banner": "../img/outlander_banner.png"
   },
   {
     "id": "normal-people",
@@ -879,11 +1033,16 @@
     "sinopsis": "Dos jóvenes viven una relación intensa y compleja a lo largo de diferentes etapas de sus vidas.",
     "caps": 12,
     "duracion": "30 min",
+    "anio": 2020,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Sally Rooney",
-    "actores": ["Daisy Edgar-Jones", "Paul Mescal", "Sarah Greene"],
-    "banner": "../img/"
+    "actores": [
+      "Daisy Edgar-Jones",
+      "Paul Mescal",
+      "Sarah Greene"
+    ],
+    "banner": "../img/normal-people_banner.png"
   },
   {
     "id": "bajo-la-misma-estrella",
@@ -893,11 +1052,16 @@
     "sinopsis": "Dos adolescentes con cáncer se conocen en un grupo de apoyo y comienzan una historia de amor conmovedora.",
     "caps": "Película",
     "duracion": "2h 6min",
+    "anio": 2014,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Josh Boone",
-    "actores": ["Shailene Woodley", "Ansel Elgort", "Laura Dern"],
-    "banner": "../img/"
+    "actores": [
+      "Shailene Woodley",
+      "Ansel Elgort",
+      "Laura Dern"
+    ],
+    "banner": "../img/bajo-la-misma-estrella_banner.png"
   },
   {
     "id": "diario-de-una-pasion",
@@ -907,11 +1071,16 @@
     "sinopsis": "Una pareja vive una historia de amor marcada por las diferencias sociales, el paso del tiempo y la memoria.",
     "caps": "Película",
     "duracion": "2h 3min",
+    "anio": 2004,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Nick Cassavetes",
-    "actores": ["Ryan Gosling", "Rachel McAdams", "James Garner"],
-    "banner": "../img/"
+    "actores": [
+      "Ryan Gosling",
+      "Rachel McAdams",
+      "James Garner"
+    ],
+    "banner": "../img/diario-de-una-pasion_banner.png"
   },
   {
     "id": "orgullo-y-prejuicio",
@@ -921,11 +1090,16 @@
     "sinopsis": "Elizabeth Bennet y el señor Darcy enfrentan prejuicios, orgullo y diferencias sociales en una historia clásica de amor.",
     "caps": "Película",
     "duracion": "2h 9min",
+    "anio": 2005,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Joe Wright",
-    "actores": ["Keira Knightley", "Matthew Macfadyen", "Rosamund Pike"],
-    "banner": "../img/"
+    "actores": [
+      "Keira Knightley",
+      "Matthew Macfadyen",
+      "Rosamund Pike"
+    ],
+    "banner": "../img/orgullo-y-prejuicio_banner.png"
   },
   {
     "id": "a-dos-metros-de-ti",
@@ -935,11 +1109,16 @@
     "sinopsis": "Dos jóvenes con fibrosis quística se enamoran, aunque deben mantenerse separados por razones médicas.",
     "caps": "Película",
     "duracion": "1h 56min",
+    "anio": 2019,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Justin Baldoni",
-    "actores": ["Haley Lu Richardson", "Cole Sprouse", "Moises Arias"],
-    "banner": "../img/"
+    "actores": [
+      "Haley Lu Richardson",
+      "Cole Sprouse",
+      "Moises Arias"
+    ],
+    "banner": "../img/a-dos-metros-de-ti_banner.png"
   },
   {
     "id": "yo-antes-de-ti",
@@ -949,11 +1128,16 @@
     "sinopsis": "Una joven comienza a trabajar como cuidadora de un hombre que cambió su vida tras un accidente.",
     "caps": "Película",
     "duracion": "1h 50min",
+    "anio": 2016,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Thea Sharrock",
-    "actores": ["Emilia Clarke", "Sam Claflin", "Janet McTeer"],
-    "banner": "../img/"
+    "actores": [
+      "Emilia Clarke",
+      "Sam Claflin",
+      "Janet McTeer"
+    ],
+    "banner": "../img/yo-antes-de-ti_banner.png"
   },
   {
     "id": "you",
@@ -963,11 +1147,16 @@
     "sinopsis": "Un hombre obsesivo se involucra peligrosamente en la vida de las personas que desea.",
     "caps": 40,
     "duracion": "45 min",
+    "anio": 2018,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Greg Berlanti",
-    "actores": ["Penn Badgley", "Victoria Pedretti", "Elizabeth Lail"],
-    "banner": "../img/"
+    "actores": [
+      "Penn Badgley",
+      "Victoria Pedretti",
+      "Elizabeth Lail"
+    ],
+    "banner": "../img/you_banner.png"
   },
   {
     "id": "mindhunter",
@@ -977,11 +1166,16 @@
     "sinopsis": "Agentes del FBI entrevistan asesinos seriales para comprender sus mentes y resolver futuros crímenes.",
     "caps": 19,
     "duracion": "50 min",
+    "anio": 2017,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Joe Penhall",
-    "actores": ["Jonathan Groff", "Holt McCallany", "Anna Torv"],
-    "banner": "../img/"
+    "actores": [
+      "Jonathan Groff",
+      "Holt McCallany",
+      "Anna Torv"
+    ],
+    "banner": "../img/mindhunter_banner.png"
   },
   {
     "id": "true-detective",
@@ -991,11 +1185,16 @@
     "sinopsis": "Detectives investigan crímenes complejos mientras enfrentan conflictos personales y secretos oscuros.",
     "caps": 30,
     "duracion": "60 min",
+    "anio": 2014,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Nic Pizzolatto",
-    "actores": ["Matthew McConaughey", "Woody Harrelson", "Mahershala Ali"],
-    "banner": "../img/"
+    "actores": [
+      "Matthew McConaughey",
+      "Woody Harrelson",
+      "Mahershala Ali"
+    ],
+    "banner": "../img/true-detective_banner.png"
   },
   {
     "id": "la-chica-de-nieve",
@@ -1005,11 +1204,16 @@
     "sinopsis": "Una periodista investiga la desaparición de una niña durante una cabalgata, enfrentando secretos y pistas inquietantes.",
     "caps": 6,
     "duracion": "45 min",
+    "anio": 2023,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Jesús Mesas Silva",
-    "actores": ["Milena Smit", "José Coronado", "Aixa Villagrán"],
-    "banner": "../img/"
+    "actores": [
+      "Milena Smit",
+      "José Coronado",
+      "Aixa Villagrán"
+    ],
+    "banner": "../img/la-chica-de-nieve_banner.png"
   },
   {
     "id": "el-inocente",
@@ -1019,11 +1223,16 @@
     "sinopsis": "Un hombre intenta rehacer su vida, pero un crimen del pasado vuelve a perseguirlo.",
     "caps": 8,
     "duracion": "50 min",
+    "anio": 2021,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Oriol Paulo",
-    "actores": ["Mario Casas", "Aura Garrido", "Alexandra Jiménez"],
-    "banner": "../img/"
+    "actores": [
+      "Mario Casas",
+      "Aura Garrido",
+      "Alexandra Jiménez"
+    ],
+    "banner": "../img/el-inocente_banner.png"
   },
   {
     "id": "perdida",
@@ -1033,11 +1242,16 @@
     "sinopsis": "La desaparición de una mujer revela secretos, mentiras y sospechas dentro de su matrimonio.",
     "caps": "Película",
     "duracion": "2h 29min",
+    "anio": 2014,
     "puntuacion": [],
     "reseñas": [],
     "creador": "David Fincher",
-    "actores": ["Ben Affleck", "Rosamund Pike", "Neil Patrick Harris"],
-    "banner": "../img/"
+    "actores": [
+      "Ben Affleck",
+      "Rosamund Pike",
+      "Neil Patrick Harris"
+    ],
+    "banner": "../img/perdida_banner.png"
   },
   {
     "id": "la-isla-siniestra",
@@ -1047,11 +1261,16 @@
     "sinopsis": "Un agente federal investiga la desaparición de una paciente en un hospital psiquiátrico ubicado en una isla.",
     "caps": "Película",
     "duracion": "2h 18min",
+    "anio": 2010,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Martin Scorsese",
-    "actores": ["Leonardo DiCaprio", "Mark Ruffalo", "Ben Kingsley"],
-    "banner": "../img/"
+    "actores": [
+      "Leonardo DiCaprio",
+      "Mark Ruffalo",
+      "Ben Kingsley"
+    ],
+    "banner": "../img/la-isla-siniestra_banner.png"
   },
   {
     "id": "fragmentado",
@@ -1061,11 +1280,16 @@
     "sinopsis": "Un hombre con múltiples personalidades secuestra a tres jóvenes, revelando una amenaza cada vez más peligrosa.",
     "caps": "Película",
     "duracion": "1h 57min",
+    "anio": 2016,
     "puntuacion": [],
     "reseñas": [],
     "creador": "M. Night Shyamalan",
-    "actores": ["James McAvoy", "Anya Taylor-Joy", "Betty Buckley"],
-    "banner": "../img/"
+    "actores": [
+      "James McAvoy",
+      "Anya Taylor-Joy",
+      "Betty Buckley"
+    ],
+    "banner": "../img/fragmentado_banner.png"
   },
   {
     "id": "el-silencio-de-los-inocentes",
@@ -1075,11 +1299,16 @@
     "sinopsis": "Una agente del FBI busca la ayuda de un brillante asesino encarcelado para capturar a otro criminal.",
     "caps": "Película",
     "duracion": "1h 58min",
+    "anio": 1991,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Jonathan Demme",
-    "actores": ["Jodie Foster", "Anthony Hopkins", "Scott Glenn"],
-    "banner": "../img/"
+    "actores": [
+      "Jodie Foster",
+      "Anthony Hopkins",
+      "Scott Glenn"
+    ],
+    "banner": "../img/el-silencio-de-los-inocentes_banner.png"
   },
   {
     "id": "prisioneros",
@@ -1089,12 +1318,15 @@
     "sinopsis": "La desaparición de dos niñas lleva a un padre desesperado a tomar decisiones extremas mientras la policía investiga.",
     "caps": "Película",
     "duracion": "2h 33min",
+    "anio": 2013,
     "puntuacion": [],
     "reseñas": [],
     "creador": "Denis Villeneuve",
-    "actores": ["Hugh Jackman", "Jake Gyllenhaal", "Viola Davis"],
-    "banner": "../img/"
+    "actores": [
+      "Hugh Jackman",
+      "Jake Gyllenhaal",
+      "Viola Davis"
+    ],
+    "banner": "../img/prisioneros_banner.png"
   }
 ]
-
-
