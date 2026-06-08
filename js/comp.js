@@ -316,6 +316,14 @@ function renderizarDetalles() {
 //   LÓGICA DE FAVORITOS (LOCALSTORAGE)
 // ==========================================
 
+function abrirModal() {
+    document.getElementById("modal-aviso-favoritos").style.display = "flex";
+}
+
+function cerrarModal() {
+    document.getElementById("modal-aviso-favoritos").style.display = "none";
+}
+
 // FUNCIÓN PARA AGREGAR FAVORITOS DESDE DETALLE.HTML
 function agregarAFavoritos() {
     
@@ -329,7 +337,8 @@ function agregarAFavoritos() {
     const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
 
     if(!usuarioLogeado){
-        alert("Debe Logearse para poder añadir favoritos");
+        abrirModal();
+        return;
     }
 
     // Validamos que no se duplique la película
@@ -1266,6 +1275,8 @@ document.addEventListener("DOMContentLoaded", () => {
             usuarioLogeado.reseñas.push(nuevaReseñaObj.id);
             localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
 
+            const usuariosCargados = JSON.parse(localStorage.getItem('usuarios'));
+
             // AHORA ACTUALIZO EN LISTA DE USUARIOS
             for(i=0; i<usuariosCargados.length; i++){
             if (usuarioLogeado.email === usuariosCargados[i].email){
@@ -1384,7 +1395,10 @@ if(botonPuntuar){
 
     if(!usuarioLogeado){
         alert("Debe logearse para poder puntuar");
+        return;
     }
+
+    
     // 1. Obtenemos los parámetros de la URL actual
     const urlParams = new URLSearchParams(window.location.search);
     // 2. Capturamos el valor específico del parámetro 'id'
@@ -1418,6 +1432,11 @@ if(botonEnviarPuntuacion){
     const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
     const Puntuacion = document.getElementById('inputPuntuacion').value;
     const listaPeliculas = JSON.parse(localStorage.getItem('peliculas_series'));
+
+    if(Puntuacion < 0 || Puntuacion > 10 || Puntuacion == ""){
+        alert("La Puntuación debe estar entre 0 y 10, y debe ser un numero");
+        return;
+    }
 
     // 1. Obtenemos los parámetros de la URL actual
     const urlParams = new URLSearchParams(window.location.search);

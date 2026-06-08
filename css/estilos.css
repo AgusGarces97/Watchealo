@@ -1839,3 +1839,90 @@ main > .container-fluid.px-0.position-relative::after {
     pointer-events: none; /* Crucial para que no bloquee los clics */
 
 }
+
+/* Modal AVISO DE ESTAR LOGEADO PARA GUARDAR FAVORITOS */
+
+/* Capa transparente que cubre toda la pantalla */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Caja blanca central */
+.modal-box {
+    background: var(--verdeOscuro);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.modal-header-aviso-favoritos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.modal-footer-aviso-favoritos {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.btn-login-aviso-favoritos {
+    background-color: var(--verdeOscuro); /* O tu color primario */
+    color: var(--celeste);
+    border: 1px solid var(--celeste);
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Esto es lo que da la suavidad */
+}
+
+.btn-login-aviso-favoritos:hover{
+    transform: scale(1.05);        /* Aumenta el tamaño un 5% */
+    background-color: var(--celeste);     /* Cambia el fondo a un azul más oscuro */
+    color: var(--verdeOscuro);                /* Cambia el color de la letra a blanco */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Opcional: le da un poco de profundidad */
+    cursor: pointer;               /* Cambia el cursor a la manito */
+}
+
+.btn-cancelar-aviso-favoritos {
+    background-color: var(--verdeOscuro); /* O tu color primario */
+    color: var(--celeste);
+    border: 1px solid var(--celeste);
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Esto es lo que da la suavidad */
+}
+
+.btn-cancelar-aviso-favoritos:hover{
+    transform: scale(1.05);        /* Aumenta el tamaño un 5% */
+    background-color: var(--celeste);     /* Cambia el fondo a un azul más oscuro */
+    color: var(--verdeOscuro);                /* Cambia el color de la letra a blanco */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Opcional: le da un poco de profundidad */
+    cursor: pointer;               /* Cambia el cursor a la manito */
+}
