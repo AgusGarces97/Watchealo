@@ -356,38 +356,38 @@ function agregarAFavoritos() {
 
 
 // FUNCIÓN PARA RENDERIZAR FAVORITOS EN PERFIL.HTML
+// — Al hacer hover sobre la portada muestra el nombre de la peli —
 function renderizarFavoritosPerfil() {
     const contenedorFavoritos = document.querySelector(".contenedor_favoritos");
-    
-    
-    // Si no estamos en la página de perfil (porque no existe ese contenedor), salimos de la función
     if (!contenedorFavoritos) return;
 
-    contenedorFavoritos.innerHTML = ""; // Limpiamos carga previa
+    contenedorFavoritos.innerHTML = "";
 
     let usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
-    let listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
 
-    if (usuarioLogeado.favoritos.length === 0) {
-        contenedorFavoritos.innerHTML = `<p class="text-muted">Aún no agregaste series o películas a tus favoritos.</p>`;
+    if (!usuarioLogeado || usuarioLogeado.favoritos.length === 0) {
+        contenedorFavoritos.innerHTML = `
+            <div class="favoritos-vacio w-100">
+                <i class="bi bi-star" style="font-size:1.6rem; opacity:0.3; display:block; margin-bottom:.5rem;"></i>
+                Todavía no agregaste favoritos.
+            </div>`;
         return;
     }
 
-    // Recorremos los IDs guardados y buscamos sus datos en el arreglo global
     usuarioLogeado.favoritos.forEach(idFav => {
         const peli = Arreglo_Pelis_Series.find(p => p.id === idFav);
-        
-        if (peli) {
-            // Creamos una columna responsiva de Bootstrap para cada portada de favorito
-            const col = document.createElement("div");
-            col.className = "col-4 col-sm-3 col-md-2 mb-3"; 
-            col.innerHTML = `
-                <a href="detalle.html?id=${peli.id}">
-                    <img src="${peli.portada}" alt="${peli.titulo}" class="img-fluid rounded img" style="cursor:pointer; border: 1px solid var(--celeste);">
-                </a>
-            `;
-            contenedorFavoritos.appendChild(col);
-        }
+        if (!peli) return;
+
+        const col = document.createElement("div");
+        col.className = "col-4 col-sm-3 col-md-2 mb-3";
+        col.innerHTML = `
+            <a href="detalle.html?id=${peli.id}" class="favorito-item">
+                <img src="${peli.portada}" alt="${peli.titulo}">
+                <span class="favorito-badge-fav"><i class="bi bi-star-fill"></i></span>
+                <span class="favorito-titulo-hover">${peli.titulo}</span>
+            </a>
+        `;
+        contenedorFavoritos.appendChild(col);
     });
 }
 
@@ -1316,45 +1316,67 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// Funcion para cargar las reseñas a su perfil correspondiente
-function cargarReseñasPerfil(){
+// FUNCIÓN PARA CARGAR LAS RESEÑAS EN EL PERFIL
+// — Muestra la portada de la película en lugar de la foto de perfil —
+function cargarReseñasPerfil() {
     const contenedorReseñasPerfil = document.getElementById("contenedor-reseñas-perfil");
+    if (!contenedorReseñasPerfil) return;
+
     contenedorReseñasPerfil.innerHTML = "";
-    if(contenedorReseñasPerfil){
-        const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
-        const todasReseñas = JSON.parse(localStorage.getItem('reseñasTodaPagina'));
-        if(usuarioLogeado){
-            for(i=0; i<usuarioLogeado.reseñas.length; i++){
-                let reseñaEncontrada = todasReseñas.find(r => (usuarioLogeado.reseñas[i] === r.id));
-                if(reseñaEncontrada){
-                    const nuevaTarjetaReseña = `
-                            <div class="card border-0 p-3 mb-3" style="background-color: rgba(255,255,255,0.02); border-left: 3px solid var(--celeste) !important; border-radius: 10px;">
-                                <div class="d-flex align-items-center mb-2">
-                                    <img src="${reseñaEncontrada.fotoUsuario}" alt="Avatar ${reseñaEncontrada.nombreUsuario}" class="rounded-circle me-3" width="45" height="45" style="object-fit: cover; border: 2px solid var(--celeste);">
-                                    <div>
-                                        <h6 class="mb-0 fw-bold text-white">${reseñaEncontrada.nombreUsuario}</h6>
-                                        <div class="d-flex align-items-center mt-1">
-                                            <div class="me-2">${reseñaEncontrada.estrellasHTML}</div>
-                                            <small class="text-muted">(${reseñaEncontrada.puntuacion}/10 pts)</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="mb-0 mt-2 text-white-50" style="font-size: 0.95rem; line-height: 1.5;">
-                                    ${reseñaEncontrada.comentarioTexto}
-                                </p>
-                            </div>
-                    `;
-                    if(contenedorReseñasPerfil){
-                        contenedorReseñasPerfil.insertAdjacentHTML("afterbegin", nuevaTarjetaReseña);
-                    }
-                    
-                }                
-            }
-        }else{
-            contenedorReseñasPerfil.innerHTML = "";
-        }
+
+    const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
+    const todasReseñas   = JSON.parse(localStorage.getItem('reseñasTodaPagina'));
+    const listaPelis     = JSON.parse(localStorage.getItem('peliculas_series')) || [];
+
+    if (!usuarioLogeado || !todasReseñas) return;
+
+    if (usuarioLogeado.reseñas.length === 0) {
+        contenedorReseñasPerfil.innerHTML = `
+            <div class="reseñas-vacio">
+                <i class="bi bi-chat-square-text" style="font-size:1.6rem; opacity:0.3; display:block; margin-bottom:.5rem;"></i>
+                Todavía no escribiste ninguna reseña.
+            </div>`;
+        return;
     }
+
+    usuarioLogeado.reseñas.forEach(idReseña => {
+        const reseñaEncontrada = todasReseñas.find(r => r.id === idReseña);
+        if (!reseñaEncontrada) return;
+
+        // Buscar la película a la que pertenece esta reseña
+        const peliDeReseña = listaPelis.find(p =>
+            Array.isArray(p.reseñas) && p.reseñas.includes(idReseña)
+        );
+
+        const portadaSrc   = peliDeReseña ? peliDeReseña.portada : "../img/pfp-default.webp";
+        const tituloPeli   = peliDeReseña ? peliDeReseña.titulo  : "Película desconocida";
+        const linkDetalle  = peliDeReseña ? `detalle.html?id=${peliDeReseña.id}` : "#";
+
+        const tarjeta = `
+            <div class="reseña-card">
+                <div class="reseña-header">
+                    <a href="${linkDetalle}" title="${tituloPeli}">
+                        <img src="${portadaSrc}" alt="${tituloPeli}" class="reseña-portada">
+                    </a>
+                    <div class="reseña-meta">
+                        <p class="reseña-titulo-peli">${tituloPeli}</p>
+                        <div class="reseña-estrellas">
+                            ${reseñaEncontrada.estrellasHTML}
+                            <span class="reseña-puntaje">(${reseñaEncontrada.puntuacion}/10)</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="reseña-texto">${reseñaEncontrada.comentarioTexto}</p>
+                <button class="btn-eliminar-reseña" data-id="${reseñaEncontrada.id}">
+                    <i class="bi bi-trash3"></i> Eliminar
+                </button>
+            </div>
+        `;
+
+        contenedorReseñasPerfil.insertAdjacentHTML("beforeend", tarjeta);
+    });
 }
+
 
 
 class PeliPuntuada{
