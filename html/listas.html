@@ -10,53 +10,51 @@
 </head>
 <body>
 <header>
-    <div class="container-fluid fixed-top header">
-        <div class="row">
-            <nav class="navbar navbar-expand-lg navbar-dark mx-auto">
-                <div class="container-fluid mx-5 my-2">
-
-                    <a class="navbar-brand" href="inicio.html">
-                        <img src="../img/logo.png" alt="Logo" width="250" height="auto" class="d-inline-block align-text-top img">
-                    </a>
-
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="container sticky-top mb-3">
+            <div class="row">
+                <nav class="navbar navbar-expand-lg navbar-dark mx-auto">
+                    <div class="container-fluid mx-2 my-2">
+                        <a class="navbar-brand" href="inicio.html"><img src="../img/logo.png" alt="Logo" width="250" height="auto" class="d-inline-block align-text-top img"></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="icono-hamb"><i class="bi bi-caret-down-fill"></i></span>
-                    </button>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
 
-                    <div class="collapse navbar-collapse" id="navbarNav">
+                            <!-- Menú centrado -->
+                            <ul class="navbar-nav mx-auto links">
+                                <li class="nav-item px-2">
+                                    <a class="nav-link btn-nav" href="explorar.html">Explorar</a>
+                                </li>
+                                <li class="nav-item px-2">
+                                    <a class="nav-link btn-nav" href="listas.html">Listas</a>
+                                </li>
+                                <li class="nav-item px-2">
+                                    <a class="nav-link btn-nav" href="inicio.html#Contacto">Contacto</a>
+                                </li>
+                            </ul>
 
-                        <ul class="navbar-nav mx-auto">
-                            <li class="nav-item px-5">
-                                <a class="nav-link btn-nav" href="explorar.html">Explorar</a>
-                            </li>
+                            <!-- Buscador y usuario a la derecha -->
+                            <div class="d-flex flex-row flex-lg-row align-items-center ms-auto busquedaYusuario">
+                                <form class="d-flex me-3">
+                                    <input class="form-control me-2" id="cuadroBusqueda" type="search" placeholder="Buscar...">
+                                    <button class="btn btn-outline-success" id="busqueda" type="button">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </form>
 
-                            <li class="nav-item px-5">
-                                <a class="nav-link btn-nav" href="listas.html">Listas</a>
-                            </li>
+                                <a href="perfil.html">
+                                    <button class="btn btn-user" type="button">
+                                        <i class="bi bi-person-fill"></i>
+                                    </button>
+                                </a>
+                            </div>
 
-                            <li class="nav-item px-5">
-                                <a class="nav-link btn-nav" href="inicio.html#Contacto">Contacto</a>
-                            </li>
-                        </ul>
-
-                        <form class="d-flex p-3" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" id="cuadroBusqueda">
-
-                            <button class="btn btn-outline-success" type="button" id="busqueda">
-                                <i class="bi bi-search"></i>
-                            </button>
-                        </form>
-
-                        <a href="perfil.html" class="btn btn-user">
-                            <i class="bi bi-person-fill"></i>
-                        </a>
-
+                        </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
+            </div>
         </div>
-    </div>
-</header>
+    </header> 
 
 <main class="main-listas">
 

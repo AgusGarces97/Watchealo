@@ -1486,7 +1486,6 @@ header + main > .container-fluid.px-0 {
 /*------------------------------------------------ MAIN DE LISTAS ------------------------------------------------*/
 
 .main-listas {
-    padding-top: 140px;
     padding-bottom: 3rem;
     min-height: 70vh;
 }
@@ -1535,7 +1534,6 @@ header + main > .container-fluid.px-0 {
 /*------------------------------------------------ EXPLORAR ------------------------------------------------*/
 
 .main-explorar {
-    padding-top: 140px;
     padding-bottom: 3rem;
     min-height: 70vh;
 }
