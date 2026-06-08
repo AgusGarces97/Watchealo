@@ -44,11 +44,16 @@ inputEmail.addEventListener('input',   () => { if (inputEmail.classList.contains
 inputMensaje.addEventListener('input', () => { if (inputMensaje.classList.contains('is-invalid') || inputMensaje.classList.contains('is-valid')) validarMensaje(); });
 
 /* ── Submit ── */
-formContacto.addEventListener('submit', (e) => {
-    e.preventDefault();
+
+const enviarContacto = document.getElementById('boton-enviar-contacto');
+
+enviarContacto.addEventListener('click', ()=>{
     const ok = validarNombre() & validarEmail() & validarMensaje();
     if (ok) {
         formContacto.style.display = 'none';
         confirmacion.classList.add('visible');
+        
+        formContacto.submit();
+        formContacto.reset()
     }
 });

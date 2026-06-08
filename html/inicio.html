@@ -171,7 +171,7 @@
 
                 <div class="mas-vistas-header">
                     <h2 class="mas-vistas-titulo">
-                        <i class="bi bi-fire"></i> Más vistas
+                        <i class="bi bi-fire"></i> MEJOR PUNTUADAS
                     </h2>
                 </div>
 
@@ -182,10 +182,6 @@
                         <div class="card pelicula-card">
                             <div class="pelicula-img-wrap">
                                 <img src="https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg" class="card-img-top pelicula-img" alt="Inception">
-                                <button class="btn-bookmark" aria-label="Guardar">
-                                    <i class="bi bi-bookmark"></i>
-                                    <i class="bi bi-bookmark-fill"></i>
-                                </button>
                             </div>
                             <div class="card-body pelicula-info">
                                 <span class="card-title pelicula-titulo">Inception</span>
@@ -263,14 +259,15 @@
                         <div class="card contacto-card">
                             <div class="card-body">
 
-                                <form id="formContacto" novalidate>
+                                <form id="formContacto" action="https://formspree.io/f/xpqedaeg" method="post" novalidate>
 
                                     <!-- Nombre -->
                                     <div class="mb-3">
-                                        <label for="inputNombre" class="form-label">Nombre y apellido</label>
+                                        <label for="Nombre" class="form-label">Nombre y apellido</label>
                                         <input
                                             type="text"
                                             class="form-control"
+                                            name="Nombre"
                                             id="inputNombre"
                                             placeholder="Ej: Juan Pérez"
                                             required
@@ -280,10 +277,11 @@
 
                                     <!-- Email -->
                                     <div class="mb-3">
-                                        <label for="inputEmail" class="form-label">Email</label>
+                                        <label for="Email" class="form-label">Email</label>
                                         <input
                                             type="email"
                                             class="form-control"
+                                            name="Email"
                                             id="inputEmail"
                                             placeholder="Ej: juan@email.com"
                                             required
@@ -293,9 +291,10 @@
 
                                     <!-- Mensaje -->
                                     <div class="mb-4">
-                                        <label for="inputMensaje" class="form-label">Mensaje</label>
+                                        <label for="Mensaje" class="form-label">Mensaje</label>
                                         <textarea
                                             class="form-control"
+                                            name="Mensaje"
                                             id="inputMensaje"
                                             rows="4"
                                             placeholder="Escribí tu consulta o comentario..."
@@ -305,7 +304,7 @@
                                     </div>
 
                                     <div class="d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-enviar">
+                                        <button type="button" class="btn btn-enviar" id="boton-enviar-contacto">
                                             <i class="bi bi-send me-2"></i>Enviar
                                         </button>
                                     </div>
