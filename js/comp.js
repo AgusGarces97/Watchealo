@@ -362,7 +362,24 @@ function agregarAFavoritos() {
         ////////////////////////////////////////////////////////////////
         alert("¡Agregada a tus favoritos en tu perfil!");
     } else {
-        alert("Esta serie ya está en tus favoritos.");
+        
+        for(i=0; i<usuarioLogeado.favoritos.length; i++){
+            if(idPelicula === usuarioLogeado.favoritos[i]){
+                // .splice(indice, cantidadDeElementosABorrar)
+                usuarioLogeado.favoritos.splice(i, 1);
+            }
+        }
+        // Actualizo al usuarioLogeado en el localStorage
+        localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
+        //Actualizo esto tambien para la lista de todos los usuarios
+        for(i=0; i<listaUsuarios.length; i++){
+            if(listaUsuarios[i].email === usuarioLogeado.email){
+                listaUsuarios[i].favoritos = usuarioLogeado.favoritos;
+            }
+        }
+        localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
+        alert('Quitado de Favoritos');
+        
     }
 
 }
@@ -1740,7 +1757,7 @@ function mostrarMasRecientes(){
     contenedorCarrusel.innerHTML = "";
     for(i=0; i<4; i++){
         const tarjetaHTML = `
-        <!-- SLIDE 1 -->
+        <!-- SLIDE -->
             <div class="carousel-item active">
                     <img class="backdrop" src="${listaPelisOrdenada[i].banner}" alt="1-backdrop">
                     <span class="badge-trailer">Tráiler Oficial</span>
@@ -1752,7 +1769,9 @@ function mostrarMasRecientes(){
                     </a>
                     <div class="carousel-caption">
                         <div class="caption-inner">
+                            <a href="detalle.html?id=${listaPelisOrdenada[i].id}" class="text-decoration-none portada-carrusel">
                             <img class="caption-poster" src="${listaPelisOrdenada[i].portada}" alt="1-poster">
+                            </a>
                             <div class="caption-info">
                                 <p class="caption-genre">${listaPelisOrdenada[i].genero}</p>
                                 <h5 class="caption-title">${listaPelisOrdenada[i].titulo}</h5>
@@ -1774,3 +1793,4 @@ function mostrarMasRecientes(){
 
 mostrarMasRecientes();
 document.addEventListener('load', mostrarMasRecientes());
+

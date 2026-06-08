@@ -1926,3 +1926,12 @@ main > .container-fluid.px-0.position-relative::after {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Opcional: le da un poco de profundidad */
     cursor: pointer;               /* Cambia el cursor a la manito */
 }
+
+.portada-carrusel{
+    transition: all 0.3s ease; /* Esto es lo que da la suavidad */
+}
+
+.portada-carrusel:hover{
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
