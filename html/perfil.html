@@ -9,8 +9,8 @@
     <title>Perfil</title>
 </head>
 <body>
-    <header>
-        <div class="container sticky-top mb-3">
+    <header class="sticky-top bg-dark">
+        <div class="container-fluid">
             <div class="row">
                 <nav class="navbar navbar-expand-lg navbar-dark mx-auto">
                     <div class="container-fluid mx-2 my-2">
@@ -29,15 +29,15 @@
                                     <a class="nav-link btn-nav" href="listas.html">Listas</a>
                                 </li>
                                 <li class="nav-item px-2">
-                                    <a class="nav-link btn-nav" href="inicio.html#Contacto">Contacto</a>
+                                    <a class="nav-link btn-nav" href="#Contacto">Contacto</a>
                                 </li>
                             </ul>
 
                             <!-- Buscador y usuario a la derecha -->
                             <div class="d-flex flex-row flex-lg-row align-items-center ms-auto busquedaYusuario">
-                                <form class="d-flex me-3" id="busquedaNav">
+                                <form id="busquedaNav" class="d-flex me-3">
                                     <input class="form-control me-2" id="cuadroBusqueda" type="search" placeholder="Buscar...">
-                                    <button class="btn btn-outline-success" id="busqueda" type="button">
+                                    <button class="btn btn-outline-success" id="busqueda" type="submit">
                                         <i class="bi bi-search"></i>
                                     </button>
                                 </form>
@@ -103,51 +103,62 @@
             <!----------------------------------------------------------------->
 
             <!-- CONTENIDO PRINCIPAL DEBAJO DEL BANNER -->
-            <div class="container-fluid px-3 px-md-4 seccion-principal">
+            <div class="container px-3 px-md-4 seccion-principal">
                 <div class="row g-4">
 
                     <!-- COLUMNA IZQUIERDA: Biografía + Favoritos -->
                     <div class="col-12 col-lg-8">
 
-                        <!-----------------------BIOGRAFÍA ------------------------------------>
+                        <!-- ── BIOGRAFÍA ── -->
                         <div class="mb-4">
-                            <div class="d-flex align-items-center gap-3 mb-2">
-                                <h1 class="mb-0 fs-3">Biografía</h1>
-                                <button type="button" class="btn btn-outline-info btn-sm rounded-pill px-3 py-1" id="btn-editar-bio" style="border-color: var(--celeste); color: var(--celeste); display: none;">
+                            <div class="bio-section-header">
+                                <h1><i class="bi bi-person-lines-fill me-2"></i>Biografía</h1>
+                                <div class="section-line"></div>
+                                <button type="button"
+                                        class="btn btn-outline-info btn-sm rounded-pill px-3 py-1"
+                                        id="btn-editar-bio"
+                                        style="display: none;">
                                     <i class="bi bi-pencil-fill"></i> Editar
                                 </button>
                             </div>
-                            <div id="contenedor-bio-interactivo">
-                                <p class="text-white border border-white p-3 rounded mb-0" id="texto-bio">
-                                    ¡Hola! Contanos un poco sobre tus gustos en series y películas...
-                                </p>
+                            <div class="bio-card">
+                                <div id="contenedor-bio-interactivo">
+                                    <p class="mb-0" id="texto-bio">
+                                        ¡Hola! Contanos un poco sobre tus gustos en series y películas...
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        <!----------------------------------------------------------------->
+                        <!-- ── FIN BIOGRAFÍA ── -->
 
-                        <!-----------------------FAVORITOS ------------------------------------>
+                        <!-- ── FAVORITOS ── -->
                         <div>
-                            <h2 class="fs-4 mb-3">Favoritos</h2>
-                            <div class="row g-2 contenedor_favoritos" id="contenedor-favoritos">
-                               
+                            <div class="perfil-seccion-header">
+                                <span class="seccion-titulo"><i class="bi bi-star me-2"></i>Favoritos</span>
+                                <div class="section-line"></div>
                             </div>
+                            <div class="row g-2 contenedor_favoritos" id="contenedor-favoritos"></div>
                         </div>
-                        <!----------------------------------------------------------------->
+                        <!-- ── FIN FAVORITOS ── -->
+
                     </div>
+                    <!-- FIN COLUMNA IZQUIERDA -->
 
                     <!-- COLUMNA DERECHA: Reseñas -->
                     <div class="col-12 col-lg-4">
-                        <h2 class="fs-4 mb-3">Mis Reseñas</h2>
-                        <div class="reseñas_perfil d-flex flex-column gap-3" id="contenedor-reseñas-perfil">
-
-                            
-
+                        <div class="perfil-seccion-header">
+                            <span class="seccion-titulo"><i class="bi bi-chat-square-text me-2"></i>Mis Reseñas</span>
+                            <div class="section-line"></div>
+                        </div>
+                        <div class="reseñas_perfil d-flex flex-column gap-2"
+                            id="contenedor-reseñas-perfil">
                         </div>
                     </div>
                     <!-- FIN COLUMNA DERECHA -->
 
                 </div>
             </div>
+            <!-- ── FIN CONTENIDO PRINCIPAL ── -->
             <!----------------------------------------------------------------->
         </div>
         
