@@ -1,3 +1,9 @@
+const params = new URLSearchParams(window.location.search);
+
+const busquedaURL = params.get("busqueda");
+
+const inputExplorar = document.getElementById("buscarExplorar");
+
 const contenedorExplorar = document.getElementById("contenedor-explorar");
 const buscarExplorar = document.getElementById("buscarExplorar");
 const filtroGenero = document.getElementById("filtroGenero");
@@ -12,7 +18,18 @@ fetch("../json/pelis_y_series.json")
     })
     .then(function(datos) {
         peliculasSeriesExplorar = datos;
-        mostrarResultados(peliculasSeriesExplorar);
+
+        if(busquedaURL){
+
+            inputExplorar.value = busquedaURL;
+
+            aplicarFiltros();
+
+        }
+        else{
+            mostrarResultados(peliculasSeriesExplorar);
+        }
+        
     })
     .catch(function(error) {
         console.error("Error al cargar explorar:", error);

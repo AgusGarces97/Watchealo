@@ -10,6 +10,23 @@ body{
     color: white;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--verdeOscuro);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--celeste);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: white;
+}
+
 /* <!-- Estilos para el navbar --> */
 
 #cuadroBusqueda{
@@ -25,6 +42,18 @@ body{
     opacity: 1;
     padding: .375rem .75rem;
     border: 1px solid #dee2e6;
+}
+
+.bg-dark{
+    background-color: var(--verdeOscuro) !important;
+}
+
+.navbar {
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar-scroll {
+    box-shadow: 0 8px 10px -8px rgba(0,0,0,0.5);
 }
 
 .btn-outline-success{
@@ -204,7 +233,7 @@ body{
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
 }
 
-#watchealoCarousel .carousel-inner {
+#Carousel .carousel-inner {
     border-radius: 12px;
     overflow: hidden;
 }
@@ -1486,7 +1515,6 @@ header + main > .container-fluid.px-0 {
 /*------------------------------------------------ MAIN DE LISTAS ------------------------------------------------*/
 
 .main-listas {
-    padding-top: 140px;
     padding-bottom: 3rem;
     min-height: 70vh;
 }
@@ -1535,7 +1563,6 @@ header + main > .container-fluid.px-0 {
 /*------------------------------------------------ EXPLORAR ------------------------------------------------*/
 
 .main-explorar {
-    padding-top: 140px;
     padding-bottom: 3rem;
     min-height: 70vh;
 }
