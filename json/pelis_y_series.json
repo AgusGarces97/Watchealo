@@ -13,7 +13,8 @@
     "creador": "Robert Kirkman",
     "actores": ["Andrew Lincoln", "Norman Reedus", "Melissa McBride"],
     "banner": "../img/the-walking-dead_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Frank Darabont"
   },
   {
     "id": "stranger-things",
@@ -29,7 +30,8 @@
     "creador": "The Duffer Brothers",
     "actores": ["Millie Bobby Brown", "Finn Wolfhard", "David Harbour"],
     "banner": "../img/stranger-things_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Matt Duffer"
   },
   {
     "id": "dark",
@@ -45,7 +47,8 @@
     "creador": "Baran bo Odar",
     "actores": ["Louis Hofmann", "Lisa Vicari", "Maja Schöne"],
     "banner": "../img/dark_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Baran bo Odar"
   },
   {
     "id": "american-horror-story",
@@ -61,7 +64,8 @@
     "creador": "Ryan Murphy",
     "actores": ["Sarah Paulson", "Evan Peters", "Jessica Lange"],
     "banner": "../img/american-horror-story_banner.png.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Ryan Murphy"
   },
   {
     "id": "the-haunting-of-hill-house",
@@ -77,7 +81,8 @@
     "creador": "Mike Flanagan",
     "actores": ["Victoria Pedretti", "Oliver Jackson-Cohen", "Carla Gugino"],
     "banner": "../img/the-haunting-of-hill-house_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Mike Flanagan"
   },
   {
     "id": "el-conjuro",
@@ -93,7 +98,8 @@
     "creador": "James Wan",
     "actores": ["Vera Farmiga", "Patrick Wilson", "Lili Taylor"],
     "banner": "../img/el-conjuro_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "James Wan"
   },
   {
     "id": "it",
@@ -109,7 +115,8 @@
     "creador": "Andy Muschietti",
     "actores": ["Bill Skarsgård", "Jaeden Martell", "Sophia Lillis"],
     "banner": "../img/it_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Andy Muschietti"
   },
   {
     "id": "la-monja",
@@ -125,7 +132,8 @@
     "creador": "Corin Hardy",
     "actores": ["Taissa Farmiga", "Demián Bichir", "Jonas Bloquet"],
     "banner": "../img/la-monja_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Corin Hardy"
   },
   {
     "id": "scream",
@@ -141,7 +149,8 @@
     "creador": "Wes Craven",
     "actores": ["Neve Campbell", "Courteney Cox", "David Arquette"],
     "banner": "../img/scream_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Wes Craven"
   },
   {
     "id": "el-aro",
@@ -157,7 +166,8 @@
     "creador": "Gore Verbinski",
     "actores": ["Naomi Watts", "Martin Henderson", "Daveigh Chase"],
     "banner": "../img/el-aro_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Gore Verbinski"
   },
   {
     "id": "breaking-bad",
@@ -173,7 +183,8 @@
     "creador": "Vince Gilligan",
     "actores": ["Bryan Cranston", "Aaron Paul", "Anna Gunn"],
     "banner": "../img/breaking-bad_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Vince Gilligan"
   },
   {
     "id": "the-bear",
@@ -189,7 +200,8 @@
     "creador": "Christopher Storer",
     "actores": ["Jeremy Allen White", "Ayo Edebiri", "Ebon Moss-Bachrach"],
     "banner": "../img/the-bear_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Christopher Storer"
   },
   {
     "id": "greys-anatomy",
@@ -205,7 +217,8 @@
     "creador": "Shonda Rhimes",
     "actores": ["Ellen Pompeo", "Chandra Wilson", "James Pickens Jr."],
     "banner": "../img/greys-anatomy_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Peter Horton"
   },
   {
     "id": "this-is-us",
@@ -221,7 +234,8 @@
     "creador": "Dan Fogelman",
     "actores": ["Milo Ventimiglia", "Mandy Moore", "Sterling K. Brown"],
     "banner": "../img/this-is-us_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Ken Olin"
   },
   {
     "id": "the-crown",
@@ -237,7 +251,8 @@
     "creador": "Peter Morgan",
     "actores": ["Claire Foy", "Olivia Colman", "Imelda Staunton"],
     "banner": "../img/the-crown_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Stephen Daldry"
   },
   {
     "id": "oppenheimer",
@@ -253,7 +268,8 @@
     "creador": "Christopher Nolan",
     "actores": ["Cillian Murphy", "Emily Blunt", "Robert Downey Jr."],
     "banner": "../img/oppenheimer_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Christopher Nolan"
   },
   {
     "id": "parasite",
@@ -269,7 +285,8 @@
     "creador": "Bong Joon-ho",
     "actores": ["Song Kang-ho", "Choi Woo-shik", "Park So-dam"],
     "banner": "../img/parasite_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Bong Joon-ho"
   },
   {
     "id": "joker",
@@ -285,7 +302,8 @@
     "creador": "Todd Phillips",
     "actores": ["Joaquin Phoenix", "Robert De Niro", "Zazie Beetz"],
     "banner": "../img/joker_banner.jpg",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Todd Phillips"
   },
   {
     "id": "titanic",
@@ -301,7 +319,8 @@
     "creador": "James Cameron",
     "actores": ["Leonardo DiCaprio", "Kate Winslet", "Billy Zane"],
     "banner": "../img/titanic_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "James Cameron"
   },
   {
     "id": "gladiador",
@@ -317,7 +336,8 @@
     "creador": "Ridley Scott",
     "actores": ["Russell Crowe", "Joaquin Phoenix", "Connie Nielsen"],
     "banner": "../img/gladiador_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Ridley Scott"
   },
   {
     "id": "black-mirror",
@@ -333,7 +353,8 @@
     "creador": "Charlie Brooker",
     "actores": ["Bryce Dallas Howard", "Daniel Kaluuya", "Jesse Plemons"],
     "banner": "../img/black-mirror_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Otto Bathurst"
   },
   {
     "id": "the-100",
@@ -349,7 +370,8 @@
     "creador": "Jason Rothenberg",
     "actores": ["Eliza Taylor", "Bob Morley", "Marie Avgeropoulos"],
     "banner": "../img/the-100_banner.jpg",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Bharat Nalluri"
   },
   {
     "id": "lost-in-space",
@@ -365,7 +387,8 @@
     "creador": "Matt Sazama",
     "actores": ["Molly Parker", "Toby Stephens", "Maxwell Jenkins"],
     "banner": "../img/lost-in-space_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Neil Marshall"
   },
   {
     "id": "westworld",
@@ -381,7 +404,8 @@
     "creador": "Jonathan Nolan",
     "actores": ["Evan Rachel Wood", "Thandiwe Newton", "Jeffrey Wright"],
     "banner": "../img/westworld_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Jonathan Nolan"
   },
   {
     "id": "the-mandalorian",
@@ -397,7 +421,8 @@
     "creador": "Jon Favreau",
     "actores": ["Pedro Pascal", "Carl Weathers", "Giancarlo Esposito"],
     "banner": "../img/the-mandalorian_banner.jpg",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Dave Filoni"
   },
   {
     "id": "inception",
@@ -413,7 +438,8 @@
     "creador": "Christopher Nolan",
     "actores": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"],
     "banner": "../img/inception_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Christopher Nolan"
   },
   {
     "id": "interstellar",
@@ -429,7 +455,8 @@
     "creador": "Christopher Nolan",
     "actores": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
     "banner": "../img/interestellar_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Christopher Nolan"
   },
   {
     "id": "dune",
@@ -445,7 +472,8 @@
     "creador": "Denis Villeneuve",
     "actores": ["Timothée Chalamet", "Zendaya", "Oscar Isaac"],
     "banner": "../img/dune_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Denis Villeneuve"
   },
   {
     "id": "avatar",
@@ -461,7 +489,8 @@
     "creador": "James Cameron",
     "actores": ["Sam Worthington", "Zoe Saldaña", "Sigourney Weaver"],
     "banner": "../img/avatar_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "James Cameron"
   },
   {
     "id": "matrix",
@@ -477,7 +506,8 @@
     "creador": "Lana Wachowski",
     "actores": ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"],
     "banner": "../img/matrix_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Lana Wachowski"
   },
   {
     "id": "cobra-kai",
@@ -493,7 +523,8 @@
     "creador": "Josh Heald",
     "actores": ["Ralph Macchio", "William Zabka", "Xolo Maridueña"],
     "banner": "../img/cobra-kai_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Jon Hurwitz"
   },
   {
     "id": "the-boys",
@@ -509,7 +540,8 @@
     "creador": "Eric Kripke",
     "actores": ["Karl Urban", "Jack Quaid", "Antony Starr"],
     "banner": "../img/the-boys_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Dan Trachtenberg"
   },
   {
     "id": "arrow",
@@ -525,7 +557,8 @@
     "creador": "Greg Berlanti",
     "actores": ["Stephen Amell", "Katie Cassidy", "David Ramsey"],
     "banner": "../img/arrow_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "David Nutter"
   },
   {
     "id": "la-casa-de-papel",
@@ -541,7 +574,8 @@
     "creador": "Álex Pina",
     "actores": ["Álvaro Morte", "Úrsula Corberó", "Pedro Alonso"],
     "banner": "../img/la-casa-de-papel_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Jesús Colmenar"
   },
   {
     "id": "the-witcher",
@@ -557,7 +591,8 @@
     "creador": "Lauren Schmidt Hissrich",
     "actores": ["Henry Cavill", "Anya Chalotra", "Freya Allan"],
     "banner": "../img/the-witcher_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Alik Sakharov"
   },
   {
     "id": "john-wick",
@@ -573,7 +608,8 @@
     "creador": "Chad Stahelski",
     "actores": ["Keanu Reeves", "Michael Nyqvist", "Alfie Allen"],
     "banner": "../img/john-wick_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Chad Stahelski"
   },
   {
     "id": "rapidos-y-furiosos",
@@ -589,7 +625,8 @@
     "creador": "Rob Cohen",
     "actores": ["Vin Diesel", "Paul Walker", "Michelle Rodriguez"],
     "banner": "../img/rapidos-y-furiosos_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Rob Cohen"
   },
   {
     "id": "mision-imposible",
@@ -605,7 +642,8 @@
     "creador": "Brian De Palma",
     "actores": ["Tom Cruise", "Jon Voight", "Emmanuelle Béart"],
     "banner": "../img/mision-imposible_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Brian De Palma"
   },
   {
     "id": "mad-max-fury-road",
@@ -621,7 +659,8 @@
     "creador": "George Miller",
     "actores": ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"],
     "banner": "../img/mad-max-fury-road_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "George Miller"
   },
   {
     "id": "top-gun-maverick",
@@ -637,7 +676,8 @@
     "creador": "Joseph Kosinski",
     "actores": ["Tom Cruise", "Miles Teller", "Jennifer Connelly"],
     "banner": "../img/top-gun-maverick_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Joseph Kosinski"
   },
   {
     "id": "friends",
@@ -653,7 +693,8 @@
     "creador": "David Crane",
     "actores": ["Jennifer Aniston", "Courteney Cox", "Matthew Perry"],
     "banner": "../img/friends_banner.jpg",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "James Burrows"
   },
   {
     "id": "the-office",
@@ -669,7 +710,8 @@
     "creador": "Greg Daniels",
     "actores": ["Steve Carell", "Rainn Wilson", "John Krasinski"],
     "banner": "../img/the-office_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Ken Kwapis"
   },
   {
     "id": "brooklyn-nine-nine",
@@ -685,7 +727,8 @@
     "creador": "Michael Schur",
     "actores": ["Andy Samberg", "Melissa Fumero", "Andre Braugher"],
     "banner": "../img/brooklyn-nine-nine_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Phil Lord"
   },
   {
     "id": "modern-family",
@@ -701,7 +744,8 @@
     "creador": "Christopher Lloyd",
     "actores": ["Ed O'Neill", "Sofía Vergara", "Julie Bowen"],
     "banner": "../img/modern-family_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Jason Winer"
   },
   {
     "id": "how-i-met-your-mother",
@@ -717,7 +761,8 @@
     "creador": "Carter Bays",
     "actores": ["Josh Radnor", "Jason Segel", "Cobie Smulders"],
     "banner": "../img/how-i-met-your-mother_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Pamela Fryman"
   },
   {
     "id": "son-como-ninos",
@@ -733,7 +778,8 @@
     "creador": "Dennis Dugan",
     "actores": ["Adam Sandler", "Kevin James", "Chris Rock"],
     "banner": "../img/son-como-ninos_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Dennis Dugan"
   },
   {
     "id": "legalmente-rubia",
@@ -749,7 +795,8 @@
     "creador": "Robert Luketic",
     "actores": ["Reese Witherspoon", "Luke Wilson", "Selma Blair"],
     "banner": "../img/legalmente-rubia_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Robert Luketic"
   },
   {
     "id": "que-paso-ayer",
@@ -765,7 +812,8 @@
     "creador": "Todd Phillips",
     "actores": ["Bradley Cooper", "Ed Helms", "Zach Galifianakis"],
     "banner": "../img/que-paso-ayer_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Todd Phillips"
   },
   {
     "id": "jumanji-bienvenidos-a-la-jungla",
@@ -781,7 +829,8 @@
     "creador": "Jake Kasdan",
     "actores": ["Dwayne Johnson", "Kevin Hart", "Karen Gillan"],
     "banner": "../img/jumanji-bienvenidos-a-la-jungla_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Jake Kasdan"
   },
   {
     "id": "la-propuesta",
@@ -797,7 +846,8 @@
     "creador": "Anne Fletcher",
     "actores": ["Sandra Bullock", "Ryan Reynolds", "Betty White"],
     "banner": "../img/la-propuesta_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Anne Fletcher"
   },
   {
     "id": "bridgerton",
@@ -813,7 +863,8 @@
     "creador": "Chris Van Dusen",
     "actores": ["Phoebe Dynevor", "Regé-Jean Page", "Nicola Coughlan"],
     "banner": "../img/bridgerton_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Julie Anne Robinson"
   },
   {
     "id": "emily-in-paris",
@@ -829,7 +880,8 @@
     "creador": "Darren Star",
     "actores": ["Lily Collins", "Ashley Park", "Lucas Bravo"],
     "banner": "../img/emily-in-paris_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Andrew Fleming"
   },
   {
     "id": "yo-nunca",
@@ -845,7 +897,8 @@
     "creador": "Mindy Kaling",
     "actores": ["Maitreyi Ramakrishnan", "Darren Barnet", "Jaren Lewison"],
     "banner": "../img/yo-nunca_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Tristram Shapeero"
   },
   {
     "id": "outlander",
@@ -861,7 +914,8 @@
     "creador": "Ronald D. Moore",
     "actores": ["Caitríona Balfe", "Sam Heughan", "Tobias Menzies"],
     "banner": "../img/outlander_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "John Dahl"
   },
   {
     "id": "normal-people",
@@ -877,7 +931,8 @@
     "creador": "Sally Rooney",
     "actores": ["Daisy Edgar-Jones", "Paul Mescal", "Sarah Greene"],
     "banner": "../img/normal-people_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Lenny Abrahamson"
   },
   {
     "id": "bajo-la-misma-estrella",
@@ -893,7 +948,8 @@
     "creador": "Josh Boone",
     "actores": ["Shailene Woodley", "Ansel Elgort", "Laura Dern"],
     "banner": "../img/bajo-la-misma-estrella_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Josh Boone"
   },
   {
     "id": "diario-de-una-pasion",
@@ -909,7 +965,8 @@
     "creador": "Nick Cassavetes",
     "actores": ["Ryan Gosling", "Rachel McAdams", "James Garner"],
     "banner": "../img/diario-de-una-pasion_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Nick Cassavetes"
   },
   {
     "id": "orgullo-y-prejuicio",
@@ -925,7 +982,8 @@
     "creador": "Joe Wright",
     "actores": ["Keira Knightley", "Matthew Macfadyen", "Rosamund Pike"],
     "banner": "../img/orgullo-y-prejuicio_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Joe Wright"
   },
   {
     "id": "a-dos-metros-de-ti",
@@ -941,7 +999,8 @@
     "creador": "Justin Baldoni",
     "actores": ["Haley Lu Richardson", "Cole Sprouse", "Moises Arias"],
     "banner": "../img/a-dos-metros-de-ti_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Justin Baldoni"
   },
   {
     "id": "yo-antes-de-ti",
@@ -957,7 +1016,8 @@
     "creador": "Thea Sharrock",
     "actores": ["Emilia Clarke", "Sam Claflin", "Janet McTeer"],
     "banner": "../img/yo-antes-de-ti_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Thea Sharrock"
   },
   {
     "id": "you",
@@ -973,7 +1033,8 @@
     "creador": "Greg Berlanti",
     "actores": ["Penn Badgley", "Victoria Pedretti", "Elizabeth Lail"],
     "banner": "../img/you_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Marcos Siega"
   },
   {
     "id": "mindhunter",
@@ -989,7 +1050,8 @@
     "creador": "Joe Penhall",
     "actores": ["Jonathan Groff", "Holt McCallany", "Anna Torv"],
     "banner": "../img/mindhunter_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "David Fincher"
   },
   {
     "id": "true-detective",
@@ -1005,7 +1067,8 @@
     "creador": "Nic Pizzolatto",
     "actores": ["Matthew McConaughey", "Woody Harrelson", "Mahershala Ali"],
     "banner": "../img/true-detective_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Cary Joji Fukunaga"
   },
   {
     "id": "la-chica-de-nieve",
@@ -1021,7 +1084,8 @@
     "creador": "Jesús Mesas Silva",
     "actores": ["Milena Smit", "José Coronado", "Aixa Villagrán"],
     "banner": "../img/la-chica-de-nieve_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "David Ulloa"
   },
   {
     "id": "el-inocente",
@@ -1037,7 +1101,8 @@
     "creador": "Oriol Paulo",
     "actores": ["Mario Casas", "Aura Garrido", "Alexandra Jiménez"],
     "banner": "../img/el-inocente_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Oriol Paulo"
   },
   {
     "id": "perdida",
@@ -1053,7 +1118,8 @@
     "creador": "David Fincher",
     "actores": ["Ben Affleck", "Rosamund Pike", "Neil Patrick Harris"],
     "banner": "../img/perdida_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "David Fincher"
   },
   {
     "id": "la-isla-siniestra",
@@ -1069,7 +1135,8 @@
     "creador": "Martin Scorsese",
     "actores": ["Leonardo DiCaprio", "Mark Ruffalo", "Ben Kingsley"],
     "banner": "../img/la-isla-siniestra_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Martin Scorsese"
   },
   {
     "id": "fragmentado",
@@ -1085,7 +1152,8 @@
     "creador": "M. Night Shyamalan",
     "actores": ["James McAvoy", "Anya Taylor-Joy", "Betty Buckley"],
     "banner": "../img/fragmentado_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "M. Night Shyamalan"
   },
   {
     "id": "el-silencio-de-los-inocentes",
@@ -1101,7 +1169,8 @@
     "creador": "Jonathan Demme",
     "actores": ["Jodie Foster", "Anthony Hopkins", "Scott Glenn"],
     "banner": "../img/el-silencio-de-los-inocentes_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Jonathan Demme"
   },
   {
     "id": "prisioneros",
@@ -1117,6 +1186,7 @@
     "creador": "Denis Villeneuve",
     "actores": ["Hugh Jackman", "Jake Gyllenhaal", "Viola Davis"],
     "banner": "../img/prisioneros_banner.png",
-    "puntuacionTotal": 0.00
+    "puntuacionTotal": 0.00,
+    "director": "Denis Villeneuve"
   }
 ]
