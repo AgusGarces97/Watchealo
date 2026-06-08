@@ -19,6 +19,11 @@ const categorias = [
 // Guardamos acá todas las películas y series que vienen del JSON.
 let peliculasSeriesGuardadas = [];
 
+const listaPeliculas = JSON.parse(localStorage.getItem('peliculas_series'));
+peliculasSeriesGuardadas = listaPeliculas;
+renderizarListas();
+
+/*
 
 // Leemos el archivo JSON donde están guardadas las películas y series.
 fetch("../json/pelis_y_series.json")
@@ -41,7 +46,7 @@ fetch("../json/pelis_y_series.json")
     .catch(function(error) {
         console.error("Error al cargar las listas:", error);
     });
-
+*/
 
 // Esta función vuelve a armar todas las listas.
 // Sirve para cargar la página y también para recalcular cuando cambia el tamaño de pantalla.
@@ -218,7 +223,7 @@ function crearTarjeta(pelicula) {
                         <span class="card-title pelicula-titulo">${pelicula.titulo}</span>
 
                         <span class="pelicula-rating">
-                            <i class="bi bi-star-fill"></i> ${pelicula.puntuacion}
+                            <i class="bi bi-star-fill"></i> ${pelicula.puntuacionTotal}
                         </span>
                     </div>
 

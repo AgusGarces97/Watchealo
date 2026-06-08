@@ -12,6 +12,21 @@ const ordenarExplorar = document.getElementById("ordenarExplorar");
 
 let peliculasSeriesExplorar = [];
 
+const listaPeliculas = JSON.parse(localStorage.getItem('peliculas_series'));
+peliculasSeriesExplorar = listaPeliculas;
+
+if(busquedaURL){
+
+    inputExplorar.value = busquedaURL;
+
+    aplicarFiltros();
+
+    }
+    else{
+        mostrarResultados(peliculasSeriesExplorar);
+    }
+
+/*
 fetch("../json/pelis_y_series.json")
     .then(function(respuesta) {
         return respuesta.json();
@@ -34,7 +49,7 @@ fetch("../json/pelis_y_series.json")
     .catch(function(error) {
         console.error("Error al cargar explorar:", error);
     });
-
+*/
 
 buscarExplorar.addEventListener("input", aplicarFiltros);
 filtroGenero.addEventListener("change", aplicarFiltros);
@@ -123,7 +138,7 @@ function crearTarjetaExplorar(pelicula) {
                         <span class="card-title pelicula-titulo">${pelicula.titulo}</span>
 
                         <span class="pelicula-rating">
-                            <i class="bi bi-star-fill"></i> ${pelicula.puntuacion}
+                            <i class="bi bi-star-fill"></i> ${pelicula.puntuacionTotal}
                         </span>
                     </div>
 

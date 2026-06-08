@@ -59,7 +59,7 @@ formBusqueda.addEventListener("submit", (e) => {
 //================================================
 
 class PeliculaSerie{
-    constructor(id, titulo, portada, genero, sinopsis, caps, duracion, puntuacion, creador, actores, banner, reseñas, puntuacionTotal){
+    constructor(id, titulo, portada, genero, sinopsis, caps, duracion, puntuacion, creador, actores, banner, reseñas, puntuacionTotal, director){
         this.id = id;
         this.titulo = titulo;
         this.portada = portada;
@@ -144,6 +144,7 @@ async function precargarPelisYSeries() {
 }
 
 
+
 // =========================================================
 // EJECUCIÓN AL CARGAR LA PÁGINA
 // =========================================================
@@ -183,7 +184,7 @@ window.addEventListener('load', () => {
             // Llenamos el arreglo con instancias de la clase
             Arreglo_Pelis_Series = []; // Aseguramos vaciado limpio
             datosJSON.forEach(p => {
-                let pelicula = new PeliculaSerie(p.id, p.titulo, p.portada, p.genero, p.sinopsis, p.caps, p.duracion, p.puntuacion, p.creador, p.actores, p.banner, p.reseñas, p.puntuacionTotal);
+                let pelicula = new PeliculaSerie(p.id, p.titulo, p.portada, p.genero, p.sinopsis, p.caps, p.duracion, p.puntuacion, p.creador, p.actores, p.banner, p.reseñas, p.puntuacionTotal, p.director);
                 Arreglo_Pelis_Series.push(pelicula);
             });
 
@@ -326,6 +327,10 @@ function agregarAFavoritos() {
 
     const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
     const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
+
+    if(!usuarioLogeado){
+        alert("Debe Logearse para poder añadir favoritos");
+    }
 
     // Validamos que no se duplique la película
     if (!usuarioLogeado.favoritos.includes(idPelicula)) {
@@ -601,7 +606,10 @@ if (botonUserName && contNombreUsuario) {
             botonUserName.innerHTML = `<i class="bi bi-check-lg"></i> Guardar Nombre`;
             botonUserName.classList.replace('btn-outline-info', 'btn-success');
             botonUserName.style.borderColor = '#198754';
-            botonUserName.style.color = '#fff'; 
+            botonUserName.style.color = '#fff';
+            
+
+            
  
         } else {
             // --- MODO GUARDAR ---
@@ -611,23 +619,52 @@ if (botonUserName && contNombreUsuario) {
             const inputUsername = document.getElementById("username-input");
             let nuevoNombre = inputUsername ? inputUsername.value.trim() : "";
 
+            const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
+            const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
+
+            // 2. VALIDACIÓN: ¿Existe otro usuario con ese nombre?
+            // Usamos .some() para ver si existe algún usuario (u) que:
+            // A. Tenga el mismo nombre que el nuevoNombre
+            // B. No sea el mismo usuario que está editando (para poder guardar si no cambió el nombre)
+            const nombreDuplicado = listaUsuarios.some(u => 
+                u.username === nuevoNombre && u.username !== usuarioLogeado.username
+            );
+
+            if (nombreDuplicado) {
+                alert("Ya hay un usuario con ese nombre");
+                // --- MODO GUARDAR ---
+                editandoUsername = false;
+                // 2. Volvemos a inyectar el h2 estático adentro del div contenedor
+                contNombreUsuario.innerHTML = `
+                <h2 class="fw-bold" id="username">${usuarioLogeado.username}</h2>
+                `;
+                // 4. Devolvemos el botón a su estado original celeste
+                botonUserName.innerHTML = `<i class="bi bi-pencil-fill"></i> Cambiar Nombre de Usuario`;
+                botonUserName.classList.replace('btn-success', 'btn-outline-info');
+                botonUserName.style.borderColor = 'var(--celeste)';
+                botonUserName.style.color = 'var(--celeste)';
+                return; // Detenemos la ejecución aca
+            }
+
             if (nuevoNombre === "") {
                 nuevoNombre = "Nombre de Usuario";
             }
-            console.log(nuevoNombre);
             // 2. Volvemos a inyectar el h2 estático adentro del div contenedor
             contNombreUsuario.innerHTML = `
                 <h2 class="fw-bold" id="username">${nuevoNombre}</h2>
             `;
 
             // Asigno ese nuevo username a la propiedad username del usuarioLogeado
-            const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
             usuarioLogeado.username = nuevoNombre;
             // Guardo ese cambio en el localStorage
             localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado)); 
 
-            // 3. Guardamos de forma permanente
-            //localStorage.setItem('nombre_usuario', nuevoNombre);
+            for(i=0; i<listaUsuarios.length; i++){
+                if(usuarioLogeado.email === listaUsuarios[i].email){
+                    listaUsuarios[i] = usuarioLogeado;
+                }
+            }
+            localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
 
             // 4. Devolvemos el botón a su estado original celeste
             botonUserName.innerHTML = `<i class="bi bi-pencil-fill"></i> Cambiar Nombre de Usuario`;
@@ -638,7 +675,7 @@ if (botonUserName && contNombreUsuario) {
     });
 }
 
-// FUNCIÓN PARA CARGAR EL NOMBRE EN EL LOAD (Mantenela igual)
+// FUNCIÓN PARA CARGAR EL NOMBRE EN EL LOAD
 function cargarNombreUsuario() {
     const elUsername = document.getElementById("username");
     if (elUsername) {
@@ -1138,7 +1175,6 @@ class Reseña{
 }
 
 
-
 // =========================================================
 // PUBLICAR RESEÑA (PERSISTENTE EN LOCALSTORAGE)
 // =========================================================
@@ -1150,6 +1186,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (formReseña) {
         formReseña.addEventListener("submit", (e) => {
             e.preventDefault();
+            
             
             // Validar sesión activa
             const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
@@ -1275,6 +1312,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
+
+
+
 // Funcion para cargar las reseñas a su perfil correspondiente
 function cargarReseñasPerfil(){
     const contenedorReseñasPerfil = document.getElementById("contenedor-reseñas-perfil");
@@ -1341,6 +1382,9 @@ if(botonPuntuar){
     const Puntuacion = document.getElementById('inputPuntuacion').value;
     const listaPeliculas = JSON.parse(localStorage.getItem('peliculas_series'));
 
+    if(!usuarioLogeado){
+        alert("Debe logearse para poder puntuar");
+    }
     // 1. Obtenemos los parámetros de la URL actual
     const urlParams = new URLSearchParams(window.location.search);
     // 2. Capturamos el valor específico del parámetro 'id'
