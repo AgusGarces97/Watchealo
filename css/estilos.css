@@ -50,6 +50,7 @@ body{
 
 .navbar {
     transition: box-shadow 0.3s ease;
+    z-index: 1051;
 }
 
 .navbar-scroll {
@@ -792,6 +793,15 @@ body{
 
 header + main > .container-fluid.px-0 {
     position: relative;
+    z-index: 1;
+}
+
+header.sticky-top{
+    z-index: 1055;
+}
+
+.container-fluid.px-0.position-relative {
+    z-index: 1;
 }
 
 .banner-wrapper {
@@ -905,32 +915,6 @@ header + main > .container-fluid.px-0 {
     padding-bottom: 3rem;
 }
 
-/*------------------------------------------------ RESEÑAS ------------------------------------------------*/
-
-.reseña {
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-    padding: 8px;
-}
-
-.reseña .portada {
-    object-fit: cover;
-    aspect-ratio: 2 / 3;
-    border-radius: 4px;
-}
-
-.estrella {
-    color: gold;
-    display: flex;
-    gap: 2px;
-    font-size: 0.85rem;
-}
-
-.portada {
-    width: 100%;
-}
-
 /*------------------------------------------------ BOTÓN CAMBIAR BANNER ------------------------------------------------*/
 
 .btn-cambiar-banner {
@@ -993,32 +977,103 @@ header + main > .container-fluid.px-0 {
     font-size: 0.95rem;
 }
 
-/*------------------------------------------------ BOTÓN EDITAR BIOGRAFÍA ------------------------------------------------*/
+/*------------------------------------------------ BIOGRAFÍA ------------------------------------------------*/
+
+.bio-section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.85rem;
+}
+
+.bio-section-header h1 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--celeste);
+    margin: 0;
+}
+
+.bio-section-header .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(172, 242, 242, 0.35), transparent);
+}
+
+.bio-card {
+    background: linear-gradient(135deg, rgba(172, 242, 242, 0.06), rgba(15, 40, 53, 0.85));
+    border: 1px solid rgba(172, 242, 242, 0.2);
+    border-radius: 16px;
+    padding: 1.5rem 1.75rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bio-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--celeste), transparent);
+    border-radius: 16px 0 0 16px;
+}
+
+.bio-card:hover {
+    border-color: rgba(172, 242, 242, 0.4);
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.35);
+}
+
+.bio-card p#texto-bio {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.97rem;
+    line-height: 1.75;
+    margin: 0;
+    border: none !important;
+    padding: 0 !important;
+    background: transparent;
+}
+
+#btn-editar-bio {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-color: var(--celeste) !important;
+    color: var(--celeste) !important;
+    border-radius: 20px;
+    padding: 4px 14px;
+    transition: all 0.25s ease;
+}
 
 #btn-editar-bio:hover {
     background-color: var(--celeste) !important;
     color: var(--verdeOscuro) !important;
-    transform: scale(1.1);
-    transition: all 0.3s ease;
+    transform: scale(1.04);
 }
 
 /*------------------------------------------------ TEXTAREA BIOGRAFÍA ------------------------------------------------*/
 
 .textarea-bio-edicion {
     width: 100%;
-    background-color: transparent;
+    background-color: rgba(172, 242, 242, 0.04);
     color: white;
-    border: 1px solid var(--celeste);
-    border-radius: 8px;
+    border: 1px solid var(--celeste) !important;
+    border-radius: 10px;
     padding: 1rem;
     font-family: inherit;
-    font-size: 1rem;
+    font-size: 0.97rem;
+    line-height: 1.75;
     resize: vertical;
+    min-height: 90px;
+    transition: box-shadow 0.25s ease;
 }
 
 .textarea-bio-edicion:focus {
     outline: none;
-    box-shadow: 0 0 8px rgba(172, 242, 242, 0.5);
+    box-shadow: 0 0 0 3px rgba(172, 242, 242, 0.18);
 }
 
 /*------------------------------------------------ BOTÓN EDITAR USERNAME ------------------------------------------------*/
@@ -1028,6 +1083,221 @@ header + main > .container-fluid.px-0 {
     color: var(--verdeOscuro) !important;
     transform: scale(1.05);
     transition: all 0.3s ease;
+}
+
+/*------------------------------------------------ FAVORITOS ------------------------------------------------*/
+
+.seccion-titulo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--celeste);
+    margin: 0;
+}
+
+.perfil-seccion-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.perfil-seccion-header .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(172, 242, 242, 0.3), transparent);
+}
+
+.favorito-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+}
+
+.favorito-item img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(172, 242, 242, 0.2);
+    display: block;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.favorito-item:hover img {
+    filter: brightness(0.45);
+    transform: scale(1.03);
+}
+
+.favorito-titulo-hover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 8px;
+    background: linear-gradient(to top, rgba(11, 30, 38, 0.95) 60%, transparent);
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.3;
+    border-radius: 0 0 10px 10px;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.favorito-item:hover .favorito-titulo-hover {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.favorito-badge-fav {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    background: rgba(11, 30, 38, 0.75);
+    border: 1px solid var(--celeste);
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    color: var(--celeste);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.favorito-item:hover .favorito-badge-fav {
+    opacity: 1;
+}
+
+.favoritos-vacio {
+    grid-column: 1 / -1;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 2rem 0;
+    border: 1px dashed rgba(172, 242, 242, 0.2);
+    border-radius: 12px;
+}
+
+/*------------------------------------------------ RESEÑAS DE PERFIL ------------------------------------------------*/
+
+.reseña-card {
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 3px solid var(--celeste) !important;
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 0.85rem;
+    transition: background 0.25s ease, box-shadow 0.25s ease;
+    border: 1px solid rgba(172, 242, 242, 0.1);
+}
+
+.reseña-card:hover {
+    background: rgba(172, 242, 242, 0.04);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+}
+
+.reseña-portada {
+    width: 48px;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1.5px solid rgba(172, 242, 242, 0.35);
+    flex-shrink: 0;
+}
+
+.reseña-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 0.65rem;
+}
+
+.reseña-meta {
+    flex: 1;
+    min-width: 0;
+}
+
+.reseña-titulo-peli {
+    font-size: 0.72rem;
+    color: var(--celeste);
+    opacity: 0.75;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 0 4px;
+}
+
+.reseña-estrellas {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.72rem;
+}
+
+.reseña-puntaje {
+    color: rgba(172, 242, 242, 0.55);
+    font-size: 0.7rem;
+}
+
+.reseña-texto {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.btn-eliminar-reseña {
+    margin-top: 0.6rem;
+    background: transparent;
+    border: 1px solid rgba(255, 80, 80, 0.5);
+    color: rgba(255, 80, 80, 0.7);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn-eliminar-reseña:hover {
+    background: rgba(255, 80, 80, 0.15);
+    border-color: rgb(255, 80, 80);
+    color: rgb(255, 80, 80);
+}
+
+.reseñas-vacio {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 2rem 0;
+    border: 1px dashed rgba(172, 242, 242, 0.2);
+    border-radius: 12px;
+}
+
+/* Clases legacy — se mantienen por compatibilidad con detalle.html */
+.estrella {
+    color: gold;
+    display: flex;
+    gap: 2px;
+    font-size: 0.85rem;
+}
+
+.portada {
+    width: 100%;
 }
 
 /*------------------------------------------------ DETALLE DE PELÍCULA/SERIE ------------------------------------------------*/
