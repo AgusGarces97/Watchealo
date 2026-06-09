@@ -1,3 +1,5 @@
+
+
 // INICIO 
 // HEADER
 const navbar = document.querySelector(".navbar");
@@ -152,6 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Llamamos a las funciones de precarga apenas el HTML esté listo
     precargarUsuarios();
     precargarPelisYSeries();
+    
     
 });
 
@@ -1732,11 +1735,6 @@ mostrarMasRecientes();
 document.addEventListener('load', mostrarMasRecientes());
 
 
-
-
-
-
-
 class PeliPuntuada{
     constructor(idPeli, puntaje){
         this.idPeli = idPeli;
@@ -1902,6 +1900,3 @@ if(botonEnviarPuntuacion){
 
 
 }
-
-
-
