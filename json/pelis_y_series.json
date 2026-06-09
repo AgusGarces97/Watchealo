@@ -14,7 +14,8 @@
     "actores": ["Andrew Lincoln", "Norman Reedus", "Melissa McBride"],
     "banner": "../img/the-walking-dead_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Frank Darabont"
+    "director": "Frank Darabont",
+    "trailer": "https://www.youtube.com/watch?v=cu2ApTImBKc"
   },
   {
     "id": "stranger-things",
@@ -31,7 +32,8 @@
     "actores": ["Millie Bobby Brown", "Finn Wolfhard", "David Harbour"],
     "banner": "../img/stranger-things_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Matt Duffer"
+    "director": "Matt Duffer",
+    "trailer": "https://www.youtube.com/watch?v=Wre1F5YyIlA"
   },
   {
     "id": "dark",
@@ -48,7 +50,8 @@
     "actores": ["Louis Hofmann", "Lisa Vicari", "Maja Schöne"],
     "banner": "../img/dark_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Baran bo Odar"
+    "director": "Baran bo Odar",
+    "trailer": "https://www.youtube.com/watch?v=14FGjkrrXFk"
   },
   {
     "id": "american-horror-story",
@@ -65,7 +68,8 @@
     "actores": ["Sarah Paulson", "Evan Peters", "Jessica Lange"],
     "banner": "../img/american-horror-story_banner.png.png",
     "puntuacionTotal": 0.00,
-    "director": "Ryan Murphy"
+    "director": "Ryan Murphy",
+    "trailer": "https://www.youtube.com/watch?v=1clnzxy31d0"
   },
   {
     "id": "the-haunting-of-hill-house",
@@ -82,7 +86,8 @@
     "actores": ["Victoria Pedretti", "Oliver Jackson-Cohen", "Carla Gugino"],
     "banner": "../img/the-haunting-of-hill-house_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Mike Flanagan"
+    "director": "Mike Flanagan",
+    "trailer": "https://www.youtube.com/watch?v=mTvNeafShH0"
   },
   {
     "id": "el-conjuro",
@@ -99,7 +104,8 @@
     "actores": ["Vera Farmiga", "Patrick Wilson", "Lili Taylor"],
     "banner": "../img/el-conjuro_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "James Wan"
+    "director": "James Wan",
+    "trailer": "https://www.youtube.com/watch?v=_zU1gLWGnpg"
   },
   {
     "id": "it",
@@ -116,7 +122,8 @@
     "actores": ["Bill Skarsgård", "Jaeden Martell", "Sophia Lillis"],
     "banner": "../img/it_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Andy Muschietti"
+    "director": "Andy Muschietti",
+    "trailer": "https://www.youtube.com/watch?v=_oBZ_zTz0Nw"
   },
   {
     "id": "la-monja",
@@ -133,7 +140,8 @@
     "actores": ["Taissa Farmiga", "Demián Bichir", "Jonas Bloquet"],
     "banner": "../img/la-monja_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Corin Hardy"
+    "director": "Corin Hardy",
+    "trailer": "https://www.youtube.com/watch?v=IKA9H68sgXo"
   },
   {
     "id": "scream",
@@ -150,7 +158,8 @@
     "actores": ["Neve Campbell", "Courteney Cox", "David Arquette"],
     "banner": "../img/scream_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Wes Craven"
+    "director": "Wes Craven",
+    "trailer": "https://www.youtube.com/watch?v=U0LETmDvuXc"
   },
   {
     "id": "el-aro",
@@ -167,7 +176,8 @@
     "actores": ["Naomi Watts", "Martin Henderson", "Daveigh Chase"],
     "banner": "../img/el-aro_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Gore Verbinski"
+    "director": "Gore Verbinski",
+    "trailer": "https://www.youtube.com/watch?v=gmiG3txcgis"
   },
   {
     "id": "breaking-bad",
@@ -184,7 +194,8 @@
     "actores": ["Bryan Cranston", "Aaron Paul", "Anna Gunn"],
     "banner": "../img/breaking-bad_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Vince Gilligan"
+    "director": "Vince Gilligan",
+    "trailer": "https://www.youtube.com/watch?v=mXd1zTwcQ18"
   },
   {
     "id": "the-bear",
@@ -201,7 +212,8 @@
     "actores": ["Jeremy Allen White", "Ayo Edebiri", "Ebon Moss-Bachrach"],
     "banner": "../img/the-bear_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Christopher Storer"
+    "director": "Christopher Storer",
+    "trailer": "https://www.youtube.com/watch?v=ojjCvICC86c"
   },
   {
     "id": "greys-anatomy",
@@ -218,7 +230,8 @@
     "actores": ["Ellen Pompeo", "Chandra Wilson", "James Pickens Jr."],
     "banner": "../img/greys-anatomy_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Peter Horton"
+    "director": "Peter Horton",
+    "trailer": "https://www.youtube.com/watch?v=8lLcrnySQ-o"
   },
   {
     "id": "this-is-us",
@@ -235,7 +248,8 @@
     "actores": ["Milo Ventimiglia", "Mandy Moore", "Sterling K. Brown"],
     "banner": "../img/this-is-us_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Ken Olin"
+    "director": "Ken Olin",
+    "trailer": "https://www.youtube.com/watch?v=xLLQT3ooASI"
   },
   {
     "id": "the-crown",
@@ -252,7 +266,8 @@
     "actores": ["Claire Foy", "Olivia Colman", "Imelda Staunton"],
     "banner": "../img/the-crown_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Stephen Daldry"
+    "director": "Stephen Daldry",
+    "trailer": "https://www.youtube.com/watch?v=zzBjNG1GKu4"
   },
   {
     "id": "oppenheimer",
@@ -269,7 +284,8 @@
     "actores": ["Cillian Murphy", "Emily Blunt", "Robert Downey Jr."],
     "banner": "../img/oppenheimer_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Christopher Nolan"
+    "director": "Christopher Nolan",
+    "trailer": "https://www.youtube.com/watch?v=gMPEbJQun68"
   },
   {
     "id": "parasite",
@@ -286,7 +302,8 @@
     "actores": ["Song Kang-ho", "Choi Woo-shik", "Park So-dam"],
     "banner": "../img/parasite_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Bong Joon-ho"
+    "director": "Bong Joon-ho",
+    "trailer": "https://www.youtube.com/watch?v=90dWVETAdtI"
   },
   {
     "id": "joker",
@@ -303,7 +320,8 @@
     "actores": ["Joaquin Phoenix", "Robert De Niro", "Zazie Beetz"],
     "banner": "../img/joker_banner.jpg",
     "puntuacionTotal": 0.00,
-    "director": "Todd Phillips"
+    "director": "Todd Phillips",
+    "trailer": "https://www.youtube.com/watch?v=ZMH8NWf9btw"
   },
   {
     "id": "titanic",
@@ -320,7 +338,8 @@
     "actores": ["Leonardo DiCaprio", "Kate Winslet", "Billy Zane"],
     "banner": "../img/titanic_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "James Cameron"
+    "director": "James Cameron",
+    "trailer": "https://www.youtube.com/watch?v=wMZuro21wtE"
   },
   {
     "id": "gladiador",
@@ -337,7 +356,8 @@
     "actores": ["Russell Crowe", "Joaquin Phoenix", "Connie Nielsen"],
     "banner": "../img/gladiador_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Ridley Scott"
+    "director": "Ridley Scott",
+    "trailer": "https://www.youtube.com/watch?v=P5ieIbInFpg"
   },
   {
     "id": "black-mirror",
@@ -354,7 +374,8 @@
     "actores": ["Bryce Dallas Howard", "Daniel Kaluuya", "Jesse Plemons"],
     "banner": "../img/black-mirror_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Otto Bathurst"
+    "director": "Otto Bathurst",
+    "trailer": "https://www.youtube.com/watch?v=YgHc99YPNxY"
   },
   {
     "id": "the-100",
@@ -371,7 +392,8 @@
     "actores": ["Eliza Taylor", "Bob Morley", "Marie Avgeropoulos"],
     "banner": "../img/the-100_banner.jpg",
     "puntuacionTotal": 0.00,
-    "director": "Bharat Nalluri"
+    "director": "Bharat Nalluri",
+    "trailer": "https://www.youtube.com/watch?v=aDrsItJ_HU4"
   },
   {
     "id": "lost-in-space",
@@ -388,7 +410,8 @@
     "actores": ["Molly Parker", "Toby Stephens", "Maxwell Jenkins"],
     "banner": "../img/lost-in-space_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Neil Marshall"
+    "director": "Neil Marshall",
+    "trailer": "https://www.youtube.com/watch?v=fzmM0AB60QQ"
   },
   {
     "id": "westworld",
@@ -405,7 +428,8 @@
     "actores": ["Evan Rachel Wood", "Thandiwe Newton", "Jeffrey Wright"],
     "banner": "../img/westworld_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Jonathan Nolan"
+    "director": "Jonathan Nolan",
+    "trailer": "https://www.youtube.com/watch?v=kEkZdgWu7mM"
   },
   {
     "id": "the-mandalorian",
@@ -422,7 +446,8 @@
     "actores": ["Pedro Pascal", "Carl Weathers", "Giancarlo Esposito"],
     "banner": "../img/the-mandalorian_banner.jpg",
     "puntuacionTotal": 0.00,
-    "director": "Dave Filoni"
+    "director": "Dave Filoni",
+    "trailer": "https://www.youtube.com/watch?v=Zu46yZrGVhQ"
   },
   {
     "id": "inception",
@@ -439,7 +464,8 @@
     "actores": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"],
     "banner": "../img/inception_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Christopher Nolan"
+    "director": "Christopher Nolan",
+    "trailer": "https://www.youtube.com/watch?v=YoHD9XEInc0"
   },
   {
     "id": "interstellar",
@@ -456,7 +482,8 @@
     "actores": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
     "banner": "../img/interestellar_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Christopher Nolan"
+    "director": "Christopher Nolan",
+    "trailer": "https://www.youtube.com/watch?v=2LqzF5WauAw"
   },
   {
     "id": "dune",
@@ -473,7 +500,8 @@
     "actores": ["Timothée Chalamet", "Zendaya", "Oscar Isaac"],
     "banner": "../img/dune_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Denis Villeneuve"
+    "director": "Denis Villeneuve",
+    "trailer": "https://www.youtube.com/watch?v=TTgk_iT8Uts"
   },
   {
     "id": "avatar",
@@ -490,7 +518,8 @@
     "actores": ["Sam Worthington", "Zoe Saldaña", "Sigourney Weaver"],
     "banner": "../img/avatar_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "James Cameron"
+    "director": "James Cameron",
+    "trailer": "https://www.youtube.com/watch?v=g5deg0HgCmY"
   },
   {
     "id": "matrix",
@@ -507,7 +536,8 @@
     "actores": ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"],
     "banner": "../img/matrix_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Lana Wachowski"
+    "director": "Lana Wachowski",
+    "trailer": "https://www.youtube.com/watch?v=OM0tSTEQCQA"
   },
   {
     "id": "cobra-kai",
@@ -524,7 +554,8 @@
     "actores": ["Ralph Macchio", "William Zabka", "Xolo Maridueña"],
     "banner": "../img/cobra-kai_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Jon Hurwitz"
+    "director": "Jon Hurwitz",
+    "trailer": "https://www.youtube.com/watch?v=CfOuYm8EnBA"
   },
   {
     "id": "the-boys",
@@ -541,7 +572,8 @@
     "actores": ["Karl Urban", "Jack Quaid", "Antony Starr"],
     "banner": "../img/the-boys_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Dan Trachtenberg"
+    "director": "Dan Trachtenberg",
+    "trailer": "https://www.youtube.com/watch?v=F0cvD8kzgkA"
   },
   {
     "id": "arrow",
@@ -558,7 +590,8 @@
     "actores": ["Stephen Amell", "Katie Cassidy", "David Ramsey"],
     "banner": "../img/arrow_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "David Nutter"
+    "director": "David Nutter",
+    "trailer": "https://www.youtube.com/watch?v=nPL9wWWuFqA"
   },
   {
     "id": "la-casa-de-papel",
@@ -575,7 +608,8 @@
     "actores": ["Álvaro Morte", "Úrsula Corberó", "Pedro Alonso"],
     "banner": "../img/la-casa-de-papel_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Jesús Colmenar"
+    "director": "Jesús Colmenar",
+    "trailer": "https://www.youtube.com/watch?v=3y-6iaveY6c"
   },
   {
     "id": "the-witcher",
@@ -592,7 +626,8 @@
     "actores": ["Henry Cavill", "Anya Chalotra", "Freya Allan"],
     "banner": "../img/the-witcher_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Alik Sakharov"
+    "director": "Alik Sakharov",
+    "trailer": "https://www.youtube.com/watch?v=ETY44yszyNc"
   },
   {
     "id": "john-wick",
@@ -609,7 +644,8 @@
     "actores": ["Keanu Reeves", "Michael Nyqvist", "Alfie Allen"],
     "banner": "../img/john-wick_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Chad Stahelski"
+    "director": "Chad Stahelski",
+    "trailer": "https://www.youtube.com/watch?v=C0BMx-qxsP4"
   },
   {
     "id": "rapidos-y-furiosos",
@@ -626,7 +662,8 @@
     "actores": ["Vin Diesel", "Paul Walker", "Michelle Rodriguez"],
     "banner": "../img/rapidos-y-furiosos_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Rob Cohen"
+    "director": "Rob Cohen",
+    "trailer": "https://www.youtube.com/watch?v=2TAOizOnNPo&list=PLZUNOhUwb5Ez6hoMNVMf4hz6ZCPDNr4EN"
   },
   {
     "id": "mision-imposible",
@@ -643,7 +680,8 @@
     "actores": ["Tom Cruise", "Jon Voight", "Emmanuelle Béart"],
     "banner": "../img/mision-imposible_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Brian De Palma"
+    "director": "Brian De Palma",
+    "trailer": "https://www.youtube.com/watch?v=L8Pbjh4EZRk"
   },
   {
     "id": "mad-max-fury-road",
@@ -660,7 +698,8 @@
     "actores": ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"],
     "banner": "../img/mad-max-fury-road_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "George Miller"
+    "director": "George Miller",
+    "trailer": "https://www.youtube.com/watch?v=YWNWi-ZWL3c"
   },
   {
     "id": "top-gun-maverick",
@@ -677,7 +716,8 @@
     "actores": ["Tom Cruise", "Miles Teller", "Jennifer Connelly"],
     "banner": "../img/top-gun-maverick_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Joseph Kosinski"
+    "director": "Joseph Kosinski",
+    "trailer": "https://www.youtube.com/watch?v=qSqVVswa420"
   },
   {
     "id": "friends",
@@ -694,7 +734,8 @@
     "actores": ["Jennifer Aniston", "Courteney Cox", "Matthew Perry"],
     "banner": "../img/friends_banner.jpg",
     "puntuacionTotal": 0.00,
-    "director": "James Burrows"
+    "director": "James Burrows",
+    "trailer": "https://www.youtube.com/watch?v=ki6Mbtnl_9I"
   },
   {
     "id": "the-office",
@@ -711,7 +752,8 @@
     "actores": ["Steve Carell", "Rainn Wilson", "John Krasinski"],
     "banner": "../img/the-office_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Ken Kwapis"
+    "director": "Ken Kwapis",
+    "trailer": "https://www.youtube.com/watch?v=-C2z-nshFts"
   },
   {
     "id": "brooklyn-nine-nine",
@@ -728,7 +770,8 @@
     "actores": ["Andy Samberg", "Melissa Fumero", "Andre Braugher"],
     "banner": "../img/brooklyn-nine-nine_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Phil Lord"
+    "director": "Phil Lord",
+    "trailer": "https://www.youtube.com/results?search_query=trailer+blokyn+inen+nine"
   },
   {
     "id": "modern-family",
@@ -745,7 +788,8 @@
     "actores": ["Ed O'Neill", "Sofía Vergara", "Julie Bowen"],
     "banner": "../img/modern-family_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Jason Winer"
+    "director": "Jason Winer",
+    "trailer": "https://www.youtube.com/watch?v=Ub_lfN2VMIo"
   },
   {
     "id": "how-i-met-your-mother",
@@ -762,7 +806,8 @@
     "actores": ["Josh Radnor", "Jason Segel", "Cobie Smulders"],
     "banner": "../img/how-i-met-your-mother_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Pamela Fryman"
+    "director": "Pamela Fryman",
+    "trailer": "https://www.youtube.com/results?search_query=trailer+how+i+met+your+mother"
   },
   {
     "id": "son-como-ninos",
@@ -779,7 +824,8 @@
     "actores": ["Adam Sandler", "Kevin James", "Chris Rock"],
     "banner": "../img/son-como-ninos_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Dennis Dugan"
+    "director": "Dennis Dugan",
+    "trailer": "https://www.youtube.com/watch?v=ATUCOOauAos"
   },
   {
     "id": "legalmente-rubia",
@@ -796,7 +842,8 @@
     "actores": ["Reese Witherspoon", "Luke Wilson", "Selma Blair"],
     "banner": "../img/legalmente-rubia_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Robert Luketic"
+    "director": "Robert Luketic",
+    "trailer": "https://www.youtube.com/watch?v=vWOHwI_FgAo"
   },
   {
     "id": "que-paso-ayer",
@@ -813,7 +860,8 @@
     "actores": ["Bradley Cooper", "Ed Helms", "Zach Galifianakis"],
     "banner": "../img/que-paso-ayer_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Todd Phillips"
+    "director": "Todd Phillips",
+    "trailer": "https://www.youtube.com/watch?v=AbVRMX4E0bU"
   },
   {
     "id": "jumanji-bienvenidos-a-la-jungla",
@@ -830,7 +878,8 @@
     "actores": ["Dwayne Johnson", "Kevin Hart", "Karen Gillan"],
     "banner": "../img/jumanji-bienvenidos-a-la-jungla_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Jake Kasdan"
+    "director": "Jake Kasdan",
+    "trailer": "https://www.youtube.com/watch?v=leIrosWRbYQ"
   },
   {
     "id": "la-propuesta",
@@ -847,7 +896,8 @@
     "actores": ["Sandra Bullock", "Ryan Reynolds", "Betty White"],
     "banner": "../img/la-propuesta_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Anne Fletcher"
+    "director": "Anne Fletcher",
+    "trailer": "https://www.youtube.com/watch?v=rCs8skCWF98"
   },
   {
     "id": "bridgerton",
@@ -864,7 +914,8 @@
     "actores": ["Phoebe Dynevor", "Regé-Jean Page", "Nicola Coughlan"],
     "banner": "../img/bridgerton_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Julie Anne Robinson"
+    "director": "Julie Anne Robinson",
+    "trailer": "https://www.youtube.com/watch?v=AdBweWvuG68"
   },
   {
     "id": "emily-in-paris",
@@ -881,7 +932,8 @@
     "actores": ["Lily Collins", "Ashley Park", "Lucas Bravo"],
     "banner": "../img/emily-in-paris_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Andrew Fleming"
+    "director": "Andrew Fleming",
+    "trailer": "https://www.youtube.com/watch?v=IEnTqshTbOY"
   },
   {
     "id": "yo-nunca",
@@ -898,7 +950,8 @@
     "actores": ["Maitreyi Ramakrishnan", "Darren Barnet", "Jaren Lewison"],
     "banner": "../img/yo-nunca_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Tristram Shapeero"
+    "director": "Tristram Shapeero",
+    "trailer": "https://www.youtube.com/watch?v=Z4d0DxHmn8E"
   },
   {
     "id": "outlander",
@@ -915,7 +968,8 @@
     "actores": ["Caitríona Balfe", "Sam Heughan", "Tobias Menzies"],
     "banner": "../img/outlander_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "John Dahl"
+    "director": "John Dahl",
+    "trailer": "https://www.youtube.com/watch?v=PFFKjptRr7Y"
   },
   {
     "id": "normal-people",
@@ -932,7 +986,8 @@
     "actores": ["Daisy Edgar-Jones", "Paul Mescal", "Sarah Greene"],
     "banner": "../img/normal-people_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Lenny Abrahamson"
+    "director": "Lenny Abrahamson",
+    "trailer": "https://www.youtube.com/watch?v=zU3yBSH7Yqc"
   },
   {
     "id": "bajo-la-misma-estrella",
@@ -949,7 +1004,8 @@
     "actores": ["Shailene Woodley", "Ansel Elgort", "Laura Dern"],
     "banner": "../img/bajo-la-misma-estrella_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Josh Boone"
+    "director": "Josh Boone",
+    "trailer": "https://www.youtube.com/watch?v=kNzkVByBle4"
   },
   {
     "id": "diario-de-una-pasion",
@@ -966,7 +1022,8 @@
     "actores": ["Ryan Gosling", "Rachel McAdams", "James Garner"],
     "banner": "../img/diario-de-una-pasion_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Nick Cassavetes"
+    "director": "Nick Cassavetes",
+    "trailer": "https://www.youtube.com/watch?v=DqJbx39Cs2k"
   },
   {
     "id": "orgullo-y-prejuicio",
@@ -983,7 +1040,8 @@
     "actores": ["Keira Knightley", "Matthew Macfadyen", "Rosamund Pike"],
     "banner": "../img/orgullo-y-prejuicio_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Joe Wright"
+    "director": "Joe Wright",
+    "trailer": "https://www.youtube.com/watch?v=Ov0PdD5c7m0"
   },
   {
     "id": "a-dos-metros-de-ti",
@@ -1000,7 +1058,8 @@
     "actores": ["Haley Lu Richardson", "Cole Sprouse", "Moises Arias"],
     "banner": "../img/a-dos-metros-de-ti_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Justin Baldoni"
+    "director": "Justin Baldoni",
+    "trailer": "https://www.youtube.com/watch?v=vWhX8aTj5TI"
   },
   {
     "id": "yo-antes-de-ti",
@@ -1017,7 +1076,8 @@
     "actores": ["Emilia Clarke", "Sam Claflin", "Janet McTeer"],
     "banner": "../img/yo-antes-de-ti_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Thea Sharrock"
+    "director": "Thea Sharrock",
+    "trailer": "https://www.youtube.com/watch?v=57vE58O4log"
   },
   {
     "id": "you",
@@ -1034,7 +1094,8 @@
     "actores": ["Penn Badgley", "Victoria Pedretti", "Elizabeth Lail"],
     "banner": "../img/you_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Marcos Siega"
+    "director": "Marcos Siega",
+    "trailer": "https://www.youtube.com/watch?v=Rq60VlFed-E"
   },
   {
     "id": "mindhunter",
@@ -1051,7 +1112,8 @@
     "actores": ["Jonathan Groff", "Holt McCallany", "Anna Torv"],
     "banner": "../img/mindhunter_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "David Fincher"
+    "director": "David Fincher",
+    "trailer": "https://www.youtube.com/watch?v=Fz5au4VLZjo"
   },
   {
     "id": "true-detective",
@@ -1068,7 +1130,8 @@
     "actores": ["Matthew McConaughey", "Woody Harrelson", "Mahershala Ali"],
     "banner": "../img/true-detective_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Cary Joji Fukunaga"
+    "director": "Cary Joji Fukunaga",
+    "trailer": "https://www.youtube.com/watch?v=LrjaWEozx48"
   },
   {
     "id": "la-chica-de-nieve",
@@ -1085,7 +1148,8 @@
     "actores": ["Milena Smit", "José Coronado", "Aixa Villagrán"],
     "banner": "../img/la-chica-de-nieve_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "David Ulloa"
+    "director": "David Ulloa",
+    "trailer": "https://www.youtube.com/watch?v=SPcE8J2Xwjc"
   },
   {
     "id": "el-inocente",
@@ -1102,7 +1166,8 @@
     "actores": ["Mario Casas", "Aura Garrido", "Alexandra Jiménez"],
     "banner": "../img/el-inocente_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Oriol Paulo"
+    "director": "Oriol Paulo",
+    "trailer": "https://www.youtube.com/watch?v=FoYWQ3hC5jo"
   },
   {
     "id": "perdida",
@@ -1119,7 +1184,8 @@
     "actores": ["Ben Affleck", "Rosamund Pike", "Neil Patrick Harris"],
     "banner": "../img/perdida_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "David Fincher"
+    "director": "David Fincher",
+    "trailer": "https://www.youtube.com/watch?v=GixiBubhXJg"
   },
   {
     "id": "la-isla-siniestra",
@@ -1136,7 +1202,8 @@
     "actores": ["Leonardo DiCaprio", "Mark Ruffalo", "Ben Kingsley"],
     "banner": "../img/la-isla-siniestra_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Martin Scorsese"
+    "director": "Martin Scorsese",
+    "trailer": "https://www.youtube.com/watch?v=sUpgBePzyFs"
   },
   {
     "id": "fragmentado",
@@ -1153,7 +1220,8 @@
     "actores": ["James McAvoy", "Anya Taylor-Joy", "Betty Buckley"],
     "banner": "../img/fragmentado_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "M. Night Shyamalan"
+    "director": "M. Night Shyamalan",
+    "trailer": "https://www.youtube.com/watch?v=mIggnAKLWIE"
   },
   {
     "id": "el-silencio-de-los-inocentes",
@@ -1170,7 +1238,8 @@
     "actores": ["Jodie Foster", "Anthony Hopkins", "Scott Glenn"],
     "banner": "../img/el-silencio-de-los-inocentes_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Jonathan Demme"
+    "director": "Jonathan Demme",
+    "trailer": "https://www.youtube.com/watch?v=Psd65AeD9RI"
   },
   {
     "id": "prisioneros",
@@ -1187,6 +1256,7 @@
     "actores": ["Hugh Jackman", "Jake Gyllenhaal", "Viola Davis"],
     "banner": "../img/prisioneros_banner.png",
     "puntuacionTotal": 0.00,
-    "director": "Denis Villeneuve"
+    "director": "Denis Villeneuve",
+    "trailer": "https://www.youtube.com/watch?v=AiN1ahjVb3Y"
   }
 ]

@@ -13,7 +13,7 @@
         <div class="container-fluid">
             <div class="row">
                 <nav class="navbar navbar-expand-lg navbar-dark mx-auto">
-                    <div class="container-fluid mx-2 my-2">
+                    <div class="container-fluid mx-2 my-2 position-relative">
                         <a class="navbar-brand" href="inicio.html"><img src="../img/logo.png" alt="Logo" width="250" height="auto" class="d-inline-block align-text-top img"></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="icono-hamb"><i class="bi bi-caret-down-fill"></i></span>
@@ -66,7 +66,7 @@
                 <input type="file" id="input-banner" accept="image/*" style="display: none;">
                 
                 <button type="button" class="btn-cambiar-banner" id="btn-cambiar-banner" style="display: none;">
-                    <i class="bi bi-camera-fill"></i> CAMBIAR BANNER
+                    <i class="bi bi-camera-fill"></i> Cambiar Banner
                 </button>
 
                 <button type="button" class="btn-editar-perfil-general" id="btn-editar-perfil-general">
@@ -250,9 +250,33 @@
                             <input type="date" class="form-control" id="input-fechaNac" aria-describedby="fechaNac-aviso">
                             <div id="fechaNac-aviso" class="form-text" style="display: none;"></div>
                         </div>
-                        <div class="mb-3 form-check">
+                       <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="input-terminos" aria-describedby="terminos-aviso">
-                            <label class="form-check-label" for="input-terminos">Acepta los términos y condiciones</label>
+                            <!-- Etiqueta con el enlace que despliega el texto -->
+                            <label class="form-check-label" for="input-terminos">
+                                Acepto los <a href="#terminos-texto" class="text-decoration-none terminos" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="terminos-texto" onclick="event.stopPropagation()">términos y condiciones</a>
+                            </label>                            
+                            <!-- El contenedor que se va a desplegar -->
+                            <div class="collapse" id="terminos-texto">
+                                <div class="card card-body my-2 bg-dark small text-muted" style="max-height: 150px; overflow-y: auto;">
+                                    <h6>Términos y Condiciones de Uso</h6>
+                                    <p>Bienvenido. Al acceder y utilizar este sitio web, aceptas cumplir y estar sujeto a los siguientes términos y condiciones de servicio:</p>
+
+                                    <ol class="ps-3">
+                                        <li><strong>Uso de la Plataforma:</strong> El usuario se compromete a utilizar el sitio de manera legal, responsable y exclusivamente para los fines personales o comerciales autorizados, evitando cualquier conducta que pueda dañar, sobrecargar o perjudicar la infraestructura digital.</li>
+                                        
+                                        <li><strong>Registro y Privacidad:</strong> Al crear una cuenta, garantizas que la información proporcionada es exacta y actualizada. Nos comprometemos a proteger tus datos personales conforme a nuestras Políticas de Privacidad y la normativa vigente de protección de datos.</li>
+                                        
+                                        <li><strong>Propiedad Intelectual:</strong> Todo el contenido presente en este espacio web, incluyendo interfaces, logos, textos, gráficos, código fuente y diseños, es propiedad exclusiva de la empresa o de sus licenciantes y está protegido por las leyes de propiedad intelectual.</li>
+                                        
+                                        <li><strong>Limitación de Responsabilidad:</strong> No nos hacemos responsables por interrupciones temporales del servicio, pérdida de datos o daños derivados del uso indebido de la plataforma por parte de terceros o por causas de fuerza mayor.</li>
+                                        
+                                        <li><strong>Modificaciones:</strong> Nos reservamos el derecho de actualizar o modificar estos términos en cualquier momento con el fin de adaptarlos a novedades legislativas o mejoras técnicas. El uso continuo del sitio implicará la aceptación de los mismos.</li>
+                                    </ol>
+
+                                    <p class="text-muted small">Última actualización: Junio 2026. Si no estás de acuerdo con estos términos, por favor, abstente de utilizar nuestros servicios.</p>
+                                </div>
+                            </div>
                             <div id="terminos-aviso" class="row form-text ml-0" style="display: none;"></div>
                         </div>
                         <button type="button" class="btn btn-primary" id="boton-crear">Crear Cuenta</button>
@@ -278,6 +302,23 @@
                     <button type="button" class="btn btn-outline-info rounded-pill px-4" id="btnCerrarAviso" data-bs-dismiss="modal" style="border-color: var(--celeste); color: var(--celeste);">
                         Entendido
                     </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación General -->
+    <div class="modal fade" id="modalConfirmacion" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content modalConfirmar">
+                <div class="modal-header" style="border-bottom: 1px solid rgba(172, 242, 242, 0.15);">
+                    <h5 class="modal-title fw-bold" id="modalConfirmTitulo" style="color: var(--celeste);"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body py-3 text-center" id="modalConfirmBody"></div>
+                <div class="modal-footer" style="border-top: 1px solid rgba(172, 242, 242, 0.15); justify-content: center; gap: 1rem;">
+                    <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal" id="btnConfirmCancelar">Cancelar</button>
+                    <button type="button" class="btn rounded-pill px-4 fw-bold btnConfirmarModal" id="btnConfirmAceptar">Confirmar</button>
                 </div>
             </div>
         </div>

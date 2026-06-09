@@ -75,6 +75,7 @@ class PeliculaSerie{
         this.banner = banner;
         this.reseñas = reseñas;
         this.puntuacionTotal = puntuacionTotal;
+        this.director = director;
     }
 }
 
@@ -549,10 +550,12 @@ const btnEditarBio = document.getElementById('btn-editar-bio');
 const contenedorBioInteractivo = document.getElementById('contenedor-bio-interactivo');
 
 let editando = false; // Variable de estado para controlar el modo
+let modoEdicionActivo = false;
 
 if (btnEditarBio && contenedorBioInteractivo) {
 
     btnEditarBio.addEventListener('click', () => {
+        if (!modoEdicionActivo) return;
         if (!editando) {
             // --- MODO EDICIÓN ---
             editando = true;
@@ -628,6 +631,7 @@ let editandoUsername = false;
 
 if (botonUserName && contNombreUsuario) {
     botonUserName.addEventListener("click", () => {
+        if (!modoEdicionActivo) return;
         if (!editandoUsername) {
             // --- MODO EDICIÓN ---
             editandoUsername = true;
@@ -734,20 +738,32 @@ const editarPerfil = document.getElementById("btn-editar-perfil-general");
 
 if (editarPerfil) {
     editarPerfil.addEventListener("click", () => {
-        if (btnEditarBio.style.display == "block" &&
-            btnCambiarBanner.style.display == "block" &&
-            btnCambiarPfp.style.display == "block" &&
-            botonUserName.style.display == "block") {
-            
-            btnEditarBio.style.display = "none";
-            btnCambiarBanner.style.display = "none";
-            btnCambiarPfp.style.display = "none";
-            botonUserName.style.display = "none";
-        } else {
+
+        if (!modoEdicionActivo) {
+            // ── ACTIVAR MODO EDICIÓN ──
+            modoEdicionActivo = true;
             btnEditarBio.style.display = "block";
             btnCambiarBanner.style.display = "block";
             btnCambiarPfp.style.display = "block";
             botonUserName.style.display = "block";
+            editarPerfil.innerHTML = `<i class="bi bi-x-lg"></i> Salir de Edición`;
+
+        } else {
+            // ── DESACTIVAR MODO EDICIÓN ──
+            // Primero guardar lo que esté en edición (con modoEdicionActivo aún en true)
+            if (editando) {
+                btnEditarBio.click();
+            }
+            if (editandoUsername) {
+                botonUserName.click();
+            }
+            // Recién ahora desactivamos
+            modoEdicionActivo = false;
+            btnEditarBio.style.display = "none";
+            btnCambiarBanner.style.display = "none";
+            btnCambiarPfp.style.display = "none";
+            botonUserName.style.display = "none";
+            editarPerfil.innerHTML = `<i class="bi bi-pencil-square"></i> Editar Perfil`;
         }
     });
 }
@@ -947,6 +963,31 @@ function mostrarAviso(titulo, mensajeHTML, esExito = false) {
     }
 }
 
+// =========================================================
+// MODAL DE CONFIRMACIÓN REUTILIZABLE
+// =========================================================
+function mostrarConfirmacion(titulo, mensajeHTML, callbackAceptar) {
+    const modalEl = document.getElementById("modalConfirmacion");
+    if (!modalEl) return;
+
+    document.getElementById("modalConfirmTitulo").innerHTML = titulo;
+    document.getElementById("modalConfirmBody").innerHTML = mensajeHTML;
+
+    const btnAceptar = document.getElementById("btnConfirmAceptar");
+
+    // Clonar el botón para limpiar listeners anteriores
+    const btnNuevo = btnAceptar.cloneNode(true);
+    btnAceptar.parentNode.replaceChild(btnNuevo, btnAceptar);
+
+    const miModal = new bootstrap.Modal(modalEl);
+
+    btnNuevo.addEventListener("click", () => {
+        miModal.hide();
+        callbackAceptar();
+    });
+
+    miModal.show();
+}
 
 
 // =========================================================
@@ -1172,34 +1213,30 @@ if (formLogin) {
 if (btnLogout) {
     btnLogout.addEventListener("click", (evento) => {
         evento.preventDefault();
-        // Arreglo para la lista de Usuarios completa
-        let usuariosCargados = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-        const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
-        for(i=0; i<usuariosCargados.length; i++){
-            if (usuarioLogeado.email === usuariosCargados[i].email){
-                console.log(usuarioLogeado.email);
-                console.log(usuariosCargados[i].email);
-                usuariosCargados[i] = usuarioLogeado;
-                console.log(usuariosCargados);
-            }   
-        }
-        
-        // Guardo el cambio en el localStorage antes de removerlo
-        localStorage.setItem("usuarios", JSON.stringify(usuariosCargados));
+        mostrarConfirmacion(
+            `<i class="bi bi-box-arrow-right"></i> Cerrar sesión`,
+            `<p class="mb-0 fs-6">¿Seguro/a que querés cerrar sesión?</p>`,
+            () => {
+                let usuariosCargados = JSON.parse(localStorage.getItem("usuarios")) || [];
+                const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
 
-        // Removemos únicamente la sesión activa del navegador
-        localStorage.removeItem("usuarioLogeado");
+                for (i = 0; i < usuariosCargados.length; i++) {
+                    if (usuarioLogeado.email === usuariosCargados[i].email) {
+                        usuariosCargados[i] = usuarioLogeado;
+                    }
+                }
 
-        // Para que borre las reseñas del perfil apenas cierre sesion
-        document.getElementById("contenedor-reseñas-perfil").innerHTML = "";
+                localStorage.setItem("usuarios", JSON.stringify(usuariosCargados));
+                localStorage.removeItem("usuarioLogeado");
 
-        // Borrar los favoritos cuando se cierre la sesion
-        document.getElementById("contenedor-favoritos").innerHTML = "";
-        localStorage.removeItem("mis_favoritos");
-        
-        // Volvemos a evaluar el estado para bloquear el perfil y mostrar el Login
-        comprobarEstadoSesion();
+                document.getElementById("contenedor-reseñas-perfil").innerHTML = "";
+                document.getElementById("contenedor-favoritos").innerHTML = "";
+                localStorage.removeItem("mis_favoritos");
+
+                comprobarEstadoSesion();
+            }
+        );
     });
 }
 
@@ -1371,7 +1408,7 @@ function cargarReseñasPerfil() {
     const todasReseñas   = JSON.parse(localStorage.getItem('reseñasTodaPagina'));
     const listaPelis     = JSON.parse(localStorage.getItem('peliculas_series')) || [];
 
-    if (!usuarioLogeado || !todasReseñas) return;
+    if (!usuarioLogeado) return;
 
     if (usuarioLogeado.reseñas.length === 0) {
         contenedorReseñasPerfil.innerHTML = `
@@ -1412,7 +1449,7 @@ function cargarReseñasPerfil() {
                 </div>
                 <p class="reseña-texto">${reseñaEncontrada.comentarioTexto}</p>
                 <button class="btn-eliminar-reseña" data-id="${reseñaEncontrada.id}">
-                    <i class="bi bi-trash3"></i> Eliminar
+                    <i class="bi bi-trash3"></i>
                 </button>
             </div>
         `;
@@ -1439,47 +1476,44 @@ if(contenedorReseñas){
 
     // Si el usuario hizo clic en un botón con esa clase...
     if (btn) {
-        const idReseña = btn.dataset.id; // Se lee el data-id
-        let usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
-        let listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
-        let listaPeliculas = JSON.parse(localStorage.getItem('peliculas_series'));
-        let listaReseñas = JSON.parse(localStorage.getItem('reseñasTodaPagina'));
-        
-        // PROCESO PARA BORRARLO DEL USUARIO LOGEADO
-        // Filtramos para quedarnos con todas las reseñas EXCEPTO la que queremos borrar
-        console.log(parseInt(idReseña));
-        console.log(usuarioLogeado.reseñas[0]);
-        usuarioLogeado.reseñas = usuarioLogeado.reseñas.filter(id => id !== parseInt(idReseña));
-        console.log(usuarioLogeado);
-        
-        localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
+        const idReseña = btn.dataset.id;
 
-        // PROCESO PARA BORRARLO DE LA LISTA DE USUARIOS
-        // Actualizamos al usuario dentro del array global de usuarios
-        listaUsuarios = listaUsuarios.map(u => {
-            if (u.email === usuarioLogeado.email) {
-                return usuarioLogeado; // Reemplazamos con el objeto usuario actualizado
+        mostrarConfirmacion(
+            `<i class="bi bi-trash3 text-danger"></i> Eliminar reseña`,
+            `<p class="mb-0 fs-6">¿Estás seguro/a de que querés eliminar esta reseña? Esta acción no se puede deshacer.</p>`,
+            () => {
+                let usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
+                let listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
+                let listaPeliculas = JSON.parse(localStorage.getItem('peliculas_series'));
+                let listaReseñas = JSON.parse(localStorage.getItem('reseñasTodaPagina'));
+
+                usuarioLogeado.reseñas = usuarioLogeado.reseñas.filter(id => id !== parseInt(idReseña));
+                localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
+
+                listaUsuarios = listaUsuarios.map(u => {
+                    if (u.email === usuarioLogeado.email) return usuarioLogeado;
+                    return u;
+                });
+                localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
+
+                listaPeliculas.forEach(peli => {
+                    if (peli.reseñas) {
+                        peli.reseñas = peli.reseñas.filter(id => id !== parseInt(idReseña));
+                    }
+                });
+                localStorage.setItem('peliculas_series', JSON.stringify(listaPeliculas));
+
+                listaReseñas = listaReseñas.filter(r => r.id !== parseInt(idReseña));
+                localStorage.setItem('reseñasTodaPagina', JSON.stringify(listaReseñas));
+
+                cargarReseñasPerfil();
+                mostrarAviso(
+                    `<i class="bi bi-check-circle-fill text-success"></i> Reseña eliminada`,
+                    `<p class="mb-0 fs-5 text-center">Tu reseña fue eliminada correctamente.</p>`,
+                    false
+                );
             }
-            return u;
-        });
-        localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
-
-        // PROCESO PARA BORRARLO DE LA LISTA DE PELICULAS
-        // Filtramos los IDs dentro del array de reseñas de cada película
-        listaPeliculas.forEach(peli => {
-            if (peli.reseñas) {
-                peli.reseñas = peli.reseñas.filter(id => id !== parseInt(idReseña));
-            }
-        });
-        localStorage.setItem('peliculas_series', JSON.stringify(listaPeliculas));
-
-        // PROCESO PARA BORRARLO DE LA LISTA DE RESEÑAS
-        listaReseñas = listaReseñas.filter(r => r.id !== parseInt(idReseña));
-        localStorage.setItem('reseñasTodaPagina', JSON.stringify(listaReseñas));
-
-        cargarReseñasPerfil();
-        alert("Reseña Eliminada");
-        
+        );
     }
 });
 }
@@ -1492,7 +1526,6 @@ function mostrarMejorPuntuados() {
     const listaPelis = JSON.parse(localStorage.getItem('peliculas_series'));
 
     let listaPelisOrdenada = listaPelis.slice();
-    
     
         // Ordenar por puntuación de mayor a menor
         listaPelisOrdenada.sort((a, b) => b.puntuacionTotal - a.puntuacionTotal);
@@ -1693,47 +1726,102 @@ function mostrarMasRecientes(){
     
     if(contenedorCarrusel){
         contenedorCarrusel.innerHTML = "";
-    for(i=0; i<4; i++){
-        const tarjetaHTML = `
+    for (let i = 0; i < 4; i++) {
+
+    const claseActive = i === 0 ? "active" : "";
+
+    const tarjetaHTML = `
         <!-- SLIDE -->
-            <div class="carousel-item active">
-                    <img class="backdrop" src="${listaPelisOrdenada[i].banner}" alt="1-backdrop">
-                    <span class="badge-trailer">Tráiler Oficial</span>
-                    <div class="badge-rating">
-                        <i class="bi bi-star-fill"></i> ${listaPelisOrdenada[i].puntuacionTotal}
-                    </div>
-                    <a class="btn-play" href="${listaPelisOrdenada[i].trailer}" target="_blank" title="Ver tráiler">
-                                    <i class="bi bi-play-fill"></i>
-                    </a>
-                    <div class="carousel-caption">
-                        <div class="caption-inner">
-                            <a href="detalle.html?id=${listaPelisOrdenada[i].id}" class="text-decoration-none portada-carrusel">
-                            <img class="caption-poster" src="${listaPelisOrdenada[i].portada}" alt="1-poster">
-                            </a>
-                            <div class="caption-info">
-                                <p class="caption-genre">${listaPelisOrdenada[i].genero}</p>
-                                <h5 class="caption-title">${listaPelisOrdenada[i].titulo}</h5>
-                                <div class="caption-meta">
-                                    <span><i class="bi bi-calendar3"></i> ${listaPelisOrdenada[i].fechaEstreno}</span>
-                                    <span><i class="bi bi-clock"></i> ${listaPelisOrdenada[i].duracion}</span>
-                                    <span><i class="bi bi-camera-video"></i>${listaPelisOrdenada[i].director}</span>
-                                </div>
-                                <p class="caption-desc">${listaPelisOrdenada[i].sinopsis}</p>
-                            </div>
-                        </div>
-                    </div>
+        <div class="carousel-item ${claseActive}">
+            <img class="backdrop"
+                 src="${listaPelisOrdenada[i].banner}"
+                 alt="${listaPelisOrdenada[i].titulo}">
+
+            <span class="badge-trailer">Tráiler Oficial</span>
+
+            <div class="badge-rating">
+                <i class="bi bi-star-fill"></i>
+                ${listaPelisOrdenada[i].puntuacionTotal}
             </div>
+
+            <a class="btn-play"
+               href="${listaPelisOrdenada[i].trailer}"
+               target="_blank"
+               title="Ver tráiler">
+                <i class="bi bi-play-fill"></i>
+            </a>
+
+            <div class="carousel-caption">
+                <div class="caption-inner">
+
+                    <a href="detalle.html?id=${listaPelisOrdenada[i].id}"
+                       class="text-decoration-none portada-carrusel">
+
+                        <img class="caption-poster"
+                             src="${listaPelisOrdenada[i].portada}"
+                             alt="${listaPelisOrdenada[i].titulo}">
+                    </a>
+
+                    <div class="caption-info">
+
+                        <p class="caption-genre">
+                            ${listaPelisOrdenada[i].genero}
+                        </p>
+
+                        <h5 class="caption-title">
+                            ${listaPelisOrdenada[i].titulo}
+                        </h5>
+
+                        <div class="caption-meta">
+                            <span>
+                                <i class="bi bi-calendar3"></i>
+                                ${listaPelisOrdenada[i].fechaEstreno}
+                            </span>
+
+                            <span>
+                                <i class="bi bi-clock"></i>
+                                ${listaPelisOrdenada[i].duracion}
+                            </span>
+
+                            <span>
+                                <i class="bi bi-camera-video"></i>
+                                ${listaPelisOrdenada[i].director}
+                            </span>
+                        </div>
+
+                        <p class="caption-desc">
+                            ${listaPelisOrdenada[i].sinopsis}
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     `;
-    contenedorCarrusel.insertAdjacentHTML("afterbegin", tarjetaHTML);
-    }
+
+    contenedorCarrusel.insertAdjacentHTML("beforeend", tarjetaHTML);
+}
+const elementoCarrusel = document.getElementById("Carousel");
+
+if (elementoCarrusel) {
+    const carruselBootstrap = bootstrap.Carousel.getOrCreateInstance(
+        elementoCarrusel,
+        {
+            interval: 6000,
+            ride: "carousel",
+            wrap: true,
+            pause: false
+        }
+    );
+
+    carruselBootstrap.cycle();
+}
     }
     
     
 }
 
 mostrarMasRecientes();
-document.addEventListener('load', mostrarMasRecientes());
-
 
 class PeliPuntuada{
     constructor(idPeli, puntaje){
