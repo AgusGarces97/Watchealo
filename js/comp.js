@@ -155,7 +155,6 @@ document.addEventListener("DOMContentLoaded", () => {
     precargarUsuarios();
     precargarPelisYSeries();
     
-    
 });
 
 /* Carga de Datos de Película */
@@ -175,6 +174,7 @@ const actoresDetalle = document.getElementById("actores");
 const bannerDetalle = document.getElementById("banner");
 const estrenoDetalle = document.getElementById("fecha-salida");
 const directorDetalle = document.getElementById("director");
+const trailerDetalle = document.getElementById("linkTrailer");
 
 
 // EJECUCIÓN AUTOMÁTICA AL CARGAR LA PÁGINA
@@ -245,7 +245,7 @@ function renderizarDetalles() {
     peliEncontrada.puntuacionTotal = puntaje.toFixed(2);
 
     /////////////////////////////////////////////////////////////////////////////////////
-
+    verificarFavoritoAlCargar();
     if (peliEncontrada) {
         portadaDetalle.src = peliEncontrada.portada;
         bannerDetalle.src = peliEncontrada.banner;
@@ -254,11 +254,12 @@ function renderizarDetalles() {
         generoDetalle.innerHTML = `<h3>${peliEncontrada.genero}</h3>`;
         sinopsisDetalle.innerHTML = `<p>${peliEncontrada.sinopsis}</p>`;
         capsDetalle.innerHTML = `<p>${peliEncontrada.caps}</p>`;
-        puntuacionDetalle.innerHTML = `<p><i class="bi bi-star-fill"></i>${peliEncontrada.puntuacionTotal}</p>`;
+        puntuacionDetalle.innerHTML = `<p><i class="bi bi-star-fill"></i> ${peliEncontrada.puntuacionTotal}</p>`;
         creadorDetalle.innerHTML = `<p>${peliEncontrada.creador}</p>`;
         duracionDetalle.innerHTML = `<p>${peliEncontrada.duracion}</p>`;
         estrenoDetalle.innerHTML = `<p>${peliEncontrada.fechaEstreno}</p>`;
         directorDetalle.innerHTML = `<p>${peliEncontrada.director}</p>`;
+        trailerDetalle.setAttribute('href',`${peliEncontrada.trailer}`);
         
         const listaActores = peliEncontrada.actores.join(', ');
         actoresDetalle.innerHTML = `<p>${listaActores}</p>`;
@@ -337,7 +338,23 @@ function cerrarModal() {
     document.getElementById("modal-aviso-favoritos").style.display = "none";
 }
 
-// FUNCIÓN PARA AGREGAR FAVORITOS DESDE DETALLE.HTML
+function abrirModalFavoritos() {
+    document.getElementById("modal-agregadoAFavoritos").style.display = "flex";
+}
+
+function cerrarModalAgregados(){
+    document.getElementById("modal-agregadoAFavoritos").style.display = "none";
+}
+
+function abrirModalQuitar() {
+    document.getElementById("modal-quitadoFavoritos").style.display = "flex";
+}
+
+function cerrarModalQuitado(){
+    document.getElementById("modal-quitadoFavoritos").style.display = "none";
+}
+
+// FUNCIÓN PARA AGREGAR/QUITAR FAVORITOS DESDE DETALLE.HTML
 function agregarAFavoritos() {
     
     // 1. Obtenemos los parámetros de la URL actual
@@ -350,49 +367,88 @@ function agregarAFavoritos() {
     const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
 
     if(!usuarioLogeado){
-        abrirModal();
+        abrirModal(); // Abre tu modal personalizado de aviso
         return;
     }
 
-    // Validamos que no se duplique la película
+    // [NUEVO] Seleccionamos el ícono de la estrella dentro del botón
+    const iconoEstrella = document.querySelector('#btn-favs i');
+
+    // Validamos que no se duplique la película (Caso: AGREGAR A FAVORITOS)
     if (!usuarioLogeado.favoritos.includes(idPelicula)) {
 
         // Agrego la id de la pelicula a la propiedad de favoritos del usuarioLogeado
         usuarioLogeado.favoritos.push(idPelicula);
+        
         // Actualizo al usuarioLogeado en el localStorage
         localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
-        //Actualizo esto tambien para la lista de todos los usuarios
-        for(i=0; i<listaUsuarios.length; i++){
+        
+        // Actualizo esto también para la lista de todos los usuarios (Corregido con let)
+        for(let i = 0; i < listaUsuarios.length; i++){
             if(listaUsuarios[i].email === usuarioLogeado.email){
                 listaUsuarios[i].favoritos = usuarioLogeado.favoritos;
             }
         }
         localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
-        ////////////////////////////////////////////////////////////////
-        alert("¡Agregada a tus favoritos en tu perfil!");
-    } else {
+
+        // [NUEVO] Cambiamos el diseño visual del ícono a RELLENO
+        if (iconoEstrella) {
+            iconoEstrella.classList.remove('bi-star');
+            iconoEstrella.classList.add('bi-star-fill');
+        }
+
+        abrirModalFavoritos();
+
+    } else { // Caso: QUITAR DE FAVORITOS
         
-        for(i=0; i<usuarioLogeado.favoritos.length; i++){
+        // Buscamos y removemos el ID del array (Corregido con let)
+        for(let i = 0; i < usuarioLogeado.favoritos.length; i++){
             if(idPelicula === usuarioLogeado.favoritos[i]){
-                // .splice(indice, cantidadDeElementosABorrar)
                 usuarioLogeado.favoritos.splice(i, 1);
             }
         }
+        
         // Actualizo al usuarioLogeado en el localStorage
         localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
-        //Actualizo esto tambien para la lista de todos los usuarios
-        for(i=0; i<listaUsuarios.length; i++){
+        
+        // Actualizo esto también para la lista de todos los usuarios (Corregido con let)
+        for(let i = 0; i < listaUsuarios.length; i++){
             if(listaUsuarios[i].email === usuarioLogeado.email){
                 listaUsuarios[i].favoritos = usuarioLogeado.favoritos;
             }
         }
         localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
-        alert('Quitado de Favoritos');
         
-    }
+        // [NUEVO] Volvemos a poner el ícono VACÍO
+        if (iconoEstrella) {
+            iconoEstrella.classList.remove('bi-star-fill');
+            iconoEstrella.classList.add('bi-star');
+        }
 
+        abrirModalQuitar();
+    }
 }
 
+// FUNCIÓN PARA REVISAR EL ESTADO INICIAL DE LA ESTRELLA
+function verificarFavoritoAlCargar() {
+    // 1. Obtenemos el ID de la película actual desde la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const idPelicula = urlParams.get('id');
+
+    // 2. Traemos al usuario logeado desde el localStorage
+    const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
+
+    // 3. Verificamos: ¿Hay usuario, tiene la propiedad favoritos y ya incluye esta ID?
+    if (usuarioLogeado && usuarioLogeado.favoritos && usuarioLogeado.favoritos.includes(idPelicula)) {
+        
+        // Si todo es verdadero, buscamos la estrella y la pintamos rellena
+        const iconoEstrella = document.querySelector('#btn-favs i');
+        if (iconoEstrella) {
+            iconoEstrella.classList.remove('bi-star');
+            iconoEstrella.classList.add('bi-star-fill');
+        }
+    }
+}
 
 // FUNCIÓN PARA RENDERIZAR FAVORITOS EN PERFIL.HTML
 // — Al hacer hover sobre la portada muestra el nombre de la peli —
@@ -791,21 +847,26 @@ let algunError = false;
 // CONTROL DE USERNAME (Protegido para que no rompa en otras páginas)
 if (userName) {
     userName.addEventListener("change", () => {
-        if (userName.value.trim().length <= 1) {
+        const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
+        for(i=0; i<listaUsuarios.length; i++){
+            if (userName.value.trim().length <= 1 || userName.value.trim() === listaUsuarios[i].username) {
             errorUserName.style.display = "block";
             errorUserName.innerHTML = `
-                <p class="text-danger mb-1"><i class="bi bi-exclamation-circle-fill"></i> El nombre de usuario debe tener al menos 2 caracteres.</p>
+                <p class="text-danger mb-1"><i class="bi bi-exclamation-circle-fill"></i> El nombre de usuario tiene menos de 2 caracteres o ya está en uso</p>
             `;
             userName.style.border = "3px solid red";
             algunError = true;
-        } else {
-            errorUserName.style.display = "block";
-            errorUserName.innerHTML = `
-                <p class="text-success mb-1"><i class="bi bi-check-circle-fill"></i> Nombre de usuario disponible y correcto.</p>
-            `;
-            userName.style.border = "3px solid green";
-            algunError = false;
+            break;
+            } else {
+                errorUserName.style.display = "block";
+                errorUserName.innerHTML = `
+                    <p class="text-success mb-1"><i class="bi bi-check-circle-fill"></i> Nombre de usuario disponible y correcto</p>
+                `;
+                userName.style.border = "3px solid green";
+                algunError = false;
+            }
         }
+        
     });
 }
 
@@ -814,22 +875,27 @@ if(email){
     email.addEventListener("change", () => {
     // Expresión regular estándar para verificar texto + @ + texto + . + texto
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
 
-    if (!regexEmail.test(email.value.trim())) {
+    for(i=0; i<listaUsuarios.length; i++){
+        if (!regexEmail.test(email.value.trim()) || listaUsuarios[i].email === email.value.trim()) {
         errorEmail.style.display = "block";
         errorEmail.innerHTML = `
             <p class="text-danger"><i class="bi bi-exclaminations-circle"></i> La dirección de correo electrónico no es válida (ej: usuario@correo.com)</p>
         `;
         email.style.border = "3px solid red";
         algunError = true;
-    } else {
-        errorEmail.style.display = "block";
-        errorEmail.innerHTML = `
-            <p class="text-success"><i class="bi bi-check-circle"></i> Correo electrónico correcto</p>
-        `;
-        email.style.border = "3px solid green";
-        algunError = false;
+        break;
+        } else {
+            errorEmail.style.display = "block";
+            errorEmail.innerHTML = `
+                <p class="text-success"><i class="bi bi-check-circle-fill"></i> Correo electrónico correcto</p>
+            `;
+            email.style.border = "3px solid green";
+            algunError = false;
+        }
     }
+    
 });
 }
 
@@ -847,7 +913,7 @@ if(contraseña){
     } else {
         errorContraseña.style.display = "block";
         errorContraseña.innerHTML = `
-            <p class="text-success"><i class="bi bi-check-circle"></i> Contraseña segura </p>
+            <p class="text-success"><i class="bi bi-check-circle-fill"></i> Contraseña segura </p>
         `;
         contraseña.style.border = "3px solid green";
         algunError = false;
@@ -906,7 +972,7 @@ fechaNac.addEventListener("change", () => {
         // Validación opcional: Verificar si es mayor de 13 o 18 años si lo requirieras
         errorFechaNac.style.display = "block";
         errorFechaNac.innerHTML = `
-            <p class="text-success"><i class="bi bi-check-circle"></i> Fecha válida </p>
+            <p class="text-success"><i class="bi bi-check-circle-fill"></i> Fecha válida </p>
         `;
         fechaNac.style.border = "3px solid green";
         algunError = false;
@@ -1846,7 +1912,7 @@ if(botonPuntuar){
     const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
     const Puntuacion = document.getElementById('inputPuntuacion').value;
     const listaPeliculas = JSON.parse(localStorage.getItem('peliculas_series'));
-
+        
     if(!usuarioLogeado){
         alert("Debe logearse para poder puntuar");
         return;
@@ -1973,7 +2039,6 @@ if(botonEnviarPuntuacion){
                     }
                     let promedio = parseFloat(sumaTotal/listaPeliculas[i].puntuacion.length);
                     listaPeliculas[i].puntuacionTotal = promedio;
-                    console.log(promedio); ////////////////
                     
         }
     }
