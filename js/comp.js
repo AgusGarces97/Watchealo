@@ -232,7 +232,7 @@ function renderizarDetalles() {
         sumatotal += parseFloat(peliEncontrada.puntuacion[i].puntaje);
         
     }
-    console.log(sumatotal);
+
     if(sumatotal === 0){
         puntaje = 0.00;
     }else{
@@ -268,6 +268,12 @@ function renderizarDetalles() {
 
     // DETECTA CUALES SON LAS RESEÑAS DE ESA PELICULA Y MOSTRARLAS DE ACUERDO A ESO
     const contenedorReseñas = document.getElementById('contenedor-reseñas-detalle');
+
+    if(contenedorReseñas){
+        contenedorReseñas.innerHTML = "";
+    }
+    
+
     if(peliEncontrada.reseñas.length === 0){
         contenedorReseñas.innerHTML = `
         <p> No hay reseñas cargadas </p>
@@ -1051,6 +1057,8 @@ if(btnCrearCuenta){
     localStorage.setItem("usuarioLogeado", JSON.stringify(nuevoUsuario));
 
     comprobarEstadoSesion();
+    renderizarFavoritosPerfil();
+    cargarReseñasPerfil();
     }
 });
 }
@@ -1487,8 +1495,8 @@ function mostrarMejorPuntuados() {
         listaPelisOrdenada.sort((a, b) => b.puntuacionTotal - a.puntuacionTotal);
 
     
-    
-    contenedorMejorPuntuados.innerHTML = "";
+    if(contenedorMejorPuntuados){
+        contenedorMejorPuntuados.innerHTML = "";
             let tarjetaHTML = `
             <div class="row g-3 row-cols-2 row-cols-md-5">
                         <!--TOP 1-->
@@ -1651,6 +1659,8 @@ function mostrarMejorPuntuados() {
                         
             `;
             contenedorMejorPuntuados.insertAdjacentHTML("afterbegin", tarjetaHTML);
+    }
+    
         
 
 }
@@ -1677,8 +1687,9 @@ function mostrarMasRecientes(){
         listaPelisOrdenada.sort((a, b) => {
         return convertirAFecha(b.fechaEstreno) - convertirAFecha(a.fechaEstreno);
         });
-
-    contenedorCarrusel.innerHTML = "";
+    
+    if(contenedorCarrusel){
+        contenedorCarrusel.innerHTML = "";
     for(i=0; i<4; i++){
         const tarjetaHTML = `
         <!-- SLIDE -->
@@ -1712,6 +1723,8 @@ function mostrarMasRecientes(){
     `;
     contenedorCarrusel.insertAdjacentHTML("afterbegin", tarjetaHTML);
     }
+    }
+    
     
 }
 
@@ -1843,6 +1856,8 @@ if(botonEnviarPuntuacion){
 
             localStorage.setItem('peliculas_series', JSON.stringify(listaPeliculas));
             document.getElementById('modalPuntuar').style.display = 'none';
+            renderizarDetalles();
+            
             return;
         }
     }
@@ -1881,7 +1896,8 @@ if(botonEnviarPuntuacion){
     localStorage.setItem('peliculas_series', JSON.stringify(listaPeliculas));
 
     document.getElementById('modalPuntuar').style.display = 'none';
-
+    renderizarDetalles();
+    
 });
 
 
