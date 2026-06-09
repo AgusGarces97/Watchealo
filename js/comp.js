@@ -1371,7 +1371,7 @@ function cargarReseñasPerfil() {
     const todasReseñas   = JSON.parse(localStorage.getItem('reseñasTodaPagina'));
     const listaPelis     = JSON.parse(localStorage.getItem('peliculas_series')) || [];
 
-    if (!usuarioLogeado || !todasReseñas) return;
+    if (!usuarioLogeado) return;
 
     if (usuarioLogeado.reseñas.length === 0) {
         contenedorReseñasPerfil.innerHTML = `
