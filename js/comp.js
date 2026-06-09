@@ -75,6 +75,7 @@ class PeliculaSerie{
         this.banner = banner;
         this.reseñas = reseñas;
         this.puntuacionTotal = puntuacionTotal;
+        this.director = director;
     }
 }
 
@@ -1526,7 +1527,6 @@ function mostrarMejorPuntuados() {
 
     let listaPelisOrdenada = listaPelis.slice();
     
-    
         // Ordenar por puntuación de mayor a menor
         listaPelisOrdenada.sort((a, b) => b.puntuacionTotal - a.puntuacionTotal);
 
@@ -1726,47 +1726,102 @@ function mostrarMasRecientes(){
     
     if(contenedorCarrusel){
         contenedorCarrusel.innerHTML = "";
-    for(i=0; i<4; i++){
-        const tarjetaHTML = `
+    for (let i = 0; i < 4; i++) {
+
+    const claseActive = i === 0 ? "active" : "";
+
+    const tarjetaHTML = `
         <!-- SLIDE -->
-            <div class="carousel-item active">
-                    <img class="backdrop" src="${listaPelisOrdenada[i].banner}" alt="1-backdrop">
-                    <span class="badge-trailer">Tráiler Oficial</span>
-                    <div class="badge-rating">
-                        <i class="bi bi-star-fill"></i> ${listaPelisOrdenada[i].puntuacionTotal}
-                    </div>
-                    <a class="btn-play" href="${listaPelisOrdenada[i].trailer}" target="_blank" title="Ver tráiler">
-                                    <i class="bi bi-play-fill"></i>
-                    </a>
-                    <div class="carousel-caption">
-                        <div class="caption-inner">
-                            <a href="detalle.html?id=${listaPelisOrdenada[i].id}" class="text-decoration-none portada-carrusel">
-                            <img class="caption-poster" src="${listaPelisOrdenada[i].portada}" alt="1-poster">
-                            </a>
-                            <div class="caption-info">
-                                <p class="caption-genre">${listaPelisOrdenada[i].genero}</p>
-                                <h5 class="caption-title">${listaPelisOrdenada[i].titulo}</h5>
-                                <div class="caption-meta">
-                                    <span><i class="bi bi-calendar3"></i> ${listaPelisOrdenada[i].fechaEstreno}</span>
-                                    <span><i class="bi bi-clock"></i> ${listaPelisOrdenada[i].duracion}</span>
-                                    <span><i class="bi bi-camera-video"></i>${listaPelisOrdenada[i].director}</span>
-                                </div>
-                                <p class="caption-desc">${listaPelisOrdenada[i].sinopsis}</p>
-                            </div>
-                        </div>
-                    </div>
+        <div class="carousel-item ${claseActive}">
+            <img class="backdrop"
+                 src="${listaPelisOrdenada[i].banner}"
+                 alt="${listaPelisOrdenada[i].titulo}">
+
+            <span class="badge-trailer">Tráiler Oficial</span>
+
+            <div class="badge-rating">
+                <i class="bi bi-star-fill"></i>
+                ${listaPelisOrdenada[i].puntuacionTotal}
             </div>
+
+            <a class="btn-play"
+               href="${listaPelisOrdenada[i].trailer}"
+               target="_blank"
+               title="Ver tráiler">
+                <i class="bi bi-play-fill"></i>
+            </a>
+
+            <div class="carousel-caption">
+                <div class="caption-inner">
+
+                    <a href="detalle.html?id=${listaPelisOrdenada[i].id}"
+                       class="text-decoration-none portada-carrusel">
+
+                        <img class="caption-poster"
+                             src="${listaPelisOrdenada[i].portada}"
+                             alt="${listaPelisOrdenada[i].titulo}">
+                    </a>
+
+                    <div class="caption-info">
+
+                        <p class="caption-genre">
+                            ${listaPelisOrdenada[i].genero}
+                        </p>
+
+                        <h5 class="caption-title">
+                            ${listaPelisOrdenada[i].titulo}
+                        </h5>
+
+                        <div class="caption-meta">
+                            <span>
+                                <i class="bi bi-calendar3"></i>
+                                ${listaPelisOrdenada[i].fechaEstreno}
+                            </span>
+
+                            <span>
+                                <i class="bi bi-clock"></i>
+                                ${listaPelisOrdenada[i].duracion}
+                            </span>
+
+                            <span>
+                                <i class="bi bi-camera-video"></i>
+                                ${listaPelisOrdenada[i].director}
+                            </span>
+                        </div>
+
+                        <p class="caption-desc">
+                            ${listaPelisOrdenada[i].sinopsis}
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     `;
-    contenedorCarrusel.insertAdjacentHTML("afterbegin", tarjetaHTML);
-    }
+
+    contenedorCarrusel.insertAdjacentHTML("beforeend", tarjetaHTML);
+}
+const elementoCarrusel = document.getElementById("Carousel");
+
+if (elementoCarrusel) {
+    const carruselBootstrap = bootstrap.Carousel.getOrCreateInstance(
+        elementoCarrusel,
+        {
+            interval: 6000,
+            ride: "carousel",
+            wrap: true,
+            pause: false
+        }
+    );
+
+    carruselBootstrap.cycle();
+}
     }
     
     
 }
 
 mostrarMasRecientes();
-document.addEventListener('load', mostrarMasRecientes());
-
 
 class PeliPuntuada{
     constructor(idPeli, puntaje){
