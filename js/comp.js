@@ -1371,6 +1371,7 @@ function cargarReseñasPerfil() {
         return;
     }
 
+
     usuarioLogeado.reseñas.forEach(idReseña => {
         const reseñaEncontrada = todasReseñas.find(r => r.id === idReseña);
         if (!reseñaEncontrada) return;
@@ -1407,7 +1408,68 @@ function cargarReseñasPerfil() {
 
         contenedorReseñasPerfil.insertAdjacentHTML("beforeend", tarjeta);
     });
+    
 }
+
+// ========================================
+// TODA LA LOGICA PARA BORRAR UNA RESEÑA
+// ========================================
+
+// Seleccionas el contenedor padre una sola vez
+const contenedorReseñas = document.getElementById("contenedor-reseñas-perfil");
+
+contenedorReseñas.addEventListener("click", (e) => {
+    // .closest busca hacia arriba si el elemento clickeado es o contiene el botón
+    const btn = e.target.closest(".btn-eliminar-reseña");
+
+    // Si el usuario hizo clic en un botón con esa clase...
+    if (btn) {
+        const idReseña = btn.dataset.id; // Se lee el data-id
+        let usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
+        let listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
+        let listaPeliculas = JSON.parse(localStorage.getItem('peliculas_series'));
+        let listaReseñas = JSON.parse(localStorage.getItem('reseñasTodaPagina'));
+        
+        // PROCESO PARA BORRARLO DEL USUARIO LOGEADO
+        // Filtramos para quedarnos con todas las reseñas EXCEPTO la que queremos borrar
+        console.log(parseInt(idReseña));
+        console.log(usuarioLogeado.reseñas[0]);
+        usuarioLogeado.reseñas = usuarioLogeado.reseñas.filter(id => id !== parseInt(idReseña));
+        console.log(usuarioLogeado);
+        
+        localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
+
+        // PROCESO PARA BORRARLO DE LA LISTA DE USUARIOS
+        // Actualizamos al usuario dentro del array global de usuarios
+        listaUsuarios = listaUsuarios.map(u => {
+            if (u.email === usuarioLogeado.email) {
+                return usuarioLogeado; // Reemplazamos con el objeto usuario actualizado
+            }
+            return u;
+        });
+        localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
+
+        // PROCESO PARA BORRARLO DE LA LISTA DE PELICULAS
+        // Filtramos los IDs dentro del array de reseñas de cada película
+        listaPeliculas.forEach(peli => {
+            if (peli.reseñas) {
+                peli.reseñas = peli.reseñas.filter(id => id !== parseInt(idReseña));
+            }
+        });
+        localStorage.setItem('peliculas_series', JSON.stringify(listaPeliculas));
+
+        // PROCESO PARA BORRARLO DE LA LISTA DE RESEÑAS
+        listaReseñas = listaReseñas.filter(r => r.id !== parseInt(idReseña));
+        localStorage.setItem('reseñasTodaPagina', JSON.stringify(listaReseñas));
+
+        cargarReseñasPerfil();
+        alert("Reseña Eliminada");
+        
+    }
+});
+
+// ========================================
+
 
 
 
