@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 fs-5 text-muted" id="genero">
+                    <div class="col-12 fs-5 text-genero" id="genero">
                         
                     </div>
                 </div>
@@ -79,13 +79,10 @@
         <!----------------------------------------------------------------->
 
         <!-----------------------INFO DEBAJO DEL BANNER ------------------------------------>
-        <div class="container-fluid contenedor-info">
-            
-            <div class="row">
-                <!-----------------------PORTADA Y BOTONES ------------------------------------>
-                <div class="col-4 portada_detalle">
-                    <img src="../img/arrow_portada.jpg" alt="port-detalle" class="w-100 rounded mb-2" id="portada_detalle">
-                    <div class="row botones-detalle">
+        <div class="container contenedor-info">    
+            <div class="row g-4"> <div class="col-12 col-md-4">
+                    <img src="../img/arrow_portada.jpg" alt="port-detalle" class="w-100 rounded mb-2 portada-detalle" id="portada_detalle">
+                    <div class="row botones-detalle g-2">
                         <div class="col-4">
                             <button type="button" class="btn btn-dark text-warning w-100" id="btn-favs" onclick="agregarAFavoritos()"> 
                                 <i class="bi bi-star"></i>
@@ -96,24 +93,36 @@
                         </div>
                     </div>
                 </div>
-                <!----------------------------------------------------------------->
-
-                <!----------------------- SINOPSIS Y DEMÁS INFO ------------------------------------>
-                <div class="col-8">
-                    <div class="sinopsis" id="sinopsis">
-                        
-                    </div>
+                <div class="col-12 col-md-8">
+                    <div class="sinopsis mb-4" id="sinopsis">
+                        </div>
+                    
                     <div class="datos-peli">
-                        <h6>Capítulos: <div id="caps"> </div> </h6>
-                        <h6>Puntuación: <div id="puntuacion"> </div> </h6>
-                        <h6>Creador/Guionista: <div id="creador"> </div></h6>
-                        <h6>Duración de Capítulos: <div id="duracion"> </div></h6>
-                        <h6>Actores: <div id="actores"> </div></h6>
-                        <h6>Fecha de Salida: <div id="fecha-salida"> </div></h6>
-                        <h6>Director: <div id="director"> </div></h6>
+                        <div class="detalle-caja">
+                            <i class="bi bi-film icono-caja"></i>
+                            <h6 class="info-tit">Capítulos</h6>
+                            <div class="info" id="caps"></div>
+                        </div>
+                        <div class="detalle-caja">
+                            <h6 class="info-tit"><i class="bi bi-stars"></i> Puntuación: <div class="info" id="puntuacion"> </div> </h6>
+                        </div>
+                        <div class="detalle-caja">
+                            <h6 class="info-tit"><i class="bi bi-pencil"></i> Creador/Guionista: <div class="info" id="creador"> </div></h6>
+                        </div>
+                        <div class="detalle-caja">
+                            <h6 class="info-tit"><i class="bi bi-clock"></i> Duración de Capítulos: <div class="info" id="duracion"> </div></h6>
+                        </div>
+                        <div class="detalle-caja">
+                            <h6 class="info-tit"><i class="bi bi-file-person"></i> Actores: <div class="info" id="actores"> </div></h6>
+                        </div>
+                        <div class="detalle-caja">
+                            <h6 class="info-tit"><i class="bi bi-calendar-event"></i> Fecha de Salida: <div class="info" id="fecha-salida"> </div></h6>
+                        </div>
+                        <div class="detalle-caja">
+                            <h6 class="info-tit"><i class="bi bi-person-rolodex"></i> Director: <div class="info" id="director"> </div></h6>
+                        </div>
                     </div>
                 </div>
-                <!----------------------------------------------------------------->
             </div>
         </div>
         <!----------------------------------------------------------------->

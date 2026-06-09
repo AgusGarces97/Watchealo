@@ -1336,6 +1336,104 @@ header.sticky-top{
     color: var(--celeste) !important;
 }
 
+.text-genero h3{
+    font-size: 1rem !important;
+    color: var(--celeste);
+}
+
+.portada-detalle{
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    box-shadow: 0 0 12px rgba(172, 242, 242, 0.4);
+}
+
+.sinopsis{
+    background: linear-gradient(135deg, rgba(172, 242, 242, 0.06), rgba(15, 40, 53, 0.85));
+    border: 1px solid rgba(172, 242, 242, 0.2);
+    border-radius: 16px;
+    padding: 1.5rem 1.5rem;
+}
+
+.sinopsis p{
+    margin-bottom: 0;
+}
+
+.datos-peli{
+    display: flexbox;
+    flex-direction: column;
+}
+
+/* Contenedor de las cajas de detalles */
+.datos-peli {
+    display: grid;
+    /* auto-fill crea tantas columnas como entren. Cada caja medirá mínimo 150px y máximo 1fr */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+    gap: 12px; /* El espacio entre las piezas del rompecabezas */
+    justify-content: start;
+    width: 100%;
+}
+
+/* Diseño de cada caja individual */
+.detalle-caja {
+    background: linear-gradient(135deg, rgba(172, 242, 242, 0.06), rgba(15, 40, 53, 0.85));
+    border: 1px solid rgba(172, 242, 242, 0.2);
+    border-radius: 12px;
+    padding: 0.8rem; /* Padding más compacto para que sea una caja chica */
+    text-align: center;
+    min-height: 95px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* En pantallas de computadoras (más de 768px), que entren más cajas por fila */
+@media (min-width: 768px) {
+    .detalle-caja {
+        flex: 1 1 calc(25% - 1rem); /* Ocupan el 25% (4 cajas por fila si hay espacio) */
+    }
+}
+
+/* Efecto visual al pasar el mouse por la pieza */
+.detalle-caja:hover {
+    background: rgba(172, 242, 242, 0.12);
+    box-shadow: 0 4px 12px rgba(172, 242, 242, 0.2);
+    transform: scale(1.03); /* Hace un pequeño "zoom" como si levantaras la pieza */
+    z-index: 2;
+}
+
+/* Quita el margen inferior solo a los párrafos dentro de las cajas de detalles */
+.detalle-caja p {
+    margin-bottom: 0;
+}
+
+/* Estilo para los íconos de las cajas */
+.icono-caja {
+    font-size: 1.4rem;      /* Lo hace un poco más grande y vistoso */
+    color: var(--celeste);  /* Toma el color celeste de tu paleta */
+    margin-bottom: 6px;     /* Separa el ícono del título de abajo */
+}
+
+/* Ajuste al h6 para que no tenga márgenes rebeldes */
+.info-tit {    
+    font-size: 0.85rem !important;
+    color: var(--celeste);
+    margin-bottom: 2px !important; 
+    text-transform: uppercase;       /* Opcional: le da un toque más pro */
+    letter-spacing: 0.5px;
+}
+
+/* El dato numérico o de texto principal */
+.info {
+    font-size: 0.95rem !important;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 0px !important;
+}
+
 /*------------------------------------------------ MODAL REGISTRO ------------------------------------------------*/
 
 .modal-body {
