@@ -1078,6 +1078,10 @@ header.sticky-top{
 
 /*------------------------------------------------ BOTÓN EDITAR USERNAME ------------------------------------------------*/
 
+#btn-cambiar-username{
+    background-color: var(--verdeOscuro);
+}
+
 #btn-cambiar-username:hover {
     background-color: var(--celeste) !important;
     color: var(--verdeOscuro) !important;

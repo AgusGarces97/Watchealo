@@ -1401,7 +1401,7 @@ function cargarReseñasPerfil() {
                 </div>
                 <p class="reseña-texto">${reseñaEncontrada.comentarioTexto}</p>
                 <button class="btn-eliminar-reseña" data-id="${reseñaEncontrada.id}">
-                    <i class="bi bi-trash3"></i> Eliminar
+                    <i class="bi bi-trash3"></i>
                 </button>
             </div>
         `;
