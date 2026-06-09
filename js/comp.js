@@ -792,21 +792,26 @@ let algunError = false;
 // CONTROL DE USERNAME (Protegido para que no rompa en otras páginas)
 if (userName) {
     userName.addEventListener("change", () => {
-        if (userName.value.trim().length <= 1) {
+        const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
+        for(i=0; i<listaUsuarios.length; i++){
+            if (userName.value.trim().length <= 1 || userName.value.trim() === listaUsuarios[i].username) {
             errorUserName.style.display = "block";
             errorUserName.innerHTML = `
-                <p class="text-danger mb-1"><i class="bi bi-exclamation-circle-fill"></i> El nombre de usuario debe tener al menos 2 caracteres.</p>
+                <p class="text-danger mb-1"><i class="bi bi-exclamation-circle-fill"></i> El nombre de usuario tiene menos de 2 caracteres o ya está en uso</p>
             `;
             userName.style.border = "3px solid red";
             algunError = true;
-        } else {
-            errorUserName.style.display = "block";
-            errorUserName.innerHTML = `
-                <p class="text-success mb-1"><i class="bi bi-check-circle-fill"></i> Nombre de usuario disponible y correcto.</p>
-            `;
-            userName.style.border = "3px solid green";
-            algunError = false;
+            break;
+            } else {
+                errorUserName.style.display = "block";
+                errorUserName.innerHTML = `
+                    <p class="text-success mb-1"><i class="bi bi-check-circle-fill"></i> Nombre de usuario disponible y correcto</p>
+                `;
+                userName.style.border = "3px solid green";
+                algunError = false;
+            }
         }
+        
     });
 }
 
@@ -815,22 +820,27 @@ if(email){
     email.addEventListener("change", () => {
     // Expresión regular estándar para verificar texto + @ + texto + . + texto
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
 
-    if (!regexEmail.test(email.value.trim())) {
+    for(i=0; i<listaUsuarios.length; i++){
+        if (!regexEmail.test(email.value.trim()) || listaUsuarios[i].email === email.value.trim()) {
         errorEmail.style.display = "block";
         errorEmail.innerHTML = `
             <p class="text-danger"><i class="bi bi-exclaminations-circle"></i> La dirección de correo electrónico no es válida (ej: usuario@correo.com)</p>
         `;
         email.style.border = "3px solid red";
         algunError = true;
-    } else {
-        errorEmail.style.display = "block";
-        errorEmail.innerHTML = `
-            <p class="text-success"><i class="bi bi-check-circle"></i> Correo electrónico correcto</p>
-        `;
-        email.style.border = "3px solid green";
-        algunError = false;
+        break;
+        } else {
+            errorEmail.style.display = "block";
+            errorEmail.innerHTML = `
+                <p class="text-success"><i class="bi bi-check-circle-fill"></i> Correo electrónico correcto</p>
+            `;
+            email.style.border = "3px solid green";
+            algunError = false;
+        }
     }
+    
 });
 }
 
@@ -848,7 +858,7 @@ if(contraseña){
     } else {
         errorContraseña.style.display = "block";
         errorContraseña.innerHTML = `
-            <p class="text-success"><i class="bi bi-check-circle"></i> Contraseña segura </p>
+            <p class="text-success"><i class="bi bi-check-circle-fill"></i> Contraseña segura </p>
         `;
         contraseña.style.border = "3px solid green";
         algunError = false;
@@ -907,7 +917,7 @@ fechaNac.addEventListener("change", () => {
         // Validación opcional: Verificar si es mayor de 13 o 18 años si lo requirieras
         errorFechaNac.style.display = "block";
         errorFechaNac.innerHTML = `
-            <p class="text-success"><i class="bi bi-check-circle"></i> Fecha válida </p>
+            <p class="text-success"><i class="bi bi-check-circle-fill"></i> Fecha válida </p>
         `;
         fechaNac.style.border = "3px solid green";
         algunError = false;
@@ -1847,7 +1857,7 @@ if(botonPuntuar){
     const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
     const Puntuacion = document.getElementById('inputPuntuacion').value;
     const listaPeliculas = JSON.parse(localStorage.getItem('peliculas_series'));
-
+        
     if(!usuarioLogeado){
         alert("Debe logearse para poder puntuar");
         return;
@@ -1974,7 +1984,6 @@ if(botonEnviarPuntuacion){
                     }
                     let promedio = parseFloat(sumaTotal/listaPeliculas[i].puntuacion.length);
                     listaPeliculas[i].puntuacionTotal = promedio;
-                    console.log(promedio); ////////////////
                     
         }
     }
