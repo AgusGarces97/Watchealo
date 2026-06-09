@@ -156,7 +156,6 @@ document.addEventListener("DOMContentLoaded", () => {
     precargarUsuarios();
     precargarPelisYSeries();
     
-    
 });
 
 /* Carga de Datos de Película */
@@ -176,6 +175,7 @@ const actoresDetalle = document.getElementById("actores");
 const bannerDetalle = document.getElementById("banner");
 const estrenoDetalle = document.getElementById("fecha-salida");
 const directorDetalle = document.getElementById("director");
+const trailerDetalle = document.getElementById("linkTrailer");
 
 
 // EJECUCIÓN AUTOMÁTICA AL CARGAR LA PÁGINA
@@ -246,7 +246,7 @@ function renderizarDetalles() {
     peliEncontrada.puntuacionTotal = puntaje.toFixed(2);
 
     /////////////////////////////////////////////////////////////////////////////////////
-
+    verificarFavoritoAlCargar();
     if (peliEncontrada) {
         portadaDetalle.src = peliEncontrada.portada;
         bannerDetalle.src = peliEncontrada.banner;
@@ -255,11 +255,12 @@ function renderizarDetalles() {
         generoDetalle.innerHTML = `<h3>${peliEncontrada.genero}</h3>`;
         sinopsisDetalle.innerHTML = `<p>${peliEncontrada.sinopsis}</p>`;
         capsDetalle.innerHTML = `<p>${peliEncontrada.caps}</p>`;
-        puntuacionDetalle.innerHTML = `<p><i class="bi bi-star-fill"></i>${peliEncontrada.puntuacionTotal}</p>`;
+        puntuacionDetalle.innerHTML = `<p><i class="bi bi-star-fill"></i> ${peliEncontrada.puntuacionTotal}</p>`;
         creadorDetalle.innerHTML = `<p>${peliEncontrada.creador}</p>`;
         duracionDetalle.innerHTML = `<p>${peliEncontrada.duracion}</p>`;
         estrenoDetalle.innerHTML = `<p>${peliEncontrada.fechaEstreno}</p>`;
         directorDetalle.innerHTML = `<p>${peliEncontrada.director}</p>`;
+        trailerDetalle.setAttribute('href',`${peliEncontrada.trailer}`);
         
         const listaActores = peliEncontrada.actores.join(', ');
         actoresDetalle.innerHTML = `<p>${listaActores}</p>`;
@@ -338,7 +339,23 @@ function cerrarModal() {
     document.getElementById("modal-aviso-favoritos").style.display = "none";
 }
 
-// FUNCIÓN PARA AGREGAR FAVORITOS DESDE DETALLE.HTML
+function abrirModalFavoritos() {
+    document.getElementById("modal-agregadoAFavoritos").style.display = "flex";
+}
+
+function cerrarModalAgregados(){
+    document.getElementById("modal-agregadoAFavoritos").style.display = "none";
+}
+
+function abrirModalQuitar() {
+    document.getElementById("modal-quitadoFavoritos").style.display = "flex";
+}
+
+function cerrarModalQuitado(){
+    document.getElementById("modal-quitadoFavoritos").style.display = "none";
+}
+
+// FUNCIÓN PARA AGREGAR/QUITAR FAVORITOS DESDE DETALLE.HTML
 function agregarAFavoritos() {
     
     // 1. Obtenemos los parámetros de la URL actual
@@ -351,49 +368,88 @@ function agregarAFavoritos() {
     const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
 
     if(!usuarioLogeado){
-        abrirModal();
+        abrirModal(); // Abre tu modal personalizado de aviso
         return;
     }
 
-    // Validamos que no se duplique la película
+    // [NUEVO] Seleccionamos el ícono de la estrella dentro del botón
+    const iconoEstrella = document.querySelector('#btn-favs i');
+
+    // Validamos que no se duplique la película (Caso: AGREGAR A FAVORITOS)
     if (!usuarioLogeado.favoritos.includes(idPelicula)) {
 
         // Agrego la id de la pelicula a la propiedad de favoritos del usuarioLogeado
         usuarioLogeado.favoritos.push(idPelicula);
+        
         // Actualizo al usuarioLogeado en el localStorage
         localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
-        //Actualizo esto tambien para la lista de todos los usuarios
-        for(i=0; i<listaUsuarios.length; i++){
+        
+        // Actualizo esto también para la lista de todos los usuarios (Corregido con let)
+        for(let i = 0; i < listaUsuarios.length; i++){
             if(listaUsuarios[i].email === usuarioLogeado.email){
                 listaUsuarios[i].favoritos = usuarioLogeado.favoritos;
             }
         }
         localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
-        ////////////////////////////////////////////////////////////////
-        alert("¡Agregada a tus favoritos en tu perfil!");
-    } else {
+
+        // [NUEVO] Cambiamos el diseño visual del ícono a RELLENO
+        if (iconoEstrella) {
+            iconoEstrella.classList.remove('bi-star');
+            iconoEstrella.classList.add('bi-star-fill');
+        }
+
+        abrirModalFavoritos();
+
+    } else { // Caso: QUITAR DE FAVORITOS
         
-        for(i=0; i<usuarioLogeado.favoritos.length; i++){
+        // Buscamos y removemos el ID del array (Corregido con let)
+        for(let i = 0; i < usuarioLogeado.favoritos.length; i++){
             if(idPelicula === usuarioLogeado.favoritos[i]){
-                // .splice(indice, cantidadDeElementosABorrar)
                 usuarioLogeado.favoritos.splice(i, 1);
             }
         }
+        
         // Actualizo al usuarioLogeado en el localStorage
         localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
-        //Actualizo esto tambien para la lista de todos los usuarios
-        for(i=0; i<listaUsuarios.length; i++){
+        
+        // Actualizo esto también para la lista de todos los usuarios (Corregido con let)
+        for(let i = 0; i < listaUsuarios.length; i++){
             if(listaUsuarios[i].email === usuarioLogeado.email){
                 listaUsuarios[i].favoritos = usuarioLogeado.favoritos;
             }
         }
         localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
-        alert('Quitado de Favoritos');
         
-    }
+        // [NUEVO] Volvemos a poner el ícono VACÍO
+        if (iconoEstrella) {
+            iconoEstrella.classList.remove('bi-star-fill');
+            iconoEstrella.classList.add('bi-star');
+        }
 
+        abrirModalQuitar();
+    }
 }
 
+// FUNCIÓN PARA REVISAR EL ESTADO INICIAL DE LA ESTRELLA
+function verificarFavoritoAlCargar() {
+    // 1. Obtenemos el ID de la película actual desde la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const idPelicula = urlParams.get('id');
+
+    // 2. Traemos al usuario logeado desde el localStorage
+    const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
+
+    // 3. Verificamos: ¿Hay usuario, tiene la propiedad favoritos y ya incluye esta ID?
+    if (usuarioLogeado && usuarioLogeado.favoritos && usuarioLogeado.favoritos.includes(idPelicula)) {
+        
+        // Si todo es verdadero, buscamos la estrella y la pintamos rellena
+        const iconoEstrella = document.querySelector('#btn-favs i');
+        if (iconoEstrella) {
+            iconoEstrella.classList.remove('bi-star');
+            iconoEstrella.classList.add('bi-star-fill');
+        }
+    }
+}
 
 // FUNCIÓN PARA RENDERIZAR FAVORITOS EN PERFIL.HTML
 // — Al hacer hover sobre la portada muestra el nombre de la peli —

@@ -727,8 +727,10 @@ body{
 }
 
 .btn-enviar:hover {
-    background-color: var(--celeste);
+    background-color: var(--celeste) !important;
     color: var(--verdeOscuro);
+    border-color: var(--celeste);
+    box-shadow: 0 0 8px var(--celeste);
 }
 
 .btn-enviar:active {
@@ -1328,12 +1330,38 @@ header.sticky-top{
     aspect-ratio: 1/1 !important;
 }
 
-.botones-detalle {
-    text-align: center;
+/* Fuerza a que todos los botones de la fila tengan la misma altura y consistencia */
+.botones-detalle .btn {
+    padding: 0.6rem 0.5rem;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap; /* Evita que el texto se parta en dos líneas de prepo */
 }
 
+/* Estilo para los botones principales de acción */
 .btn-agregar {
+    border: 1px solid rgba(172, 242, 242, 0.2) !important;
+    background: rgba(15, 40, 53, 0.6) !important;
     color: var(--celeste) !important;
+    transition: all 0.2s ease;
+}
+
+.btn-agregar:hover {
+    background: var(--celeste) !important;
+    color: #111 !important; /* Texto oscuro al pasar el mouse */
+    box-shadow: 0 0 8px var(--celeste);
+}
+
+.btn-fav{
+    background-color: transparent !important;
+    border: none;
+    color: var(--celeste) !important;
+}
+
+.btn-fav:hover i{
+    text-shadow: 0 0 10px rgba(172, 242, 242, 0.6);
 }
 
 .text-genero h3{
@@ -1341,11 +1369,37 @@ header.sticky-top{
     color: var(--celeste);
 }
 
-.portada-detalle{
+/* --- ESTILO GENERAL (Para celulares, se mantiene igual) --- */
+.portada-detalle {
     width: 100%;
-    aspect-ratio: 2/3;
-    object-fit: cover;
+    aspect-ratio: 2/3; /* Mantiene la proporción clásica de póster (rectangular vertical) */
+    object-fit: cover;  /* Asegura que encaje bien en el contenedor sin deformarse */
     box-shadow: 0 0 12px rgba(172, 242, 242, 0.4);
+}
+
+/* --- SOLUCIÓN PARA PANTALLAS GRANDES (PC/Tablets >= 768px) --- */
+@media (min-width: 768px) {
+    /* 1. Preparamos el contenedor de la izquierda */
+    .contenedor-info .row > .col-md-4 {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Alinea los elementos al principio, uno debajo del otro */
+    }
+
+    /* 2. Ajustamos la imagen */
+    .portada-detalle {
+        flex-grow: 0; 
+        height: auto; 
+        aspect-ratio: 2 / 3.5 !important;
+        object-fit: cover; 
+        margin-bottom: 1.5rem; /* Espacio con los botones */
+    }
+
+    /* 3. Ajuste de botones */
+    .botones-detalle {
+        width: 100%; /* Asegura que ocupen todo el ancho de su columna */
+        margin-top: 0; /* No necesitamos empujarlos hacia abajo, la imagen ya es alta */
+    }
 }
 
 .sinopsis{
@@ -1422,7 +1476,7 @@ header.sticky-top{
     font-size: 0.85rem !important;
     color: var(--celeste);
     margin-bottom: 2px !important; 
-    text-transform: uppercase;       /* Opcional: le da un toque más pro */
+          /* Opcional: le da un toque más pro */
     letter-spacing: 0.5px;
 }
 
@@ -1430,8 +1484,50 @@ header.sticky-top{
 .info {
     font-size: 0.95rem !important;
     color: #fff;
-    font-weight: bold;
     margin-top: 0px !important;
+}
+
+/* Estilo para el enlace del tráiler */
+.trailer-link {
+    text-decoration: none !important; /* Evita que se subraye */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para el ícono de Play (un poquito más grande que los demás para que destaque) */
+.icono-caja-play {
+    font-size: 1.8rem; 
+    color: var(--celeste);
+    margin-bottom: 6px;
+    transition: color 0.2s ease, filter 0.2s ease;
+}
+
+/* Efecto de "Glow" (brillo) cuando pasan el mouse por encima de la caja */
+.detalle-caja:hover .icono-caja-play {
+    color: #fff; /* Cambia a blanco */
+    filter: drop-shadow(0 0 8px var(--celeste)); /* Crea un reflejo celeste brillante */
+}
+
+.inputPuntuar{
+    border: 1px solid var(--celeste) !important;
+    width: 40% !important;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.inputPuntuar::-webkit-outer-spin-button,
+.inputPuntuar::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.inputPuntuar[type=number] {
+    -moz-appearance: textfield;
+}
+
+.puntuar{
+    text-shadow: 0 0 8px var(--celeste);
 }
 
 /*------------------------------------------------ MODAL REGISTRO ------------------------------------------------*/
