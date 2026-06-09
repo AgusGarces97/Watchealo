@@ -362,7 +362,24 @@ function agregarAFavoritos() {
         ////////////////////////////////////////////////////////////////
         alert("¡Agregada a tus favoritos en tu perfil!");
     } else {
-        alert("Esta serie ya está en tus favoritos.");
+        
+        for(i=0; i<usuarioLogeado.favoritos.length; i++){
+            if(idPelicula === usuarioLogeado.favoritos[i]){
+                // .splice(indice, cantidadDeElementosABorrar)
+                usuarioLogeado.favoritos.splice(i, 1);
+            }
+        }
+        // Actualizo al usuarioLogeado en el localStorage
+        localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
+        //Actualizo esto tambien para la lista de todos los usuarios
+        for(i=0; i<listaUsuarios.length; i++){
+            if(listaUsuarios[i].email === usuarioLogeado.email){
+                listaUsuarios[i].favoritos = usuarioLogeado.favoritos;
+            }
+        }
+        localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
+        alert('Quitado de Favoritos');
+        
     }
 
 }
@@ -1354,6 +1371,7 @@ function cargarReseñasPerfil() {
         return;
     }
 
+
     usuarioLogeado.reseñas.forEach(idReseña => {
         const reseñaEncontrada = todasReseñas.find(r => r.id === idReseña);
         if (!reseñaEncontrada) return;
@@ -1390,172 +1408,73 @@ function cargarReseñasPerfil() {
 
         contenedorReseñasPerfil.insertAdjacentHTML("beforeend", tarjeta);
     });
-}
-
-
-
-class PeliPuntuada{
-    constructor(idPeli, puntaje){
-        this.idPeli = idPeli;
-        this.puntaje = puntaje;
-    }
-}
-
-class PuntuacionPeli{
-    constructor(email, puntaje){
-        this.email = email;
-        this.puntaje = puntaje;
-    }
-}
-
-const botonPuntuar = document.getElementById("btn-puntuar");
-const botonEnviarPuntuacion = document.getElementById("btn-enviar-puntuacion");
-const botonCancelarPuntuacion = document.getElementById("btn-cancelar-puntuacion");
-
-if(botonPuntuar){
-    botonPuntuar.addEventListener('click', () => {
-    const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
-    const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
-    const Puntuacion = document.getElementById('inputPuntuacion').value;
-    const listaPeliculas = JSON.parse(localStorage.getItem('peliculas_series'));
-
-    if(!usuarioLogeado){
-        alert("Debe logearse para poder puntuar");
-        return;
-    }
-
     
-    // 1. Obtenemos los parámetros de la URL actual
-    const urlParams = new URLSearchParams(window.location.search);
-    // 2. Capturamos el valor específico del parámetro 'id'
-    const idPelicula = urlParams.get('id');
-
-    for(i=0; i<usuarioLogeado.pelis_puntuadas.length; i++){
-        if(idPelicula === usuarioLogeado.pelis_puntuadas[i].idPeli){
-            document.getElementById('modalPuntuar').style.display = 'flex';
-            document.getElementById('inputPuntuacion').value = usuarioLogeado.pelis_puntuadas[i].puntaje;
-            return;
-        }
-    }
-    document.getElementById('inputPuntuacion').value = "";
-    document.getElementById('modalPuntuar').style.display = 'flex'; 
-});
 }
 
 
 
-if(botonCancelarPuntuacion){
-    botonCancelarPuntuacion.addEventListener('click', ()=>{
-    document.getElementById('modalPuntuar').style.display = 'none';
-    document.getElementById('inputPuntuacion').value = "";
-});
-}
 
+// ========================================
+// TODA LA LOGICA PARA BORRAR UNA RESEÑA
+// ========================================
 
-if(botonEnviarPuntuacion){
-    botonEnviarPuntuacion.addEventListener('click', ()=>{
-    const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
-    const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
-    const Puntuacion = document.getElementById('inputPuntuacion').value;
-    const listaPeliculas = JSON.parse(localStorage.getItem('peliculas_series'));
+// Seleccionas el contenedor padre una sola vez
+const contenedorReseñas = document.getElementById("contenedor-reseñas-perfil");
 
-    if(Puntuacion < 0 || Puntuacion > 10 || Puntuacion == ""){
-        alert("La Puntuación debe estar entre 0 y 10, y debe ser un numero");
-        return;
-    }
+if(contenedorReseñas){
+    contenedorReseñas.addEventListener("click", (e) => {
+    // .closest busca hacia arriba si el elemento clickeado es o contiene el botón
+    const btn = e.target.closest(".btn-eliminar-reseña");
 
-    // 1. Obtenemos los parámetros de la URL actual
-    const urlParams = new URLSearchParams(window.location.search);
-    // 2. Capturamos el valor específico del parámetro 'id'
-    const idPelicula = urlParams.get('id');
+    // Si el usuario hizo clic en un botón con esa clase...
+    if (btn) {
+        const idReseña = btn.dataset.id; // Se lee el data-id
+        let usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
+        let listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
+        let listaPeliculas = JSON.parse(localStorage.getItem('peliculas_series'));
+        let listaReseñas = JSON.parse(localStorage.getItem('reseñasTodaPagina'));
+        
+        // PROCESO PARA BORRARLO DEL USUARIO LOGEADO
+        // Filtramos para quedarnos con todas las reseñas EXCEPTO la que queremos borrar
+        console.log(parseInt(idReseña));
+        console.log(usuarioLogeado.reseñas[0]);
+        usuarioLogeado.reseñas = usuarioLogeado.reseñas.filter(id => id !== parseInt(idReseña));
+        console.log(usuarioLogeado);
+        
+        localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
 
-    // CASO DE QUE LA PELI YA HAYA SIDO PUNTUADA
-    for(i=0; i<usuarioLogeado.pelis_puntuadas.length; i++){
-        if(idPelicula === usuarioLogeado.pelis_puntuadas[i].idPeli){
-            // A) Guardar la Puntuacion en "pelis-puntuadas" del usuario
-            let Peli_Puntuada = new PeliPuntuada(idPelicula, Puntuacion);
-            usuarioLogeado.pelis_puntuadas[i] = Peli_Puntuada;
-
-            localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
-
-            for(i=0; i<listaUsuarios.length; i++){
-                if(listaUsuarios[i].email === usuarioLogeado.email){
-                    listaUsuarios[i] = usuarioLogeado; //VER SI SIRVE SOBREESCRIBIR, SINO ASIGNAMOS SOLAMENTE LA PROPIEDAD
-                }
+        // PROCESO PARA BORRARLO DE LA LISTA DE USUARIOS
+        // Actualizamos al usuario dentro del array global de usuarios
+        listaUsuarios = listaUsuarios.map(u => {
+            if (u.email === usuarioLogeado.email) {
+                return usuarioLogeado; // Reemplazamos con el objeto usuario actualizado
             }
-            localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
-            ////////////////////////////////////////////////////////////////////////////////////
+            return u;
+        });
+        localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
 
-            // B) Guardar la Puntuacion en el arreglo de puntuaciones de la peli o serie
-            let Puntaje = new PuntuacionPeli(usuarioLogeado.email, Puntuacion);
-            for(i=0; i<listaPeliculas.length; i++){
-                if(idPelicula === listaPeliculas[i].id){
-                    for(j=0; j<listaPeliculas[i].puntuacion.length; j++){
-                        if(listaPeliculas[i].puntuacion[j].email === usuarioLogeado.email){
-                            listaPeliculas[i].puntuacion[j] = Puntaje;
-                            //
-                        }
-                        
-                    }
-
-                    // AL ENCONTRAR LA PELICULA DE LA URL, TAMBIEN ASIGNAMOS LA puntuacionTotal
-                    let sumaTotal = 0;
-                    for(c=0; c<listaPeliculas[i].puntuacion.length; c++){
-                        sumaTotal += parseFloat(listaPeliculas[i].puntuacion[c].puntaje);
-                    }
-                    let promedio = sumaTotal/listaPeliculas[i].puntuacion.length;
-                    listaPeliculas[i].puntuacionTotal = promedio;
-                    
-                }
+        // PROCESO PARA BORRARLO DE LA LISTA DE PELICULAS
+        // Filtramos los IDs dentro del array de reseñas de cada película
+        listaPeliculas.forEach(peli => {
+            if (peli.reseñas) {
+                peli.reseñas = peli.reseñas.filter(id => id !== parseInt(idReseña));
             }
+        });
+        localStorage.setItem('peliculas_series', JSON.stringify(listaPeliculas));
 
-            
+        // PROCESO PARA BORRARLO DE LA LISTA DE RESEÑAS
+        listaReseñas = listaReseñas.filter(r => r.id !== parseInt(idReseña));
+        localStorage.setItem('reseñasTodaPagina', JSON.stringify(listaReseñas));
 
-            localStorage.setItem('peliculas_series', JSON.stringify(listaPeliculas));
-            document.getElementById('modalPuntuar').style.display = 'none';
-            return;
-        }
+        cargarReseñasPerfil();
+        alert("Reseña Eliminada");
+        
     }
-
-    // A) Guardar la Puntuacion en "pelis-puntuadas" del usuario
-    let Peli_Puntuada = new PeliPuntuada(idPelicula, Puntuacion);
-
-    usuarioLogeado.pelis_puntuadas.push(Peli_Puntuada);
-    localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
-
-    for(i=0; i<listaUsuarios.length; i++){
-        if(listaUsuarios[i].email === usuarioLogeado.email){
-            listaUsuarios[i] = usuarioLogeado; //VER SI SIRVE SOBREESCRIBIR, SINO ASIGNAMOS SOLAMENTE LA PROPIEDAD
-        }
-    }
-    localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
-
-    // B) Guardar la Puntuacion en el arreglo de puntuaciones de la peli o serie
-    let Puntaje = new PuntuacionPeli(usuarioLogeado.email, Puntuacion);
-    for(i=0; i<listaPeliculas.length; i++){
-        if(idPelicula === listaPeliculas[i].id){
-            listaPeliculas[i].puntuacion.push(Puntaje);
-
-            // AL ENCONTRAR LA PELICULA DE LA URL, TAMBIEN ASIGNAMOS LA puntuacionTotal
-            let sumaTotal = 0;
-                    for(c=0; c<listaPeliculas[i].puntuacion.length; c++){
-                        sumaTotal += parseFloat(listaPeliculas[i].puntuacion[c].puntaje);
-                    }
-                    let promedio = parseFloat(sumaTotal/listaPeliculas[i].puntuacion.length);
-                    listaPeliculas[i].puntuacionTotal = promedio;
-                    console.log(promedio); ////////////////
-                    
-        }
-    }
-
-    localStorage.setItem('peliculas_series', JSON.stringify(listaPeliculas));
-
-    document.getElementById('modalPuntuar').style.display = 'none';
-
 });
-
-
 }
+
+
+// ========================================
 
 function mostrarMejorPuntuados() {
     const contenedorMejorPuntuados = document.getElementById("contenedor-mejor-puntuados");
@@ -1762,7 +1681,7 @@ function mostrarMasRecientes(){
     contenedorCarrusel.innerHTML = "";
     for(i=0; i<4; i++){
         const tarjetaHTML = `
-        <!-- SLIDE 1 -->
+        <!-- SLIDE -->
             <div class="carousel-item active">
                     <img class="backdrop" src="${listaPelisOrdenada[i].banner}" alt="1-backdrop">
                     <span class="badge-trailer">Tráiler Oficial</span>
@@ -1774,7 +1693,9 @@ function mostrarMasRecientes(){
                     </a>
                     <div class="carousel-caption">
                         <div class="caption-inner">
+                            <a href="detalle.html?id=${listaPelisOrdenada[i].id}" class="text-decoration-none portada-carrusel">
                             <img class="caption-poster" src="${listaPelisOrdenada[i].portada}" alt="1-poster">
+                            </a>
                             <div class="caption-info">
                                 <p class="caption-genre">${listaPelisOrdenada[i].genero}</p>
                                 <h5 class="caption-title">${listaPelisOrdenada[i].titulo}</h5>
@@ -1796,3 +1717,175 @@ function mostrarMasRecientes(){
 
 mostrarMasRecientes();
 document.addEventListener('load', mostrarMasRecientes());
+
+
+
+
+
+
+
+class PeliPuntuada{
+    constructor(idPeli, puntaje){
+        this.idPeli = idPeli;
+        this.puntaje = puntaje;
+    }
+}
+
+class PuntuacionPeli{
+    constructor(email, puntaje){
+        this.email = email;
+        this.puntaje = puntaje;
+    }
+}
+
+const botonPuntuar = document.getElementById("btn-puntuar");
+const botonEnviarPuntuacion = document.getElementById("btn-enviar-puntuacion");
+const botonCancelarPuntuacion = document.getElementById("btn-cancelar-puntuacion");
+
+if(botonPuntuar){
+    botonPuntuar.addEventListener('click', () => {
+    const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
+    const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
+    const Puntuacion = document.getElementById('inputPuntuacion').value;
+    const listaPeliculas = JSON.parse(localStorage.getItem('peliculas_series'));
+
+    if(!usuarioLogeado){
+        alert("Debe logearse para poder puntuar");
+        return;
+    }
+
+    
+    // 1. Obtenemos los parámetros de la URL actual
+    const urlParams = new URLSearchParams(window.location.search);
+    // 2. Capturamos el valor específico del parámetro 'id'
+    const idPelicula = urlParams.get('id');
+
+    for(i=0; i<usuarioLogeado.pelis_puntuadas.length; i++){
+        if(idPelicula === usuarioLogeado.pelis_puntuadas[i].idPeli){
+            document.getElementById('modalPuntuar').style.display = 'flex';
+            document.getElementById('inputPuntuacion').value = usuarioLogeado.pelis_puntuadas[i].puntaje;
+            return;
+        }
+    }
+    document.getElementById('inputPuntuacion').value = "";
+    document.getElementById('modalPuntuar').style.display = 'flex'; 
+});
+}
+
+
+
+if(botonCancelarPuntuacion){
+    botonCancelarPuntuacion.addEventListener('click', ()=>{
+    document.getElementById('modalPuntuar').style.display = 'none';
+    document.getElementById('inputPuntuacion').value = "";
+});
+}
+
+
+if(botonEnviarPuntuacion){
+    botonEnviarPuntuacion.addEventListener('click', ()=>{
+    const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
+    const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
+    const Puntuacion = document.getElementById('inputPuntuacion').value;
+    const listaPeliculas = JSON.parse(localStorage.getItem('peliculas_series'));
+
+    if(Puntuacion < 0 || Puntuacion > 10 || Puntuacion == ""){
+        alert("La Puntuación debe estar entre 0 y 10, y debe ser un numero");
+        return;
+    }
+
+    // 1. Obtenemos los parámetros de la URL actual
+    const urlParams = new URLSearchParams(window.location.search);
+    // 2. Capturamos el valor específico del parámetro 'id'
+    const idPelicula = urlParams.get('id');
+
+    // CASO DE QUE LA PELI YA HAYA SIDO PUNTUADA
+    for(i=0; i<usuarioLogeado.pelis_puntuadas.length; i++){
+        if(idPelicula === usuarioLogeado.pelis_puntuadas[i].idPeli){
+            // A) Guardar la Puntuacion en "pelis-puntuadas" del usuario
+            let Peli_Puntuada = new PeliPuntuada(idPelicula, Puntuacion);
+            usuarioLogeado.pelis_puntuadas[i] = Peli_Puntuada;
+
+            localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
+
+            for(i=0; i<listaUsuarios.length; i++){
+                if(listaUsuarios[i].email === usuarioLogeado.email){
+                    listaUsuarios[i] = usuarioLogeado; //VER SI SIRVE SOBREESCRIBIR, SINO ASIGNAMOS SOLAMENTE LA PROPIEDAD
+                }
+            }
+            localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
+            ////////////////////////////////////////////////////////////////////////////////////
+
+            // B) Guardar la Puntuacion en el arreglo de puntuaciones de la peli o serie
+            let Puntaje = new PuntuacionPeli(usuarioLogeado.email, Puntuacion);
+            for(i=0; i<listaPeliculas.length; i++){
+                if(idPelicula === listaPeliculas[i].id){
+                    for(j=0; j<listaPeliculas[i].puntuacion.length; j++){
+                        if(listaPeliculas[i].puntuacion[j].email === usuarioLogeado.email){
+                            listaPeliculas[i].puntuacion[j] = Puntaje;
+                            //
+                        }
+                        
+                    }
+
+                    // AL ENCONTRAR LA PELICULA DE LA URL, TAMBIEN ASIGNAMOS LA puntuacionTotal
+                    let sumaTotal = 0;
+                    for(c=0; c<listaPeliculas[i].puntuacion.length; c++){
+                        sumaTotal += parseFloat(listaPeliculas[i].puntuacion[c].puntaje);
+                    }
+                    let promedio = sumaTotal/listaPeliculas[i].puntuacion.length;
+                    listaPeliculas[i].puntuacionTotal = promedio;
+                    
+                }
+            }
+
+            
+
+            localStorage.setItem('peliculas_series', JSON.stringify(listaPeliculas));
+            document.getElementById('modalPuntuar').style.display = 'none';
+            return;
+        }
+    }
+
+    // A) Guardar la Puntuacion en "pelis-puntuadas" del usuario
+    let Peli_Puntuada = new PeliPuntuada(idPelicula, Puntuacion);
+
+    usuarioLogeado.pelis_puntuadas.push(Peli_Puntuada);
+    localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
+
+    for(i=0; i<listaUsuarios.length; i++){
+        if(listaUsuarios[i].email === usuarioLogeado.email){
+            listaUsuarios[i] = usuarioLogeado; //VER SI SIRVE SOBREESCRIBIR, SINO ASIGNAMOS SOLAMENTE LA PROPIEDAD
+        }
+    }
+    localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
+
+    // B) Guardar la Puntuacion en el arreglo de puntuaciones de la peli o serie
+    let Puntaje = new PuntuacionPeli(usuarioLogeado.email, Puntuacion);
+    for(i=0; i<listaPeliculas.length; i++){
+        if(idPelicula === listaPeliculas[i].id){
+            listaPeliculas[i].puntuacion.push(Puntaje);
+
+            // AL ENCONTRAR LA PELICULA DE LA URL, TAMBIEN ASIGNAMOS LA puntuacionTotal
+            let sumaTotal = 0;
+                    for(c=0; c<listaPeliculas[i].puntuacion.length; c++){
+                        sumaTotal += parseFloat(listaPeliculas[i].puntuacion[c].puntaje);
+                    }
+                    let promedio = parseFloat(sumaTotal/listaPeliculas[i].puntuacion.length);
+                    listaPeliculas[i].puntuacionTotal = promedio;
+                    console.log(promedio); ////////////////
+                    
+        }
+    }
+
+    localStorage.setItem('peliculas_series', JSON.stringify(listaPeliculas));
+
+    document.getElementById('modalPuntuar').style.display = 'none';
+
+});
+
+
+}
+
+
+
