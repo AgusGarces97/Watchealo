@@ -1587,188 +1587,37 @@ if(contenedorReseñas){
 }
 
 
-// ========================================
-
 function mostrarMejorPuntuados() {
-    const contenedorMejorPuntuados = document.getElementById("contenedor-mejor-puntuados");
+    const contenedor = document.getElementById("contenedor-mejor-puntuados");
     const listaPelis = JSON.parse(localStorage.getItem('peliculas_series'));
 
-    let listaPelisOrdenada = listaPelis.slice();
-    
-        // Ordenar por puntuación de mayor a menor
-        listaPelisOrdenada.sort((a, b) => b.puntuacionTotal - a.puntuacionTotal);
+    if (!contenedor || !listaPelis) return;
 
-    
-    if(contenedorMejorPuntuados){
-        contenedorMejorPuntuados.innerHTML = "";
-            let tarjetaHTML = `
-            <div class="row g-3 row-cols-2 row-cols-md-5">
-                        <!--TOP 1-->
-                        
-                        <div>
-                            <a href="detalle.html?id=${listaPelisOrdenada[0].id}" class="text-decoration-none">
-                                <div class="card pelicula-card">
-                                    <span class="ranking-label">1</span>
-                                    <div class="pelicula-img-wrap">
-                                        <img src="${listaPelisOrdenada[0].portada}" class="card-img-top pelicula-img" alt="Inception">
-                                    </div>
-                                    <div class="card-body pelicula-info">
-                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[0].titulo}</span>
-                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[0].puntuacionTotal}</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        
-                        <!--TOP 2-->
-                        <div>
-                            <a href="detalle.html?id=${listaPelisOrdenada[1].id}" class="text-decoration-none">
-                                <div class="card pelicula-card">
-                                    <span class="ranking-label">2</span>
-                                    <div class="pelicula-img-wrap">
-                                        <img src="${listaPelisOrdenada[1].portada}" class="card-img-top pelicula-img" alt="Inception">
-                                    </div>
-                                    <div class="card-body pelicula-info">
-                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[1].titulo}</span>
-                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[1].puntuacionTotal}</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <!--TOP 3-->
-                        <div>
-                            <a href="detalle.html?id=${listaPelisOrdenada[2].id}" class="text-decoration-none">
-                                <div class="card pelicula-card">
-                                    <span class="ranking-label">3</span>
-                                    <div class="pelicula-img-wrap">
-                                        <img src="${listaPelisOrdenada[2].portada}" class="card-img-top pelicula-img" alt="Inception">
-                                    </div>
-                                    <div class="card-body pelicula-info">
-                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[2].titulo}</span>
-                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[2].puntuacionTotal}</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <!--TOP 4-->
-                        <div>
-                            <a href="detalle.html?id=${listaPelisOrdenada[3].id}" class="text-decoration-none">
-                                <div class="card pelicula-card">
-                                    <span class="ranking-label">4</span>
-                                    <div class="pelicula-img-wrap">
-                                        <img src="${listaPelisOrdenada[3].portada}" class="card-img-top pelicula-img" alt="Inception">
-                                    </div>
-                                    <div class="card-body pelicula-info">
-                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[3].titulo}</span>
-                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[3].puntuacionTotal}</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <!--TOP 5-->
-                        <div>
-                            <a href="detalle.html?id=${listaPelisOrdenada[4].id}" class="text-decoration-none">
-                                <div class="card pelicula-card">
-                                <span class="ranking-label">5</span>
-                                    <div class="pelicula-img-wrap">
-                                        <img src="${listaPelisOrdenada[4].portada}" class="card-img-top pelicula-img" alt="Inception">
-                                    </div>
-                                    <div class="card-body pelicula-info">
-                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[4].titulo}</span>
-                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[4].puntuacionTotal}</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>          
-            </div>
-            <div class="row g-3 row-cols-2 row-cols-md-5">
-                        <!--TOP 6-->
-                        <div>
-                            <a href="detalle.html?id=${listaPelisOrdenada[5].id}" class="text-decoration-none">
-                                <div class="card pelicula-card">
-                                    <span class="ranking-label">6</span>
-                                    <div class="pelicula-img-wrap">
-                                        <img src="${listaPelisOrdenada[5].portada}" class="card-img-top pelicula-img" alt="Inception">
-                                    </div>
-                                    <div class="card-body pelicula-info">
-                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[5].titulo}</span>
-                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[5].puntuacionTotal}</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <!--TOP 7-->
-                        <div>
-                            <a href="detalle.html?id=${listaPelisOrdenada[6].id}" class="text-decoration-none">
-                                <div class="card pelicula-card">
-                                    <span class="ranking-label">7</span>
-                                    <div class="pelicula-img-wrap">
-                                        <img src="${listaPelisOrdenada[6].portada}" class="card-img-top pelicula-img" alt="Inception">
-                                    </div>
-                                    <div class="card-body pelicula-info">
-                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[6].titulo}</span>
-                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[6].puntuacionTotal}</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <!--TOP 8-->
-                        <div>
-                            <a href="detalle.html?id=${listaPelisOrdenada[7].id}" class="text-decoration-none">
-                                <div class="card pelicula-card">
-                                    <span class="ranking-label">8</span>
-                                    <div class="pelicula-img-wrap">
-                                        <img src="${listaPelisOrdenada[7].portada}" class="card-img-top pelicula-img" alt="Inception">
-                                    </div>
-                                    <div class="card-body pelicula-info">
-                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[7].titulo}</span>
-                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[7].puntuacionTotal}</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <!--TOP 9-->
-                        <div>
-                            <a href="detalle.html?id=${listaPelisOrdenada[8].id}" class="text-decoration-none">
-                                <div class="card pelicula-card">
-                                    <span class="ranking-label">9</span>
-                                    <div class="pelicula-img-wrap">
-                                        <img src="${listaPelisOrdenada[8].portada}" class="card-img-top pelicula-img" alt="Inception">
-                                    </div>
-                                    <div class="card-body pelicula-info">
-                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[8].titulo}</span>
-                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[8].puntuacionTotal}</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <!--TOP 10-->
-                        <div>
-                            <a href="detalle.html?id=${listaPelisOrdenada[9].id}" class="text-decoration-none">
-                                <div class="card pelicula-card">
-                                    <span class="ranking-label">10</span>
-                                    <div class="pelicula-img-wrap">
-                                        <img src="${listaPelisOrdenada[9].portada}" class="card-img-top pelicula-img" alt="Inception">
-                                    </div>
-                                    <div class="card-body pelicula-info">
-                                        <span class="card-title pelicula-titulo">${listaPelisOrdenada[9].titulo}</span>
-                                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${listaPelisOrdenada[9].puntuacionTotal}</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        
-            </div>
-            
-                        
-            `;
-            contenedorMejorPuntuados.insertAdjacentHTML("afterbegin", tarjetaHTML);
-    }
-    
-        
+    // Ordenamos y tomamos solo los primeros 10
+    const listaTop10 = listaPelis.slice(0, 10).sort((a, b) => b.puntuacionTotal - a.puntuacionTotal);
 
+    // Generamos el HTML usando map
+    const tarjetasHTML = listaTop10.map((pelicula, index) => {
+        return `
+        <div class="col">
+            <a href="detalle.html?id=${pelicula.id}" class="text-decoration-none">
+                <div class="card pelicula-card">
+                    <span class="ranking-label">${index + 1}</span>
+                    <div class="pelicula-img-wrap">
+                        <img src="${pelicula.portada}" class="card-img-top pelicula-img" alt="${pelicula.titulo}">
+                    </div>
+                    <div class="card-body pelicula-info">
+                        <span class="card-title pelicula-titulo">${pelicula.titulo}</span>
+                        <span class="pelicula-rating"><i class="bi bi-star-fill"></i> ${pelicula.puntuacionTotal}</span>
+                    </div>
+                </div>
+            </a>
+        </div>`;
+    }).join('');
+
+    // Inyectamos todo dentro de una sola fila
+    contenedor.innerHTML = `<div class="row g-3 row-cols-2 row-cols-md-5">${tarjetasHTML}</div>`;
 }
-
 
 mostrarMejorPuntuados();
 document.addEventListener('load', mostrarMejorPuntuados());
