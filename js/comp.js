@@ -1,5 +1,3 @@
-
-
 // INICIO 
 // HEADER
 const navbar = document.querySelector(".navbar");
@@ -64,7 +62,7 @@ formBusqueda.addEventListener("submit", (e) => {
 //================================================
 
 class PeliculaSerie{
-    constructor(id, titulo, portada, genero, sinopsis, caps, duracion, puntuacion, creador, actores, banner, reseñas, puntuacionTotal, director){
+    constructor(id, titulo, portada, genero, sinopsis, caps, duracion, puntuacion, creador, actores, banner, reseñas, puntuacionTotal, director, trailer){
         this.id = id;
         this.titulo = titulo;
         this.portada = portada;
@@ -79,6 +77,7 @@ class PeliculaSerie{
         this.reseñas = reseñas;
         this.puntuacionTotal = puntuacionTotal;
         this.director = director;
+        this.trailer = trailer;
     }
 }
 
@@ -193,7 +192,7 @@ window.addEventListener('load', () => {
             // Llenamos el arreglo con instancias de la clase
             Arreglo_Pelis_Series = []; // Aseguramos vaciado limpio
             datosJSON.forEach(p => {
-                let pelicula = new PeliculaSerie(p.id, p.titulo, p.portada, p.genero, p.sinopsis, p.caps, p.duracion, p.puntuacion, p.creador, p.actores, p.banner, p.reseñas, p.puntuacionTotal, p.director);
+                let pelicula = new PeliculaSerie(p.id, p.titulo, p.portada, p.genero, p.sinopsis, p.caps, p.duracion, p.puntuacion, p.creador, p.actores, p.banner, p.reseñas, p.puntuacionTotal, p.director, p.trailer);
                 Arreglo_Pelis_Series.push(pelicula);
             });
 
