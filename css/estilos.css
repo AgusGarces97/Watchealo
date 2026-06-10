@@ -1,12 +1,17 @@
 :root{
-    --verdeOscuro: #0b1e26;
-    --celeste: #acf2f2;
+    --PRIMARY: #0b1e26;
+    --SECONDARY: #acf2f2;
+    --TERCIARY: #3081A6;
+    --CUATERNARY: #455CB4;
+    --WHITE: #FFFFFF;
+    --CYAN: rgba(172, 242, 242, 0.6);
+    --BORDER: rgba(172, 242, 242, 0.15);
     --sizeNav: 1rem;
 }
 
 
 body{
-    background-color: var(--verdeOscuro);
+    background-color: var(--PRIMARY);
     color: white;
 }
 
@@ -15,11 +20,11 @@ body{
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--verdeOscuro);
+    background: var(--PRIMARY);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--celeste);
+    background: var(--SECONDARY);
     border-radius: 10px;
 }
 
@@ -45,37 +50,45 @@ body{
 }
 
 .bg-dark{
-    background-color: var(--verdeOscuro) !important;
+    background-color: var(--PRIMARY) !important;
 }
 
 .navbar {
-    transition: box-shadow 0.3s ease;
+    transition: background 0.5s ease, box-shadow 0.25s ease; 
     z-index: 1051;
+    transition: bac;
 }
 
 .navbar-scroll {
     box-shadow: 0 8px 10px -8px rgba(0,0,0,0.5);
+    background-color: var(--TERCIARY) !important;
+    transition: background 3s ease, box-shadow 0.25s ease;  
+    color: black !important;
+}
+
+.transition-scroll{
+    transition: background 0.5s ease, box-shadow 0.25s ease;  
 }
 
 .btn-outline-success{
-    border-color: var(--celeste);
-    color: var(--celeste);
+    border-color: var(--SECONDARY);
+    color: var(--SECONDARY);
 }
 
 .btn-outline-success:hover{
-    background-color: var(--celeste);
-    color: var(--verdeOscuro);
+    background-color: var(--SECONDARY);
+    color: var(--PRIMARY);
 }
 
 .btn-outline-success:active{
-    background-color: var(--celeste) !important;
-    color: var(--verdeOscuro) !important;
+    background-color: var(--SECONDARY) !important;
+    color: var(--PRIMARY) !important;
 }
 
 .form-control{
     background-color: transparent;
     color: white;
-    border: 1px solid var(--celeste) !important;
+    border: 1px solid var(--SECONDARY) !important;
     
 }
 
@@ -86,19 +99,19 @@ body{
 }
 
 .btn-user{
-    border: 1px solid var(--celeste);
+    border: 1px solid var(--SECONDARY);
     border-radius: 50%;
-    color: var(--celeste);
+    color: var(--SECONDARY);
 }
 
 .btn-user:hover{
-    background-color: var(--celeste);
-    color: var(--verdeOscuro);
+    background-color: var(--SECONDARY);
+    color: var(--PRIMARY);
 }
 
 .btn-user:active{
-    background-color: var(--celeste) !important;
-    color: var(--verdeOscuro) !important;
+    background-color: var(--SECONDARY) !important;
+    color: var(--PRIMARY) !important;
 }
 
 .btn-user>i{
@@ -106,10 +119,10 @@ body{
 }
 
 .btn-nav{
-    color: white;
+    color: var(--WHITE);
     transition: color 0.3s ease;
     font-size: var(--sizeNav);
-    border: 1px solid var(--celeste);
+    font-weight: bold;   
     border-radius: 10px;
     width: 15vh;
     text-align: center;
@@ -117,10 +130,10 @@ body{
 }
 
 .btn-nav:hover{
-    color: var(--celeste);
-    background-color: var(--celeste);
-    color: var(--verdeOscuro);    
+    color: var(--SECONDARY);   
 }
+
+
 
 .icons{
     color: white;
@@ -130,7 +143,7 @@ body{
 }
 
 .icons:hover{
-    color: var(--celeste);
+    color: var(--SECONDARY);
     transform: scale(1.2);
 }
 
@@ -179,11 +192,11 @@ body{
 
     .navbar-toggler{
         background-color: transparent;
-        border: 1px solid var(--celeste)
+        border: 1px solid var(--SECONDARY)
     }
 
     .icono-hamb{
-        color: var(--celeste);
+        color: var(--SECONDARY);
         font-size: 20px;
         display: inline-block;
         transition: transform 0.5s ease;
@@ -218,11 +231,11 @@ body{
 
 
 .header{
-    background-color: var(--verdeOscuro) !important;
+    background-color: var(--PRIMARY) !important;
 }
 
 .footer{
-    background-color: var(--verdeOscuro) !important;    
+    background-color: var(--PRIMARY) !important;    
 }
 
 /*------------------------------------------------ CARRUSEL INICIO ------------------------------------------------  */
@@ -276,7 +289,7 @@ body{
     aspect-ratio: 2/3;
     object-fit: cover;
     border-radius: 6px;
-    border: 1px solid rgba(172, 242, 242, 0.3);
+    border: 1px solid var(--TERCIARY);
     box-shadow: 0 4px 16px rgba(0,0,0,0.5);
 }
 
@@ -293,7 +306,7 @@ body{
     font-size: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--celeste);
+    color: var(--SECONDARY);
     opacity: 0.8;
     font-weight: 500;
     margin: 0;
@@ -312,7 +325,7 @@ body{
     gap: 12px;
     flex-wrap: wrap;
     font-size: 11.5px;
-    color: rgba(172, 242, 242, 0.6);
+    color: var(--CYAN);
     margin: 0;
 }
 
@@ -341,8 +354,8 @@ body{
     font-size: 10px;
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: var(--celeste);
-    border: 1px solid var(--celeste);
+    color: var(--SECONDARY);
+    border: 1px solid var(--SECONDARY);
     padding: 3px 9px;
     border-radius: 6px;
     background: rgba(11, 30, 38, 0.55);
@@ -362,7 +375,7 @@ body{
     border-radius: 6px;
     padding: 4px 10px;
     font-size: 13px;
-    color: var(--celeste);
+    color: var(--SECONDARY);
     backdrop-filter: blur(4px);
 }
 
@@ -376,22 +389,22 @@ body{
     width: 62px;
     height: 62px;
     border-radius: 50%;
-    border: 2px solid rgba(172, 242, 242, 0.6);
+    border: 2px solid var(--CYAN);
     background: rgba(11, 30, 38, 0.5);
     backdrop-filter: blur(6px);
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: var(--celeste);
+    color: var(--SECONDARY);
     font-size: 24px;
     transition: all 0.25s ease;
 }
 
 .btn-play:hover {
-    background: var(--celeste);
-    border-color: var(--celeste);
-    color: var(--verdeOscuro);
+    background: var(--SECONDARY);
+    border-color: var(--SECONDARY);
+    color: var(--PRIMARY);
     transform: translate(-50%, -50%) scale(1.1);
 }
 
@@ -402,7 +415,7 @@ body{
     top: 38%;
     transform: translateY(-50%);
     background: rgba(11, 30, 38, 0.75);
-    border: 1px solid rgba(172, 242, 242, 0.3);
+    border: 1px solid var(--TERCIARY);
     border-radius: 50%;
     backdrop-filter: blur(6px);
     opacity: 1;
@@ -414,8 +427,8 @@ body{
 
 #Carousel .carousel-control-prev:hover,
 #Carousel .carousel-control-next:hover {
-    background: var(--celeste);
-    border-color: var(--celeste);
+    background: var(--SECONDARY);
+    border-color: var(--SECONDARY);
 }
 
 /* Íconos dentro de los controles */
@@ -441,7 +454,7 @@ body{
     width: 26px;
     height: 3px;
     border-radius: 2px;
-    background: rgba(172, 242, 242, 0.3);
+    background: var(--TERCIARY);
     border: none;
     border-top: none;
     border-bottom: none;
@@ -451,7 +464,7 @@ body{
 
 #Carousel .carousel-indicators .active {
     width: 52px;
-    background: var(--celeste);
+    background: var(--SECONDARY);
     opacity: 1;
 }
 
@@ -578,12 +591,12 @@ body{
 }
 
 .mas-vistas-titulo i {
-    color: var(--celeste);
+    color: var(--SECONDARY);
 }
 
 .card.pelicula-card {
     background-color: #0f2835;
-    border: 1px solid rgba(172, 242, 242, 0.15);
+    border: 1px solid var(--BORDER);
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -635,7 +648,7 @@ body{
 
 .pelicula-rating {
     font-size: 12px;
-    color: var(--celeste);
+    color: var(--SECONDARY);
     white-space: nowrap;
     display: flex;
     align-items: center;
@@ -664,11 +677,11 @@ body{
     margin-bottom: 1.4rem;
 }
 
-.contacto-titulo i { color: var(--celeste); }
+.contacto-titulo i { color: var(--SECONDARY); }
 
 .card.contacto-card {
     --bs-card-bg: #0f2835;
-    --bs-card-border-color: rgba(172, 242, 242, 0.15);
+    --bs-card-border-color: var(--BORDER);
     --bs-card-border-radius: 12px;
 }
 
@@ -695,7 +708,7 @@ body{
 }
 
 .contacto-card .form-control:focus {
-    border-color: var(--celeste) !important;
+    border-color: var(--SECONDARY) !important;
     box-shadow: 0 0 0 3px rgba(172, 242, 242, 0.12) !important;
     background-color: rgba(11, 30, 38, 0.9) !important;
 }
@@ -717,8 +730,8 @@ body{
 /* Botón enviar */
 .btn-enviar {
     background-color: transparent;
-    border: 1px solid var(--celeste);
-    color: var(--celeste);
+    border: 1px solid var(--SECONDARY);
+    color: var(--SECONDARY);
     border-radius: 8px;
     padding: 8px 28px;
     font-size: 14px;
@@ -727,24 +740,24 @@ body{
 }
 
 .btn-enviar:hover {
-    background-color: var(--celeste) !important;
-    color: var(--verdeOscuro);
-    border-color: var(--celeste);
-    box-shadow: 0 0 8px var(--celeste);
+    background-color: var(--SECONDARY) !important;
+    color: var(--PRIMARY);
+    border-color: var(--SECONDARY);
+    box-shadow: 0 0 8px var(--SECONDARY);
 }
 
 .btn-enviar:active {
-    background-color: var(--celeste) !important;
-    color: var(--verdeOscuro) !important;
+    background-color: var(--SECONDARY) !important;
+    color: var(--PRIMARY) !important;
 }
 
 /* Alerta de confirmación */
 .alert-confirmacion {
     display: none;
     background-color: rgba(172, 242, 242, 0.1);
-    border: 1px solid rgba(172, 242, 242, 0.35);
+    border: 1px solid var(--TERCIARY);
     border-radius: 8px;
-    color: var(--celeste);
+    color: var(--SECONDARY);
     font-size: 13.5px;
     padding: 12px 16px;
     margin-top: 1rem;
@@ -785,7 +798,7 @@ header.sticky-top{
     height: auto;
     max-height: 40vh;
     object-fit: cover;
-    border: 2px solid var(--celeste);
+    border: 2px solid var(--SECONDARY);
     display: block;
 }
 
@@ -797,14 +810,14 @@ header.sticky-top{
     border-radius: 20px;
     padding: 6px 16px;
     z-index: 1050;
-    background-color: var(--verdeOscuro);
-    color: var(--celeste);
-    border: 2px solid var(--celeste) !important;
+    background-color: var(--PRIMARY);
+    color: var(--SECONDARY);
+    border: 2px solid var(--SECONDARY) !important;
 }
 
 .btn-cerrar-sesion-banner:hover{
-    background-color: var(--celeste);
-    color: var(--verdeOscuro);
+    background-color: var(--SECONDARY);
+    color: var(--PRIMARY);
     transform: scale(1.05);
 }
 
@@ -836,7 +849,7 @@ header.sticky-top{
     height: 100%;
     object-fit: cover;
     background-color: white;
-    border: 3px solid var(--celeste);
+    border: 3px solid var(--SECONDARY);
     display: block;
 }
 
@@ -846,9 +859,9 @@ header.sticky-top{
     bottom: -14px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: var(--verdeOscuro);
-    border: 2px solid var(--celeste);
-    color: var(--celeste);
+    background-color: var(--PRIMARY);
+    border: 2px solid var(--SECONDARY);
+    color: var(--SECONDARY);
     border-radius: 50%;
     width: 32px;
     height: 32px;
@@ -861,8 +874,8 @@ header.sticky-top{
 }
 
 .btn-cambiar-pfp:hover {
-    background-color: var(--celeste);
-    color: var(--verdeOscuro);
+    background-color: var(--SECONDARY);
+    color: var(--PRIMARY);
     transform: translateX(-50%) scale(1.1);
 }
 
@@ -893,9 +906,9 @@ header.sticky-top{
     position: absolute;
     bottom: 15px;
     right: 15px;
-    background-color: var(--verdeOscuro);
-    border: 2px solid var(--celeste);
-    color: var(--celeste);
+    background-color: var(--PRIMARY);
+    border: 2px solid var(--SECONDARY);
+    color: var(--SECONDARY);
     border-radius: 20px;
     padding: 6px 15px;
     font-size: 0.85rem;
@@ -909,8 +922,8 @@ header.sticky-top{
 }
 
 .btn-cambiar-banner:hover {
-    background-color: var(--celeste);
-    color: var(--verdeOscuro);
+    background-color: var(--SECONDARY);
+    color: var(--PRIMARY);
     transform: scale(1.05);
 }
 
@@ -924,9 +937,9 @@ header.sticky-top{
     position: absolute;
     top: 15px;
     right: 15px;
-    background-color: var(--verdeOscuro);
-    border: 2px solid var(--celeste);
-    color: var(--celeste);
+    background-color: var(--PRIMARY);
+    border: 2px solid var(--SECONDARY);
+    color: var(--SECONDARY);
     border-radius: 20px;
     padding: 6px 16px;
     font-size: 0.85rem;
@@ -940,8 +953,8 @@ header.sticky-top{
 }
 
 .btn-editar-perfil-general:hover {
-    background-color: var(--celeste);
-    color: var(--verdeOscuro);
+    background-color: var(--SECONDARY);
+    color: var(--PRIMARY);
     transform: scale(1.05);
 }
 
@@ -950,21 +963,21 @@ header.sticky-top{
 }
 
 .modalConfirmar{
-    background-color: var(--verdeOscuro); 
-    border: 2px solid var(--celeste); 
+    background-color: var(--PRIMARY); 
+    border: 2px solid var(--SECONDARY); 
     color: white; border-radius: 14px;
 }
 
 /*------------------------------------------------ BOTÓN CONFIRMAR MODAL ------------------------------------------------*/
 .btnConfirmarModal{
     background-color: transparent; 
-    border: 2px solid var(--celeste); 
-    color: var(--celeste);
+    border: 2px solid var(--SECONDARY); 
+    color: var(--SECONDARY);
 }
 
 .btnConfirmarModal:hover{
-    background-color: var(--celeste) !important;
-    color: var(--verdeOscuro) !important;
+    background-color: var(--SECONDARY) !important;
+    color: var(--PRIMARY) !important;
 }
 
 /*------------------------------------------------ BIOGRAFÍA ------------------------------------------------*/
@@ -981,14 +994,14 @@ header.sticky-top{
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--celeste);
+    color: var(--SECONDARY);
     margin: 0;
 }
 
 .bio-section-header .section-line {
     flex: 1;
     height: 1px;
-    background: linear-gradient(to right, rgba(172, 242, 242, 0.35), transparent);
+    background: linear-gradient(to right, var(--TERCIARY), transparent);
 }
 
 .bio-card {
@@ -1007,7 +1020,7 @@ header.sticky-top{
     top: 0; left: 0;
     width: 4px;
     height: 100%;
-    background: linear-gradient(to bottom, var(--celeste), transparent);
+    background: linear-gradient(to bottom, var(--SECONDARY), transparent);
     border-radius: 16px 0 0 16px;
 }
 
@@ -1031,16 +1044,16 @@ header.sticky-top{
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    border-color: var(--celeste) !important;
-    color: var(--celeste) !important;
+    border-color: var(--SECONDARY) !important;
+    color: var(--SECONDARY) !important;
     border-radius: 20px;
     padding: 4px 14px;
     transition: all 0.25s ease;
 }
 
 #btn-editar-bio:hover {
-    background-color: var(--celeste) !important;
-    color: var(--verdeOscuro) !important;
+    background-color: var(--SECONDARY) !important;
+    color: var(--PRIMARY) !important;
     transform: scale(1.04);
 }
 
@@ -1050,7 +1063,7 @@ header.sticky-top{
     width: 100%;
     background-color: rgba(172, 242, 242, 0.04);
     color: white;
-    border: 1px solid var(--celeste) !important;
+    border: 1px solid var(--SECONDARY) !important;
     border-radius: 10px;
     padding: 1rem;
     font-family: inherit;
@@ -1069,12 +1082,12 @@ header.sticky-top{
 /*------------------------------------------------ BOTÓN EDITAR USERNAME ------------------------------------------------*/
 
 #btn-cambiar-username{
-    background-color: var(--verdeOscuro);
+    background-color: var(--PRIMARY);
 }
 
 #btn-cambiar-username:hover {
-    background-color: var(--celeste) !important;
-    color: var(--verdeOscuro) !important;
+    background-color: var(--SECONDARY) !important;
+    color: var(--PRIMARY) !important;
     transform: scale(1.05);
     transition: all 0.3s ease;
 }
@@ -1086,7 +1099,7 @@ header.sticky-top{
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--celeste);
+    color: var(--SECONDARY);
     margin: 0;
 }
 
@@ -1100,7 +1113,7 @@ header.sticky-top{
 .perfil-seccion-header .section-line {
     flex: 1;
     height: 1px;
-    background: linear-gradient(to right, rgba(172, 242, 242, 0.3), transparent);
+    background: linear-gradient(to right, var(--TERCIARY), transparent);
 }
 
 .favorito-item {
@@ -1156,7 +1169,7 @@ header.sticky-top{
     top: 7px;
     right: 7px;
     background: rgba(11, 30, 38, 0.75);
-    border: 1px solid var(--celeste);
+    border: 1px solid var(--SECONDARY);
     border-radius: 50%;
     width: 26px;
     height: 26px;
@@ -1164,7 +1177,7 @@ header.sticky-top{
     align-items: center;
     justify-content: center;
     font-size: 0.65rem;
-    color: var(--celeste);
+    color: var(--SECONDARY);
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -1188,7 +1201,7 @@ header.sticky-top{
 
 .reseña-card {
     background: rgba(255, 255, 255, 0.025);
-    border-left: 3px solid var(--celeste) !important;
+    border-left: 3px solid var(--SECONDARY) !important;
     border-radius: 12px;
     padding: 2.2rem 1.1rem 1rem;
     position: relative;
@@ -1207,7 +1220,7 @@ header.sticky-top{
     aspect-ratio: 2/3;
     object-fit: cover;
     border-radius: 6px;
-    border: 1.5px solid rgba(172, 242, 242, 0.35);
+    border: 1.5px solid var(--TERCIARY);
     flex-shrink: 0;
 }
 
@@ -1225,7 +1238,7 @@ header.sticky-top{
 
 .reseña-titulo-peli {
     font-size: 0.72rem;
-    color: var(--celeste);
+    color: var(--SECONDARY);
     opacity: 0.75;
     white-space: nowrap;
     overflow: hidden;
@@ -1344,29 +1357,29 @@ header.sticky-top{
 .btn-agregar {
     border: 1px solid rgba(172, 242, 242, 0.2) !important;
     background: rgba(15, 40, 53, 0.6) !important;
-    color: var(--celeste) !important;
+    color: var(--SECONDARY) !important;
     transition: all 0.2s ease;
 }
 
 .btn-agregar:hover {
-    background: var(--celeste) !important;
+    background: var(--SECONDARY) !important;
     color: #111 !important; /* Texto oscuro al pasar el mouse */
-    box-shadow: 0 0 8px var(--celeste);
+    box-shadow: 0 0 8px var(--SECONDARY);
 }
 
 .btn-fav{
     background-color: transparent !important;
     border: none;
-    color: var(--celeste) !important;
+    color: var(--SECONDARY) !important;
 }
 
 .btn-fav:hover i{
-    text-shadow: 0 0 10px rgba(172, 242, 242, 0.6);
+    text-shadow: 0 0 10px var(--CYAN);
 }
 
 .text-genero h3{
     font-size: 1rem !important;
-    color: var(--celeste);
+    color: var(--SECONDARY);
 }
 
 /* --- ESTILO GENERAL (Para celulares, se mantiene igual) --- */
@@ -1444,12 +1457,15 @@ header.sticky-top{
     transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
+
 /* En pantallas de computadoras (más de 768px), que entren más cajas por fila */
 @media (min-width: 768px) {
     .detalle-caja {
         flex: 1 1 calc(25% - 1rem); /* Ocupan el 25% (4 cajas por fila si hay espacio) */
     }
 }
+
+
 
 /* Efecto visual al pasar el mouse por la pieza */
 .detalle-caja:hover {
@@ -1467,14 +1483,14 @@ header.sticky-top{
 /* Estilo para los íconos de las cajas */
 .icono-caja {
     font-size: 1.4rem;      /* Lo hace un poco más grande y vistoso */
-    color: var(--celeste);  /* Toma el color celeste de tu paleta */
+    color: var(--SECONDARY);  /* Toma el color celeste de tu paleta */
     margin-bottom: 6px;     /* Separa el ícono del título de abajo */
 }
 
 /* Ajuste al h6 para que no tenga márgenes rebeldes */
 .info-tit {    
     font-size: 0.85rem !important;
-    color: var(--celeste);
+    color: var(--SECONDARY);
     margin-bottom: 2px !important; 
           /* Opcional: le da un toque más pro */
     letter-spacing: 0.5px;
@@ -1498,7 +1514,7 @@ header.sticky-top{
 /* Estilo para el ícono de Play (un poquito más grande que los demás para que destaque) */
 .icono-caja-play {
     font-size: 1.8rem; 
-    color: var(--celeste);
+    color: var(--SECONDARY);
     margin-bottom: 6px;
     transition: color 0.2s ease, filter 0.2s ease;
 }
@@ -1506,11 +1522,11 @@ header.sticky-top{
 /* Efecto de "Glow" (brillo) cuando pasan el mouse por encima de la caja */
 .detalle-caja:hover .icono-caja-play {
     color: #fff; /* Cambia a blanco */
-    filter: drop-shadow(0 0 8px var(--celeste)); /* Crea un reflejo celeste brillante */
+    filter: drop-shadow(0 0 8px var(--SECONDARY)); /* Crea un reflejo celeste brillante */
 }
 
 .inputPuntuar{
-    border: 1px solid var(--celeste) !important;
+    border: 1px solid var(--SECONDARY) !important;
     width: 40% !important;
 }
 
@@ -1527,25 +1543,25 @@ header.sticky-top{
 }
 
 .puntuar{
-    text-shadow: 0 0 8px var(--celeste);
+    text-shadow: 0 0 8px var(--SECONDARY);
 }
 
 /*------------------------------------------------ MODAL REGISTRO ------------------------------------------------*/
 
 .modal-body {
-    background-color: var(--verdeOscuro);
-    color: var(--celeste);
+    background-color: var(--PRIMARY);
+    color: var(--SECONDARY);
     font-weight: bold;
 }
 
 .modal-header {
-    background-color: var(--verdeOscuro);
-    color: var(--celeste);
+    background-color: var(--PRIMARY);
+    color: var(--SECONDARY);
 }
 
 .modal-footer {
-    background-color: var(--verdeOscuro);
-    color: var(--celeste);
+    background-color: var(--PRIMARY);
+    color: var(--SECONDARY);
 }
 
 #btnCerrarAviso {
@@ -1553,35 +1569,35 @@ header.sticky-top{
 }
 
 #btnCerrarAviso:hover {
-    background-color: var(--celeste) !important;
-    color: var(--verdeOscuro) !important;
+    background-color: var(--SECONDARY) !important;
+    color: var(--PRIMARY) !important;
     transform: scale(1.05);
 }
 
 #FormularioRegistro .modal-content {
-    background-color: var(--verdeOscuro);
-    border: 2px solid var(--celeste);
+    background-color: var(--PRIMARY);
+    border: 2px solid var(--SECONDARY);
     color: white;
     border-radius: 14px;
 }
 
 #FormularioRegistro .modal-header {
-    border-bottom: 1px solid rgba(172, 242, 242, 0.15);
+    border-bottom: 1px solid var(--BORDER);
 }
 
 #FormularioRegistro .modal-title {
-    color: var(--celeste);
+    color: var(--SECONDARY);
     font-weight: 600;
 }
 
 #FormularioRegistro .modal-footer {
-    border-top: 1px solid rgba(172, 242, 242, 0.15);
+    border-top: 1px solid var(--BORDER);
 }
 
 #FormularioRegistro .btn-primary, #boton-crear {
     background-color: transparent;
-    border: 1px solid var(--celeste);
-    color: var(--celeste);
+    border: 1px solid var(--SECONDARY);
+    color: var(--SECONDARY);
     border-radius: 30px;
     padding: 6px 20px;
     font-weight: 500;
@@ -1589,8 +1605,8 @@ header.sticky-top{
 }
 
 #FormularioRegistro .btn-primary:hover, #boton-crear:hover {
-    background-color: var(--celeste);
-    color: var(--verdeOscuro);
+    background-color: var(--SECONDARY);
+    color: var(--PRIMARY);
     box-shadow: 0 0 12px rgba(172, 242, 242, 0.4);
 }
 
@@ -1634,7 +1650,7 @@ header.sticky-top{
 }
 
 #contenido-sin-logear h1 {
-    color: var(--celeste);
+    color: var(--SECONDARY);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -1646,7 +1662,7 @@ header.sticky-top{
 #contenido-sin-logear .flex-column input {
     background-color: rgba(255, 255, 255, 0.03);
     color: white;
-    border: 1px solid rgba(172, 242, 242, 0.3);
+    border: 1px solid var(--TERCIARY);
     border-radius: 8px;
     padding: 0.8rem 1.2rem;
     margin-bottom: 1.25rem;
@@ -1656,9 +1672,9 @@ header.sticky-top{
 
 #contenido-sin-logear .flex-column input:focus {
     outline: none;
-    border-color: var(--celeste);
+    border-color: var(--SECONDARY);
     background-color: rgba(172, 242, 242, 0.05);
-    box-shadow: 0 0 10px rgba(172, 242, 242, 0.3);
+    box-shadow: 0 0 10px var(--TERCIARY);
 }
 
 #contenido-sin-logear .flex-column input::placeholder {
@@ -1673,7 +1689,7 @@ header.sticky-top{
 }
 
 #contenido-sin-logear h6 a {
-    color: var(--celeste);
+    color: var(--SECONDARY);
     text-decoration: none;
     font-weight: 600;
     transition: all 0.2s ease;
@@ -1681,7 +1697,7 @@ header.sticky-top{
 
 #contenido-sin-logear h6 a:hover {
     color: white;
-    text-shadow: 0 0 8px var(--celeste);
+    text-shadow: 0 0 8px var(--SECONDARY);
 }
 
 #input-fechaNac::-webkit-calendar-picker-indicator {
@@ -1691,12 +1707,12 @@ header.sticky-top{
 }
 
 .terminos{
-    color: var(--celeste);
+    color: var(--SECONDARY);
 }
 
 .terminos:hover{
-    color: var(--celeste);
-    text-shadow: 0 0 10px rgba(172, 242, 242, 0.6);
+    color: var(--SECONDARY);
+    text-shadow: 0 0 10px var(--CYAN);
 }
 
 /*------------------------------------------------ RESPONSIVO PERFIL ------------------------------------------------*/
@@ -1722,9 +1738,9 @@ header.sticky-top{
         left: 10px;
         font-size: 0.75rem;
         padding: 4px 10px;
-        background-color: var(--verdeOscuro);
-        color: var(--celeste);
-        border: 2px solid var(--celeste) !important;
+        background-color: var(--PRIMARY);
+        color: var(--SECONDARY);
+        border: 2px solid var(--SECONDARY) !important;
     }
 
     .btn-cambiar-banner {
@@ -1790,30 +1806,31 @@ header.sticky-top{
    ESTILOS ADICIONALES: MODAL DEJAR RESEÑA
    ========================================================= */
 .modal-reseña-content {
-    background-color: var(--verdeOscuro);
-    border: 2px solid var(--celeste);
+    background-color: var(--PRIMARY);
+    border: 2px solid var(--SECONDARY);
     color: white;
     border-radius: 14px;
-    box-shadow: 0 0 25px rgba(172, 242, 242, 0.15);
+    box-shadow: 0 0 25px var(--BORDER);
 }
 
 .modal-reseña-header {
-    border-bottom: 1px solid rgba(172, 242, 242, 0.15);
+    border-bottom: 1px solid var(--BORDER);
 }
 
 .modal-reseña-header .modal-title {
-    color: var(--celeste);
+    color: var(--SECONDARY);
     letter-spacing: 0.5px;
+    padding-left: 28%;
 }
 
 .modal-reseña-body .form-label {
-    color: var(--celeste);
+    color: var(--SECONDARY);
     font-weight: 500;
     font-size: 0.95rem;
 }
 
-/* Inputs y Cajas de Texto del Formulario */
-.input-reseña, .textarea-reseña {
+/* Caja de Texto del Formulario */
+.textarea-reseña {
     background-color: rgba(255, 255, 255, 0.03) !important;
     color: white !important;
     border: 1px solid rgba(172, 242, 242, 0.25) !important;
@@ -1821,17 +1838,9 @@ header.sticky-top{
     transition: all 0.3s ease;
 }
 
-/* Estilo para el input deshabilitado del título */
-.input-reseña[readonly] {
-    background-color: rgba(255, 255, 255, 0.01) !important;
-    border-color: rgba(172, 242, 242, 0.1) !important;
-    color: rgba(255, 255, 255, 0.5) !important;
-    cursor: not-allowed;
-}
-
 .textarea-reseña:focus {
     outline: none;
-    border-color: var(--celeste) !important;
+    border-color: var(--SECONDARY) !important;
     background-color: rgba(172, 242, 242, 0.05) !important;
     box-shadow: 0 0 8px rgba(172, 242, 242, 0.25) !important;
 }
@@ -1865,8 +1874,8 @@ header.sticky-top{
 .rating-estrellas label:hover ~ label,
 /* Mantener iluminadas las estrellas seleccionadas */
 .rating-estrellas input:checked ~ label {
-    color: var(--celeste);
-    text-shadow: 0 0 10px rgba(172, 242, 242, 0.6);
+    color: var(--SECONDARY);
+    text-shadow: 0 0 10px var(--CYAN);
 }
 
 /* Pequeño pulso al cliquear una estrella */
@@ -1878,7 +1887,7 @@ header.sticky-top{
    BOTONES DEL PIE DEL MODAL
    ========================================================= */
 .modal-reseña-footer {
-    border-top: 1px solid rgba(172, 242, 242, 0.15);
+    border-top: 1px solid var(--BORDER);
 }
 
 .btn-cancelar-reseña {
@@ -1898,9 +1907,9 @@ header.sticky-top{
 }
 
 .btn-publicar-reseña {
-    background-color: var(--verdeOscuro);
-    border: 2px solid var(--celeste);
-    color: var(--celeste);
+    background-color: var(--PRIMARY);
+    border: 2px solid var(--SECONDARY);
+    color: var(--SECONDARY);
     border-radius: 20px;
     padding: 6px 20px;
     font-size: 0.85rem;
@@ -1909,8 +1918,8 @@ header.sticky-top{
 }
 
 .btn-publicar-reseña:hover {
-    background-color: var(--celeste);
-    color: var(--verdeOscuro);
+    background-color: var(--SECONDARY);
+    color: var(--PRIMARY);
     transform: scale(1.05);
 }
 
@@ -1921,8 +1930,10 @@ header.sticky-top{
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
-    font-size: 2.5rem; /* Tamaño total del ícono */
+    font-size: 2.5rem; 
     margin-top: 5px;
+    /* Aseguramos que el contenedor no tenga problemas de desbordamiento */
+    position: relative;
 }
 
 .rating-estrellas-media input {
@@ -1933,10 +1944,32 @@ header.sticky-top{
     color: rgba(255, 255, 255, 0.12);
     cursor: pointer;
     transition: color 0.2s ease, text-shadow 0.2s ease, transform 0.1s ease;
-    width: 1.25rem; /* Mitad exacta del ancho visual de la estrella */
-    height: 2.5rem;
-    display: inline-block;
+    
+    /* MODIFICACIONES CLAVE */
+    width: 1.25rem; /* La mitad exacta */
+    height: 4rem;
+    display: block; /* Cambiado de inline-block a block para mejor control en flex */
     overflow: hidden;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+/* Forzamos al icono a que no se desplace aunque la etiqueta sea pequeña */
+.rating-estrellas-media label i {
+    position: absolute;
+    top: 0;
+    width: 2.5rem; /* El ancho total de la estrella completa */
+    text-align: center;
+}
+
+/* Ajuste para que el icono se posicione correctamente según sea full o half */
+.rating-estrellas-media label.half i {
+    left: 0;
+}
+
+.rating-estrellas-media label.full i {
+    right: 0;
 }
 
 /* Las medias estrellas muestran la mitad izquierda */
@@ -1949,12 +1982,12 @@ header.sticky-top{
     direction: rtl;
 }
 
-/* Iluminación inteligente en cascada al pasar el mouse o seleccionar */
+/* Iluminación en cascada */
 .rating-estrellas-media label:hover,
 .rating-estrellas-media label:hover ~ label,
 .rating-estrellas-media input:checked ~ label {
-    color: var(--celeste) !important;
-    text-shadow: 0 0 12px rgba(172, 242, 242, 0.6);
+    color: var(--SECONDARY) !important;
+    text-shadow: 0 0 12px var(--CYAN);
 }
 
 .rating-estrellas-media label:active {
@@ -1975,7 +2008,7 @@ header.sticky-top{
     top: 50%;
     transform: translateY(-50%);
     background: rgba(11, 30, 38, 0.75);
-    border: 1px solid rgba(172, 242, 242, 0.3);
+    border: 1px solid var(--TERCIARY);
     border-radius: 50%;
     backdrop-filter: blur(6px);
     opacity: 1;
@@ -1994,8 +2027,8 @@ header.sticky-top{
 /* Hover igual al carrusel de inicio */
 .carrusel-listas .carousel-control-prev:hover,
 .carrusel-listas .carousel-control-next:hover {
-    background: var(--celeste);
-    border-color: var(--celeste);
+    background: var(--SECONDARY);
+    border-color: var(--SECONDARY);
 }
 
 /* Íconos */
@@ -2064,8 +2097,8 @@ header.sticky-top{
     height: 55px;
     margin: 0 auto;
     border-radius: 50%;
-    border: 1px solid var(--celeste);
-    color: var(--celeste);
+    border: 1px solid var(--SECONDARY);
+    color: var(--SECONDARY);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2112,8 +2145,8 @@ header.sticky-top{
     height: 55px;
     margin: 0 auto;
     border-radius: 50%;
-    border: 1px solid var(--celeste);
-    color: var(--celeste);
+    border: 1px solid var(--SECONDARY);
+    color: var(--SECONDARY);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2140,26 +2173,26 @@ header.sticky-top{
 
 .filtros-explorar {
     background-color: #0f2835;
-    border: 1px solid rgba(172, 242, 242, 0.15);
+    border: 1px solid var(--BORDER);
     border-radius: 14px;
     padding: 1.5rem;
 }
 
 .filtros-explorar .form-label {
-    color: var(--celeste);
+    color: var(--SECONDARY);
     font-size: 0.9rem;
     font-weight: 600;
 }
 
 .titulo-resultados-explorar {
-    color: var(--celeste);
+    color: var(--SECONDARY);
     font-weight: bold;
 }
 
 /*------------------------------------------------ FILTROS EXPLORAR ------------------------------------------------*/
 
 .filtros-explorar .form-label {
-    color: var(--celeste);
+    color: var(--SECONDARY);
     font-weight: 600;
     margin-bottom: 0.5rem;
     display: block;
@@ -2168,18 +2201,18 @@ header.sticky-top{
 .filtros-explorar .form-control {
     background-color: rgba(11, 30, 38, 0.85) !important;
     color: white !important;
-    border: 1px solid rgba(172, 242, 242, 0.35) !important;
+    border: 1px solid var(--TERCIARY) !important;
 }
 
 .filtros-explorar .form-control:focus {
     background-color: rgba(11, 30, 38, 0.95) !important;
     color: white !important;
-    border-color: var(--celeste) !important;
+    border-color: var(--SECONDARY) !important;
     box-shadow: 0 0 0 3px rgba(172, 242, 242, 0.12) !important;
 }
 
 .filtros-explorar select option {
-    background-color: var(--verdeOscuro);
+    background-color: var(--PRIMARY);
     color: white;
 }
 
@@ -2191,8 +2224,8 @@ header.sticky-top{
     object-fit: cover;
     object-position: center 25%;
     display: block;
-    border-top: 1px solid rgba(172, 242, 242, 0.15);
-    border-bottom: 1px solid rgba(172, 242, 242, 0.15);
+    border-top: 1px solid var(--BORDER);
+    border-bottom: 1px solid var(--BORDER);
     filter: brightness(0.65);
 }
 
@@ -2299,17 +2332,17 @@ main > .container-fluid.px-0.position-relative::after {
     z-index: 2;  /* Para que quede por encima de la imagen */
     font-size: 0.8rem; /* Tamaño grande tipo "Top 10" */
     font-weight: 500;
-    color: var(--celeste);
+    color: var(--SECONDARY);
     font-family: sans-serif;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); /* Sombra para que resalte */
 
     /* Estilos del fondo */
-    background-color: var(--verdeOscuro); /* Negro semitransparente */
+    background-color: var(--PRIMARY); /* Negro semitransparente */
     padding: 2px 5px; /* Espaciado interno */
     border-radius: 5px; /* Bordes redondeados */
     
     /* Opcional: un borde fino para darle más estilo */
-    border: 0.25px solid var(--celeste);
+    border: 0.25px solid var(--SECONDARY);
     
     pointer-events: none; /* Crucial para que no bloquee los clics */
 
@@ -2333,7 +2366,7 @@ main > .container-fluid.px-0.position-relative::after {
 
 /* Caja blanca central */
 .modal-box {
-    background: var(--verdeOscuro);
+    background: var(--PRIMARY);
     padding: 2rem;
     border-radius: 12px;
     width: 90%;
@@ -2363,9 +2396,9 @@ main > .container-fluid.px-0.position-relative::after {
 }
 
 .btn-login-aviso-favoritos {
-    background-color: var(--verdeOscuro); /* O tu color primario */
-    color: var(--celeste);
-    border: 1px solid var(--celeste);
+    background-color: var(--PRIMARY); /* O tu color primario */
+    color: var(--SECONDARY);
+    border: 1px solid var(--SECONDARY);
     padding: 10px 20px;
     border-radius: 20px;
     text-decoration: none;
@@ -2376,16 +2409,16 @@ main > .container-fluid.px-0.position-relative::after {
 
 .btn-login-aviso-favoritos:hover{
     transform: scale(1.05);        /* Aumenta el tamaño un 5% */
-    background-color: var(--celeste);     /* Cambia el fondo a un azul más oscuro */
-    color: var(--verdeOscuro);                /* Cambia el color de la letra a blanco */
+    background-color: var(--SECONDARY);     /* Cambia el fondo a un azul más oscuro */
+    color: var(--PRIMARY);                /* Cambia el color de la letra a blanco */
     box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Opcional: le da un poco de profundidad */
     cursor: pointer;               /* Cambia el cursor a la manito */
 }
 
 .btn-cancelar-aviso-favoritos {
-    background-color: var(--verdeOscuro); /* O tu color primario */
-    color: var(--celeste);
-    border: 1px solid var(--celeste);
+    background-color: var(--PRIMARY); /* O tu color primario */
+    color: var(--SECONDARY);
+    border: 1px solid var(--SECONDARY);
     padding: 10px 20px;
     border-radius: 20px;
     text-decoration: none;
@@ -2396,8 +2429,8 @@ main > .container-fluid.px-0.position-relative::after {
 
 .btn-cancelar-aviso-favoritos:hover{
     transform: scale(1.05);        /* Aumenta el tamaño un 5% */
-    background-color: var(--celeste);     /* Cambia el fondo a un azul más oscuro */
-    color: var(--verdeOscuro);                /* Cambia el color de la letra a blanco */
+    background-color: var(--SECONDARY);     /* Cambia el fondo a un azul más oscuro */
+    color: var(--PRIMARY);                /* Cambia el color de la letra a blanco */
     box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Opcional: le da un poco de profundidad */
     cursor: pointer;               /* Cambia el cursor a la manito */
 }

@@ -1,15 +1,18 @@
 // INICIO 
 // HEADER
 const navbar = document.querySelector(".navbar");
+const navItems = document.querySelectorAll(".btn-nav")
 
 window.addEventListener("scroll", () => {
     
     if (window.scrollY > 0) {
         navbar.classList.add("navbar-scroll");
+        navItems.classList.add("btn-navScroll");
     } 
     
     else {
         navbar.classList.remove("navbar-scroll");
+        navbar.classList.add("transition-scroll");
     }
 
 });
