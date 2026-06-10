@@ -1444,12 +1444,15 @@ header.sticky-top{
     transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
+
 /* En pantallas de computadoras (más de 768px), que entren más cajas por fila */
 @media (min-width: 768px) {
     .detalle-caja {
         flex: 1 1 calc(25% - 1rem); /* Ocupan el 25% (4 cajas por fila si hay espacio) */
     }
 }
+
+
 
 /* Efecto visual al pasar el mouse por la pieza */
 .detalle-caja:hover {
@@ -1804,6 +1807,7 @@ header.sticky-top{
 .modal-reseña-header .modal-title {
     color: var(--celeste);
     letter-spacing: 0.5px;
+    padding-left: 28%;
 }
 
 .modal-reseña-body .form-label {
@@ -1812,21 +1816,13 @@ header.sticky-top{
     font-size: 0.95rem;
 }
 
-/* Inputs y Cajas de Texto del Formulario */
-.input-reseña, .textarea-reseña {
+/* Caja de Texto del Formulario */
+.textarea-reseña {
     background-color: rgba(255, 255, 255, 0.03) !important;
     color: white !important;
     border: 1px solid rgba(172, 242, 242, 0.25) !important;
     border-radius: 8px;
     transition: all 0.3s ease;
-}
-
-/* Estilo para el input deshabilitado del título */
-.input-reseña[readonly] {
-    background-color: rgba(255, 255, 255, 0.01) !important;
-    border-color: rgba(172, 242, 242, 0.1) !important;
-    color: rgba(255, 255, 255, 0.5) !important;
-    cursor: not-allowed;
 }
 
 .textarea-reseña:focus {
@@ -1921,8 +1917,10 @@ header.sticky-top{
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
-    font-size: 2.5rem; /* Tamaño total del ícono */
+    font-size: 2.5rem; 
     margin-top: 5px;
+    /* Aseguramos que el contenedor no tenga problemas de desbordamiento */
+    position: relative;
 }
 
 .rating-estrellas-media input {
@@ -1933,10 +1931,32 @@ header.sticky-top{
     color: rgba(255, 255, 255, 0.12);
     cursor: pointer;
     transition: color 0.2s ease, text-shadow 0.2s ease, transform 0.1s ease;
-    width: 1.25rem; /* Mitad exacta del ancho visual de la estrella */
-    height: 2.5rem;
-    display: inline-block;
+    
+    /* MODIFICACIONES CLAVE */
+    width: 1.25rem; /* La mitad exacta */
+    height: 4rem;
+    display: block; /* Cambiado de inline-block a block para mejor control en flex */
     overflow: hidden;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+/* Forzamos al icono a que no se desplace aunque la etiqueta sea pequeña */
+.rating-estrellas-media label i {
+    position: absolute;
+    top: 0;
+    width: 2.5rem; /* El ancho total de la estrella completa */
+    text-align: center;
+}
+
+/* Ajuste para que el icono se posicione correctamente según sea full o half */
+.rating-estrellas-media label.half i {
+    left: 0;
+}
+
+.rating-estrellas-media label.full i {
+    right: 0;
 }
 
 /* Las medias estrellas muestran la mitad izquierda */
@@ -1949,7 +1969,7 @@ header.sticky-top{
     direction: rtl;
 }
 
-/* Iluminación inteligente en cascada al pasar el mouse o seleccionar */
+/* Iluminación en cascada */
 .rating-estrellas-media label:hover,
 .rating-estrellas-media label:hover ~ label,
 .rating-estrellas-media input:checked ~ label {
