@@ -62,11 +62,11 @@
             <!-----------------------BANNER------------------------------------>
             <div class="container-fluid px-0 position-relative">
                 <img src="../img/banner-default.jpg" alt="banner" class="img-fluid w-100 banner-img" id="vista-banner">
-                
+                <div class="banner-filtro"></div>
                 <input type="file" id="input-banner" accept="image/*" style="display: none;">
                 
                 <button type="button" class="btn-cambiar-banner" id="btn-cambiar-banner" style="display: none;">
-                    <i class="bi bi-camera-fill"></i> Cambiar Banner
+                    <i class="bi bi-camera-fill px-2"></i>Cambiar Banner
                 </button>
 
                 <button type="button" class="btn-editar-perfil-general" id="btn-editar-perfil-general">
@@ -170,7 +170,7 @@
                         <h1>Login</h1>
                     </div>
                 </div>
-                <form id="formulario_login">
+                <form novalidate id="formulario_login">
                     <div class="row">
                         <div class="col-12 d-flex flex-column align-items-center">
                             <input type="text" id="login-username" class="form-control mb-3" placeholder="Nombre de Usuario o Email" required>

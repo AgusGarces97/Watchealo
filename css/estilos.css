@@ -74,11 +74,13 @@ body{
 .btn-outline-success{
     border: 0px solid var(--SECONDARY);
     color: white;
+    transition: all 0.5s ease;
 }
 
 .btn-outline-success:hover{
     background-color: transparent;
-    color: var(--SECONDARY);
+    color: var(--WHITE);
+    text-shadow: 0 0 8px var(--SECONDARY);
 }
 
 .btn-outline-success:active{
@@ -93,7 +95,7 @@ body{
 .form-control{
     background-color: transparent;
     color: white;
-    border: 1px solid var(--SECONDARY) !important;
+    border: 1px solid var(--TERCIARY) !important;
     
 }
 
@@ -135,7 +137,8 @@ body{
 }
 
 .btn-nav:hover{
-    color: var(--SECONDARY);   
+    color: var(--SECONDARY);
+    text-shadow: 0 0 8px var(--SECONDARY);   
 }
 
 
@@ -150,15 +153,20 @@ body{
 .icons:hover{
     color: var(--SECONDARY);
     transform: scale(1.2);
-    text-shadow: 0 0 8px var(--SECONDARY);
+    text-shadow: 0 0 8px var(--CUATERNARY);
 }
 
-.img{
-    transition: all 0.3s ease;
+.img {
+    transition: transform 0.3s ease !important;
+    display: inline-block; /* Asegura que el navegador pueda calcular la escala sin problemas */
 }
 
-.img:hover{
-    transform: scale(1.05);
+/* Ataque doble: Si el mouse toca la imagen o toca el enlace contenedor,
+   el logo se va a agrandar sí o sí */
+.img:hover,
+.navbar-brand:hover .img,
+.footer a:hover .img {
+    transform: scale(1.05) !important;
 }
 
 @media (max-width: 991.98px) {
@@ -417,9 +425,9 @@ body{
 
 #Carousel .carousel-control-prev,
 #Carousel .carousel-control-next {
-    width: 42px;
-    height: 42px;
-    top: 38%;
+    width: 45px;
+    height: 45px;
+    top: 50%;
     transform: translateY(-50%);
     background: rgba(11, 30, 38, 0.75);
     border: 1px solid var(--TERCIARY);
@@ -487,6 +495,38 @@ body{
 .carousel-wrap {
     padding: 2.5rem 0 3rem;
     background: linear-gradient(var(--PRIMARY), var(--TERCIARY), var(--PRIMARY));
+    height: 90vh;
+}
+
+
+@media (max-width: 1024px){
+    .carousel-wrap {
+        height: 70vh;
+    }
+}   
+
+@media (max-width: 768px){
+    .carousel-wrap {
+        height: 55vh;
+    }
+}  
+
+@media (max-width: 425px){
+    .carousel-wrap {
+        height: 40vh;
+    }
+}
+
+@media (max-width: 375px){
+    .carousel-wrap {
+        height: 45vh;
+    }
+}
+
+@media (max-width: 320px){
+    .carousel-wrap {
+        height: 40vh;
+    }
 }
 
 /* ── RESPONSIVE ── */
@@ -579,6 +619,20 @@ body{
     #Carousel .carousel-control-next { right: 4px; }
 }
 
+/* --- CORRECCIÓN RESPONSIVE PARA EL HEADER (EVITA QUE SE ROMPA) --- */
+@media (max-width: 576px) {
+    .navbar-brand img {
+        width: 160px !important; /* Achica el logo en celus para dejarle lugar al botón */
+        transition: width 0.2s ease; /* Suaviza el cambio si se gira la pantalla */
+    }
+    
+    /* Ajuste opcional: reduce un toque el padding del nav en celulares si hiciera falta */
+    .navbar-expand-lg .container-fluid {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+}
+
 /*------------------------------------------------  SECCIÓN: MÁS VISTAS ------------------------------------------------  */
 
 .mas-vistas-wrap {
@@ -614,7 +668,7 @@ body{
 
 .card.pelicula-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px var(--SECONDARY);
 }
 
 .pelicula-img-wrap {
@@ -811,6 +865,19 @@ header.sticky-top{
     object-fit: cover;
     border: 2px solid var(--SECONDARY);
     display: block;
+    opacity: 25;
+}
+
+.banner-filtro{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Un negro con 40% de opacidad. Puedes subirlo a 0.6 si quieres más oscuro */
+    background-color: rgba(0, 0, 0, 0.4); 
+    pointer-events: none; /* Esto permite que hagas clic a través de la capa hacia los botones */
+    z-index: 1; /* Asegura que la capa esté por encima de la imagen */
 }
 
 /* Botón cerrar sesión sobre el banner */
@@ -821,15 +888,19 @@ header.sticky-top{
     border-radius: 20px;
     padding: 6px 16px;
     z-index: 1050;
-    background-color: var(--PRIMARY);
-    color: var(--SECONDARY);
+    background-color: #0f2835;
+    color: var(--WHITE);
     border: 2px solid var(--SECONDARY) !important;
 }
 
 .btn-cerrar-sesion-banner:hover{
-    background-color: var(--SECONDARY);
-    color: var(--PRIMARY);
+    background-color: var(--TERCIARY);
+    color: var(--WHITE);
     transform: scale(1.05);
+}
+
+.btn-cerrar-sesion-banner:hover i{
+    color: #0f2835;
 }
 
 
@@ -872,7 +943,7 @@ header.sticky-top{
     transform: translateX(-50%);
     background-color: var(--PRIMARY);
     border: 2px solid var(--SECONDARY);
-    color: var(--SECONDARY);
+    color: var(--WHITE);
     border-radius: 50%;
     width: 32px;
     height: 32px;
@@ -886,7 +957,7 @@ header.sticky-top{
 
 .btn-cambiar-pfp:hover {
     background-color: var(--SECONDARY);
-    color: var(--PRIMARY);
+    color: var(--TERCIARY);
     transform: translateX(-50%) scale(1.1);
 }
 
@@ -917,9 +988,9 @@ header.sticky-top{
     position: absolute;
     bottom: 15px;
     right: 15px;
-    background-color: var(--PRIMARY);
+    background-color: var(--PRIMARY)!important;
     border: 2px solid var(--SECONDARY);
-    color: var(--SECONDARY);
+    color: var(--WHITE);
     border-radius: 20px;
     padding: 6px 15px;
     font-size: 0.85rem;
@@ -933,9 +1004,10 @@ header.sticky-top{
 }
 
 .btn-cambiar-banner:hover {
-    background-color: var(--SECONDARY);
-    color: var(--PRIMARY);
+    background-color: var(--SECONDARY) !important;
+    color: var(--TERCIARY);
     transform: scale(1.05);
+    box-shadow: 0 0 8px var(--CYAN);
 }
 
 .btn-cambiar-banner i {
@@ -974,8 +1046,8 @@ header.sticky-top{
 }
 
 .modalConfirmar{
-    background-color: var(--PRIMARY); 
-    border: 2px solid var(--SECONDARY); 
+    background-color: #0f2835; 
+    border: 1px solid var(--TERCIARY); 
     color: white; border-radius: 14px;
 }
 
@@ -983,12 +1055,12 @@ header.sticky-top{
 .btnConfirmarModal{
     background-color: transparent; 
     border: 2px solid var(--SECONDARY); 
-    color: var(--SECONDARY);
+    color: var(--WHITE);
 }
 
 .btnConfirmarModal:hover{
     background-color: var(--SECONDARY) !important;
-    color: var(--PRIMARY) !important;
+    color: var(--TERCIARY) !important;
 }
 
 /*------------------------------------------------ BIOGRAFÍA ------------------------------------------------*/
@@ -1007,6 +1079,12 @@ header.sticky-top{
     text-transform: uppercase;
     color: var(--SECONDARY);
     margin: 0;
+    text-shadow: 0 0 8px var(--SECONDARY);
+}
+
+.bio-section-header h1 i{
+    color: var(--WHITE);
+    text-shadow: var(--SECONDARY);
 }
 
 .bio-section-header .section-line {
@@ -1098,7 +1176,7 @@ header.sticky-top{
 
 #btn-cambiar-username:hover {
     background-color: var(--SECONDARY) !important;
-    color: var(--PRIMARY) !important;
+    color: var(--TERCIARY) !important;
     transform: scale(1.05);
     transition: all 0.3s ease;
 }
@@ -1111,7 +1189,13 @@ header.sticky-top{
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--SECONDARY);
+    text-shadow: 0 0 8px var(--CYAN);
     margin: 0;
+}
+
+.seccion-titulo i{
+    color: var(--WHITE);
+    text-shadow: 0 0 8px var(--SECONDARY);
 }
 
 .perfil-seccion-header {
@@ -1180,7 +1264,7 @@ header.sticky-top{
     top: 7px;
     right: 7px;
     background: rgba(11, 30, 38, 0.75);
-    border: 1px solid var(--SECONDARY);
+    border: 1px solid var(--TERCIARY);
     border-radius: 50%;
     width: 26px;
     height: 26px;
@@ -1188,7 +1272,7 @@ header.sticky-top{
     align-items: center;
     justify-content: center;
     font-size: 0.65rem;
-    color: var(--SECONDARY);
+    color: gold;
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -1212,7 +1296,7 @@ header.sticky-top{
 
 .reseña-card {
     background: rgba(255, 255, 255, 0.025);
-    border-left: 3px solid var(--SECONDARY) !important;
+    border-left: 3px solid var(--CUATERNARY) !important;
     border-radius: 12px;
     padding: 2.2rem 1.1rem 1rem;
     position: relative;
@@ -1352,6 +1436,7 @@ header.sticky-top{
     font-size: 2.8rem;
     color: #fff;
     text-align: left !important;
+    text-shadow: 0 0 20px var(--CUATERNARY);
 }
 
 .text-genero h3{
@@ -1360,6 +1445,7 @@ header.sticky-top{
     font-weight: 500;
     letter-spacing: 0.5px;
     text-align: left !important;
+    text-shadow: 0 0 15px var(--TERCIARY);
 }
 /* --- CONTENEDOR DE LA INFO INFERIOR --- */
 .contenedor-info {
@@ -1509,13 +1595,14 @@ header.sticky-top{
 
 .modal-body {
     background-color: var(--PRIMARY);
-    color: var(--SECONDARY);
+    color: var(--WHITE);
     font-weight: bold;
 }
 
 .modal-header {
     background-color: var(--PRIMARY);
-    color: var(--SECONDARY);
+    color: var(--WHITE);
+    text-shadow: 0 0 8px var(--SECONDARY);
 }
 
 .modal-footer {
@@ -1688,6 +1775,7 @@ header.sticky-top{
         right: 10px;
         font-size: 0.75rem;
         padding: 4px 10px;
+        background-color: #0f2835;
     }
  
     .btn-cerrar-sesion-banner {
@@ -1697,8 +1785,8 @@ header.sticky-top{
         left: 10px;
         font-size: 0.75rem;
         padding: 4px 10px;
-        background-color: var(--PRIMARY);
-        color: var(--SECONDARY);
+        background-color: #0f2835 !important;
+        color: var(--WHITE) !important;
         border: 2px solid var(--SECONDARY) !important;
     }
 
@@ -1777,13 +1865,13 @@ header.sticky-top{
 }
 
 .modal-reseña-header .modal-title {
-    color: var(--SECONDARY);
+    color: var(--WHITE);
     letter-spacing: 0.5px;
     padding-left: 28%;
 }
 
 .modal-reseña-body .form-label {
-    color: var(--SECONDARY);
+    color: var(--TERCIARY);
     font-weight: 500;
     font-size: 0.95rem;
 }
@@ -1880,6 +1968,7 @@ header.sticky-top{
     background-color: var(--SECONDARY);
     color: var(--PRIMARY);
     transform: scale(1.05);
+    box-shadow: 0 0 8px var(--SECONDARY);
 }
 
 /* =========================================================
@@ -1891,7 +1980,6 @@ header.sticky-top{
     justify-content: center;
     font-size: 2.5rem; 
     margin-top: 5px;
-    /* Aseguramos que el contenedor no tenga problemas de desbordamiento */
     position: relative;
 }
 
@@ -1904,10 +1992,10 @@ header.sticky-top{
     cursor: pointer;
     transition: color 0.2s ease, text-shadow 0.2s ease, transform 0.1s ease;
     
-    /* MODIFICACIONES CLAVE */
-    width: 1.25rem; /* La mitad exacta */
-    height: 4rem;
-    display: block; /* Cambiado de inline-block a block para mejor control en flex */
+    width: 1.25rem; /* La mitad exacta de los 2.5rem del tamaño de fuente */
+    height: 2.5rem; /* CORRECCIÓN: Igualamos al tamaño del icono para que no estire la sombra */
+    line-height: 1; /* Centra el icono verticalmente dentro de la nueva altura */
+    display: block; 
     overflow: hidden;
     position: relative;
     padding: 0;
@@ -1918,7 +2006,7 @@ header.sticky-top{
 .rating-estrellas-media label i {
     position: absolute;
     top: 0;
-    width: 2.5rem; /* El ancho total de la estrella completa */
+    width: 2.5rem; 
     text-align: center;
 }
 
@@ -1941,12 +2029,15 @@ header.sticky-top{
     direction: rtl;
 }
 
-/* Iluminación en cascada */
+/* Iluminación en cascada con dorado neón concentrado */
 .rating-estrellas-media label:hover,
 .rating-estrellas-media label:hover ~ label,
 .rating-estrellas-media input:checked ~ label {
-    color: var(--SECONDARY) !important;
-    text-shadow: 0 0 12px var(--CYAN);
+    color: #ffcc00 !important; /* Un amarillo/dorado más saturado y brillante */
+    
+    /* Usamos un blur bien chico (3px y 8px) para que no se disperse ni haga el manchón, 
+       pero con un color pleno para que no pierda fuerza en fondo oscuro */
+    text-shadow: 0 0 3px #ffcc00, 0 0 8px #ff9900;
 }
 
 .rating-estrellas-media label:active {
@@ -1956,7 +2047,39 @@ header.sticky-top{
 
 .carrusel-listas {
     position: relative;
-    padding: 0 3rem;
+    padding: 0 4.5rem;
+}
+
+/* Le da aire al contenedor para que TU box-shadow no se corte abajo ni arriba */
+.carrusel-listas .carousel-inner {
+    padding: 30px !important; /* Mantiene el aire para que no se corte el brillo */
+    
+    /* LA CLAVE: Forzamos a la caja a crecer uniformemente hacia ambos lados */
+    width: calc(100% + 60px) !important; 
+    margin-left: -30px !important; /* Contrarresta los 30px exactos para centrarlo */
+    
+    /* Ajustes verticales */
+    margin-top: -30px !important;
+    margin-bottom: -30px !important;
+}
+
+/* 2. Estilo definitivo para tus tarjetas (reemplazá '.card' por tu clase si usás una personalizada) */
+.carrusel-listas .card {
+    background: linear-gradient(135deg, rgba(172, 242, 242, 0.05), rgba(15, 40, 53, 0.85)) !important;
+    border: 1px solid rgba(172, 242, 242, 0.15) !important;
+    border-radius: 14px !important;
+    
+    /* Combinamos una sombra negra profunda con un levísimo destello de tu color cyan */
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6), 0 2px 10px rgba(172, 242, 242, 0.03);
+    
+    /* Transición suave por si hacés efectos de movimiento */
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease !important;
+}
+
+/* 3. Si la tarjeta se levanta al pasar el mouse, la sombra se expande de forma natural sin romperse */
+.carrusel-listas .card:hover {
+    transform: translateY(-6px);
+    
 }
 
 /* Botones completos */
@@ -1976,11 +2099,11 @@ header.sticky-top{
 
 /* Ubicación de cada botón */
 .carrusel-listas .carousel-control-prev {
-    left: 0;
+    left: 0.5rem; 
 }
 
 .carrusel-listas .carousel-control-next {
-    right: 0;
+    right: 0.5rem; 
 }
 
 /* Hover igual al carrusel de inicio */
@@ -2003,34 +2126,24 @@ header.sticky-top{
     filter: invert(1) brightness(0);
 }
 
-/* Responsive para que no se salgan en pantallas chicas */
+/* --- RESPONSIVE ACTUALIZADO PARA QUE NO SE AGOLPEN EN PANTALLAS CHICAS --- */
 @media (max-width: 768px) {
     .carrusel-listas {
-        padding: 0 2.3rem;
-    }
-
-    .carrusel-listas .carousel-control-prev,
-    .carrusel-listas .carousel-control-next {
-        width: 36px;
-        height: 36px;
+        padding: 0 3.8rem; /* Más aire en tablets */
     }
 }
 
 @media (max-width: 425px) {
     .carrusel-listas {
-        padding: 0 2rem;
+        padding: 0 3rem; /* Más aire en celulares de pantallas chicas */
+    }
+    
+    .carrusel-listas .carousel-control-prev {
+        left: 0.2rem; 
     }
 
-    .carrusel-listas .carousel-control-prev,
     .carrusel-listas .carousel-control-next {
-        width: 32px;
-        height: 32px;
-    }
-
-    .carrusel-listas .carousel-control-prev-icon,
-    .carrusel-listas .carousel-control-next-icon {
-        width: 13px;
-        height: 13px;
+        right: 0.2rem; 
     }
 }
 
@@ -2080,6 +2193,33 @@ header.sticky-top{
     line-height: 1.7;
     text-align: center;
     margin: 0 auto;
+}
+
+/* --- TÍTULOS DE CATEGORÍAS CON NEÓN Y LÍNEA DEGRADADA --- */
+.titulo-categoria {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* El espacio exacto entre la palabra y la línea */
+    color: #fff;
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-top: 2.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem; /* Alinea el texto con el borde de la primera tarjeta */
+    
+    /* TU NEÓN: Resplandor con tu color de identidad */
+    text-shadow: 0 0 12px var(--CUATERNARY), 0 0 25px rgba(172, 242, 242, 0.2);
+}
+
+/* La línea mágica con gradiente */
+.titulo-categoria::after {
+    content: "";
+    flex: 1; /* Obliga a la línea a expandirse para ocupar todo el resto del ancho */
+    height: 2px; /* El grosor de la línea */
+    
+    /* GRADIENTE: Inicia en tu color secundario, se suaviza y muere en transparente */
+    background: linear-gradient(to right, var(--TERCIARY) 0%, rgba(172, 242, 242, 0.3) 40%, rgba(0, 0, 0, 0) 100%);
+    border-radius: 2px;
 }
 
 /*------------------------------------------------ EXPLORAR ------------------------------------------------*/
@@ -2467,6 +2607,119 @@ footer hr.mx-4 {
     box-shadow: 0 0 10px var(--CYAN);
 }
 
+/* LINEAS LIMITANTES DE TOP 10 */
+
+hr.my-0{
+    width: 100%;
+    max-width: 90%;
+    height: 1px;
+    border: 0;
+    opacity: 1 !important;
+    margin-left: 0px;
+    display: block;
+    
+
+    background: linear-gradient(
+        90deg,
+        var(--TERCIARY),
+        var(--SECONDARY),
+        var(--TERCIARY)
+    );
+
+    box-shadow: 0 0 10px var(--CYAN);
+}
+
+@media (max-width: 1024px){
+    hr.my-0{
+    width: 100%;
+    max-width: 85%;
+    height: 1px;
+    border: 0;
+    opacity: 1 !important;
+    margin-left: 0px;
+    display: block;
+    
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--SECONDARY),
+        transparent
+    );
+
+    box-shadow: 0 0 10px var(--CYAN);
+}
+}
+
+@media (max-width: 768px){
+    hr.my-0{
+    width: 100%;
+    max-width: 80%;
+    height: 1px;
+    border: 0;
+    opacity: 1 !important;
+    margin-left: 0px;
+    display: block;
+    
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--SECONDARY),
+        transparent
+    );
+
+    box-shadow: 0 0 10px var(--CYAN);
+}
+}
+
+@media (max-width: 425px){
+    hr.my-0{
+    width: 100%;
+    max-width: 70%;
+    height: 1px;
+    border: 0;
+    opacity: 1 !important;
+    margin-left: 0px;
+    display: block;
+    
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--SECONDARY),
+        transparent
+    );
+
+    box-shadow: 0 0 10px var(--CYAN);
+}
+}
+
+@media (max-width: 320px){
+    hr.my-0{
+    width: 100%;
+    max-width: 65%;
+    height: 1px;
+    border: 0;
+    opacity: 1 !important;
+    margin-left: 0px;
+    display: block;
+    
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--SECONDARY),
+        transparent
+    );
+
+    box-shadow: 0 0 10px var(--CYAN);
+}
+}
+
+/*******************************************/
+
+
 /* Creadores debajo */
 footer .container-fluid > .row:last-child p {
     margin-top: 0.7rem !important;
@@ -2527,22 +2780,27 @@ footer .container-fluid > .row:last-child p {
 
 .custom-shape-divider-top-1781131331{
     background-color: #3081A6;
+    pointer-events: none; /* El mouse ignora esta capa y pasa al logo */
 }
 
 /*------------------------------------------------ FOOTER RESPONSIVE FINAL ------------------------------------------------*/
 
 .footer {
-    background-color: var(--PRIMARY) !important;
-    color: var(--WHITE);
-    position: relative;
-    overflow: hidden;
-    padding-top: 4rem;
+    position: relative; /* Contexto de posicionamiento obligatorio */
 }
 
-/* Contenido por encima de la onda */
+/* SOLUCIÓN AL BLOGUEO: Traemos todo el contenido real (logo, texto, redes) 
+   al frente de la pantalla para que el SVG quede definitivamente de fondo */
 .footer .container-fluid {
     position: relative;
-    z-index: 2;
+    z-index: 10; /* Un número alto asegura que pase por encima del divider */
+}
+
+/* Selector comodín: Apaga los clics en cualquier shape divider 
+   del footer automáticamente, sin importar el número de clase que tenga */
+.footer [class^="custom-shape-divider"],
+.footer svg {
+    pointer-events: none !important;
 }
 
 /* Fila superior del footer */
@@ -2636,7 +2894,7 @@ footer .container-fluid > .row:last-child p {
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 70px;
+    height: 22px;
 }
 
 .custom-shape-divider-top-1781131331 .shape-fill {
@@ -2657,7 +2915,7 @@ footer .container-fluid > .row:last-child p {
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 70px;
+    height: 22px;
 
     /* Da vuelta la onda */
     transform: rotate(180deg);
