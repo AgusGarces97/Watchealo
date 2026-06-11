@@ -74,11 +74,13 @@ body{
 .btn-outline-success{
     border: 0px solid var(--SECONDARY);
     color: white;
+    transition: all 0.5s ease;
 }
 
 .btn-outline-success:hover{
     background-color: transparent;
-    color: var(--SECONDARY);
+    color: var(--WHITE);
+    text-shadow: 0 0 8px var(--SECONDARY);
 }
 
 .btn-outline-success:active{
@@ -93,7 +95,7 @@ body{
 .form-control{
     background-color: transparent;
     color: white;
-    border: 1px solid var(--SECONDARY) !important;
+    border: 1px solid var(--TERCIARY) !important;
     
 }
 
@@ -821,15 +823,19 @@ header.sticky-top{
     border-radius: 20px;
     padding: 6px 16px;
     z-index: 1050;
-    background-color: var(--PRIMARY);
-    color: var(--SECONDARY);
+    background-color: #0f2835;
+    color: var(--WHITE);
     border: 2px solid var(--SECONDARY) !important;
 }
 
 .btn-cerrar-sesion-banner:hover{
-    background-color: var(--SECONDARY);
-    color: var(--PRIMARY);
+    background-color: var(--TERCIARY);
+    color: var(--WHITE);
     transform: scale(1.05);
+}
+
+.btn-cerrar-sesion-banner:hover i{
+    color: #0f2835;
 }
 
 
@@ -872,7 +878,7 @@ header.sticky-top{
     transform: translateX(-50%);
     background-color: var(--PRIMARY);
     border: 2px solid var(--SECONDARY);
-    color: var(--SECONDARY);
+    color: var(--WHITE);
     border-radius: 50%;
     width: 32px;
     height: 32px;
@@ -886,7 +892,7 @@ header.sticky-top{
 
 .btn-cambiar-pfp:hover {
     background-color: var(--SECONDARY);
-    color: var(--PRIMARY);
+    color: var(--TERCIARY);
     transform: translateX(-50%) scale(1.1);
 }
 
@@ -917,9 +923,9 @@ header.sticky-top{
     position: absolute;
     bottom: 15px;
     right: 15px;
-    background-color: var(--PRIMARY);
+    background-color: var(--PRIMARY)!important;
     border: 2px solid var(--SECONDARY);
-    color: var(--SECONDARY);
+    color: var(--WHITE);
     border-radius: 20px;
     padding: 6px 15px;
     font-size: 0.85rem;
@@ -933,9 +939,10 @@ header.sticky-top{
 }
 
 .btn-cambiar-banner:hover {
-    background-color: var(--SECONDARY);
-    color: var(--PRIMARY);
+    background-color: var(--SECONDARY) !important;
+    color: var(--TERCIARY);
     transform: scale(1.05);
+    box-shadow: 0 0 8px var(--CYAN);
 }
 
 .btn-cambiar-banner i {
@@ -974,8 +981,8 @@ header.sticky-top{
 }
 
 .modalConfirmar{
-    background-color: var(--PRIMARY); 
-    border: 2px solid var(--SECONDARY); 
+    background-color: #0f2835; 
+    border: 1px solid var(--TERCIARY); 
     color: white; border-radius: 14px;
 }
 
@@ -983,12 +990,12 @@ header.sticky-top{
 .btnConfirmarModal{
     background-color: transparent; 
     border: 2px solid var(--SECONDARY); 
-    color: var(--SECONDARY);
+    color: var(--WHITE);
 }
 
 .btnConfirmarModal:hover{
     background-color: var(--SECONDARY) !important;
-    color: var(--PRIMARY) !important;
+    color: var(--TERCIARY) !important;
 }
 
 /*------------------------------------------------ BIOGRAFÍA ------------------------------------------------*/
@@ -1007,6 +1014,12 @@ header.sticky-top{
     text-transform: uppercase;
     color: var(--SECONDARY);
     margin: 0;
+    text-shadow: 0 0 8px var(--SECONDARY);
+}
+
+.bio-section-header h1 i{
+    color: var(--WHITE);
+    text-shadow: var(--SECONDARY);
 }
 
 .bio-section-header .section-line {
@@ -1098,7 +1111,7 @@ header.sticky-top{
 
 #btn-cambiar-username:hover {
     background-color: var(--SECONDARY) !important;
-    color: var(--PRIMARY) !important;
+    color: var(--TERCIARY) !important;
     transform: scale(1.05);
     transition: all 0.3s ease;
 }
@@ -1111,7 +1124,13 @@ header.sticky-top{
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--SECONDARY);
+    text-shadow: 0 0 8px var(--CYAN);
     margin: 0;
+}
+
+.seccion-titulo i{
+    color: var(--WHITE);
+    text-shadow: 0 0 8px var(--SECONDARY);
 }
 
 .perfil-seccion-header {
@@ -1180,7 +1199,7 @@ header.sticky-top{
     top: 7px;
     right: 7px;
     background: rgba(11, 30, 38, 0.75);
-    border: 1px solid var(--SECONDARY);
+    border: 1px solid var(--TERCIARY);
     border-radius: 50%;
     width: 26px;
     height: 26px;
@@ -1188,7 +1207,7 @@ header.sticky-top{
     align-items: center;
     justify-content: center;
     font-size: 0.65rem;
-    color: var(--SECONDARY);
+    color: gold;
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -1212,7 +1231,7 @@ header.sticky-top{
 
 .reseña-card {
     background: rgba(255, 255, 255, 0.025);
-    border-left: 3px solid var(--SECONDARY) !important;
+    border-left: 3px solid var(--CUATERNARY) !important;
     border-radius: 12px;
     padding: 2.2rem 1.1rem 1rem;
     position: relative;
@@ -1509,13 +1528,14 @@ header.sticky-top{
 
 .modal-body {
     background-color: var(--PRIMARY);
-    color: var(--SECONDARY);
+    color: var(--WHITE);
     font-weight: bold;
 }
 
 .modal-header {
     background-color: var(--PRIMARY);
-    color: var(--SECONDARY);
+    color: var(--WHITE);
+    text-shadow: 0 0 8px var(--SECONDARY);
 }
 
 .modal-footer {
@@ -1688,6 +1708,7 @@ header.sticky-top{
         right: 10px;
         font-size: 0.75rem;
         padding: 4px 10px;
+        background-color: #0f2835;
     }
  
     .btn-cerrar-sesion-banner {
@@ -1697,8 +1718,8 @@ header.sticky-top{
         left: 10px;
         font-size: 0.75rem;
         padding: 4px 10px;
-        background-color: var(--PRIMARY);
-        color: var(--SECONDARY);
+        background-color: #0f2835 !important;
+        color: var(--WHITE) !important;
         border: 2px solid var(--SECONDARY) !important;
     }
 
