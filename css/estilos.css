@@ -1993,7 +1993,7 @@ header.sticky-top{
     transition: color 0.2s ease, text-shadow 0.2s ease, transform 0.1s ease;
     
     width: 1.25rem; /* La mitad exacta de los 2.5rem del tamaño de fuente */
-    height: 2.5rem; /* CORRECCIÓN: Igualamos al tamaño del icono para que no estire la sombra */
+    height: 3.5rem; /* CORRECCIÓN: Igualamos al tamaño del icono para que no estire la sombra */
     line-height: 1; /* Centra el icono verticalmente dentro de la nueva altura */
     display: block; 
     overflow: hidden;
@@ -2501,6 +2501,7 @@ main > .container-fluid.px-0.position-relative::after {
     padding: 10px 20px;
     border-radius: 20px;
     text-decoration: none;
+    font-size: 0.8rem;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease; /* Esto es lo que da la suavidad */
