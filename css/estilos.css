@@ -47,6 +47,7 @@ body{
     opacity: 1;
     padding: .375rem .75rem;
     border: 1px solid #dee2e6;
+    background-color: transparent;
 }
 
 .bg-dark{
@@ -71,18 +72,22 @@ body{
 }
 
 .btn-outline-success{
-    border-color: var(--SECONDARY);
-    color: var(--SECONDARY);
+    border: 0px solid var(--SECONDARY);
+    color: white;
 }
 
 .btn-outline-success:hover{
-    background-color: var(--SECONDARY);
-    color: var(--PRIMARY);
+    background-color: transparent;
+    color: var(--SECONDARY);
 }
 
 .btn-outline-success:active{
-    background-color: var(--SECONDARY) !important;
-    color: var(--PRIMARY) !important;
+    background-color: transparent !important;
+    color: var(--SECONDARY) !important;
+}
+
+.btn-outline-success>i{
+    font-weight: bold !important;
 }
 
 .form-control{
@@ -99,19 +104,19 @@ body{
 }
 
 .btn-user{
-    border: 1px solid var(--SECONDARY);
+    border: 0px solid var(--SECONDARY);
     border-radius: 50%;
-    color: var(--SECONDARY);
+    color: white;
 }
 
 .btn-user:hover{
-    background-color: var(--SECONDARY);
-    color: var(--PRIMARY);
+    /*background-color: var(--SECONDARY);*/
+    color: var(--SECONDARY);
 }
 
 .btn-user:active{
-    background-color: var(--SECONDARY) !important;
-    color: var(--PRIMARY) !important;
+    /* background-color: var(--SECONDARY) !important; */
+    color: var(--SECONDARY) !important;
 }
 
 .btn-user>i{
@@ -236,7 +241,8 @@ body{
 }
 
 .footer{
-    background-color: var(--PRIMARY) !important;    
+    background-color: var(--PRIMARY) !important;
+    position: relative;    
 }
 
 /*------------------------------------------------ CARRUSEL INICIO ------------------------------------------------  */
@@ -480,6 +486,7 @@ body{
 /* Espacio debajo del carousel para los indicators */
 .carousel-wrap {
     padding: 2.5rem 0 3rem;
+    background: linear-gradient(var(--PRIMARY), var(--TERCIARY), var(--PRIMARY));
 }
 
 /* ── RESPONSIVE ── */
@@ -576,6 +583,7 @@ body{
 
 .mas-vistas-wrap {
     padding: 1rem 0 3rem;
+    background: var(--PRIMARY);
 }
 
 .mas-vistas-header {
@@ -666,6 +674,8 @@ body{
 
 .contacto-wrap {
     padding: 2rem 0 4rem;
+    background-color: var(--CUATERNARY);
+    position: relative;
 }
 
 .contacto-titulo {

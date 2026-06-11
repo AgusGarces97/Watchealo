@@ -183,20 +183,22 @@ function crearCarrusel(nombreCategoria, peliculas, numeroCarrusel) {
     // Armamos todo el bloque HTML de la categoría:
     // título de la categoría + carrusel + slides + flechas.
     seccion.innerHTML = `
+        <div class="row">
         <div class="row mb-2">
             <div class="col-12">
                 <h2 class="fs-4">${nombreCategoria}</h2>
             </div>
         </div>
+        
+            <div id="${idCarrusel}" class="carousel slide carrusel-listas mb-5" data-bs-ride="false">
 
-        <div id="${idCarrusel}" class="carousel slide carrusel-listas mb-5" data-bs-ride="false">
+                <div class="carousel-inner">
+                    ${slides}
+                </div>
 
-            <div class="carousel-inner">
-                ${slides}
+                ${botonesCarrusel}
+
             </div>
-
-            ${botonesCarrusel}
-
         </div>
     `;
 
