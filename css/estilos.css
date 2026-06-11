@@ -153,15 +153,20 @@ body{
 .icons:hover{
     color: var(--SECONDARY);
     transform: scale(1.2);
-    text-shadow: 0 0 8px var(--SECONDARY);
+    text-shadow: 0 0 8px var(--CUATERNARY);
 }
 
-.img{
-    transition: all 0.3s ease;
+.img {
+    transition: transform 0.3s ease !important;
+    display: inline-block; /* Asegura que el navegador pueda calcular la escala sin problemas */
 }
 
-.img:hover{
-    transform: scale(1.05);
+/* Ataque doble: Si el mouse toca la imagen o toca el enlace contenedor,
+   el logo se va a agrandar sí o sí */
+.img:hover,
+.navbar-brand:hover .img,
+.footer a:hover .img {
+    transform: scale(1.05) !important;
 }
 
 @media (max-width: 991.98px) {
@@ -581,6 +586,20 @@ body{
 
     #Carousel .carousel-control-prev { left: 4px; }
     #Carousel .carousel-control-next { right: 4px; }
+}
+
+/* --- CORRECCIÓN RESPONSIVE PARA EL HEADER (EVITA QUE SE ROMPA) --- */
+@media (max-width: 576px) {
+    .navbar-brand img {
+        width: 160px !important; /* Achica el logo en celus para dejarle lugar al botón */
+        transition: width 0.2s ease; /* Suaviza el cambio si se gira la pantalla */
+    }
+    
+    /* Ajuste opcional: reduce un toque el padding del nav en celulares si hiciera falta */
+    .navbar-expand-lg .container-fluid {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
 }
 
 /*------------------------------------------------  SECCIÓN: MÁS VISTAS ------------------------------------------------  */
@@ -1386,6 +1405,7 @@ header.sticky-top{
     font-size: 2.8rem;
     color: #fff;
     text-align: left !important;
+    text-shadow: 0 0 20px var(--CUATERNARY);
 }
 
 .text-genero h3{
@@ -1394,6 +1414,7 @@ header.sticky-top{
     font-weight: 500;
     letter-spacing: 0.5px;
     text-align: left !important;
+    text-shadow: 0 0 15px var(--TERCIARY);
 }
 /* --- CONTENEDOR DE LA INFO INFERIOR --- */
 .contenedor-info {
@@ -1813,13 +1834,13 @@ header.sticky-top{
 }
 
 .modal-reseña-header .modal-title {
-    color: var(--SECONDARY);
+    color: var(--WHITE);
     letter-spacing: 0.5px;
     padding-left: 28%;
 }
 
 .modal-reseña-body .form-label {
-    color: var(--SECONDARY);
+    color: var(--TERCIARY);
     font-weight: 500;
     font-size: 0.95rem;
 }
@@ -1916,6 +1937,7 @@ header.sticky-top{
     background-color: var(--SECONDARY);
     color: var(--PRIMARY);
     transform: scale(1.05);
+    box-shadow: 0 0 8px var(--SECONDARY);
 }
 
 /* =========================================================
@@ -1927,7 +1949,6 @@ header.sticky-top{
     justify-content: center;
     font-size: 2.5rem; 
     margin-top: 5px;
-    /* Aseguramos que el contenedor no tenga problemas de desbordamiento */
     position: relative;
 }
 
@@ -1940,10 +1961,10 @@ header.sticky-top{
     cursor: pointer;
     transition: color 0.2s ease, text-shadow 0.2s ease, transform 0.1s ease;
     
-    /* MODIFICACIONES CLAVE */
-    width: 1.25rem; /* La mitad exacta */
-    height: 4rem;
-    display: block; /* Cambiado de inline-block a block para mejor control en flex */
+    width: 1.25rem; /* La mitad exacta de los 2.5rem del tamaño de fuente */
+    height: 2.5rem; /* CORRECCIÓN: Igualamos al tamaño del icono para que no estire la sombra */
+    line-height: 1; /* Centra el icono verticalmente dentro de la nueva altura */
+    display: block; 
     overflow: hidden;
     position: relative;
     padding: 0;
@@ -1954,7 +1975,7 @@ header.sticky-top{
 .rating-estrellas-media label i {
     position: absolute;
     top: 0;
-    width: 2.5rem; /* El ancho total de la estrella completa */
+    width: 2.5rem; 
     text-align: center;
 }
 
@@ -1977,12 +1998,15 @@ header.sticky-top{
     direction: rtl;
 }
 
-/* Iluminación en cascada */
+/* Iluminación en cascada con dorado neón concentrado */
 .rating-estrellas-media label:hover,
 .rating-estrellas-media label:hover ~ label,
 .rating-estrellas-media input:checked ~ label {
-    color: var(--SECONDARY) !important;
-    text-shadow: 0 0 12px var(--CYAN);
+    color: #ffcc00 !important; /* Un amarillo/dorado más saturado y brillante */
+    
+    /* Usamos un blur bien chico (3px y 8px) para que no se disperse ni haga el manchón, 
+       pero con un color pleno para que no pierda fuerza en fondo oscuro */
+    text-shadow: 0 0 3px #ffcc00, 0 0 8px #ff9900;
 }
 
 .rating-estrellas-media label:active {
@@ -2153,7 +2177,7 @@ header.sticky-top{
     padding-left: 0.5rem; /* Alinea el texto con el borde de la primera tarjeta */
     
     /* TU NEÓN: Resplandor con tu color de identidad */
-    text-shadow: 0 0 12px rgba(172, 242, 242, 0.6), 0 0 25px rgba(172, 242, 242, 0.2);
+    text-shadow: 0 0 12px var(--CUATERNARY), 0 0 25px rgba(172, 242, 242, 0.2);
 }
 
 /* La línea mágica con gradiente */
@@ -2725,22 +2749,27 @@ footer .container-fluid > .row:last-child p {
 
 .custom-shape-divider-top-1781131331{
     background-color: #3081A6;
+    pointer-events: none; /* El mouse ignora esta capa y pasa al logo */
 }
 
 /*------------------------------------------------ FOOTER RESPONSIVE FINAL ------------------------------------------------*/
 
 .footer {
-    background-color: var(--PRIMARY) !important;
-    color: var(--WHITE);
-    position: relative;
-    overflow: hidden;
-    padding-top: 4rem;
+    position: relative; /* Contexto de posicionamiento obligatorio */
 }
 
-/* Contenido por encima de la onda */
+/* SOLUCIÓN AL BLOGUEO: Traemos todo el contenido real (logo, texto, redes) 
+   al frente de la pantalla para que el SVG quede definitivamente de fondo */
 .footer .container-fluid {
     position: relative;
-    z-index: 2;
+    z-index: 10; /* Un número alto asegura que pase por encima del divider */
+}
+
+/* Selector comodín: Apaga los clics en cualquier shape divider 
+   del footer automáticamente, sin importar el número de clase que tenga */
+.footer [class^="custom-shape-divider"],
+.footer svg {
+    pointer-events: none !important;
 }
 
 /* Fila superior del footer */
@@ -2834,7 +2863,7 @@ footer .container-fluid > .row:last-child p {
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 70px;
+    height: 22px;
 }
 
 .custom-shape-divider-top-1781131331 .shape-fill {
@@ -2855,7 +2884,7 @@ footer .container-fluid > .row:last-child p {
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 70px;
+    height: 22px;
 
     /* Da vuelta la onda */
     transform: rotate(180deg);
