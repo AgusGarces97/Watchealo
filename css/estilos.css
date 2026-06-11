@@ -541,6 +541,20 @@ body{
     }
 }
 
+@media (max-width: 375px) {
+    .navbar-nav.links {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 425px) {
+    .navbar-nav.links {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 /* Mobile L (≤425px) y landscape */
 @media (max-width: 425px) {
     #Carousel .carousel-item img.backdrop {
@@ -633,6 +647,8 @@ body{
         padding-right: 5px !important;
     }
 }
+
+
 
 /*------------------------------------------------  SECCIÓN: MÁS VISTAS ------------------------------------------------  */
 
@@ -2153,6 +2169,7 @@ header.sticky-top{
 .main-listas {
     padding-bottom: 3rem;
     min-height: 70vh;
+    background: linear-gradient(var(--PRIMARY), var(--TERCIARY), var(--PRIMARY));
 }
 
 .encabezado-listas {
@@ -2228,6 +2245,7 @@ header.sticky-top{
 .main-explorar {
     padding-bottom: 3rem;
     min-height: 70vh;
+    background: linear-gradient(var(--PRIMARY), var(--TERCIARY), var(--PRIMARY));
 }
 
 .encabezado-explorar {
@@ -2812,7 +2830,7 @@ footer .container-fluid > .row:last-child p {
     align-items: end !important;
     padding: 1.5rem 2rem 0.6rem !important;
     text-align: center;
-}
+} 
 
 /* Logo */
 .footer .container-fluid > .row:first-child > .col-12 > a {

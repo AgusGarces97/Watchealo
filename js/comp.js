@@ -1585,7 +1585,7 @@ function cargarReseñasPerfil() {
 
     if (usuarioLogeado.reseñas.length === 0) {
         contenedorReseñasPerfil.innerHTML = `
-            <div class="reseñas-vacio">
+            <div class="reseñas-vacio w-100">
                 <i class="bi bi-chat-square-text" style="font-size:1.6rem; opacity:0.3; display:block; margin-bottom:.5rem;"></i>
                 Todavía no escribiste ninguna reseña.
             </div>`;
