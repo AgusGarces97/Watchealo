@@ -150,6 +150,7 @@ body{
 .icons:hover{
     color: var(--SECONDARY);
     transform: scale(1.2);
+    text-shadow: 0 0 8px var(--SECONDARY);
 }
 
 .img{
@@ -2454,53 +2455,124 @@ main > .container-fluid.px-0.position-relative::after {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/*ESTILO DE TRANSICION ENTRE CONTACTO Y TOP 10*/
+/*------------------------------------------------ FOOTER CORREGIDO FINAL ------------------------------------------------*/
 
-.custom-shape-divider-top-1781130821 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
+footer {
+    background-color: var(--PRIMARY);
+    color: var(--WHITE);
 }
 
-.custom-shape-divider-top-1781130821 svg {
-    position: relative;
+/* Fila superior: logo | copy | redes */
+footer .container-fluid > .row:first-child > .col-12 {
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: end !important;
+    padding-top: 1rem !important;
+    padding-bottom: 0.4rem !important;
+    text-align: center;
+}
+
+/* Logo a la izquierda */
+footer .container-fluid > .row:first-child > .col-12 > a {
+    justify-self: start;
+    margin: 0 !important;
+}
+
+/* Copy bien centrado */
+footer .container-fluid > .row:first-child > .col-12 > p {
+    justify-self: center;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+
+    position: static !important;
+    transform: none !important;
+}
+
+/* Redes a la derecha */
+footer .container-fluid > .row:first-child > .col-12 > div {
+    justify-self: end;
+    margin: 0 !important;
+}
+
+/* Línea en el centro */
+footer hr.mx-4 {
+    width: 420px;
+    max-width: 80%;
+    height: 1px;
+    border: 0;
+    opacity: 1 !important;
+
     display: block;
-    width: calc(100% + 1.3px);
-    height: 35px;
+    margin: 0 auto !important;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--SECONDARY),
+        transparent
+    );
+
+    box-shadow: 0 0 10px var(--CYAN);
 }
 
-.custom-shape-divider-top-1781130821 .shape-fill {
-    fill: #0B1E26;
+/* Creadores debajo */
+footer .container-fluid > .row:last-child p {
+    margin-top: 0.7rem !important;
+    margin-bottom: 1rem !important;
+    text-align: center;
+    font-size: 1rem;
 }
 
-.custom-shape-divider-top-1781131331 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
+/* Celular: todo apilado y centrado */
+@media (max-width: 991.98px) {
+    footer .container-fluid > .row:first-child > .col-12 {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding-bottom: 0.6rem !important;
+        gap: 0.5rem;
+    }
+
+    footer .container-fluid > .row:first-child > .col-12 > a,
+    footer .container-fluid > .row:first-child > .col-12 > p,
+    footer .container-fluid > .row:first-child > .col-12 > div {
+        margin: 0 !important;
+        justify-self: center;
+    }
+}
+/* Baja logo y redes para que queden a la altura del copy */
+
+footer .container-fluid > .row:first-child > .col-12 {
+    align-items: end !important;
 }
 
-.custom-shape-divider-top-1781131331 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 35px;
+/* Logo de Watchealo */
+footer .container-fluid > .row:first-child > .col-12 > a {
+    align-self: end !important;
 }
 
-.custom-shape-divider-top-1781131331 .shape-fill {
-    fill: #455CB4;
+/* Imagen del logo */
+footer .container-fluid > .row:first-child > .col-12 > a img {
+    margin-bottom: 0 !important;
+    transform: translateY(8px);
 }
 
-.tarjeta-lista{
-    background: linear-gradient(var(--PRIMARY), var(--CYAN), var(--PRIMARY));
+/* Redes sociales */
+footer .container-fluid > .row:first-child > .col-12 > div {
+    align-self: end !important;
+    margin-bottom: 0 !important;
+    transform: translateY(8px);
 }
 
-.genero-lista{
-    background-color: var(--CUATERNARY);
+/* Copy */
+footer .container-fluid > .row:first-child > .col-12 > p {
+    align-self: end !important;
+    margin-bottom: 0 !important;
+}
+footer .container-fluid > .row:last-child p {
+    color: rgba(255, 255, 255, 0.45);
 }
