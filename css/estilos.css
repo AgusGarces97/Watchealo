@@ -1080,6 +1080,130 @@ header.sticky-top{
     color: var(--TERCIARY) !important;
 }
 
+/* ==========================================================================
+   Ajustes para pantallas móviles generales (Mobile L hacia abajo)
+   ========================================================================== */
+@media (max-width: 576px) {
+    
+    /* 1. AGRANDAMOS EL BANNER: Le damos más altura vertical para albergar todo el bloque */
+    .banner-img {
+        min-height: 220px !important; /* Espacio de sobra para que respire el diseño */
+    }
+
+    /* 2. METEMOS EL CONTENEDOR ADENTRO: Cambiamos la lógica de posicionamiento */
+    .perfil-header-row {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 0 15px !important;
+        width: 100% !important;
+        
+        /* En vez de pasarse de la línea, se apoya en el fondo interno del banner */
+        top: auto !important;
+        bottom: 15px !important; 
+        transform: none !important; /* Eliminamos el desplazamiento hacia afuera de image_1cfed7.png */
+        gap: 0.3rem !important;
+    }
+
+    /* Bloque de texto y botón de cambio de nombre */
+    .usuario-info-row {
+        padding-bottom: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.4rem !important;
+        margin-top: 12px !important; /* Margen justo para esquivar la cámara flotante */
+    }
+
+    .usuario-info-row h2 {
+        font-size: 1.4rem !important;
+        margin-bottom: 0 !important;
+        /* IMPORTANTE: Como vuelve a estar dentro del banner (que puede tener zonas claras), 
+           le reforzamos la sombra negra para garantizar que el nombre sea 100% legible */
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9) !important; 
+        color: white !important;
+    }
+
+    #btn-cambiar-username {
+        font-size: 0.75rem !important;
+        padding: 5px 14px !important;
+        /* Le damos un fondo oscuro semi-transparente para que contraste hermoso dentro del banner */
+        background-color: rgba(15, 40, 53, 0.75) !important;
+        border: 1.5px solid var(--celeste) !important;
+    }
+
+    /* 3. SIMPLIFICACIÓN DEL FLUJO: Como ya nada sobresale del banner, 
+       la sección principal de abajo puede recuperar su padding normal */
+    .seccion-principal {
+        padding-top: 1.5rem !important; 
+    }
+    
+    /* Mantenemos la posición limpia de los botones de las esquinas */
+    .btn-cerrar-sesion-banner {
+        right: auto !important;
+        left: 12px !important;
+        top: 12px !important;
+    }
+
+    .btn-editar-perfil-general {
+        right: 12px !important;
+        top: 12px !important;
+    }
+
+    .btn-cambiar-banner {
+        bottom: 12px !important;
+        right: 12px !important;
+    }
+}
+
+/* ==========================================================================
+   Filtro estricto para Mobile M (375px) y Mobile S (320px) 
+   ========================================================================== */
+@media (max-width: 425px) {
+    
+    /* Mantenemos los botones circulares perfectos y centrados */
+    .btn-cerrar-sesion-banner,
+    .btn-editar-perfil-general {
+        font-size: 0 !important; 
+        line-height: 0 !important;
+        width: 40px !important;    
+        height: 40px !important;
+        padding: 0 !important;
+        border-radius: 50% !important;
+        display: flex !important;  
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0 !important;
+    }
+
+    .btn-cambiar-banner {
+        font-size: 0 !important; 
+        line-height: 0 !important;
+        width: 40px !important;    
+        height: 40px !important;
+        padding: 0 !important;
+        border-radius: 50% !important;
+        gap: 0 !important;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .btn-cambiar-banner:not([style*="display: none"]) {
+        display: flex !important;
+    }
+
+    .btn-cerrar-sesion-banner i,
+    .btn-editar-perfil-general i,
+    .btn-cambiar-banner i {
+        font-size: 1.2rem !important; 
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1 !important;    
+        display: inline-block !important;
+    }
+}
+
 /*------------------------------------------------ BIOGRAFÍA ------------------------------------------------*/
 
 .bio-section-header {
