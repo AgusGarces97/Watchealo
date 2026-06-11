@@ -1324,22 +1324,44 @@ header.sticky-top{
 
 /*------------------------------------------------ DETALLE DE PELÍCULA/SERIE ------------------------------------------------*/
 
+/* --- ESTILOS DE BANNER Y TEXTO SUPERPUESTO (CORREGIDO A LA IZQUIERDA) --- */
+.banner-detalle-img {
+    object-fit: cover;
+    max-height: 450px; 
+    filter: brightness(0.6); /* Oscurece un pelín el fondo para que las letras blancas resalten */
+}
+
 .titulo-contenedor {
     position: absolute;
-    bottom: 20px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -35%);
+    bottom: 0; /* Lo bajamos a 0 para que el gradiente empiece bien desde abajo */
+    left: 0;
+    width: 100%;
     z-index: 10;
-    width: 90%;
-    text-align: center;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    text-align: left;
+    
+    /* EL GRADIENTE: Va desde un negro semi-transparente abajo hacia transparente arriba */
+    background: linear-gradient(to top, var(--PRIMARY) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0) 100%);
+    
+    /* Le sumamos un padding abajo para que el texto no quede pegado al piso del banner */
+    padding-bottom: 25px; 
+    padding-top: 60px; /* Le da espacio al degradado para que difumine suave hacia arriba */
 }
 
 .titulo-pelicula {
     font-weight: bold;
+    font-size: 2.8rem;
+    color: #fff;
+    text-align: left !important;
 }
 
+.text-genero h3{
+    color: var(--CUATERNARY) !important;
+    font-size: 1.25rem; /* <-- Acá le asignás el tamaño exacto que quieras */
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-align: left !important;
+}
+/* --- CONTENEDOR DE LA INFO INFERIOR --- */
 .contenedor-info {
     margin-top: 3rem;
 }
@@ -1348,212 +1370,138 @@ header.sticky-top{
     margin-top: 4rem;
 }
 
-.pfp-img-reseña {
-    height: 20vh;
-    width: auto;
-    aspect-ratio: 1/1 !important;
+/* --- PORTADA Y BOTONES DE ACCIÓN --- */
+.portada-detalle {
+    box-shadow: 0 0 12px rgba(172, 242, 242, 0.4);
+    aspect-ratio: 2/3;
+    object-fit: cover;
 }
 
-/* Fuerza a que todos los botones de la fila tengan la misma altura y consistencia */
-.botones-detalle .btn {
-    padding: 0.6rem 0.5rem;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap; /* Evita que el texto se parta en dos líneas de prepo */
-}
-
-/* Estilo para los botones principales de acción */
 .btn-agregar {
     border: 1px solid rgba(172, 242, 242, 0.2) !important;
     background: rgba(15, 40, 53, 0.6) !important;
     color: var(--SECONDARY) !important;
+    font-size: 0.9rem;
+    padding: 0.6rem 0.5rem;
+    white-space: nowrap;
     transition: all 0.2s ease;
 }
 
 .btn-agregar:hover {
     background: var(--SECONDARY) !important;
-    color: #111 !important; /* Texto oscuro al pasar el mouse */
+    color: #111 !important; 
     box-shadow: 0 0 8px var(--SECONDARY);
 }
 
-.btn-fav{
-    background-color: transparent !important;
-    border: none;
-    color: var(--SECONDARY) !important;
+.btn-fav {
+    background-color: rgba(15, 40, 53, 0.6) !important;
+    border: 1px solid rgba(172, 242, 242, 0.2) !important;
+    transition: all 0.2s ease;
 }
 
-.btn-fav:hover i{
+.btn-fav:hover i {
     text-shadow: 0 0 10px var(--CYAN);
 }
 
-.text-genero h3{
-    font-size: 1rem !important;
-    color: var(--SECONDARY);
-}
-
-/* --- ESTILO GENERAL (Para celulares, se mantiene igual) --- */
-.portada-detalle {
-    width: 100%;
-    aspect-ratio: 2/3; /* Mantiene la proporción clásica de póster (rectangular vertical) */
-    object-fit: cover;  /* Asegura que encaje bien en el contenedor sin deformarse */
-    box-shadow: 0 0 12px rgba(172, 242, 242, 0.4);
-}
-
-/* --- SOLUCIÓN PARA PANTALLAS GRANDES (PC/Tablets >= 768px) --- */
-@media (min-width: 768px) {
-    /* 1. Preparamos el contenedor de la izquierda */
-    .contenedor-info .row > .col-md-4 {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start; /* Alinea los elementos al principio, uno debajo del otro */
-    }
-
-    /* 2. Ajustamos la imagen */
-    .portada-detalle {
-        flex-grow: 0; 
-        height: auto; 
-        aspect-ratio: 2 / 3.5 !important;
-        object-fit: cover; 
-        margin-bottom: 1.5rem; /* Espacio con los botones */
-    }
-
-    /* 3. Ajuste de botones */
-    .botones-detalle {
-        width: 100%; /* Asegura que ocupen todo el ancho de su columna */
-        margin-top: 0; /* No necesitamos empujarlos hacia abajo, la imagen ya es alta */
-    }
-}
-
-.sinopsis{
+/* --- SINOPSIS --- */
+.sinopsis {
     background: linear-gradient(135deg, rgba(172, 242, 242, 0.06), rgba(15, 40, 53, 0.85));
     border: 1px solid rgba(172, 242, 242, 0.2);
     border-radius: 16px;
-    padding: 1.5rem 1.5rem;
+    padding: 1.5rem;
 }
 
-.sinopsis p{
+.sinopsis p {
     margin-bottom: 0;
 }
 
-.datos-peli{
-    display: flexbox;
-    flex-direction: column;
-}
-
-/* Contenedor de las cajas de detalles */
-.datos-peli {
-    display: grid;
-    /* auto-fill crea tantas columnas como entren. Cada caja medirá mínimo 150px y máximo 1fr */
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
-    gap: 12px; /* El espacio entre las piezas del rompecabezas */
-    justify-content: start;
-    width: 100%;
-}
-
-/* Diseño de cada caja individual */
+/* --- CAJAS DE INFORMACIÓN (Alineadas por Bootstrap) --- */
 .detalle-caja {
-    background: linear-gradient(135deg, rgba(172, 242, 242, 0.06), rgba(15, 40, 53, 0.85));
+    background: #0f2835;
     border: 1px solid rgba(172, 242, 242, 0.2);
     border-radius: 12px;
-    padding: 0.8rem; /* Padding más compacto para que sea una caja chica */
+    padding: 1rem 0.5rem; 
     text-align: center;
-    min-height: 95px; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    min-height: 115px; /* Altura uniforme para todas las cajas */
     transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
-
-/* En pantallas de computadoras (más de 768px), que entren más cajas por fila */
-@media (min-width: 768px) {
-    .detalle-caja {
-        flex: 1 1 calc(25% - 1rem); /* Ocupan el 25% (4 cajas por fila si hay espacio) */
-    }
-}
-
-
-
-/* Efecto visual al pasar el mouse por la pieza */
 .detalle-caja:hover {
     background: rgba(172, 242, 242, 0.12);
     box-shadow: 0 4px 12px rgba(172, 242, 242, 0.2);
-    transform: scale(1.03); /* Hace un pequeño "zoom" como si levantaras la pieza */
+    transform: scale(1.03);
     z-index: 2;
 }
 
-/* Quita el margen inferior solo a los párrafos dentro de las cajas de detalles */
-.detalle-caja p {
-    margin-bottom: 0;
-}
-
-/* Estilo para los íconos de las cajas */
 .icono-caja {
-    font-size: 1.4rem;      /* Lo hace un poco más grande y vistoso */
-    color: var(--SECONDARY);  /* Toma el color celeste de tu paleta */
-    margin-bottom: 6px;     /* Separa el ícono del título de abajo */
+    font-size: 1.4rem;
+    color: var(--WHITE);
+    text-shadow: 0 0 8px var(--SECONDARY);
+    margin-bottom: 6px;
 }
 
-/* Ajuste al h6 para que no tenga márgenes rebeldes */
 .info-tit {    
     font-size: 0.85rem !important;
     color: var(--SECONDARY);
-    margin-bottom: 2px !important; 
-          /* Opcional: le da un toque más pro */
+    margin-bottom: 4px !important; 
     letter-spacing: 0.5px;
+    font-weight: bold;
 }
 
-/* El dato numérico o de texto principal */
 .info {
-    font-size: 0.95rem !important;
+    font-size: 0.9rem !important;
     color: #fff;
-    margin-top: 0px !important;
+    width: 100%;
+    overflow-y: auto;
+    max-height: 45px; 
+    scrollbar-width: none; 
 }
 
-/* Estilo para el enlace del tráiler */
+.info::-webkit-scrollbar {
+    display: none;
+}
+
+/* --- TRAILER --- */
 .trailer-link {
-    text-decoration: none !important; /* Evita que se subraye */
+    text-decoration: none !important;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Estilo para el ícono de Play (un poquito más grande que los demás para que destaque) */
 .icono-caja-play {
     font-size: 1.8rem; 
-    color: var(--SECONDARY);
-    margin-bottom: 6px;
+    color: var(--WHITE);
+    margin-bottom: 4px;
     transition: color 0.2s ease, filter 0.2s ease;
 }
 
-/* Efecto de "Glow" (brillo) cuando pasan el mouse por encima de la caja */
 .detalle-caja:hover .icono-caja-play {
-    color: #fff; /* Cambia a blanco */
-    filter: drop-shadow(0 0 8px var(--SECONDARY)); /* Crea un reflejo celeste brillante */
+    color: var(--SECONDARY);
+    filter: drop-shadow(0 0 8px var(--SECONDARY));
 }
 
-.inputPuntuar{
+/* --- INTERFAZ DE PUNTUACIÓN (INPUT SIN FLECHAS) --- */
+.inputPuntuar {
     border: 1px solid var(--SECONDARY) !important;
     width: 40% !important;
 }
 
-/* Chrome, Safari, Edge, Opera */
 .inputPuntuar::-webkit-outer-spin-button,
 .inputPuntuar::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-/* Firefox */
 .inputPuntuar[type=number] {
     -moz-appearance: textfield;
 }
 
-.puntuar{
+.puntuar {
     text-shadow: 0 0 8px var(--SECONDARY);
 }
 
