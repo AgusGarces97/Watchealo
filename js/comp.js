@@ -410,7 +410,11 @@ function agregarAFavoritos() {
             iconoEstrella.classList.add('bi-star-fill');
         }
 
-        abrirModalFavoritos();
+        mostrarAvisoDetalle(
+            `<span>¡Excelente! <i class="bi bi-check-circle-fill"></i></span>`, 
+            `<span>Este contenido ha sido agregado a tus favoritos</span>`,            
+            true
+        ); // Abre tu modal personalizado de aviso
 
     } else { // Caso: QUITAR DE FAVORITOS
         
@@ -438,7 +442,11 @@ function agregarAFavoritos() {
             iconoEstrella.classList.add('bi-star');
         }
 
-        abrirModalQuitar();
+        mostrarAvisoDetalle(
+            `<span>¡Excelente! <i class="bi bi-check-circle-fill"></i></span>`, 
+            `<span>Este contenido ha sido removido a tus favoritos</span>`,            
+            true
+        ); // Abre tu modal personalizado de aviso
     }
 }
 
