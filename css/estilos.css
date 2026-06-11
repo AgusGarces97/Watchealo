@@ -419,9 +419,9 @@ body{
 
 #Carousel .carousel-control-prev,
 #Carousel .carousel-control-next {
-    width: 42px;
-    height: 42px;
-    top: 38%;
+    width: 45px;
+    height: 45px;
+    top: 50%;
     transform: translateY(-50%);
     background: rgba(11, 30, 38, 0.75);
     border: 1px solid var(--TERCIARY);
@@ -489,6 +489,7 @@ body{
 .carousel-wrap {
     padding: 2.5rem 0 3rem;
     background: linear-gradient(var(--PRIMARY), var(--TERCIARY), var(--PRIMARY));
+    height: 90vh;
 }
 
 /* ── RESPONSIVE ── */
@@ -813,6 +814,19 @@ header.sticky-top{
     object-fit: cover;
     border: 2px solid var(--SECONDARY);
     display: block;
+    opacity: 25;
+}
+
+.banner-filtro{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Un negro con 40% de opacidad. Puedes subirlo a 0.6 si quieres más oscuro */
+    background-color: rgba(0, 0, 0, 0.4); 
+    pointer-events: none; /* Esto permite que hagas clic a través de la capa hacia los botones */
+    z-index: 1; /* Asegura que la capa esté por encima de la imagen */
 }
 
 /* Botón cerrar sesión sobre el banner */
@@ -2487,6 +2501,119 @@ footer hr.mx-4 {
 
     box-shadow: 0 0 10px var(--CYAN);
 }
+
+/* LINEAS LIMITANTES DE TOP 10 */
+
+hr.my-0{
+    width: 100%;
+    max-width: 90%;
+    height: 1px;
+    border: 0;
+    opacity: 1 !important;
+    margin-left: 0px;
+    display: block;
+    
+
+    background: linear-gradient(
+        90deg,
+        var(--TERCIARY),
+        var(--SECONDARY),
+        var(--TERCIARY)
+    );
+
+    box-shadow: 0 0 10px var(--CYAN);
+}
+
+@media (max-width: 1024px){
+    hr.my-0{
+    width: 100%;
+    max-width: 85%;
+    height: 1px;
+    border: 0;
+    opacity: 1 !important;
+    margin-left: 0px;
+    display: block;
+    
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--SECONDARY),
+        transparent
+    );
+
+    box-shadow: 0 0 10px var(--CYAN);
+}
+}
+
+@media (max-width: 768px){
+    hr.my-0{
+    width: 100%;
+    max-width: 80%;
+    height: 1px;
+    border: 0;
+    opacity: 1 !important;
+    margin-left: 0px;
+    display: block;
+    
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--SECONDARY),
+        transparent
+    );
+
+    box-shadow: 0 0 10px var(--CYAN);
+}
+}
+
+@media (max-width: 425px){
+    hr.my-0{
+    width: 100%;
+    max-width: 70%;
+    height: 1px;
+    border: 0;
+    opacity: 1 !important;
+    margin-left: 0px;
+    display: block;
+    
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--SECONDARY),
+        transparent
+    );
+
+    box-shadow: 0 0 10px var(--CYAN);
+}
+}
+
+@media (max-width: 320px){
+    hr.my-0{
+    width: 100%;
+    max-width: 65%;
+    height: 1px;
+    border: 0;
+    opacity: 1 !important;
+    margin-left: 0px;
+    display: block;
+    
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--SECONDARY),
+        transparent
+    );
+
+    box-shadow: 0 0 10px var(--CYAN);
+}
+}
+
+/*******************************************/
+
 
 /* Creadores debajo */
 footer .container-fluid > .row:last-child p {

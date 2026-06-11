@@ -4,15 +4,16 @@ const navbar = document.querySelector(".navbar");
 const navItems = document.querySelectorAll(".btn-nav")
 
 window.addEventListener("scroll", () => {
-    
-    if (window.scrollY > 0) {
+    if(navItems && navbar){
+         if (window.scrollY > 0) {
         navbar.classList.add("navbar-scroll");
-        navItems.classList.add("btn-navScroll");
+        
     } 
     
     else {
         navbar.classList.remove("navbar-scroll");
         navbar.classList.add("transition-scroll");
+    }
     }
 
 });
@@ -283,11 +284,15 @@ function renderizarDetalles() {
 
     if(peliEncontrada.reseñas.length === 0){
         contenedorReseñas.innerHTML = `
-        <p> No hay reseñas cargadas </p>
+        <div class="reseñas-vacio">
+                <i class="bi bi-chat-square-text" style="font-size:1.6rem; opacity:0.3; display:block; margin-bottom:.5rem;"></i>
+                Esta obra no tiene reseñas
+            </div>
         `;
         return;
     }
     if(reseñasGuardadas){
+        contenedorReseñas.innerHTML = "";
         reseñasGuardadas.forEach(reseña => {
                 for(i=0; i<peliEncontrada.reseñas.length; i++){
                     if(reseña.id === peliEncontrada.reseñas[i]){
@@ -1058,6 +1063,8 @@ function mostrarConfirmacion(titulo, mensajeHTML, callbackAceptar) {
 }
 
 
+
+
 // =========================================================
 // VALIDADOR FINAL DEL FORMULARIO
 // =========================================================
@@ -1347,6 +1354,8 @@ function intentarReseñar() {
     }
 }
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const formReseña = document.getElementById("formulario-reseña");
     const contenedorReseñas = document.getElementById("contenedor-reseñas-detalle");
@@ -1372,7 +1381,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Obtener puntuación
             const radioSeleccionado = document.querySelector('input[name="puntuacion"]:checked');
             if (!radioSeleccionado) {
-                alert("Por favor, selecciona una puntuación con estrellas.");
+                alert("Debe Puntuar con estrellas a la reseña");
                 return;
             }
             const puntuacion = parseInt(radioSeleccionado.value);
@@ -1381,6 +1390,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const comentarioTexto = document.getElementById("reseña-comentario").value;
             const nombreUsuario = usuarioLogeado.username;
             const fotoUsuario = usuarioLogeado.fotoPerfil || "../img/default-avatar.png"; 
+
+            if(comentarioTexto === ""){
+                alert("Por favor, escribe algo en la reseña.");
+                return;
+            }
 
             // Construir las estrellas interactivas
             let estrellasHTML = "";
@@ -1621,16 +1635,27 @@ function mostrarMejorPuntuados() {
 
     if (!contenedor || !listaPelis) return;
 
-    // Ordenamos y tomamos solo los primeros 10
-    const listaTop10 = listaPelis.slice(0, 10).sort((a, b) => b.puntuacionTotal - a.puntuacionTotal);
+    // 1. PRIMERO: Ordenamos la lista completa (sin cortar nada todavía)
+    // Usamos slice() vacío solo para hacer una copia y no alterar el original
+    const listaOrdenada = listaPelis.slice().sort((a, b) => b.puntuacionTotal - a.puntuacionTotal);
 
-    // Generamos el HTML usando map
-    const tarjetasHTML = listaTop10.map((pelicula, index) => {
-        return `
+    let tarjetasHTML = "";
+
+    // 2. SEGUNDO: Usamos un bucle para recorrer. 
+    // La condición (i < listaOrdenada.length && i < 10) es tu freno de seguridad.
+    for (let i = 0; i < listaOrdenada.length; i++) {
+        
+        // Esta es la condición que "frena" al llegar a 10
+        if (i >= 10) break; 
+
+        const pelicula = listaOrdenada[i];
+
+    // Construimos el HTML de esta tarjeta
+        tarjetasHTML += `
         <div class="col">
             <a href="detalle.html?id=${pelicula.id}" class="text-decoration-none">
                 <div class="card pelicula-card">
-                    <span class="ranking-label">${index + 1}</span>
+                    <span class="ranking-label">${i + 1}</span>
                     <div class="pelicula-img-wrap">
                         <img src="${pelicula.portada}" class="card-img-top pelicula-img" alt="${pelicula.titulo}">
                     </div>
@@ -1641,7 +1666,8 @@ function mostrarMejorPuntuados() {
                 </div>
             </a>
         </div>`;
-    }).join('');
+    }
+    
 
     // Inyectamos todo dentro de una sola fila
     contenedor.innerHTML = `<div class="row g-3 row-cols-2 row-cols-md-5">${tarjetasHTML}</div>`;
@@ -1944,6 +1970,7 @@ if(botonEnviarPuntuacion){
 
     document.getElementById('modalPuntuar').style.display = 'none';
     renderizarDetalles();
+    document.getElementById("modal-aviso-puntuacionCar").style.display = 'flex';
     
 });
 
