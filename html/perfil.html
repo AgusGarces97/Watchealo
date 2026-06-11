@@ -93,7 +93,7 @@
                         <div id="cont_nombre_de_usuario">
                              <h2 class="fw-bold mb-1" id="username">Nombre de Usuario</h2>
                         </div>
-                        <button type="button" class="btn btn-outline-info btn-sm rounded-pill px-3 py-1" id="btn-cambiar-username" style="display: none; border-color: var(--celeste); color: var(--celeste);">
+                        <button type="button" class="btn btn-outline-info btn-sm rounded-pill px-3 py-1" id="btn-cambiar-username" style="display: none; border-color: var(--SECONDARY); color: var(--SECONDARY);">
                             <i class="bi bi-pencil-fill"></i> Cambiar Nombre de Usuario
                         </button>
                     </div>
@@ -227,7 +227,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Crea tu cuenta</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close-personalizado" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="bi bi-x-lg"></i> </button>
                 </div>
                 <div class="modal-body">
                     <form id="formulario_registro">
@@ -285,12 +286,12 @@
                             </div>
                             <div id="terminos-aviso" class="row form-text ml-0" style="display: none;"></div>
                         </div>
-                        <button type="button" class="btn btn-primary" id="boton-crear">Crear Cuenta</button>
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn btn-primary " id="boton-crear">Crear Cuenta</button>
+                        </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -298,14 +299,14 @@
     <!-- Modal de Aviso del Sistema -->
     <div class="modal fade" id="modalAvisoSistema" tabindex="-1" aria-labelledby="modalAvisoLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" style="background-color: var(--verdeOscuro); border: 2px solid var(--celeste); color: white;">
+            <div class="modal-content" style="background-color: var(--PRIMARY); border: 2px solid var(--SECONDARY); color: white;">
                 <div class="modal-header" style="border-bottom: 1px solid rgba(172, 242, 242, 0.15);">
-                    <h5 class="modal-title fw-bold" id="modalAvisoLabel" style="color: var(--celeste);"></h5>
+                    <h5 class="modal-title fw-bold" id="modalAvisoLabel" style="color: var(--SECONDARY);"></h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body py-4" id="modalAvisoBody"></div>
                 <div class="modal-footer" style="border-top: 1px solid rgba(172, 242, 242, 0.15);">
-                    <button type="button" class="btn btn-outline-info rounded-pill px-4" id="btnCerrarAviso" data-bs-dismiss="modal" style="border-color: var(--celeste); color: var(--celeste);">
+                    <button type="button" class="btn btn-outline-info rounded-pill px-4" id="btnCerrarAviso" data-bs-dismiss="modal" style="border-color: var(--SECONDARY); color: var(--SECONDARY);">
                         Entendido
                     </button>
                 </div>
@@ -318,7 +319,7 @@
         <div class="modal-dialog modal-dialog-centered modal-sm">
             <div class="modal-content modalConfirmar">
                 <div class="modal-header" style="border-bottom: 1px solid rgba(172, 242, 242, 0.15);">
-                    <h5 class="modal-title fw-bold" id="modalConfirmTitulo" style="color: var(--celeste);"></h5>
+                    <h5 class="modal-title fw-bold" id="modalConfirmTitulo" style="color: var(--SECONDARY);"></h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
                 <div class="modal-body py-3 text-center" id="modalConfirmBody"></div>

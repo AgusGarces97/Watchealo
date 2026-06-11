@@ -3045,3 +3045,15 @@ footer .container-fluid > .row:last-child p {
         height: 74px;
     }
 }
+
+.btn-close-personalizado {
+    background: transparent;
+    border: none;
+    color: var(--SECONDARY); /* Aquí usas tu variable de color */
+    font-size: 1.5rem;     /* Puedes cambiar el tamaño fácil */
+    padding: 0;
+}
+
+.btn-close-personalizado:hover {
+    color: white; /* Color al pasar el mouse */
+}
