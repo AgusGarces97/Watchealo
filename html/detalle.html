@@ -59,95 +59,119 @@
     <main>
         <!-----------------------BANNER ------------------------------------>
         <div class="container-fluid px-0 position-relative">
-            <!-- Agregar un boton para editar el banner y la pfp -->
             <img src="../img/banner.avif" alt="banner" class="img-fluid w-100 banner-img banner-detalle-img" id="banner">
 
             <!-----------------------INFO ENCIMA DEL BANNER ------------------------------------>
             <div class="titulo-contenedor">
-                <div class="row">
-                    <div class="col-12 titulo-pelicula" id="titulo">
-                        
+                <!-- Sumamos este container para que el texto se alinee perfectamente a la izquierda con el contenido de abajo -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 titulo-pelicula" id="titulo">
+                            <!-- El JS meterá el título acá -->
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 fs-5 text-genero" id="genero">
-                        
+                    <div class="row">
+                        <div class="col-12 text-genero" id="genero">
+                            <!-- El JS meterá el género acá -->
+                        </div>
                     </div>
                 </div>
             </div>     
         </div>
-        <!----------------------------------------------------------------->
 
         <!-----------------------INFO DEBAJO DEL BANNER ------------------------------------>
         <div class="container contenedor-info">    
-            <div class="row g-4"> 
-                <div class="col-12 col-md-4">
-                    <img src="../img/arrow_portada.jpg" alt="port-detalle" class="w-100 rounded mb-2 portada-detalle" id="portada_detalle">
-                    <div class="row botones-detalle g-2">
-                        <!-- Columna Favorito (Ocupa 2 de 12 espacios) -->
+            <div class="row g-4 align-items-start"> 
+                
+                <!-- COLUMNA IZQUIERDA: Portada y Botones (Se adapta sola al tamaño justo) -->
+                <div class="col-12 col-sm-5 col-md-4 col-lg-3">
+                    <!-- img-fluid y w-100 hacen que la imagen se amolde perfectamente a su columna -->
+                    <img src="../img/arrow_portada.jpg" alt="port-detalle" class="img-fluid w-100 rounded mb-2 portada-detalle" id="portada_detalle">
+                    
+                    <!-- Botonera nativa con la grilla de Bootstrap (Suma 12 justo: 2 + 5 + 5) -->
+                    <div class="row g-2">
                         <div class="col-2">
                             <button type="button" class="btn btn-dark text-warning w-100 h-100 d-flex align-items-center justify-content-center btn-fav" id="btn-favs" onclick="agregarAFavoritos()"> 
                                 <i class="bi bi-star"></i>
                             </button>
                         </div>
-                        <!-- Columna Puntuar (Ocupa 5 de 12 espacios) -->
                         <div class="col-5">
-                            <button type="button" class="btn btn-dark btn-agregar w-100" id="btn-puntuar">Puntuar</button>
+                            <button type="button" class="btn btn-dark btn-agregar w-100 h-100 d-flex align-items-center justify-content-center" id="btn-puntuar">Puntuar</button>
                         </div>
-                        <!-- Columna Reseña (Ocupa 5 de 12 espacios) -->
                         <div class="col-5">
-                            <button type="button" class="btn btn-dark btn-agregar w-100" data-bs-toggle="modal" data-bs-target="#modalDejarReseña" id="btn-agr-reseña">Reseñar</button>
+                            <button type="button" class="btn btn-dark btn-agregar w-100 h-100 d-flex align-items-center justify-content-center" id="btn-agr-reseña" onclick="intentarReseñar()">Reseñar</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-8">
-                    <div class="sinopsis mb-4" id="sinopsis">
-                        </div>
+                
+                <!-- COLUMNA DERECHA: Sinopsis y Cajas de Datos (Toma todo el resto del espacio) -->
+                <div class="col-12 col-sm-7 col-md-8 col-lg-9">
+                    <!-- Sinopsis -->
+                    <div class="sinopsis mb-4" id="sinopsis"></div>
                     
-                    <div class="datos-peli">
-                        <div class="detalle-caja"> 
-                            <i class="bi bi-film icono-caja"></i>
-                            <h6 class="info-tit">Capítulos</h6>
-                            <div class="info" id="caps"></div>
+                    <!-- Reemplazamos tu CSS Grid por las columnas nativas de Bootstrap -->
+                    <!-- 2 columnas en celu, 3 en tablet, 4 en compu grande automáticamente -->
+                    <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-3">
+                        <div class="col">
+                            <div class="detalle-caja h-100"> 
+                                <i class="bi bi-film icono-caja"></i>
+                                <h6 class="info-tit">Capítulos</h6>
+                                <div class="info" id="caps"></div>
+                            </div>
                         </div>
-                        <div class="detalle-caja">
-                            <i class="bi bi-stars icono-caja"></i>
-                            <h6 class="info-tit">Puntuación</h6>
-                            <div class="info" id="puntuacion"></div>
+                        <div class="col">
+                            <div class="detalle-caja h-100">
+                                <i class="bi bi-stars icono-caja"></i>
+                                <h6 class="info-tit">Puntuación</h6>
+                                <div class="info" id="puntuacion"></div>
+                            </div>
                         </div>
-                        <div class="detalle-caja">
-                            <i class="bi bi-pencil icono-caja"></i>
-                            <h6 class="info-tit">Creador/Guionista</h6>
-                            <div class="info" id="creador"> </div>
+                        <div class="col">
+                            <div class="detalle-caja h-100">
+                                <i class="bi bi-pencil icono-caja"></i>
+                                <h6 class="info-tit">Creador/Guionista</h6>
+                                <div class="info" id="creador"></div>
+                            </div>
                         </div>
-                        <div class="detalle-caja">
-                            <i class="bi bi-clock icono-caja"></i>
-                            <h6 class="info-tit">Duración de Capítulos</h6>
-                            <div class="info" id="duracion"></div>
+                        <div class="col">
+                            <div class="detalle-caja h-100">
+                                <i class="bi bi-clock icono-caja"></i>
+                                <h6 class="info-tit">Duración de Capítulos</h6>
+                                <div class="info" id="duracion"></div>
+                            </div>
                         </div>
-                        <div class="detalle-caja">
-                            <i class="bi bi-camera-video icono-caja"></i>
-                            <h6 class="info-tit">Actores</h6>
-                            <div class="info" id="actores"> </div>
+                        <div class="col">
+                            <div class="detalle-caja h-100">
+                                <i class="bi bi-camera-video icono-caja"></i>
+                                <h6 class="info-tit">Actores</h6>
+                                <div class="info" id="actores"></div>
+                            </div>
                         </div>
-                        <div class="detalle-caja icono-caja">
-                            <i class="bi bi-calendar-event"></i>
-                            <h6 class="info-tit">Fecha de Salida</h6>
-                            <div class="info" id="fecha-salida"> </div>
+                        <div class="col">
+                            <div class="detalle-caja h-100">
+                                <i class="bi bi-calendar-event icono-caja"></i>
+                                <h6 class="info-tit">Fecha de Salida</h6>
+                                <div class="info" id="fecha-salida"></div>
+                            </div>
                         </div>
-                        <div class="detalle-caja icono-caja">
-                            <i class="bi bi-person-rolodex"></i>
-                            <h6 class="info-tit">Director</h6>
-                            <div class="info" id="director"> </div>
+                        <div class="col">
+                            <div class="detalle-caja h-100">
+                                <i class="bi bi-person-rolodex icono-caja"></i>
+                                <h6 class="info-tit">Director</h6>
+                                <div class="info" id="director"></div>
+                            </div>
                         </div>
-                        <div class="detalle-caja">
-                            <a href="AQUÍ_VA_EL_LINK_DE_YOUTUBE" target="_blank" id="linkTrailer" class="trailer-link">
-                                <i class="bi bi-play-fill icono-caja-play"></i>
-                            </a>
-                            <h6 class="info-tit">Ver Trailer</h6>
+                        <div class="col">
+                            <div class="detalle-caja h-100">
+                                <a href="AQUÍ_VA_EL_LINK_DE_YOUTUBE" target="_blank" id="linkTrailer" class="trailer-link">
+                                    <i class="bi bi-play-fill icono-caja-play"></i>
+                                </a>
+                                <h6 class="info-tit">Ver Trailer</h6>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
         <!----------------------------------------------------------------->
@@ -261,10 +285,10 @@
     <!-- Modal Puntuación -->
     <div id="modalPuntuar" class="modal-overlay" style="display: none;">
             <div class="modal-container">
-                <h2 class="puntuar fs-2">Puntúa</h2>
+                <h2 class="puntuar fs-2">Califica <i class="bi bi-hand-thumbs-up-fill"></i></h2>
                 
                 <div class="d-flex flex-row justify-content-center align-items-center">
-                    <i class="bi bi-star-fill fs-2 px-3" style="color: var(--celeste);"></i>
+                    <i class="bi bi-star-fill fs-2 px-3" style="color: var(--WHITE); text-shadow: 0 0 8px var(--CYAN);"></i>
                     <input class="inputPuntuar" type="number" id="inputPuntuacion" placeholder="0 - 10" required>
                 </div>                
                 
@@ -315,6 +339,66 @@
                 <p>Ya ha sido quitada de tus favortios!</p>
             </div>
             
+        </div>
+    </div>
+
+    <!-- Modal AVISO DE ESTAR LOGEADO PARA PUNTUAR -->
+    <div id="modal-aviso-puntuar" class="modal-overlay" style="display: none;">
+        <div class="modal-box">
+            <div class="modal-header-aviso-favoritos">
+                <h3>Acceso Restringido</h3>
+                <span class="close-btn" onclick="cerrarModalPuntuar()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>¡Oops! Para puntuar películas o series a tus favoritos, primero debes iniciar sesión.</p>
+            </div>
+            <div class="modal-footer-aviso-favoritos">
+                <button class="btn-cancelar-aviso-favoritos" onclick="cerrarModalPuntuar()">Cerrar</button>
+                <a href="perfil.html" class="btn-login-aviso-favoritos">Ir a Iniciar Sesión</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal AVISO DE PUNTUACIÓN INVÁLIDA -->
+    <div id="modal-aviso-puntuacionInv" class="modal-overlay" style="display: none;">
+        <div class="modal-box">
+            <div class="modal-header-aviso-favoritos">
+                <h3>¡Cuidado!</h3>
+                <span class="close-btn" onclick="cerrarModalPuntuacionInv()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Estás colocando una puntuación inválida, debe ser entre 0-10</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal AVISO DE PUNTUACIÓN CARGADA -->
+    <div id="modal-aviso-puntuacionCar" class="modal-overlay" style="display: none;">
+        <div class="modal-box">
+            <div class="modal-header-aviso-favoritos">
+                <h3>¡Genial!</h3>
+                <span class="close-btn" onclick="cerrarModalPuntuacionCar()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Puntuación cargada exitosamente</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal AVISO DE ESTAR LOGEADO PARA RESEÑAR -->
+    <div id="modal-aviso-reseña" class="modal-overlay" style="display: none;">
+        <div class="modal-box">
+            <div class="modal-header-aviso-favoritos">
+                <h3>Acceso Restringido</h3>
+                <span class="close-btn" onclick="cerrarModalAvisoReseña()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>¡Oops! Para reseñar películas o series, primero debes iniciar sesión.</p>
+            </div>
+            <div class="modal-footer-aviso-favoritos">
+                <button class="btn-cancelar-aviso-favoritos" onclick="cerrarModalAvisoReseña()">Cerrar</button>
+                <a href="perfil.html" class="btn-login-aviso-favoritos">Ir a Iniciar Sesión</a>
+            </div>
         </div>
     </div>
 

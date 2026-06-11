@@ -293,9 +293,9 @@ function renderizarDetalles() {
                 for(i=0; i<peliEncontrada.reseñas.length; i++){
                     if(reseña.id === peliEncontrada.reseñas[i]){
                         const tarjetaHTML = `
-                            <div class="card border-0 p-3 mb-3" style="background-color: rgba(255,255,255,0.02); border-left: 3px solid var(--celeste) !important; border-radius: 10px;">
+                            <div class="card border-0 p-3 mb-3" style="background-color: #0f2835; border-left: 3px solid var(--CUATERNARY) !important; border-radius: 10px;">
                                 <div class="d-flex align-items-center mb-2">
-                                    <img src="${reseña.fotoUsuario}" alt="Avatar ${reseña.nombreUsuario}" class="rounded-circle me-3" width="45" height="45" style="object-fit: cover; border: 2px solid var(--celeste);">
+                                    <img src="${reseña.fotoUsuario}" alt="Avatar ${reseña.nombreUsuario}" class="rounded-circle me-3" width="45" height="45" style="object-fit: cover; border: 2px solid var(--CUATERNARY);">
                                     <div>
                                         <h6 class="mb-0 fw-bold text-white">${reseña.nombreUsuario}</h6>
                                         <div class="d-flex align-items-center mt-1">
@@ -662,8 +662,8 @@ if (btnEditarBio && contenedorBioInteractivo) {
             // 4. Devolvemos el botón a su estado original de "Editar"
             btnEditarBio.innerHTML = `<i class="bi bi-pencil-fill"></i> Editar`;
             btnEditarBio.classList.replace('btn-success', 'btn-outline-info');
-            btnEditarBio.style.borderColor = 'var(--celeste)';
-            btnEditarBio.style.color = 'var(--celeste)';
+            btnEditarBio.style.borderColor = 'var(--TERCIARY)';
+            btnEditarBio.style.color = 'var(--SECONDARY)';
         }
     });
 }
@@ -1142,7 +1142,7 @@ if(btnCrearCuenta){
     // =========================================================
     mostrarAviso(
         `<i class="bi bi-patch-check-fill text-success"></i> ¡Bienvenido/a!`,
-        `<p class="mb-0 fs-5 text-center">¡Tu registro en <span style="color: var(--celeste);" class="fw-bold">Watchealo</span> se completó de manera exitosa!</p>`,
+        `<p class="mb-0 fs-5 text-center">¡Tu registro en <span style="color: var(--SECONDARY);" class="fw-bold">Watchealo</span> se completó de manera exitosa!</p>`,
         true
     );
 
@@ -1325,6 +1325,29 @@ class Reseña{
 // =========================================================
 // PUBLICAR RESEÑA (PERSISTENTE EN LOCALSTORAGE)
 // =========================================================
+
+function abrirModalAvisoReseña() {
+    document.getElementById("modal-aviso-reseña").style.display = "flex";
+}
+
+function cerrarModalAvisoReseña() {
+    document.getElementById("modal-aviso-reseña").style.display = "none";
+}
+
+function intentarReseñar() {
+    const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
+    
+    if (!usuarioLogeado) {
+        // No está logueado → mostramos el modal de aviso
+        abrirModalAvisoReseña();
+    } else {
+        // Está logueado → abrimos el modal del formulario con Bootstrap
+        const modalEl = document.getElementById("modalDejarReseña");
+        const instancia = new bootstrap.Modal(modalEl);
+        instancia.show();
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const formReseña = document.getElementById("formulario-reseña");
     const contenedorReseñas = document.getElementById("contenedor-reseñas-detalle");
@@ -1338,7 +1361,12 @@ document.addEventListener("DOMContentLoaded", () => {
             // Validar sesión activa
             const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
             if (!usuarioLogeado) {
-                alert("Debes iniciar sesión para publicar una reseña.");
+                const modalFormReseña = document.getElementById("modalDejarReseña");
+                if (modalFormReseña) {
+                    const instancia = bootstrap.Modal.getInstance(modalFormReseña);
+                    if (instancia) instancia.hide();
+                }
+                abrirModalAvisoReseña();
                 return;
             }
             
@@ -1361,10 +1389,10 @@ document.addEventListener("DOMContentLoaded", () => {
             let tieneMediaEstrella = (puntuacion % 2) !== 0;
 
             for (let i = 0; i < estrellasLlenas; i++) {
-                estrellasHTML += '<i class="bi bi-star-fill me-1" style="color: var(--celeste);"></i>';
+                estrellasHTML += '<i class="bi bi-star-fill me-1" style="color: var(--CUATERNARY);"></i>';
             }
             if (tieneMediaEstrella) {
-                estrellasHTML += '<i class="bi bi-star-half me-1" style="color: var(--celeste);"></i>';
+                estrellasHTML += '<i class="bi bi-star-half me-1" style="color: var(--CUATERNARY);"></i>';
                 estrellasLlenas++; 
             }
             for (let i = estrellasLlenas; i < 5; i++) {
@@ -1427,9 +1455,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // CONSTRUIR E INYECTAR LA TARJETA EN VIVO (Inmediato)
             const nuevaTarjetaReseña = `
-                <div class="card border-0 p-3 mb-3" style="background-color: rgba(255,255,255,0.02); border-left: 3px solid var(--celeste) !important; border-radius: 10px;">
+                <div class="card border-0 p-3 mb-3" style="background-color: rgba(255,255,255,0.02); border-left: 3px solid var(--SECONDARY) !important; border-radius: 10px;">
                     <div class="d-flex align-items-center mb-2">
-                        <img src="${fotoUsuario}" alt="Avatar ${nombreUsuario}" class="rounded-circle me-3" width="45" height="45" style="object-fit: cover; border: 2px solid var(--celeste);">
+                        <img src="${fotoUsuario}" alt="Avatar ${nombreUsuario}" class="rounded-circle me-3" width="45" height="45" style="object-fit: cover; border: 2px solid var(--TERCIARY);">
                         <div>
                             <h6 class="mb-0 fw-bold text-white">${nombreUsuario}</h6>
                             <div class="d-flex align-items-center mt-1">
@@ -1906,6 +1934,14 @@ class PuntuacionPeli{
     }
 }
 
+function abrirModalPuntuar(){
+    document.getElementById("modal-aviso-puntuar").style.display="flex";
+}
+
+function cerrarModalPuntuar(){
+    document.getElementById("modal-aviso-puntuar").style.display="none";
+}
+
 const botonPuntuar = document.getElementById("btn-puntuar");
 const botonEnviarPuntuacion = document.getElementById("btn-enviar-puntuacion");
 const botonCancelarPuntuacion = document.getElementById("btn-cancelar-puntuacion");
@@ -1918,7 +1954,7 @@ if(botonPuntuar){
     const listaPeliculas = JSON.parse(localStorage.getItem('peliculas_series'));
         
     if(!usuarioLogeado){
-        alert("Debe logearse para poder puntuar");
+        abrirModalPuntuar();
         return;
     }
 
@@ -1949,6 +1985,13 @@ if(botonCancelarPuntuacion){
 });
 }
 
+function cerrarModalPuntuacionInv() {
+    document.getElementById("modal-aviso-puntuacionInv").style.display="none";
+}
+
+function cerrarModalPuntuacionCar() {
+    document.getElementById("modal-aviso-puntuacionCar").style.display="none";
+}
 
 if(botonEnviarPuntuacion){
     botonEnviarPuntuacion.addEventListener('click', ()=>{
@@ -1958,7 +2001,7 @@ if(botonEnviarPuntuacion){
     const listaPeliculas = JSON.parse(localStorage.getItem('peliculas_series'));
 
     if(Puntuacion < 0 || Puntuacion > 10 || Puntuacion == ""){
-        alert("La Puntuación debe estar entre 0 y 10, y debe ser un numero");
+        document.getElementById("modal-aviso-puntuacionInv").style.display="flex";
         return;
     }
 
@@ -2013,6 +2056,8 @@ if(botonEnviarPuntuacion){
             document.getElementById('modalPuntuar').style.display = 'none';
             renderizarDetalles();
             
+            document.getElementById("modal-aviso-puntuacionCar").style.display = 'flex';
+
             return;
         }
     }
