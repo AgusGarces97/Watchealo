@@ -6,6 +6,7 @@
     --WHITE: #FFFFFF;
     --CYAN: rgba(172, 242, 242, 0.6);
     --BORDER: rgba(172, 242, 242, 0.15);
+    --CARD: #0f2835;
     --sizeNav: 1rem;
 }
 
@@ -675,7 +676,7 @@ body{
 }
 
 .card.pelicula-card {
-    background-color: #0f2835;
+    background-color: var(--CARD);
     border: 1px solid var(--BORDER);
     border-radius: 10px;
     overflow: hidden;
@@ -713,7 +714,7 @@ body{
     justify-content: space-between;
     padding: 8px 10px;
     gap: 6px;
-    background-color: #0f2835;
+    background-color: var(--CARD);
 }
 
 .card-title.pelicula-titulo {
@@ -762,7 +763,7 @@ body{
 .contacto-titulo i { color: var(--SECONDARY); }
 
 .card.contacto-card {
-    --bs-card-bg: #0f2835;
+    --bs-card-bg: var(--CARD);
     --bs-card-border-color: var(--BORDER);
     --bs-card-border-radius: 12px;
 }
@@ -905,7 +906,7 @@ header.sticky-top{
     border-radius: 20px;
     padding: 6px 16px;
     z-index: 1050;
-    background-color: #0f2835;
+    background-color: var(--CARD);
     color: var(--WHITE);
     border: 2px solid var(--SECONDARY) !important;
 }
@@ -917,7 +918,7 @@ header.sticky-top{
 }
 
 .btn-cerrar-sesion-banner:hover i{
-    color: #0f2835;
+    color: var(--CARD);
 }
 
 
@@ -1063,7 +1064,7 @@ header.sticky-top{
 }
 
 .modalConfirmar{
-    background-color: #0f2835; 
+    background-color: var(--CARD); 
     border: 1px solid var(--TERCIARY); 
     color: white; border-radius: 14px;
 }
@@ -1644,7 +1645,7 @@ header.sticky-top{
 
 /* --- CAJAS DE INFORMACIÓN (Alineadas por Bootstrap) --- */
 .detalle-caja {
-    background: #0f2835;
+    background: var(--CARD);
     border: 1px solid rgba(172, 242, 242, 0.2);
     border-radius: 12px;
     padding: 1rem 0.5rem; 
@@ -1916,7 +1917,7 @@ header.sticky-top{
         right: 10px;
         font-size: 0.75rem;
         padding: 4px 10px;
-        background-color: #0f2835;
+        background-color: var(--CARD);
     }
  
     .btn-cerrar-sesion-banner {
@@ -1926,7 +1927,7 @@ header.sticky-top{
         left: 10px;
         font-size: 0.75rem;
         padding: 4px 10px;
-        background-color: #0f2835 !important;
+        background-color: var(--CARD) !important;
         color: var(--WHITE) !important;
         border: 2px solid var(--SECONDARY) !important;
     }
@@ -2414,7 +2415,7 @@ header.sticky-top{
 }
 
 .filtros-explorar {
-    background-color: #0f2835;
+    background-color: var(--CARD);
     border: 1px solid var(--BORDER);
     border-radius: 14px;
     padding: 1.5rem;
