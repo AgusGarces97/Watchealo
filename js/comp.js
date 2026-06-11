@@ -375,7 +375,12 @@ function agregarAFavoritos() {
     const listaUsuarios = JSON.parse(localStorage.getItem('usuarios'));
 
     if(!usuarioLogeado){
-        abrirModal(); // Abre tu modal personalizado de aviso
+        mostrarAvisoDetalle(
+            `<span>¡Ojo! <i class="bi bi-eye"></i></span>`, 
+            `<span>Para agregar a Favoritos tenés que estar logueado.</span><br><br>
+            <a href="perfil.html" class="btn-login-aviso-favoritos">Ir a Iniciar Sesión</a>`,            
+            true
+        ); // Abre tu modal personalizado de aviso
         return;
     }
 
@@ -1337,7 +1342,13 @@ class Reseña{
 // =========================================================
 
 function abrirModalAvisoReseña() {
-    document.getElementById("modal-aviso-reseña").style.display = "flex";
+    // document.getElementById("modal-aviso-reseña").style.display = "flex";
+    mostrarAvisoDetalle(
+        `<span>¡Ojo! <i class="bi bi-eye"></i></span>`, 
+        `<span>Para reseñar tenés que estar logueado.</span><br><br>
+        <a href="perfil.html" class="btn-login-aviso-favoritos">Ir a Iniciar Sesión</a>`,
+        true
+    );
 }
 
 function cerrarModalAvisoReseña() {
@@ -1354,7 +1365,7 @@ function intentarReseñar() {
         // Está logueado → abrimos el modal del formulario con Bootstrap
         const modalEl = document.getElementById("modalDejarReseña");
         const instancia = new bootstrap.Modal(modalEl);
-        instancia.show();
+        instancia.show();        
     }
 }
 
@@ -1542,6 +1553,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 const instanciaModal = bootstrap.Modal.getInstance(modalElemento);
                 if (instanciaModal) {
                     instanciaModal.hide();
+                    mostrarAvisoDetalle(
+                        `<span>¡Genial! <i class="bi bi-clipboard-check"></i></span>`, 
+                        `<span>Tu reseña se publicó exitosamente.</span>`,
+                        true
+                    );
                     renderizarDetalles();
                 }
             }
@@ -1856,7 +1872,13 @@ class PuntuacionPeli{
 }
 
 function abrirModalPuntuar(){
-    document.getElementById("modal-aviso-puntuar").style.display="flex";
+    // document.getElementById("modal-aviso-puntuar").style.display="flex";
+    mostrarAvisoDetalle(
+        `<span>¡Ojo! <i class="bi bi-eye"></i></span>`, 
+        `<span>Para puntuar tenés que estar logueado.</span><br><br>
+        <a href="perfil.html" class="btn-login-aviso-favoritos">Ir a Iniciar Sesión</a>`,
+        true
+    );
 }
 
 function cerrarModalPuntuar(){
@@ -1906,13 +1928,13 @@ if(botonCancelarPuntuacion){
 });
 }
 
-function cerrarModalPuntuacionInv() {
-    document.getElementById("modal-aviso-puntuacionInv").style.display="none";
-}
+// function cerrarModalPuntuacionInv() {
+//     document.getElementById("modal-aviso-puntuacionInv").style.display="none";
+// }
 
-function cerrarModalPuntuacionCar() {
-    document.getElementById("modal-aviso-puntuacionCar").style.display="none";
-}
+// function cerrarModalPuntuacionCar() {
+//     document.getElementById("modal-aviso-puntuacionCar").style.display="none";
+// }
 
 if(botonEnviarPuntuacion){
     botonEnviarPuntuacion.addEventListener('click', ()=>{
@@ -1922,7 +1944,12 @@ if(botonEnviarPuntuacion){
     const listaPeliculas = JSON.parse(localStorage.getItem('peliculas_series'));
 
     if(Puntuacion < 0 || Puntuacion > 10 || Puntuacion == ""){
-        document.getElementById("modal-aviso-puntuacionInv").style.display="flex";
+        // document.getElementById("modal-aviso-puntuacionInv").style.display="flex";
+        mostrarAvisoDetalle(
+            `<span>¡Cuidado! <i class="bi bi-eye"></i></span>`, 
+            `<span>La puntuación debe estar entre 0-10</span>`,
+            true
+        );
         return;
     }
 
@@ -1977,7 +2004,12 @@ if(botonEnviarPuntuacion){
             document.getElementById('modalPuntuar').style.display = 'none';
             renderizarDetalles();
             
-            document.getElementById("modal-aviso-puntuacionCar").style.display = 'flex';
+            // document.getElementById("modal-aviso-puntuacionCar").style.display = 'flex';
+            mostrarAvisoDetalle(
+                `<span>¡Excelente! <i class="bi bi-check-circle"></i></span>`, 
+                `<span>Tu puntuación ha sido actualizada`,
+                true
+            );
 
             return;
         }
@@ -2017,8 +2049,12 @@ if(botonEnviarPuntuacion){
 
     document.getElementById('modalPuntuar').style.display = 'none';
     renderizarDetalles();
-    document.getElementById("modal-aviso-puntuacionCar").style.display = 'flex';
-    
+    // document.getElementById("modal-aviso-puntuacionCar").style.display = 'flex';
+    mostrarAvisoDetalle(
+        `<span>¡Excelente! <i class="bi bi-check-circle"></i></span>`, 
+        `<span>Tu puntuación ha sido registrada`,
+        true
+    );
 });
 
 
