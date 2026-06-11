@@ -1510,8 +1510,8 @@ header.sticky-top{
     top: 0.6rem;
     right: 0.75rem;
     background: transparent;
-    border: 1px solid rgba(255, 80, 80, 0.5);
-    color: rgba(255, 80, 80, 0.7);
+    border: 1px solid var(--CUATERNARY);
+    color: var(--CUATERNARY);
     border-radius: 20px;
     padding: 2px 10px;
     font-size: 0.72rem;
@@ -1521,9 +1521,9 @@ header.sticky-top{
 }
 
 .btn-eliminar-reseña:hover {
-    background: rgba(255, 80, 80, 0.15);
-    border-color: rgb(255, 80, 80);
-    color: rgb(255, 80, 80);
+    background: var(--SECONDARY);
+    border-color: var(--CUATERNARY);
+    color: var(--CUATERNARY);
 }
 
 .reseñas-vacio {
@@ -3168,4 +3168,16 @@ footer .container-fluid > .row:last-child p {
     .custom-shape-divider-top-1781130821 svg {
         height: 74px;
     }
+}
+
+.btn-close-personalizado {
+    background: transparent;
+    border: none;
+    color: var(--SECONDARY); /* Aquí usas tu variable de color */
+    font-size: 1.5rem;     /* Puedes cambiar el tamaño fácil */
+    padding: 0;
+}
+
+.btn-close-personalizado:hover {
+    color: white; /* Color al pasar el mouse */
 }

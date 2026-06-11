@@ -410,7 +410,11 @@ function agregarAFavoritos() {
             iconoEstrella.classList.add('bi-star-fill');
         }
 
-        abrirModalFavoritos();
+        mostrarAvisoDetalle(
+            `<span>¡Excelente! <i class="bi bi-check-circle-fill"></i></span>`, 
+            `<span>Este contenido ha sido agregado a tus favoritos</span>`,            
+            true
+        ); // Abre tu modal personalizado de aviso
 
     } else { // Caso: QUITAR DE FAVORITOS
         
@@ -438,7 +442,11 @@ function agregarAFavoritos() {
             iconoEstrella.classList.add('bi-star');
         }
 
-        abrirModalQuitar();
+        mostrarAvisoDetalle(
+            `<span>¡Excelente! <i class="bi bi-check-circle-fill"></i></span>`, 
+            `<span>Este contenido ha sido removido a tus favoritos</span>`,            
+            true
+        ); // Abre tu modal personalizado de aviso
     }
 }
 
@@ -756,8 +764,8 @@ if (botonUserName && contNombreUsuario) {
                 // 4. Devolvemos el botón a su estado original celeste
                 botonUserName.innerHTML = `<i class="bi bi-pencil-fill"></i> Cambiar Nombre de Usuario`;
                 botonUserName.classList.replace('btn-success', 'btn-outline-info');
-                botonUserName.style.borderColor = 'var(--celeste)';
-                botonUserName.style.color = 'var(--celeste)';
+                botonUserName.style.borderColor = 'var(--SECONDARY)';
+                botonUserName.style.color = 'var(--SECONDARY)';
                 return; // Detenemos la ejecución aca
             }
 
@@ -784,8 +792,8 @@ if (botonUserName && contNombreUsuario) {
             // 4. Devolvemos el botón a su estado original celeste
             botonUserName.innerHTML = `<i class="bi bi-pencil-fill"></i> Cambiar Nombre de Usuario`;
             botonUserName.classList.replace('btn-success', 'btn-outline-info');
-            botonUserName.style.borderColor = 'var(--celeste)';
-            botonUserName.style.color = 'var(--celeste)';
+            botonUserName.style.borderColor = 'var(--SECONDARY)';
+            botonUserName.style.color = 'var(--SECONDARY)';
         }
     });
 }
