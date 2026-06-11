@@ -737,7 +737,11 @@ if (botonUserName && contNombreUsuario) {
             );
 
             if (nombreDuplicado) {
-                alert("Ya hay un usuario con ese nombre");
+                mostrarAviso(
+                    `<i class="bi bi-exclamation-triangle-fill text-warning"></i> Invalido`,
+                    `<p class="mb-0 fs-5 text-center">El Nombre de Usuario no esta disponible.</p>`,
+                    false
+                );
                 // --- MODO GUARDAR ---
                 editandoUsername = false;
                 // 2. Volvemos a inyectar el h2 estático adentro del div contenedor
@@ -1354,6 +1358,48 @@ function intentarReseñar() {
     }
 }
 
+// =========================================================
+// FUNCIÓN AUXILIAR PARA MOSTRAR EL MODAL DE AVISO
+// =========================================================
+function mostrarAvisoDetalle(titulo, mensajeHTML, esExito = false) {
+    const modalElemento = document.getElementById("modalAvisoSistemaDetalle");
+    const modalTitulo = document.getElementById("modalAvisoLabelDetalle");
+    const modalBody = document.getElementById("modalAvisoBodyDetalle");
+
+    if (modalElemento && modalTitulo && modalBody) {
+        modalTitulo.innerHTML = titulo;
+        modalBody.innerHTML = mensajeHTML;
+
+        // Inicializamos y mostramos el modal de aviso usando Bootstrap
+        const miModal = new bootstrap.Modal(modalElemento);
+        miModal.show();
+
+        // SI ES ÉXITO: Cuando el usuario cierre el aviso, cerramos también el formulario de registro de fondo
+        if (esExito) {
+            modalElemento.addEventListener('hidden.bs.modal', () => {
+                // Cambiá "modal_registro" por el ID exacto que tenga tu modal de formulario si es diferente
+                const modalFormulario = document.getElementById("modal_registro") || document.querySelector(".modal.show");
+                if (modalFormulario) {
+                    const instanciaForm = bootstrap.Modal.getInstance(modalFormulario);
+                    if (instanciaForm) instanciaForm.hide();
+                }
+            }, { once: true }); // El evento se ejecuta una sola vez y se limpia
+        }
+    }
+}
+
+
+function mostrarNotificacion(mensaje) {
+    const toastElement = document.getElementById('miToast');
+    const toastBody = toastElement.querySelector('.toast-body');
+    
+    // Cambiamos el texto
+    toastBody.textContent = mensaje;
+    
+    // Lo inicializamos con Bootstrap y lo mostramos
+    const toast = new bootstrap.Toast(toastElement);
+    toast.show();
+}
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -1381,7 +1427,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Obtener puntuación
             const radioSeleccionado = document.querySelector('input[name="puntuacion"]:checked');
             if (!radioSeleccionado) {
-                alert("Debe Puntuar con estrellas a la reseña");
+                mostrarNotificacion("Debe Calificar con estrellas en la reseña");
                 return;
             }
             const puntuacion = parseInt(radioSeleccionado.value);
@@ -1392,7 +1438,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const fotoUsuario = usuarioLogeado.fotoPerfil || "../img/default-avatar.png"; 
 
             if(comentarioTexto === ""){
-                alert("Por favor, escribe algo en la reseña.");
+                mostrarNotificacion("Debe escribir algún comentario en la reseña");
                 return;
             }
 
@@ -1496,6 +1542,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const instanciaModal = bootstrap.Modal.getInstance(modalElemento);
                 if (instanciaModal) {
                     instanciaModal.hide();
+                    renderizarDetalles();
                 }
             }
         });
