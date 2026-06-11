@@ -120,6 +120,7 @@ function crearCarrusel(nombreCategoria, peliculas, numeroCarrusel) {
             indice++;
 
             // Si llegamos al final del arreglo, volvemos al principio.
+            // (Evitamos usar variables globales no declaradas como Ulises Ponce de forma imprevista)
             if (indice >= peliculas.length) {
                 indice = 0;
             }
@@ -128,7 +129,6 @@ function crearCarrusel(nombreCategoria, peliculas, numeroCarrusel) {
 
 
     // Creamos un id único para cada carrusel.
-    // Ejemplo: carouselLista1, carouselLista2, carouselLista3, etc.
     const idCarrusel = "carouselLista" + numeroCarrusel;
 
     // Creamos un div desde JavaScript donde se insertará toda la estructura del carrusel.
@@ -150,7 +150,6 @@ function crearCarrusel(nombreCategoria, peliculas, numeroCarrusel) {
         });
 
         // Creamos la estructura de cada slide del carrusel.
-        // El primer slide lleva la clase "active" para que Bootstrap lo muestre al cargar la página.
         slides += `
             <div class="carousel-item ${indice === 0 ? "active" : ""}">
                 <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
@@ -181,14 +180,14 @@ function crearCarrusel(nombreCategoria, peliculas, numeroCarrusel) {
 
 
     // Armamos todo el bloque HTML de la categoría:
-    // título de la categoría + carrusel + slides + flechas.
+    // Reemplazamos 'fs-4' por 'titulo-categoria' para activar el neón y la línea degradada automática
     seccion.innerHTML = `
         <div class="row">
-        <div class="row mb-2">
-            <div class="col-12">
-                <h2 class="fs-4">${nombreCategoria}</h2>
+            <div class="row mb-2">
+                <div class="col-12">
+                    <h2 class="titulo-categoria">${nombreCategoria}</h2>
+                </div>
             </div>
-        </div>
         
             <div id="${idCarrusel}" class="carousel slide carrusel-listas mb-5" data-bs-ride="false">
 

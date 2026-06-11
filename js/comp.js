@@ -1401,6 +1401,7 @@ function mostrarNotificacion(mensaje) {
     toast.show();
 }
 
+
 document.addEventListener("DOMContentLoaded", () => {
     const formReseña = document.getElementById("formulario-reseña");
     const contenedorReseñas = document.getElementById("contenedor-reseñas-detalle");
