@@ -107,7 +107,7 @@ function mostrarResultados(lista) {
     if (lista.length === 0) {
         contenedorExplorar.innerHTML = `
         
-            <div class="reseñas-vacio">
+            <div class="reseñas-vacio w-100">
                 <i class="bi bi-heartbreak" style="font-size:1.6rem; opacity:0.3; display:block; margin-bottom:.5rem;"></i>
                 No se han encontrado resultados con esos fitros.
             </div>
