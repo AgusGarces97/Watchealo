@@ -46,8 +46,8 @@ body{
     width: 200px;
     opacity: 1;
     padding: .375rem .75rem;
-    border: 1px solid #dee2e6;
-    background-color: transparent;
+    border: 1px solid rgba(172, 242, 242, 0.45);
+    background-color: rgba(11, 30, 38, 0.85);
 }
 
 .bg-dark{
@@ -113,7 +113,8 @@ body{
 
 .btn-user:hover{
     /*background-color: var(--SECONDARY);*/
-    color: var(--SECONDARY);
+    color: var(--WHITE);
+    text-shadow: 0 0 8px var(--SECONDARY);
 }
 
 .btn-user:active{
@@ -540,6 +541,20 @@ body{
     }
 }
 
+@media (max-width: 375px) {
+    .navbar-nav.links {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 425px) {
+    .navbar-nav.links {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 /* Mobile L (≤425px) y landscape */
 @media (max-width: 425px) {
     #Carousel .carousel-item img.backdrop {
@@ -632,6 +647,8 @@ body{
         padding-right: 5px !important;
     }
 }
+
+
 
 /*------------------------------------------------  SECCIÓN: MÁS VISTAS ------------------------------------------------  */
 
@@ -1061,6 +1078,130 @@ header.sticky-top{
 .btnConfirmarModal:hover{
     background-color: var(--SECONDARY) !important;
     color: var(--TERCIARY) !important;
+}
+
+/* ==========================================================================
+   Ajustes para pantallas móviles generales (Mobile L hacia abajo)
+   ========================================================================== */
+@media (max-width: 576px) {
+    
+    /* 1. AGRANDAMOS EL BANNER: Le damos más altura vertical para albergar todo el bloque */
+    .banner-img {
+        min-height: 220px !important; /* Espacio de sobra para que respire el diseño */
+    }
+
+    /* 2. METEMOS EL CONTENEDOR ADENTRO: Cambiamos la lógica de posicionamiento */
+    .perfil-header-row {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 0 15px !important;
+        width: 100% !important;
+        
+        /* En vez de pasarse de la línea, se apoya en el fondo interno del banner */
+        top: auto !important;
+        bottom: 15px !important; 
+        transform: none !important; /* Eliminamos el desplazamiento hacia afuera de image_1cfed7.png */
+        gap: 0.3rem !important;
+    }
+
+    /* Bloque de texto y botón de cambio de nombre */
+    .usuario-info-row {
+        padding-bottom: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.4rem !important;
+        margin-top: 12px !important; /* Margen justo para esquivar la cámara flotante */
+    }
+
+    .usuario-info-row h2 {
+        font-size: 1.4rem !important;
+        margin-bottom: 0 !important;
+        /* IMPORTANTE: Como vuelve a estar dentro del banner (que puede tener zonas claras), 
+           le reforzamos la sombra negra para garantizar que el nombre sea 100% legible */
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9) !important; 
+        color: white !important;
+    }
+
+    #btn-cambiar-username {
+        font-size: 0.75rem !important;
+        padding: 5px 14px !important;
+        /* Le damos un fondo oscuro semi-transparente para que contraste hermoso dentro del banner */
+        background-color: rgba(15, 40, 53, 0.75) !important;
+        border: 1.5px solid var(--celeste) !important;
+    }
+
+    /* 3. SIMPLIFICACIÓN DEL FLUJO: Como ya nada sobresale del banner, 
+       la sección principal de abajo puede recuperar su padding normal */
+    .seccion-principal {
+        padding-top: 1.5rem !important; 
+    }
+    
+    /* Mantenemos la posición limpia de los botones de las esquinas */
+    .btn-cerrar-sesion-banner {
+        right: auto !important;
+        left: 12px !important;
+        top: 12px !important;
+    }
+
+    .btn-editar-perfil-general {
+        right: 12px !important;
+        top: 12px !important;
+    }
+
+    .btn-cambiar-banner {
+        bottom: 12px !important;
+        right: 12px !important;
+    }
+}
+
+/* ==========================================================================
+   Filtro estricto para Mobile M (375px) y Mobile S (320px) 
+   ========================================================================== */
+@media (max-width: 425px) {
+    
+    /* Mantenemos los botones circulares perfectos y centrados */
+    .btn-cerrar-sesion-banner,
+    .btn-editar-perfil-general {
+        font-size: 0 !important; 
+        line-height: 0 !important;
+        width: 40px !important;    
+        height: 40px !important;
+        padding: 0 !important;
+        border-radius: 50% !important;
+        display: flex !important;  
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0 !important;
+    }
+
+    .btn-cambiar-banner {
+        font-size: 0 !important; 
+        line-height: 0 !important;
+        width: 40px !important;    
+        height: 40px !important;
+        padding: 0 !important;
+        border-radius: 50% !important;
+        gap: 0 !important;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .btn-cambiar-banner:not([style*="display: none"]) {
+        display: flex !important;
+    }
+
+    .btn-cerrar-sesion-banner i,
+    .btn-editar-perfil-general i,
+    .btn-cambiar-banner i {
+        font-size: 1.2rem !important; 
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1 !important;    
+        display: inline-block !important;
+    }
 }
 
 /*------------------------------------------------ BIOGRAFÍA ------------------------------------------------*/
@@ -1993,7 +2134,7 @@ header.sticky-top{
     transition: color 0.2s ease, text-shadow 0.2s ease, transform 0.1s ease;
     
     width: 1.25rem; /* La mitad exacta de los 2.5rem del tamaño de fuente */
-    height: 2.5rem; /* CORRECCIÓN: Igualamos al tamaño del icono para que no estire la sombra */
+    height: 3.5rem; /* CORRECCIÓN: Igualamos al tamaño del icono para que no estire la sombra */
     line-height: 1; /* Centra el icono verticalmente dentro de la nueva altura */
     display: block; 
     overflow: hidden;
@@ -2152,6 +2293,7 @@ header.sticky-top{
 .main-listas {
     padding-bottom: 3rem;
     min-height: 70vh;
+    background: linear-gradient(var(--PRIMARY), var(--TERCIARY), var(--PRIMARY));
 }
 
 .encabezado-listas {
@@ -2227,6 +2369,7 @@ header.sticky-top{
 .main-explorar {
     padding-bottom: 3rem;
     min-height: 70vh;
+    background: linear-gradient(var(--PRIMARY), var(--TERCIARY), var(--PRIMARY));
 }
 
 .encabezado-explorar {
@@ -2501,6 +2644,7 @@ main > .container-fluid.px-0.position-relative::after {
     padding: 10px 20px;
     border-radius: 20px;
     text-decoration: none;
+    font-size: 0.8rem;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease; /* Esto es lo que da la suavidad */
@@ -2810,7 +2954,7 @@ footer .container-fluid > .row:last-child p {
     align-items: end !important;
     padding: 1.5rem 2rem 0.6rem !important;
     text-align: center;
-}
+} 
 
 /* Logo */
 .footer .container-fluid > .row:first-child > .col-12 > a {
@@ -2989,5 +3133,39 @@ footer .container-fluid > .row:last-child p {
     .footer .container-fluid > .row:last-child p {
         font-size: 0.8rem;
         line-height: 1.5;
+    }
+}
+
+/* Corrige la línea celeste que aparece en tablet arriba de Contacto */
+
+.custom-shape-divider-top-1781130821 {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.custom-shape-divider-top-1781130821 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 2px);
+    height: 72px;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1781130821 .shape-fill {
+    fill: var(--PRIMARY);
+}
+
+/* Ajuste específico para tablet */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .custom-shape-divider-top-1781130821 {
+        top: -2px;
+    }
+
+    .custom-shape-divider-top-1781130821 svg {
+        height: 74px;
     }
 }

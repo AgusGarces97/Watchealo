@@ -106,10 +106,10 @@ function mostrarResultados(lista) {
 
     if (lista.length === 0) {
         contenedorExplorar.innerHTML = `
-            <div class="col-12">
-                <p class="text-center text-muted">
-                    No se encontraron resultados con esos filtros.
-                </p>
+        
+            <div class="reseñas-vacio">
+                <i class="bi bi-heartbreak" style="font-size:1.6rem; opacity:0.3; display:block; margin-bottom:.5rem;"></i>
+                No se han encontrado resultados con esos fitros.
             </div>
         `;
         return;
