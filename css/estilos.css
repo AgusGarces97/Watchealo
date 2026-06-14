@@ -500,31 +500,6 @@ body{
 }
 
 
-/* ── RESPONSIVE ── */
-
-@media (min-width: 992px) {
-    /* Apuntamos al ul de los links */
-    .navbar-nav.links {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
-
-@media (max-width: 375px) {
-    .navbar-nav.links {
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 425px) {
-    .navbar-nav.links {
-        display: flex;
-        flex-direction: column;
-    }
-}
-
 /* Mobile L (≤425px) y landscape */
 @media (max-width: 425px) {
     #Carousel .carousel-item img.backdrop {
