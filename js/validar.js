@@ -49,6 +49,16 @@ const enviarContacto = document.getElementById('boton-enviar-contacto');
 
 enviarContacto.addEventListener('click', ()=>{
     const ok = validarNombre() & validarEmail() & validarMensaje();
+    // 1. Obtenemos la respuesta del captcha
+    const response = grecaptcha.getResponse();
+
+    // 2. Si la respuesta está vacía, el usuario no completó el captcha
+    if (response.length === 0) {
+        event.preventDefault(); // Evita que se envíe el formulario
+        alert("Por favor, completa el captcha para demostrar que no eres un robot.");
+        return false;
+    }
+    
     if (ok) {
         formContacto.style.display = 'none';
         confirmacion.classList.add('visible');
