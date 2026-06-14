@@ -251,6 +251,7 @@ function renderizarDetalles() {
     /////////////////////////////////////////////////////////////////////////////////////
     verificarFavoritoAlCargar();
     if (peliEncontrada) {
+        document.title = `Watchealo! - ${peliEncontrada.titulo}`; 
         portadaDetalle.src = peliEncontrada.portada;
         bannerDetalle.src = peliEncontrada.banner;
         
@@ -1192,6 +1193,8 @@ if(btnCrearCuenta){
     // Guardar también qué usuario inició sesión actualmente:
     localStorage.setItem("usuarioLogeado", JSON.stringify(nuevoUsuario));
 
+    document.title = `Watchealo! - ${nuevoUsuario.username}`;
+
     comprobarEstadoSesion();
     renderizarFavoritosPerfil();
     cargarReseñasPerfil();
@@ -1225,6 +1228,7 @@ function comprobarEstadoSesion() {
     const usuarioActivo = JSON.parse(localStorage.getItem("usuarioLogeado"));
 
     if (usuarioActivo) {
+        document.title = `Watchealo! - ${usuarioActivo.username}`;
         // Ocultamos formulario de login y mostramos el perfil del usuario
         if (conSinLogear) conSinLogear.style.display = "none";
         if (conLogeado) conLogeado.style.display = "block";
@@ -1237,6 +1241,7 @@ function comprobarEstadoSesion() {
             perfilBiografia.textContent = usuarioActivo.biografia;
         }
     } else {
+        document.title = "Watchealo! - Login";
         // Si no hay sesión, forzamos mostrar el login y ocultar el perfil
         if (conSinLogear) conSinLogear.style.display = "block";
         if (conLogeado) conLogeado.style.display = "none";
@@ -1269,6 +1274,8 @@ if (formLogin) {
                 usuarioValido.fotoPerfil = "../img/default-avatar.png";
             }
             localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioValido));
+
+            document.title = `Watchealo! - ${usuarioValido.username}`;
             
             // Reseteamos el formulario
             formLogin.reset();
@@ -1321,6 +1328,7 @@ if (btnLogout) {
 
                 localStorage.setItem("usuarios", JSON.stringify(usuariosCargados));
                 localStorage.removeItem("usuarioLogeado");
+                document.title = "Watchealo! - Login";
 
                 document.getElementById("contenedor-reseñas-perfil").innerHTML = "";
                 document.getElementById("contenedor-favoritos").innerHTML = "";
