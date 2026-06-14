@@ -58,7 +58,6 @@ body{
 .navbar {
     transition: background 0.5s ease, box-shadow 0.25s ease; 
     z-index: 1051;
-    transition: bac;
 }
 
 .navbar-scroll {
@@ -173,13 +172,36 @@ body{
 
 @media (max-width: 991.98px) {
 
+    /* Contenedor principal: permite que el collapse baje a una nueva línea */
+    .navbar .container-fluid {
+        flex-wrap: wrap !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        align-items: center !important;
+    }
 
-    /* TODO ESTO ES PARA EL NAV */
+    /* Logo y toggler ocupan la primera fila */
+    .navbar-brand {
+        flex-shrink: 1 !important;
+    }
+
+    .navbar-toggler {
+        flex-shrink: 0 !important;
+        margin-left: auto !important;
+    }
+
+    /* El collapse ocupa la segunda fila completa */
+    #navbarNav {
+        width: 100% !important;
+        flex-basis: 100% !important;
+    }
+
+    /* TODO ESTO ES PARA EL NAV (lo que ya tenías) */
     .navbar-collapse {
         text-align: center;
         padding-top: 1rem;
         display: flex;
-        flex-direction:column;
+        flex-direction: column;
         align-items: center;
     }
 
@@ -191,45 +213,44 @@ body{
         margin: 5px 10px;
     }
 
-    .busquedaYusuario{
+    .busquedaYusuario {
         margin-bottom: 5px;
         margin: auto;
         flex-direction: row !important;
-        justify-content: center;       
-        width: 100%; 
+        justify-content: center;
+        width: 100%;
     }
 
-    .links{
+    .links {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
     }
 
-    .navbar-toggler{
+    .navbar-toggler {
         background-color: transparent;
-        border: 1px solid var(--SECONDARY)
+        border: 1px solid var(--SECONDARY);
     }
 
-    .icono-hamb{
+    .icono-hamb {
         color: var(--SECONDARY);
         font-size: 20px;
         display: inline-block;
         transition: transform 0.5s ease;
     }
 
-    .icono-hamb.rotado{
+    .icono-hamb.rotado {
         transform: rotate(180deg);
     }
 
-    .navbar-toggler:focus{
+    .navbar-toggler:focus {
         box-shadow: none;
     }
-    /**********************************************/
 
-    
-
-
+    .navbar-brand img {
+        width: 160px !important;
+    }
 }
 
 @media (max-width: 767px) {
@@ -244,7 +265,37 @@ body{
     }
 }
 
+@media (max-width: 576px) {
+    .navbar-brand img {
+        width: 160px !important;
+        transition: width 0.2s ease;
+    }
 
+    .navbar-expand-lg .container-fluid {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+}
+
+@media (max-width: 425px) {
+    .links, 
+    .navbar-nav {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 0 4px !important;
+    }
+
+    .btn-nav {
+        width: auto !important; 
+        font-size: 0.85rem !important;
+        padding: 4px 8px !important;
+    }
+}
 
 .header{
     background-color: var(--PRIMARY) !important;
@@ -254,6 +305,7 @@ body{
     background-color: var(--PRIMARY) !important;
     position: relative;    
 }
+
 
 /*------------------------------------------------ CARRUSEL INICIO ------------------------------------------------  */
 
