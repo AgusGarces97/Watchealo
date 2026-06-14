@@ -880,7 +880,7 @@ if (userName) {
             if (userName.value.trim().length <= 1 || userName.value.trim() === listaUsuarios[i].username) {
             errorUserName.style.display = "block";
             errorUserName.innerHTML = `
-                <p class="text-danger mb-1"><i class="bi bi-exclamation-circle-fill"></i> El nombre de usuario tiene menos de 2 caracteres o ya está en uso</p>
+                <p class="text-danger mb-1"><i class="bi bi-exclamation-circle-fill"></i> El nombre de usuario tiene menos de 2 letras o ya está en uso</p>
             `;
             userName.style.border = "3px solid red";
             algunError = true;
@@ -934,7 +934,7 @@ if(contraseña){
     if (contraseña.value.length < 6) {
         errorContraseña.style.display = "block";
         errorContraseña.innerHTML = `
-            <p class="text-danger"><i class="bi bi-exclaminations-circle"></i> La contraseña debe tener al menos 6 caracteres </p>
+            <p class="text-danger"><i class="bi bi-exclaminations-circle"></i> La contraseña debe tener al menos 6 letras </p>
         `;
         contraseña.style.border = "3px solid red";
         algunError = true;
