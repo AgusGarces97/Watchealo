@@ -98,6 +98,8 @@ class Usuario{
     }
 }
 
+const enPerfil = window.location.pathname.includes("perfil.html");
+
 // =========================================================
 // PRECARGA DE DATOS DESDE ARCHIVOS JSON A LOCALSTORAGE
 // =========================================================
@@ -1193,7 +1195,7 @@ if(btnCrearCuenta){
     // Guardar también qué usuario inició sesión actualmente:
     localStorage.setItem("usuarioLogeado", JSON.stringify(nuevoUsuario));
 
-    document.title = `Watchealo! - ${nuevoUsuario.username}`;
+    if (enPerfil) document.title = `Watchealo! - ${nuevoUsuario.username}`;
 
     comprobarEstadoSesion();
     renderizarFavoritosPerfil();
@@ -1226,14 +1228,16 @@ const perfilBiografia = document.getElementById('texto-bio'); // biografía
  */
 function comprobarEstadoSesion() {
     const usuarioActivo = JSON.parse(localStorage.getItem("usuarioLogeado"));
+    const enPerfil = window.location.pathname.includes("perfil.html");
 
     if (usuarioActivo) {
-        document.title = `Watchealo! - ${usuarioActivo.username}`;
-        // Ocultamos formulario de login y mostramos el perfil del usuario
+        // Solo cambia el título si estamos en perfil.html
+        if (enPerfil) {
+            document.title = `Watchealo! - ${usuarioActivo.username}`;
+        }
         if (conSinLogear) conSinLogear.style.display = "none";
         if (conLogeado) conLogeado.style.display = "block";
         
-        // Inyectamos el nombre del usuario logeado en el <h2> del perfil
         if (perfilUsername && vistaBanner && vistaPfp) {
             perfilUsername.textContent = usuarioActivo.username;
             vistaBanner.src = usuarioActivo.banner;
@@ -1241,8 +1245,10 @@ function comprobarEstadoSesion() {
             perfilBiografia.textContent = usuarioActivo.biografia;
         }
     } else {
-        document.title = "Watchealo! - Login";
-        // Si no hay sesión, forzamos mostrar el login y ocultar el perfil
+        // Solo cambia el título si estamos en perfil.html
+        if (enPerfil) {
+            document.title = "Watchealo! - Login";
+        }
         if (conSinLogear) conSinLogear.style.display = "block";
         if (conLogeado) conLogeado.style.display = "none";
     }
@@ -1275,7 +1281,7 @@ if (formLogin) {
             }
             localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioValido));
 
-            document.title = `Watchealo! - ${usuarioValido.username}`;
+            if (enPerfil) document.title = `Watchealo! - ${usuarioValido.username}`;
             
             // Reseteamos el formulario
             formLogin.reset();
@@ -1328,7 +1334,7 @@ if (btnLogout) {
 
                 localStorage.setItem("usuarios", JSON.stringify(usuariosCargados));
                 localStorage.removeItem("usuarioLogeado");
-                document.title = "Watchealo! - Login";
+                if (enPerfil) document.title = "Watchealo! - Login";
 
                 document.getElementById("contenedor-reseñas-perfil").innerHTML = "";
                 document.getElementById("contenedor-favoritos").innerHTML = "";
