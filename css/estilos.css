@@ -497,39 +497,8 @@ body{
 .carousel-wrap {
     padding: 2.5rem 0 3rem;
     background: linear-gradient(var(--PRIMARY), var(--TERCIARY), var(--PRIMARY));
-    height: 90vh;
 }
 
-
-@media (max-width: 1024px){
-    .carousel-wrap {
-        height: 70vh;
-    }
-}   
-
-@media (max-width: 768px){
-    .carousel-wrap {
-        height: 55vh;
-    }
-}  
-
-@media (max-width: 425px){
-    .carousel-wrap {
-        height: 40vh;
-    }
-}
-
-@media (max-width: 375px){
-    .carousel-wrap {
-        height: 45vh;
-    }
-}
-
-@media (max-width: 320px){
-    .carousel-wrap {
-        height: 40vh;
-    }
-}
 
 /* ── RESPONSIVE ── */
 
