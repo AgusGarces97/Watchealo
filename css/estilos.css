@@ -1902,6 +1902,17 @@ header.sticky-top{
     text-shadow: 0 0 8px var(--SECONDARY);
 }
 
+#contenido-sin-logear .posicion-password-relativa {
+    display: grid !important;
+    width: 100% !important;
+    margin-bottom: 1rem;
+}
+
+#contenido-sin-logear .posicion-password-relativa .form-control {
+    grid-area: 1 / 1 !important;
+    margin-bottom: 0 !important;
+}
+
 #input-fechaNac::-webkit-calendar-picker-indicator {
     /* Este filtro transforma el negro original exactamente en #acf2f2 */
     filter: invert(93%) sepia(21%) saturate(927%) hue-rotate(134deg) brightness(101%) contrast(93%);
@@ -1915,6 +1926,156 @@ header.sticky-top{
 .terminos:hover{
     color: var(--SECONDARY);
     text-shadow: 0 0 10px var(--CYAN);
+}
+
+.posicion-password-relativa {
+    position: relative !important;
+    width: 100%;
+    display: grid;
+}
+
+.posicion-password-relativa .form-control {
+    padding-right: 45px !important;
+    grid-area: 1 / 1; /* ocupa toda la celda del grid */
+}
+
+.btn-toggle-pass {
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    height: auto !important;
+    width: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    color: white !important;
+    z-index: 5;
+    transition: color 0.2s ease;
+}
+
+.btn-toggle-pass i {
+    display: inline-block !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
+    font-size: 1.1rem !important;
+}
+
+.btn-toggle-pass:hover {
+    color: var(--SECONDARY) !important;
+}
+
+.btn-toggle-pass:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* ── INPUTS CON LABEL FLOTANTE (LOGIN) ── */
+
+.input-flotante {
+    position: relative;
+    width: 100%;
+}
+
+.input-flotante .input-fl {
+    width: 100%;
+    padding: 0.75rem 1rem !important;
+    background-color: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid var(--TERCIARY) !important;
+    border-radius: 8px !important;
+    color: white !important;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+}
+
+.input-flotante .input-fl:focus {
+    border-color: var(--SECONDARY) !important;
+    box-shadow: 0 0 0 3px rgba(172, 242, 242, 0.12) !important;
+    background-color: rgba(172, 242, 242, 0.05) !important;
+    outline: none;
+}
+
+/* Label en reposo: centrado verticalmente dentro del input */
+.label-fl {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    padding: 0 4px;
+    border-radius: 100px;
+}
+
+/* Label flotando sobre el borde superior */
+.input-flotante .input-fl:focus ~ .label-fl,
+.input-flotante .input-fl:not(:placeholder-shown) ~ .label-fl {
+    top: 0;
+    transform: translateY(-50%) scale(0.8);
+    color: var(--SECONDARY);
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    /* Fondo que "corta" el borde del input y hace el efecto */
+    background-color: var(--TERCIARY);
+    padding: 0 6px;
+}
+
+/* Cuando está enfocado: color celeste del borde también */
+.input-flotante .input-fl:focus ~ .label-fl {
+    color: var(--SECONDARY);
+}
+
+/* Botón ojo dentro del .input-flotante */
+.input-flotante .btn-toggle-pass {
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    height: auto !important;
+    width: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    color: white !important;
+    z-index: 5;
+}
+
+.input-flotante .btn-toggle-pass:hover {
+    color: var(--SECONDARY) !important;
+}
+
+/* Limpia el selector viejo que pisaba estos inputs */
+#contenido-sin-logear .input-flotante .input-fl {
+    margin-bottom: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Fuerza el color blanco al escribir sobre un campo autocompletado */
+.input-fl {
+    -webkit-text-fill-color: white !important;
+    caret-color: white !important;
+}
+
+.input-fl:-webkit-autofill,
+.input-fl:-webkit-autofill:hover,
+.input-fl:-webkit-autofill:focus,
+.input-fl:-webkit-autofill:active,
+.input-fl:focus:-webkit-autofill,
+.input-fl:active:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #0b1e26 inset !important;
+    -webkit-text-fill-color: white !important;
+    caret-color: white !important;
+    border-color: var(--SECONDARY) !important;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 /*------------------------------------------------ RESPONSIVO PERFIL ------------------------------------------------*/
