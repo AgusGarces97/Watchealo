@@ -188,13 +188,28 @@
                 </div>
                 <form novalidate id="formulario_login">
                     <div class="row">
-                        <div class="col-12 d-flex flex-column align-items-center">
-                            <input type="text" id="login-username" class="form-control mb-3" placeholder="Nombre de Usuario o Email" required>
-                            <input type="password" id="login-password" class="form-control mb-3" placeholder="Contraseña" required>
+                        <div class="col-12 d-flex flex-column align-items-center gap-3">
                             
-                            <button type="submit" class="btn btn-outline-success rounded-pill px-4 py-2 fw-bold mb-3">
+                            <!-- Campo: Usuario o Email -->
+                            <div class="input-flotante w-100">
+                                <input type="text" id="login-username" class="input-fl form-control" placeholder=" " required>
+                                <label for="login-username" class="label-fl">Nombre de Usuario o Email</label>
+                            </div>
+                            
+                            <!-- Campo: Contraseña -->
+                            <div class="input-flotante w-100">
+                                <input type="password" id="login-password" class="input-fl form-control" placeholder=" " required style="padding-right: 45px !important;">
+                                <label for="login-password" class="label-fl">Contraseña</label>
+                                <button class="btn btn-toggle-pass" type="button" id="toggle-login-password">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Botón de Enviar -->
+                            <button type="submit" class="btn btn-outline-success rounded-pill px-4 py-2 fw-bold">
                                 Iniciar Sesión
                             </button>
+                            
                         </div>
                     </div>
                 </form>
@@ -258,14 +273,27 @@
                             <input type="email" class="form-control" id="input-email" aria-describedby="email-help">
                             <div id="email-aviso" class="form-text" style="display: none;"></div>
                         </div>
+                        <!-- Campo: Contraseña -->
                         <div class="mb-3">
                             <label for="input-password" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="input-password" aria-describedby="password-aviso">
+                            <div class="posicion-password-relativa w-100">
+                                <input type="password" class="form-control" id="input-password" aria-describedby="password-aviso">
+                                <button class="btn btn-toggle-pass" type="button" id="toggle-password">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
                             <div id="password-aviso" class="form-text" style="display: none;"></div>
                         </div>
+
+                        <!-- Campo: Confirmar Contraseña -->
                         <div class="mb-3">
                             <label for="input-confirmPassword" class="form-label">Confirmar Contraseña</label>
-                            <input type="password" class="form-control" id="input-confirmPassword" aria-describedby="confirmPassword-aviso">
+                            <div class="posicion-password-relativa w-100">
+                                <input type="password" class="form-control" id="input-confirmPassword" aria-describedby="confirmPassword-aviso">
+                                <button class="btn btn-toggle-pass" type="button" id="toggle-confirmPassword">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
                             <div id="confirmPassword-aviso" class="form-text" style="display: none;"></div>
                         </div>
                         <div class="mb-3">

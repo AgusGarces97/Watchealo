@@ -1313,6 +1313,39 @@ if (formLogin) {
     });
 }
 
+// FUNCIÓN OJO DE PEZ
+document.addEventListener("DOMContentLoaded", function () {
+    // Función genérica para alternar visibilidad
+    function asociarTogglePassword(idBoton, idInput) {
+        const boton = document.getElementById(idBoton);
+        const input = document.getElementById(idInput);
+        
+        if (boton && input) {
+            boton.addEventListener("click", function () {
+                const icono = this.querySelector("i");
+                
+                if (input.type === "password") {
+                    input.type = "text";
+                    // Cambiamos el ojo abierto por el ojo tachado
+                    icono.classList.remove("bi-eye");
+                    icono.classList.add("bi-eye-slash");
+                } else {
+                    input.type = "password";
+                    // Volvemos al ojo abierto
+                    icono.classList.remove("bi-eye-slash");
+                    icono.classList.add("bi-eye");
+                }
+            });
+        }
+    }
+
+    // Registro
+    asociarTogglePassword("toggle-password", "input-password");
+    asociarTogglePassword("toggle-confirmPassword", "input-confirmPassword");
+    // Login
+    asociarTogglePassword("toggle-login-password", "login-password");
+});
+
 
 // ESCUCHA DEL BOTÓN CERRAR SESIÓN
 if (btnLogout) {

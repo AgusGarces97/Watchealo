@@ -126,21 +126,7 @@ body{
     font-size: var(--sizeNav);
 }
 
-.btn-nav{
-    color: var(--WHITE);
-    transition: color 0.3s ease;
-    font-size: var(--sizeNav);
-    font-weight: bold;   
-    border-radius: 10px;
-    width: 15vh;
-    text-align: center;
-    transition: all 0.3s ease;
-}
 
-.btn-nav:hover{
-    color: var(--SECONDARY);
-    text-shadow: 0 0 8px var(--SECONDARY);   
-}
 
 
 
@@ -170,9 +156,69 @@ body{
     transform: scale(1.05) !important;
 }
 
+/* ==========================================================================
+   1. ESTILOS BASE GENERALES (Comunes para todos)
+   ========================================================================== */
+
+.btn-nav {
+    color: var(--WHITE);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    font-size: var(--sizeNav);
+    font-weight: bold;   
+    border-radius: 10px;
+    text-align: center;
+    width: auto !important; 
+    padding: 6px 14px;
+}
+
+.btn-nav:hover {
+    color: var(--SECONDARY);
+    text-shadow: 0 0 8px var(--SECONDARY);   
+}
+
+.navbar-nav .nav-item {
+    margin: 0 !important;
+}
+
+
+/* ==========================================================================
+   2. SOLO PARA ESCRITORIO (Pantallas Grandes de 992px en adelante)
+   ========================================================================== */
+@media (min-width: 992px) {
+    .navbar .container-fluid {
+        position: relative; 
+    }
+
+    .navbar-collapse {
+        display: flex !important;
+        width: 100%;
+    }
+
+    /* Centrado absoluto REAL: Solo vive en computadoras */
+    .navbar-nav.links {
+        position: absolute !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important; 
+        margin: 0 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 15px;
+        z-index: 10;
+    }
+
+    .busquedaYusuario {
+        margin-left: auto !important; 
+        margin-right: 0 !important;
+    }
+}
+
+
+/* ==========================================================================
+   3. PARA TABLETS Y MÓVILES (Pantallas Menores a 991.98px)
+   ========================================================================== */
 @media (max-width: 991.98px) {
 
-    /* Contenedor principal: permite que el collapse baje a una nueva línea */
     .navbar .container-fluid {
         flex-wrap: wrap !important;
         padding-left: 8px !important;
@@ -180,7 +226,6 @@ body{
         align-items: center !important;
     }
 
-    /* Logo y toggler ocupan la primera fila */
     .navbar-brand {
         flex-shrink: 1 !important;
     }
@@ -188,49 +233,42 @@ body{
     .navbar-toggler {
         flex-shrink: 0 !important;
         margin-left: auto !important;
+        background-color: transparent;
+        border: 1px solid var(--SECONDARY);
     }
 
-    /* El collapse ocupa la segunda fila completa */
-    #navbarNav {
-        width: 100% !important;
-        flex-basis: 100% !important;
-    }
-
-    /* TODO ESTO ES PARA EL NAV (lo que ya tenías) */
+    /* El colapso se vuelve un contenedor vertical normal */
     .navbar-collapse {
+        display: flex;
+        flex-direction: column !important;
         text-align: center;
         padding-top: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        width: 100% !important;
     }
 
-    .navbar-nav {
-        margin-bottom: 1.5rem;
+    /* IMPORTANTE: Desactivamos el absoluto aquí devolviendo el flujo nativo */
+    .navbar-nav.links {
+        position: relative !important;
+        left: 0 !important;
+        top: 0 !important;
+        transform: none !important; /* Quitamos el translate que lo rompía en image_afe01a.png */
+        margin: 1rem auto 1.5rem auto !important;
+        flex-direction: row !important; /* Uno al lado del otro */
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+        width: 100% !important;
+        gap: 0 !important;
     }
 
     .navbar-nav .nav-item {
-        margin: 5px 10px;
+        margin: 0 8px !important; /* Espaciado entre botones en mobile */
     }
 
     .busquedaYusuario {
-        margin-bottom: 5px;
-        margin: auto;
+        margin: 0 auto 5px auto !important;
         flex-direction: row !important;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .links {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .navbar-toggler {
-        background-color: transparent;
-        border: 1px solid var(--SECONDARY);
+        justify-content: center !important;
+        width: 100% !important;
     }
 
     .icono-hamb {
@@ -253,47 +291,27 @@ body{
     }
 }
 
-@media (max-width: 767px) {
-    .reseñas_perfil{
-        display: flex;
-        flex-direction: row;
-        
-    }
 
-    .reseña{
-        margin: 0% 10%;
-    }
-}
-
-@media (max-width: 576px) {
-    .navbar-brand img {
-        width: 160px !important;
-        transition: width 0.2s ease;
-    }
-
-    .navbar-expand-lg .container-fluid {
-        padding-left: 5px !important;
-        padding-right: 5px !important;
-    }
-}
-
+/* ==========================================================================
+   4. OPTIMIZACIÓN MÓVIL EXTREMA (Mobile M y S)
+   ========================================================================== */
 @media (max-width: 425px) {
-    .links, 
-    .navbar-nav {
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        justify-content: center !important;
-        width: 100% !important;
-    }
-
     .navbar-nav .nav-item {
         margin: 0 4px !important;
     }
 
     .btn-nav {
-        width: auto !important; 
         font-size: 0.85rem !important;
-        padding: 4px 8px !important;
+        padding: 4px 6px !important;
+    }
+}
+
+@media (max-width: 340px) {
+    .navbar-nav .nav-item {
+        margin: 0 2px !important;
+    }
+    .btn-nav {
+        font-size: 0.75rem !important;
     }
 }
 
@@ -1884,6 +1902,17 @@ header.sticky-top{
     text-shadow: 0 0 8px var(--SECONDARY);
 }
 
+#contenido-sin-logear .posicion-password-relativa {
+    display: grid !important;
+    width: 100% !important;
+    margin-bottom: 1rem;
+}
+
+#contenido-sin-logear .posicion-password-relativa .form-control {
+    grid-area: 1 / 1 !important;
+    margin-bottom: 0 !important;
+}
+
 #input-fechaNac::-webkit-calendar-picker-indicator {
     /* Este filtro transforma el negro original exactamente en #acf2f2 */
     filter: invert(93%) sepia(21%) saturate(927%) hue-rotate(134deg) brightness(101%) contrast(93%);
@@ -1897,6 +1926,156 @@ header.sticky-top{
 .terminos:hover{
     color: var(--SECONDARY);
     text-shadow: 0 0 10px var(--CYAN);
+}
+
+.posicion-password-relativa {
+    position: relative !important;
+    width: 100%;
+    display: grid;
+}
+
+.posicion-password-relativa .form-control {
+    padding-right: 45px !important;
+    grid-area: 1 / 1; /* ocupa toda la celda del grid */
+}
+
+.btn-toggle-pass {
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    height: auto !important;
+    width: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    color: white !important;
+    z-index: 5;
+    transition: color 0.2s ease;
+}
+
+.btn-toggle-pass i {
+    display: inline-block !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
+    font-size: 1.1rem !important;
+}
+
+.btn-toggle-pass:hover {
+    color: var(--SECONDARY) !important;
+}
+
+.btn-toggle-pass:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* ── INPUTS CON LABEL FLOTANTE (LOGIN) ── */
+
+.input-flotante {
+    position: relative;
+    width: 100%;
+}
+
+.input-flotante .input-fl {
+    width: 100%;
+    padding: 0.75rem 1rem !important;
+    background-color: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid var(--TERCIARY) !important;
+    border-radius: 8px !important;
+    color: white !important;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+}
+
+.input-flotante .input-fl:focus {
+    border-color: var(--SECONDARY) !important;
+    box-shadow: 0 0 0 3px rgba(172, 242, 242, 0.12) !important;
+    background-color: rgba(172, 242, 242, 0.05) !important;
+    outline: none;
+}
+
+/* Label en reposo: centrado verticalmente dentro del input */
+.label-fl {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    padding: 0 4px;
+    border-radius: 100px;
+}
+
+/* Label flotando sobre el borde superior */
+.input-flotante .input-fl:focus ~ .label-fl,
+.input-flotante .input-fl:not(:placeholder-shown) ~ .label-fl {
+    top: 0;
+    transform: translateY(-50%) scale(0.8);
+    color: var(--SECONDARY);
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    /* Fondo que "corta" el borde del input y hace el efecto */
+    background-color: var(--TERCIARY);
+    padding: 0 6px;
+}
+
+/* Cuando está enfocado: color celeste del borde también */
+.input-flotante .input-fl:focus ~ .label-fl {
+    color: var(--SECONDARY);
+}
+
+/* Botón ojo dentro del .input-flotante */
+.input-flotante .btn-toggle-pass {
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    height: auto !important;
+    width: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    color: white !important;
+    z-index: 5;
+}
+
+.input-flotante .btn-toggle-pass:hover {
+    color: var(--SECONDARY) !important;
+}
+
+/* Limpia el selector viejo que pisaba estos inputs */
+#contenido-sin-logear .input-flotante .input-fl {
+    margin-bottom: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Fuerza el color blanco al escribir sobre un campo autocompletado */
+.input-fl {
+    -webkit-text-fill-color: white !important;
+    caret-color: white !important;
+}
+
+.input-fl:-webkit-autofill,
+.input-fl:-webkit-autofill:hover,
+.input-fl:-webkit-autofill:focus,
+.input-fl:-webkit-autofill:active,
+.input-fl:focus:-webkit-autofill,
+.input-fl:active:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #0b1e26 inset !important;
+    -webkit-text-fill-color: white !important;
+    caret-color: white !important;
+    border-color: var(--SECONDARY) !important;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 /*------------------------------------------------ RESPONSIVO PERFIL ------------------------------------------------*/
