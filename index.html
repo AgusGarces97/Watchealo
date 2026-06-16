@@ -255,6 +255,24 @@
 
     </div>
 </footer>
+
+<!-- Modal de Aviso del Sistema -->
+<div class="modal fade" id="modalAvisoSistemaDetalle" tabindex="-1" aria-labelledby="modalAvisoLabelDetalle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background-color: var(--PRIMARY); border: 2px solid var(--SECONDARY); color: white;">
+            <div class="modal-header" style="border-bottom: 1px solid rgba(172, 242, 242, 0.15);">
+                <h5 class="modal-title fw-bold" id="modalAvisoLabelDetalle" style="color: var(--SECONDARY);"></h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body py-4" id="modalAvisoBodyDetalle"></div>
+            <div class="modal-footer" style="border-top: 1px solid rgba(172, 242, 242, 0.15);">
+                <button type="button" class="btn btn-outline-info rounded-pill px-4" id="btnCerrarAviso" data-bs-dismiss="modal" style="border-color: var(--SECONDARY); color: var(--SECONDARY);">
+                    Entendido
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
     
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

@@ -53,9 +53,13 @@ enviarContacto.addEventListener('click', () => {
     // 2. Obtenemos la respuesta del reCAPTCHA
     const captchaResponse = grecaptcha.getResponse();
 
-    // 3. Si los campos están bien, pero no marcó el captcha, avisamos
+    // 3. Si los campos están bien, pero NO marcó el captcha, avisamos del ERROR
     if (camposValidos && captchaResponse.length === 0) {
-        alert('Por favor, completa el captcha para demostrar que no eres un robot.');
+        mostrarAvisoDetalle(
+            `<span>¡Atención! <i class="bi bi-exclamation-triangle"></i></span>`, 
+            `<span>Por favor, completa el reCAPTCHA para demostrar que no eres un robot.</span>`,
+            false // No es éxito, es un aviso de bloqueo
+        );
         return; // Frena el envío
     }
 
@@ -70,3 +74,33 @@ enviarContacto.addEventListener('click', () => {
         grecaptcha.reset(); // Opcional: resetea el captcha visualmente por si acaso
     }
 });
+
+// =========================================================
+// FUNCIÓN AUXILIAR PARA MOSTRAR EL MODAL DE AVISO
+// =========================================================
+function mostrarAvisoDetalle(titulo, mensajeHTML, esExito = false) {
+    const modalElemento = document.getElementById("modalAvisoSistemaDetalle");
+    const modalTitulo = document.getElementById("modalAvisoLabelDetalle");
+    const modalBody = document.getElementById("modalAvisoBodyDetalle");
+
+    if (modalElemento && modalTitulo && modalBody) {
+        modalTitulo.innerHTML = titulo;
+        modalBody.innerHTML = mensajeHTML;
+
+        // Inicializamos y mostramos el modal de aviso usando Bootstrap
+        const miModal = new bootstrap.Modal(modalElemento);
+        miModal.show();
+
+        // SI ES ÉXITO: Cuando el usuario cierre el aviso, cerramos también el formulario de registro de fondo
+        if (esExito) {
+            modalElemento.addEventListener('hidden.bs.modal', () => {
+                // Cambiá "modal_registro" por el ID exacto que tenga tu modal de formulario si es diferente
+                const modalFormulario = document.getElementById("modal_registro") || document.querySelector(".modal.show");
+                if (modalFormulario) {
+                    const instanciaForm = bootstrap.Modal.getInstance(modalFormulario);
+                    if (instanciaForm) instanciaForm.hide();
+                }
+            }, { once: true }); // El evento se ejecuta una sola vez y se limpia
+        }
+    }
+}
