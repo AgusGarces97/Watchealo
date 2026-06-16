@@ -44,21 +44,29 @@ inputEmail.addEventListener('input',   () => { if (inputEmail.classList.contains
 inputMensaje.addEventListener('input', () => { if (inputMensaje.classList.contains('is-invalid') || inputMensaje.classList.contains('is-valid')) validarMensaje(); });
 
 /* ── Submit ── */
-
 const enviarContacto = document.getElementById('boton-enviar-contacto');
 
-enviarContacto.addEventListener('click', ()=>{
-    const ok = validarNombre() & validarEmail() & validarMensaje();
-    if (ok) {
+enviarContacto.addEventListener('click', () => {
+    // 1. Validamos los campos de texto usando && comunes
+    const camposValidos = validarNombre() && validarEmail() && validarMensaje();
+    
+    // 2. Obtenemos la respuesta del reCAPTCHA
+    const captchaResponse = grecaptcha.getResponse();
+
+    // 3. Si los campos están bien, pero no marcó el captcha, avisamos
+    if (camposValidos && captchaResponse.length === 0) {
+        alert('Por favor, completa el captcha para demostrar que no eres un robot.');
+        return; // Frena el envío
+    }
+
+    // 4. Si todo está correcto (campos y captcha)
+    if (camposValidos && captchaResponse.length > 0) {
         formContacto.style.display = 'none';
         confirmacion.classList.add('visible');
         
+        // Enviamos y reseteamos
         formContacto.submit();
-        formContacto.reset()
+        formContacto.reset();
+        grecaptcha.reset(); // Opcional: resetea el captcha visualmente por si acaso
     }
 });
-
-
-
-
-
