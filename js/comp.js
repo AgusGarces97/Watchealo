@@ -106,6 +106,14 @@ class Usuario{
 const enPerfil = window.location.pathname.includes("perfil.html");
 
 // ==========================================
+//   HELPER: RUTA BASE SEGÚN PROFUNDIDAD
+// ==========================================
+function rutaBase() {
+    const enCarpetaHtml = window.location.pathname.includes("/html/");
+    return enCarpetaHtml ? "../" : "";
+}
+
+// ==========================================
 //   HELPER: TRANSICIÓN SUAVE AL CAMBIAR IMAGEN
 // ==========================================
 function cambiarImagenConFade(imgElement, nuevoSrc) {
@@ -138,7 +146,7 @@ async function precargarUsuarios() {
     if (!localStorage.getItem("usuarios")) {
         try {
             // NOTA: Ajustá la ruta según dónde tengas guardado el JSON (ej: '../json/usuarios.json')
-            const respuesta = await fetch("../json/usuarios.json"); 
+            const respuesta = await fetch(`${rutaBase()}json/usuarios.json`); 
             
             if (!respuesta.ok) {
                 throw new Error(`Error al leer usuarios.json: ${respuesta.status}`);
@@ -162,7 +170,7 @@ async function precargarPelisYSeries() {
     if (!localStorage.getItem("peliculas_series")) {
         try {
             // NOTA: Ajustá la ruta si el archivo está en otra carpeta (ej: 'pelis_y_series.json')
-            const respuesta = await fetch("../json/pelis_y_series.json");
+            const respuesta = await fetch(`${rutaBase()}json/pelis_y_series.json`);
             
             if (!respuesta.ok) {
                 throw new Error(`Error al leer pelis_y_series.json: ${respuesta.status}`);
@@ -222,7 +230,7 @@ const trailerDetalle = document.getElementById("linkTrailer");
 window.addEventListener('load', () => {
 
     // Traer los datos del JSON
-    fetch('../json/pelis_y_series.json')
+    fetch(`${rutaBase()}json/pelis_y_series.json`)
         .then(res => res.json())
         .then(datosJSON => {
             
@@ -1914,7 +1922,7 @@ function mostrarMejorPuntuados() {
     // Construimos el HTML de esta tarjeta
         tarjetasHTML += `
         <div class="col">
-            <a href="html/detalle.html?id=${pelicula.id}" class="text-decoration-none">
+            <a href="${rutaBase()}html/detalle.html?id=${pelicula.id}" class="text-decoration-none">
                 <div class="card pelicula-card">
                     <span class="ranking-label">${i + 1}</span>
                     <div class="pelicula-img-wrap">
@@ -1986,7 +1994,7 @@ function mostrarMasRecientes(){
             <div class="carousel-caption">
                 <div class="caption-inner">
 
-                    <a href="detalle.html?id=${listaPelisOrdenada[i].id}"
+                    <a href="${rutaBase()}html/detalle.html?id=${listaPelisOrdenada[i].id}"
                        class="text-decoration-none portada-carrusel">
 
                         <img class="caption-poster"
