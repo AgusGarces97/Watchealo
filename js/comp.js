@@ -42,18 +42,23 @@ collapse.addEventListener('hide.bs.collapse', () => {
 
 const formBusqueda = document.getElementById("busquedaNav");
 
-
 formBusqueda.addEventListener("submit", (e) => {
 
     e.preventDefault();
 
     const texto = cuadroBusqueda.value.trim();
 
-    if(texto !== ""){
+    if (texto !== "") {
+
+        // Detecta si la página actual ya está dentro de la carpeta "html/"
+        const enCarpetaHtml = window.location.pathname.includes("/html/");
+
+        // Si ya estamos en html/, el destino es relativo (mismo nivel)
+        // Si estamos en la raíz (index.html), hay que entrar a html/
+        const rutaDestino = enCarpetaHtml ? "explorar.html" : "html/explorar.html";
 
         window.location.href =
-        `explorar.html?busqueda=${encodeURIComponent(texto)}`;
-
+            `${rutaDestino}?busqueda=${encodeURIComponent(texto)}`;
     }
 
 });
@@ -1909,7 +1914,7 @@ function mostrarMejorPuntuados() {
     // Construimos el HTML de esta tarjeta
         tarjetasHTML += `
         <div class="col">
-            <a href="detalle.html?id=${pelicula.id}" class="text-decoration-none">
+            <a href="html/detalle.html?id=${pelicula.id}" class="text-decoration-none">
                 <div class="card pelicula-card">
                     <span class="ranking-label">${i + 1}</span>
                     <div class="pelicula-img-wrap">
