@@ -192,15 +192,19 @@ async function precargarPelisYSeries() {
 // =========================================================
 // EJECUCIÓN AL CARGAR LA PÁGINA
 // =========================================================
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
     // Llamamos a las funciones de precarga apenas el HTML esté listo
-    precargarUsuarios();
-    precargarPelisYSeries();
+    await precargarUsuarios();
+    await precargarPelisYSeries();
 
-    // Inicialización correcta para Bootstrap 5 incorporando el contenedor global
+    // Recién ahora el localStorage tiene los datos garantizados
+    mostrarMejorPuntuados();
+    mostrarMasRecientes();
+
+    // Inicialización de popovers
     const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
     const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl, {
-    container: 'body' // <--- ESTO EVITA QUE EL OVERFLOW LO OCULTE
+    container: 'body' 
     }))
     
 });
@@ -1942,9 +1946,6 @@ function mostrarMejorPuntuados() {
     contenedor.innerHTML = `<div class="row g-3 row-cols-2 row-cols-md-5">${tarjetasHTML}</div>`;
 }
 
-mostrarMejorPuntuados();
-document.addEventListener('load', mostrarMejorPuntuados());
-
 function mostrarMasRecientes(){
     const contenedorCarrusel = document.getElementById("contenedor-carrusel");
     const listaPelis = JSON.parse(localStorage.getItem('peliculas_series'));
@@ -2060,8 +2061,6 @@ if (elementoCarrusel) {
     
     
 }
-
-mostrarMasRecientes();
 
 class PeliPuntuada{
     constructor(idPeli, puntaje){
