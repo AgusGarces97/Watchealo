@@ -10,6 +10,17 @@
     --sizeNav: 1rem;
 }
 
+.popover {
+    --bs-popover-bg: var(--CARD);
+    --bs-popover-border-color: var(--SECONDARY);
+    --bs-popover-header-bg: var(--PRIMARY);
+    --bs-popover-header-color: var(--SECONDARY);
+    --bs-popover-body-color: white;
+    --bs-popover-body-padding-x: 0.9rem;
+    --bs-popover-body-padding-y: 0.5rem;
+    --bs-popover-arrow-height: 0.5rem;
+    border-radius: 10px;
+}
 
 body{
     background-color: var(--PRIMARY);
@@ -897,6 +908,7 @@ header.sticky-top{
     border: 2px solid var(--SECONDARY);
     display: block;
     opacity: 1;
+    transition: opacity 0.25s ease;
 }
 
 .banner-filtro{
@@ -964,6 +976,7 @@ header.sticky-top{
     background-color: white;
     border: 3px solid var(--SECONDARY);
     display: block;
+    transition: opacity 0.25s ease;
 }
 
 /* Botón cámara — centrado debajo de la foto */
@@ -1031,7 +1044,7 @@ header.sticky-top{
     gap: 8px;
     transition: all 0.3s ease;
     cursor: pointer;
-    z-index: 10;
+    z-index: 1050;
 }
 
 .btn-cambiar-banner:hover {
@@ -1222,21 +1235,21 @@ header.sticky-top{
 
 .btn-eliminar-pfp {
     position: absolute;
-    bottom: -14px;
-    right: -10px;
+    top: 0;
+    right: 0;
     background-color: var(--PRIMARY);
     border: 2px solid var(--CUATERNARY);
     color: var(--CUATERNARY);
     border-radius: 50%;
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 1051;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
 }
 
 .btn-eliminar-pfp:hover {
@@ -1282,25 +1295,24 @@ header.sticky-top{
     }
 
     .btn-eliminar-pfp {
-        width: 30px;
-        height: 30px;
-        right: -20px;
+        width: 26px;
+        height: 26px;
+        font-size: 0.65rem;
     }
 }
 
-/* Responsive: en mobile ambos botones se vuelven íconos circulares */
 @media (max-width: 576px) {
     .btn-eliminar-banner {
         bottom: 15px;
         right: 60px; /* espacio desde el btn-cambiar-banner que en mobile es círculo de 40px a right:12px */
         width: 40px;
         height: 40px;
-        
     }
 
     .btn-eliminar-pfp {
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
+        font-size: 0.6rem;
     }
 }
 
@@ -1311,8 +1323,11 @@ header.sticky-top{
         width: 28px;
         height: 28px;
     }
+
     .btn-eliminar-pfp {
-        right: -15px;
+        width: 22px;
+        height: 22px;
+        font-size: 0.55rem;
     }
 }
 
@@ -3453,4 +3468,59 @@ footer .container-fluid > .row:last-child p {
 
 .btn-close-personalizado:hover {
     color: white; /* Color al pasar el mouse */
+}
+
+/*------------------------------------------------ POPOVERS PERSONALIZADOS ------------------------------------------------*/
+
+.popover {
+    background-color: var(--CARD);
+    border: 1px solid var(--SECONDARY);
+    border-radius: 10px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+
+.popover .popover-body {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.5rem 0.9rem;
+    border-radius: 10px;
+}
+
+/* Si en algún momento usás popover-header */
+.popover .popover-header {
+    background-color: var(--PRIMARY);
+    color: var(--SECONDARY);
+    border-bottom: 1px solid var(--BORDER);
+    font-weight: 600;
+}
+
+/* Flechita: cada dirección tiene su propio pseudo-elemento ::before/::after */
+.popover .popover-arrow::before,
+.popover .popover-arrow::after {
+    border-color: transparent;
+}
+
+/* Top */
+.bs-popover-top > .popover-arrow::after,
+.bs-popover-auto[data-popper-placement^="top"] > .popover-arrow::after {
+    border-top-color: var(--CARD);
+}
+
+/* Bottom */
+.bs-popover-bottom > .popover-arrow::after,
+.bs-popover-auto[data-popper-placement^="bottom"] > .popover-arrow::after {
+    border-bottom-color: var(--CARD);
+}
+
+/* Left */
+.bs-popover-start > .popover-arrow::after,
+.bs-popover-auto[data-popper-placement^="left"] > .popover-arrow::after {
+    border-left-color: var(--CARD);
+}
+
+/* Right */
+.bs-popover-end > .popover-arrow::after,
+.bs-popover-auto[data-popper-placement^="right"] > .popover-arrow::after {
+    border-right-color: var(--CARD);
 }
