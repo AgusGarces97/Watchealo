@@ -1930,7 +1930,7 @@ function mostrarMejorPuntuados() {
                 <div class="card pelicula-card">
                     <span class="ranking-label">${i + 1}</span>
                     <div class="pelicula-img-wrap">
-                        <img src="${pelicula.portada}" class="card-img-top pelicula-img" alt="${pelicula.titulo}">
+                        <img src="${rutaBase()}${pelicula.portada}" class="card-img-top pelicula-img" alt="${pelicula.titulo}">
                     </div>
                     <div class="card-body pelicula-info">
                         <span class="card-title pelicula-titulo">${pelicula.titulo}</span>
@@ -1975,7 +1975,7 @@ function mostrarMasRecientes(){
         <!-- SLIDE -->
         <div class="carousel-item ${claseActive}">
             <img class="backdrop"
-                 src="${listaPelisOrdenada[i].banner}"
+                 src="${rutaBase()}${listaPelisOrdenada[i].banner}"
                  alt="${listaPelisOrdenada[i].titulo}">
 
             <span class="badge-trailer">Tráiler Oficial</span>
@@ -1999,7 +1999,7 @@ function mostrarMasRecientes(){
                        class="text-decoration-none portada-carrusel">
 
                         <img class="caption-poster"
-                             src="${listaPelisOrdenada[i].portada}"
+                             src="${rutaBase()}${listaPelisOrdenada[i].portada}"
                              alt="${listaPelisOrdenada[i].titulo}">
                     </a>
 
