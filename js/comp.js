@@ -113,6 +113,12 @@ function rutaBase() {
     return enCarpetaHtml ? "../" : "";
 }
 
+// Quita el "../" del principio de la ruta si existe
+const limpiarRuta = (ruta) => {
+    if (!ruta) return "";
+    return ruta.startsWith("../") ? ruta.substring(3) : ruta;
+};
+
 // ==========================================
 //   HELPER: TRANSICIÓN SUAVE AL CAMBIAR IMAGEN
 // ==========================================
@@ -1908,29 +1914,22 @@ function mostrarMejorPuntuados() {
 
     if (!contenedor || !listaPelis) return;
 
-    // 1. PRIMERO: Ordenamos la lista completa (sin cortar nada todavía)
-    // Usamos slice() vacío solo para hacer una copia y no alterar el original
     const listaOrdenada = listaPelis.slice().sort((a, b) => b.puntuacionTotal - a.puntuacionTotal);
 
     let tarjetasHTML = "";
 
-    // 2. SEGUNDO: Usamos un bucle para recorrer. 
-    // La condición (i < listaOrdenada.length && i < 10) es tu freno de seguridad.
     for (let i = 0; i < listaOrdenada.length; i++) {
-        
-        // Esta es la condición que "frena" al llegar a 10
         if (i >= 10) break; 
 
         const pelicula = listaOrdenada[i];
 
-    // Construimos el HTML de esta tarjeta
         tarjetasHTML += `
         <div class="col">
             <a href="${rutaBase()}html/detalle.html?id=${pelicula.id}" class="text-decoration-none">
                 <div class="card pelicula-card">
                     <span class="ranking-label">${i + 1}</span>
                     <div class="pelicula-img-wrap">
-                        <img src="${rutaBase()}${pelicula.portada}" class="card-img-top pelicula-img" alt="${pelicula.titulo}">
+                        <img src="${rutaBase()}${limpiarRuta(pelicula.portada)}" class="card-img-top pelicula-img" alt="${pelicula.titulo}">
                     </div>
                     <div class="card-body pelicula-info">
                         <span class="card-title pelicula-titulo">${pelicula.titulo}</span>
@@ -1941,8 +1940,6 @@ function mostrarMejorPuntuados() {
         </div>`;
     }
     
-
-    // Inyectamos todo dentro de una sola fila
     contenedor.innerHTML = `<div class="row g-3 row-cols-2 row-cols-md-5">${tarjetasHTML}</div>`;
 }
 
@@ -1950,116 +1947,94 @@ function mostrarMasRecientes(){
     const contenedorCarrusel = document.getElementById("contenedor-carrusel");
     const listaPelis = JSON.parse(localStorage.getItem('peliculas_series'));
 
+    if (!contenedorCarrusel || !listaPelis) return; // Control de seguridad
+
     let listaPelisOrdenada = listaPelis.slice();
     
-    
-        // Función auxiliar para convertir "dd-mm-yyyy" a un objeto Date
-            const convertirAFecha = (fechaStr) => {
-            const [dia, mes, anio] = fechaStr.split('-').map(Number);
-            // Nota: en JS los meses van de 0 a 11, por eso restamos 1 al mes
-            return new Date(anio, mes - 1, dia);
-            };
+    // Función auxiliar para convertir "dd-mm-yyyy" a un objeto Date
+    const convertirAFecha = (fechaStr) => {
+        const [dia, mes, anio] = fechaStr.split('-').map(Number);
+        return new Date(anio, mes - 1, dia);
+    };
 
-        // Ordenar de más reciente a más antigua
-        listaPelisOrdenada.sort((a, b) => {
+    // Ordenar de más reciente a más antigua
+    listaPelisOrdenada.sort((a, b) => {
         return convertirAFecha(b.fechaEstreno) - convertirAFecha(a.fechaEstreno);
-        });
+    });
     
-    if(contenedorCarrusel){
-        contenedorCarrusel.innerHTML = "";
-    for (let i = 0; i < 4; i++) {
+    contenedorCarrusel.innerHTML = "";
+    
+    for (let i = 0; i < listaPelisOrdenada.length && i < 4; i++) {
 
-    const claseActive = i === 0 ? "active" : "";
+        const claseActive = i === 0 ? "active" : "";
 
-    const tarjetaHTML = `
-        <!-- SLIDE -->
-        <div class="carousel-item ${claseActive}">
-            <img class="backdrop"
-                 src="${rutaBase()}${listaPelisOrdenada[i].banner}"
-                 alt="${listaPelisOrdenada[i].titulo}">
+        const tarjetaHTML = `
+            <!-- SLIDE -->
+            <div class="carousel-item ${claseActive}">
+                <img class="backdrop"
+                     src="${rutaBase()}${limpiarRuta(listaPelisOrdenada[i].banner)}" 
+                     alt="${listaPelisOrdenada[i].titulo}">
 
-            <span class="badge-trailer">Tráiler Oficial</span>
+                <span class="badge-trailer">Tráiler Oficial</span>
 
-            <div class="badge-rating">
-                <i class="bi bi-star-fill"></i>
-                ${listaPelisOrdenada[i].puntuacionTotal}
-            </div>
+                <div class="badge-rating">
+                    <i class="bi bi-star-fill"></i>
+                    ${listaPelisOrdenada[i].puntuacionTotal}
+                </div>
 
-            <a class="btn-play"
-               href="${listaPelisOrdenada[i].trailer}"
-               target="_blank"
-               title="Ver tráiler">
-                <i class="bi bi-play-fill"></i>
-            </a>
+                <a class="btn-play"
+                   href="${listaPelisOrdenada[i].trailer}"
+                   target="_blank"
+                   title="Ver tráiler">
+                    <i class="bi bi-play-fill"></i>
+                </a>
 
-            <div class="carousel-caption">
-                <div class="caption-inner">
+                <div class="carousel-caption">
+                    <div class="caption-inner">
 
-                    <a href="${rutaBase()}html/detalle.html?id=${listaPelisOrdenada[i].id}"
-                       class="text-decoration-none portada-carrusel">
+                        <a href="${rutaBase()}html/detalle.html?id=${listaPelisOrdenada[i].id}"
+                           class="text-decoration-none portada-carrusel">
 
-                        <img class="caption-poster"
-                             src="${rutaBase()}${listaPelisOrdenada[i].portada}"
-                             alt="${listaPelisOrdenada[i].titulo}">
-                    </a>
+                            <img class="caption-poster"
+                                 src="${rutaBase()}${limpiarRuta(listaPelisOrdenada[i].portada)}" 
+                                 alt="${listaPelisOrdenada[i].titulo}">
+                        </a>
 
-                    <div class="caption-info">
+                        <div class="caption-info">
+                            <p class="caption-genre">
+                                ${listaPelisOrdenada[i].genero}
+                            </p>
 
-                        <p class="caption-genre">
-                            ${listaPelisOrdenada[i].genero}
-                        </p>
+                            <h5 class="caption-title">
+                                ${listaPelisOrdenada[i].titulo}
+                            </h5>
 
-                        <h5 class="caption-title">
-                            ${listaPelisOrdenada[i].titulo}
-                        </h5>
+                            <div class="caption-meta">
+                                <span>
+                                    <i class="bi bi-calendar3"></i>
+                                    ${listaPelisOrdenada[i].fechaEstreno}
+                                </span>
+                                <span>
+                                    <i class="bi bi-clock"></i>
+                                    ${listaPelisOrdenada[i].duracion}
+                                </span>
+                                <span>
+                                    <i class="bi bi-camera-video"></i>
+                                    ${listaPelisOrdenada[i].director}
+                                </span>
+                            </div>
 
-                        <div class="caption-meta">
-                            <span>
-                                <i class="bi bi-calendar3"></i>
-                                ${listaPelisOrdenada[i].fechaEstreno}
-                            </span>
-
-                            <span>
-                                <i class="bi bi-clock"></i>
-                                ${listaPelisOrdenada[i].duracion}
-                            </span>
-
-                            <span>
-                                <i class="bi bi-camera-video"></i>
-                                ${listaPelisOrdenada[i].director}
-                            </span>
+                            <p class="caption-desc">
+                                ${listaPelisOrdenada[i].sinopsis}
+                            </p>
                         </div>
-
-                        <p class="caption-desc">
-                            ${listaPelisOrdenada[i].sinopsis}
-                        </p>
-
                     </div>
                 </div>
             </div>
-        </div>
-    `;
+        `;
 
-    contenedorCarrusel.insertAdjacentHTML("beforeend", tarjetaHTML);
-}
-const elementoCarrusel = document.getElementById("Carousel");
-
-if (elementoCarrusel) {
-    const carruselBootstrap = bootstrap.Carousel.getOrCreateInstance(
-        elementoCarrusel,
-        {
-            interval: 6000,
-            ride: "carousel",
-            wrap: true,
-            pause: false
-        }
-    );
-
-    carruselBootstrap.cycle();
-}
+        contenedorCarrusel.insertAdjacentHTML("beforeend", tarjetaHTML);
     }
-    
-    
 }
 
 class PeliPuntuada{
