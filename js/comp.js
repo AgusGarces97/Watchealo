@@ -100,6 +100,29 @@ class Usuario{
 
 const enPerfil = window.location.pathname.includes("perfil.html");
 
+// ==========================================
+//   HELPER: TRANSICIÓN SUAVE AL CAMBIAR IMAGEN
+// ==========================================
+function cambiarImagenConFade(imgElement, nuevoSrc) {
+    if (!imgElement) return;
+
+    imgElement.style.opacity = "0";
+
+    setTimeout(() => {
+        imgElement.src = nuevoSrc;
+
+        // Si la imagen ya está en caché, "onload" puede no disparar a tiempo,
+        // por eso forzamos el fade-in apenas se asigna el src
+        const mostrar = () => { imgElement.style.opacity = "1"; };
+
+        if (imgElement.complete) {
+            mostrar();
+        } else {
+            imgElement.onload = mostrar;
+        }
+    }, 200); // coincide con la duración de la transición CSS
+}
+
 // =========================================================
 // PRECARGA DE DATOS DESDE ARCHIVOS JSON A LOCALSTORAGE
 // =========================================================
@@ -547,7 +570,7 @@ if (btnCambiarPfp && inputPfp && vistaPfp) {
                 const imagenBase64 = e.target.result; //Crea una constante para guardar la imagen seleccionada "imagenBase64"
 
                 // Cambiamos la vista previa en el DOM inmediatamente
-                vistaPfp.src = imagenBase64;
+                cambiarImagenConFade(vistaPfp, imagenBase64);
 
                 // Asigno esa nueva imagen a la propiedad fotoPerfil del usuarioLogeado
                 const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
@@ -564,10 +587,10 @@ if (btnCambiarPfp && inputPfp && vistaPfp) {
             };
 
             // Leemos el archivo local convirtiéndolo a una cadena de texto Base64
-            lector.readAsDataURL(archivo);
-
-            
+            lector.readAsDataURL(archivo);            
         }
+        // Resetear el input para poder volver a elegir el mismo archivo ──
+        inputPfp.value = "";
     });
 }
 
@@ -589,7 +612,7 @@ function eliminarFotoPerfil() {
     const vistaPfp = document.getElementById("vista-pfp");
     const btnEliminar = document.getElementById("btn-eliminar-pfp");
 
-    if (vistaPfp) vistaPfp.src = DEFAULT_PFP;
+    cambiarImagenConFade(vistaPfp, DEFAULT_PFP);
 
     const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
     if (usuarioLogeado) {
@@ -647,7 +670,7 @@ if (btnCambiarBanner && inputBanner && vistaBanner) {
                 const imagenBase64 = e.target.result;
 
                 // Actualizamos la vista previa en el momento
-                vistaBanner.src = imagenBase64;
+                cambiarImagenConFade(vistaBanner, imagenBase64);
                 // Asigno esa nueva imagen a la propiedad banner del usuarioLogeado
                 const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
                 usuarioLogeado.banner = imagenBase64;
@@ -662,6 +685,8 @@ if (btnCambiarBanner && inputBanner && vistaBanner) {
 
             lector.readAsDataURL(archivo);
         }
+        // ── Resetear el input ──
+        inputBanner.value = "";
     });
 }
 
@@ -683,7 +708,7 @@ function eliminarBanner() {
     const vistaBanner = document.getElementById("vista-banner");
     const btnEliminar = document.getElementById("btn-eliminar-banner");
 
-    if (vistaBanner) vistaBanner.src = DEFAULT_BANNER;
+    cambiarImagenConFade(vistaBanner, DEFAULT_BANNER);
 
     const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
     if (usuarioLogeado) {
@@ -923,6 +948,20 @@ if (editarPerfil) {
             btnCambiarPfp.style.display = "block";
             botonUserName.style.display = "block";
             editarPerfil.innerHTML = `<i class="bi bi-x-lg"></i> Salir de Edición`;
+
+            // ── NUEVO: mostrar botones de eliminar si ya hay imágenes cargadas ──
+            const usuarioActual = JSON.parse(localStorage.getItem("usuarioLogeado"));
+            const btnElimPfpAct = document.getElementById("btn-eliminar-pfp");
+            const btnElimBannerAct = document.getElementById("btn-eliminar-banner");
+
+            if (usuarioActual) {
+                if (btnElimPfpAct && usuarioActual.fotoPerfil && usuarioActual.fotoPerfil !== "../img/pfp-default.webp") {
+                    btnElimPfpAct.style.display = "flex";
+                }
+                if (btnElimBannerAct && usuarioActual.banner && usuarioActual.banner !== "../img/banner-default.jpg") {
+                    btnElimBannerAct.style.display = "flex";
+                }
+            }
 
         } else {
             // ── DESACTIVAR MODO EDICIÓN ──
