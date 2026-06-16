@@ -160,6 +160,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Llamamos a las funciones de precarga apenas el HTML esté listo
     precargarUsuarios();
     precargarPelisYSeries();
+
+    // Inicialización correcta para Bootstrap 5 incorporando el contenedor global
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl, {
+    container: 'body' // <--- ESTO EVITA QUE EL OVERFLOW LO OCULTE
+    }))
     
 });
 
@@ -549,6 +555,12 @@ if (btnCambiarPfp && inputPfp && vistaPfp) {
                 //Guardo ese cambio en el localStorage
                 localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado)); 
 
+                // ── Mostrar botón de eliminar al cambiar la foto ──
+                const btnEliminarPfp = document.getElementById("btn-eliminar-pfp");
+                if (btnEliminarPfp && modoEdicionActivo) {
+                    btnEliminarPfp.style.display = "flex";
+                }
+
             };
 
             // Leemos el archivo local convirtiéndolo a una cadena de texto Base64
@@ -565,6 +577,44 @@ function cargarFotoPerfil() {
         const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
         if (usuarioLogeado) {
             vistaPfp.src = usuarioLogeado.fotoPerfil || "../img/default-avatar.png";
+        }
+    }
+}
+
+// ==========================================
+//   LÓGICA BOTÓN ELIMINAR FOTO DE PERFIL
+// ==========================================
+function eliminarFotoPerfil() {
+    const DEFAULT_PFP = "../img/pfp-default.webp";
+    const vistaPfp = document.getElementById("vista-pfp");
+    const btnEliminar = document.getElementById("btn-eliminar-pfp");
+
+    if (vistaPfp) vistaPfp.src = DEFAULT_PFP;
+
+    const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
+    if (usuarioLogeado) {
+        usuarioLogeado.fotoPerfil = DEFAULT_PFP;
+        localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado));
+
+        const listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        for (let i = 0; i < listaUsuarios.length; i++) {
+            if (listaUsuarios[i].email === usuarioLogeado.email) {
+                listaUsuarios[i].fotoPerfil = DEFAULT_PFP;
+            }
+        }
+        localStorage.setItem("usuarios", JSON.stringify(listaUsuarios));
+    }
+
+    if (btnEliminar) {
+        const pop = bootstrap.Popover.getInstance(btnEliminar);
+        if (pop) {
+            pop.show();
+            setTimeout(() => {
+                pop.hide();
+                btnEliminar.style.display = "none";
+            }, 1800);
+        } else {
+            btnEliminar.style.display = "none";
         }
     }
 }
@@ -603,6 +653,11 @@ if (btnCambiarBanner && inputBanner && vistaBanner) {
                 usuarioLogeado.banner = imagenBase64;
                 // Guardo ese cambio en el localStorage
                 localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado)); 
+
+                // Mostrar el botón de eliminar
+                const btnEliminarBanner = document.getElementById("btn-eliminar-banner");
+                if (btnEliminarBanner && modoEdicionActivo) btnEliminarBanner.style.display = "flex";
+
             };
 
             lector.readAsDataURL(archivo);
@@ -616,6 +671,44 @@ function cargarBannerPerfil() {
         const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
         if (usuarioLogeado) {
             vistaBanner.src = usuarioLogeado.banner || "../img/banner-default.jpg";
+        }
+    }
+}
+
+// ==========================================
+//   LÓGICA BOTÓN ELIMINAR BANNER
+// ==========================================
+function eliminarBanner() {
+    const DEFAULT_BANNER = "../img/banner-default.jpg";
+    const vistaBanner = document.getElementById("vista-banner");
+    const btnEliminar = document.getElementById("btn-eliminar-banner");
+
+    if (vistaBanner) vistaBanner.src = DEFAULT_BANNER;
+
+    const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
+    if (usuarioLogeado) {
+        usuarioLogeado.banner = DEFAULT_BANNER;
+        localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado));
+
+        const listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        for (let i = 0; i < listaUsuarios.length; i++) {
+            if (listaUsuarios[i].email === usuarioLogeado.email) {
+                listaUsuarios[i].banner = DEFAULT_BANNER;
+            }
+        }
+        localStorage.setItem("usuarios", JSON.stringify(listaUsuarios));
+    }
+
+    if (btnEliminar) {
+        const pop = bootstrap.Popover.getInstance(btnEliminar);
+        if (pop) {
+            pop.show();
+            setTimeout(() => {
+                pop.hide();
+                btnEliminar.style.display = "none";
+            }, 1800);
+        } else {
+            btnEliminar.style.display = "none";
         }
     }
 }
@@ -847,6 +940,12 @@ if (editarPerfil) {
             btnCambiarPfp.style.display = "none";
             botonUserName.style.display = "none";
             editarPerfil.innerHTML = `<i class="bi bi-pencil-square"></i> Editar Perfil`;
+
+            // Ocultar botones de eliminar al salir del modo edición
+            const btnElimPfp = document.getElementById("btn-eliminar-pfp");
+            const btnElimBanner = document.getElementById("btn-eliminar-banner");
+            if (btnElimPfp) btnElimPfp.style.display = "none";
+            if (btnElimBanner) btnElimBanner.style.display = "none";
         }
     });
 }

@@ -85,6 +85,18 @@
                     <i class="bi bi-image-fill me-2"></i>Cambiar Banner
                 </button>
 
+                <button type="button"
+                        class="btn-eliminar-banner"
+                        id="btn-eliminar-banner"
+                        style="display: none;"
+                        data-bs-toggle="popover"
+                        data-bs-placement="left"
+                        data-bs-content="Banner eliminado"
+                        data-bs-trigger="manual"
+                        onclick="eliminarBanner()">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+
                 <button type="button" class="btn-editar-perfil-general" id="btn-editar-perfil-general">
                     <i class="bi bi-pencil-square"></i>Editar Perfil
                 </button>
@@ -94,13 +106,24 @@
                 </button>
 
                 <!-----------------------FOTO DE PERFIL Y NOMBRE DE USUARIO------------------------------------>
-                <div class="perfil-header-row">
+                <div class="perfil-header-row" style="align-items: center;">
                     <!-- Foto de perfil -->
                     <div class="pfp-contenedor">
                         <img src="../img/pfp-default.webp" alt="Foto de perfil" class="pfp-img rounded-circle" id="vista-pfp">
                         <input type="file" id="input-pfp" accept="image/*" style="display: none;">
                         <button type="button" class="btn-cambiar-pfp" id="btn-cambiar-pfp" style="display: none;">
                             <i class="bi bi-camera-fill"></i>
+                        </button>
+                        <button type="button"
+                                class="btn-eliminar-pfp"
+                                id="btn-eliminar-pfp"
+                                style="display: none;"
+                                data-bs-toggle="popover"
+                                data-bs-placement="bottom"
+                                data-bs-content="Foto eliminada"
+                                data-bs-trigger="manual"
+                                onclick="eliminarFotoPerfil()">
+                            <i class="bi bi-x-lg"></i>
                         </button>
                     </div>
 
