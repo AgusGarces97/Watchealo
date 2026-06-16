@@ -98,6 +98,8 @@ class Usuario{
     }
 }
 
+const enPerfil = window.location.pathname.includes("perfil.html");
+
 // =========================================================
 // PRECARGA DE DATOS DESDE ARCHIVOS JSON A LOCALSTORAGE
 // =========================================================
@@ -158,6 +160,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Llamamos a las funciones de precarga apenas el HTML esté listo
     precargarUsuarios();
     precargarPelisYSeries();
+
+    // Inicialización correcta para Bootstrap 5 incorporando el contenedor global
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl, {
+    container: 'body' // <--- ESTO EVITA QUE EL OVERFLOW LO OCULTE
+    }))
     
 });
 
@@ -251,6 +259,7 @@ function renderizarDetalles() {
     /////////////////////////////////////////////////////////////////////////////////////
     verificarFavoritoAlCargar();
     if (peliEncontrada) {
+        document.title = `Watchealo! - ${peliEncontrada.titulo}`; 
         portadaDetalle.src = peliEncontrada.portada;
         bannerDetalle.src = peliEncontrada.banner;
         
@@ -546,6 +555,12 @@ if (btnCambiarPfp && inputPfp && vistaPfp) {
                 //Guardo ese cambio en el localStorage
                 localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado)); 
 
+                // ── Mostrar botón de eliminar al cambiar la foto ──
+                const btnEliminarPfp = document.getElementById("btn-eliminar-pfp");
+                if (btnEliminarPfp && modoEdicionActivo) {
+                    btnEliminarPfp.style.display = "flex";
+                }
+
             };
 
             // Leemos el archivo local convirtiéndolo a una cadena de texto Base64
@@ -562,6 +577,44 @@ function cargarFotoPerfil() {
         const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
         if (usuarioLogeado) {
             vistaPfp.src = usuarioLogeado.fotoPerfil || "../img/default-avatar.png";
+        }
+    }
+}
+
+// ==========================================
+//   LÓGICA BOTÓN ELIMINAR FOTO DE PERFIL
+// ==========================================
+function eliminarFotoPerfil() {
+    const DEFAULT_PFP = "../img/pfp-default.webp";
+    const vistaPfp = document.getElementById("vista-pfp");
+    const btnEliminar = document.getElementById("btn-eliminar-pfp");
+
+    if (vistaPfp) vistaPfp.src = DEFAULT_PFP;
+
+    const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
+    if (usuarioLogeado) {
+        usuarioLogeado.fotoPerfil = DEFAULT_PFP;
+        localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado));
+
+        const listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        for (let i = 0; i < listaUsuarios.length; i++) {
+            if (listaUsuarios[i].email === usuarioLogeado.email) {
+                listaUsuarios[i].fotoPerfil = DEFAULT_PFP;
+            }
+        }
+        localStorage.setItem("usuarios", JSON.stringify(listaUsuarios));
+    }
+
+    if (btnEliminar) {
+        const pop = bootstrap.Popover.getInstance(btnEliminar);
+        if (pop) {
+            pop.show();
+            setTimeout(() => {
+                pop.hide();
+                btnEliminar.style.display = "none";
+            }, 1800);
+        } else {
+            btnEliminar.style.display = "none";
         }
     }
 }
@@ -600,6 +653,11 @@ if (btnCambiarBanner && inputBanner && vistaBanner) {
                 usuarioLogeado.banner = imagenBase64;
                 // Guardo ese cambio en el localStorage
                 localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado)); 
+
+                // Mostrar el botón de eliminar
+                const btnEliminarBanner = document.getElementById("btn-eliminar-banner");
+                if (btnEliminarBanner && modoEdicionActivo) btnEliminarBanner.style.display = "flex";
+
             };
 
             lector.readAsDataURL(archivo);
@@ -613,6 +671,44 @@ function cargarBannerPerfil() {
         const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
         if (usuarioLogeado) {
             vistaBanner.src = usuarioLogeado.banner || "../img/banner-default.jpg";
+        }
+    }
+}
+
+// ==========================================
+//   LÓGICA BOTÓN ELIMINAR BANNER
+// ==========================================
+function eliminarBanner() {
+    const DEFAULT_BANNER = "../img/banner-default.jpg";
+    const vistaBanner = document.getElementById("vista-banner");
+    const btnEliminar = document.getElementById("btn-eliminar-banner");
+
+    if (vistaBanner) vistaBanner.src = DEFAULT_BANNER;
+
+    const usuarioLogeado = JSON.parse(localStorage.getItem("usuarioLogeado"));
+    if (usuarioLogeado) {
+        usuarioLogeado.banner = DEFAULT_BANNER;
+        localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado));
+
+        const listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        for (let i = 0; i < listaUsuarios.length; i++) {
+            if (listaUsuarios[i].email === usuarioLogeado.email) {
+                listaUsuarios[i].banner = DEFAULT_BANNER;
+            }
+        }
+        localStorage.setItem("usuarios", JSON.stringify(listaUsuarios));
+    }
+
+    if (btnEliminar) {
+        const pop = bootstrap.Popover.getInstance(btnEliminar);
+        if (pop) {
+            pop.show();
+            setTimeout(() => {
+                pop.hide();
+                btnEliminar.style.display = "none";
+            }, 1800);
+        } else {
+            btnEliminar.style.display = "none";
         }
     }
 }
@@ -844,6 +940,12 @@ if (editarPerfil) {
             btnCambiarPfp.style.display = "none";
             botonUserName.style.display = "none";
             editarPerfil.innerHTML = `<i class="bi bi-pencil-square"></i> Editar Perfil`;
+
+            // Ocultar botones de eliminar al salir del modo edición
+            const btnElimPfp = document.getElementById("btn-eliminar-pfp");
+            const btnElimBanner = document.getElementById("btn-eliminar-banner");
+            if (btnElimPfp) btnElimPfp.style.display = "none";
+            if (btnElimBanner) btnElimBanner.style.display = "none";
         }
     });
 }
@@ -877,7 +979,11 @@ if (userName) {
             if (userName.value.trim().length <= 1 || userName.value.trim() === listaUsuarios[i].username) {
             errorUserName.style.display = "block";
             errorUserName.innerHTML = `
+<<<<<<< HEAD
                 <p class="text-danger mb-1"><i class="bi bi-exclamation-circle-fill"></i> El nombre de usuario tiene menos de 2 letras o dígitos o ya está en uso</p>
+=======
+                <p class="text-danger mb-1"><i class="bi bi-exclamation-circle-fill"></i> El nombre de usuario tiene menos de 2 letras o ya está en uso</p>
+>>>>>>> main
             `;
             userName.style.border = "3px solid red";
             algunError = true;
@@ -931,7 +1037,11 @@ if(contraseña){
     if (contraseña.value.length < 6) {
         errorContraseña.style.display = "block";
         errorContraseña.innerHTML = `
+<<<<<<< HEAD
             <p class="text-danger"><i class="bi bi-exclaminations-circle"></i> La contraseña debe tener al menos 6 letras o dígitos </p>
+=======
+            <p class="text-danger"><i class="bi bi-exclaminations-circle"></i> La contraseña debe tener al menos 6 letras </p>
+>>>>>>> main
         `;
         contraseña.style.border = "3px solid red";
         algunError = true;
@@ -1192,6 +1302,8 @@ if(btnCrearCuenta){
     // Guardar también qué usuario inició sesión actualmente:
     localStorage.setItem("usuarioLogeado", JSON.stringify(nuevoUsuario));
 
+    if (enPerfil) document.title = `Watchealo! - ${nuevoUsuario.username}`;
+
     comprobarEstadoSesion();
     renderizarFavoritosPerfil();
     cargarReseñasPerfil();
@@ -1223,13 +1335,16 @@ const perfilBiografia = document.getElementById('texto-bio'); // biografía
  */
 function comprobarEstadoSesion() {
     const usuarioActivo = JSON.parse(localStorage.getItem("usuarioLogeado"));
+    const enPerfil = window.location.pathname.includes("perfil.html");
 
     if (usuarioActivo) {
-        // Ocultamos formulario de login y mostramos el perfil del usuario
+        // Solo cambia el título si estamos en perfil.html
+        if (enPerfil) {
+            document.title = `Watchealo! - ${usuarioActivo.username}`;
+        }
         if (conSinLogear) conSinLogear.style.display = "none";
         if (conLogeado) conLogeado.style.display = "block";
         
-        // Inyectamos el nombre del usuario logeado en el <h2> del perfil
         if (perfilUsername && vistaBanner && vistaPfp) {
             perfilUsername.textContent = usuarioActivo.username;
             vistaBanner.src = usuarioActivo.banner;
@@ -1237,7 +1352,10 @@ function comprobarEstadoSesion() {
             perfilBiografia.textContent = usuarioActivo.biografia;
         }
     } else {
-        // Si no hay sesión, forzamos mostrar el login y ocultar el perfil
+        // Solo cambia el título si estamos en perfil.html
+        if (enPerfil) {
+            document.title = "Watchealo! - Login";
+        }
         if (conSinLogear) conSinLogear.style.display = "block";
         if (conLogeado) conLogeado.style.display = "none";
     }
@@ -1269,6 +1387,8 @@ if (formLogin) {
                 usuarioValido.fotoPerfil = "../img/default-avatar.png";
             }
             localStorage.setItem("usuarioLogeado", JSON.stringify(usuarioValido));
+
+            if (enPerfil) document.title = `Watchealo! - ${usuarioValido.username}`;
             
             // Reseteamos el formulario
             formLogin.reset();
@@ -1300,6 +1420,39 @@ if (formLogin) {
     });
 }
 
+// FUNCIÓN OJO DE PEZ
+document.addEventListener("DOMContentLoaded", function () {
+    // Función genérica para alternar visibilidad
+    function asociarTogglePassword(idBoton, idInput) {
+        const boton = document.getElementById(idBoton);
+        const input = document.getElementById(idInput);
+        
+        if (boton && input) {
+            boton.addEventListener("click", function () {
+                const icono = this.querySelector("i");
+                
+                if (input.type === "password") {
+                    input.type = "text";
+                    // Cambiamos el ojo abierto por el ojo tachado
+                    icono.classList.remove("bi-eye");
+                    icono.classList.add("bi-eye-slash");
+                } else {
+                    input.type = "password";
+                    // Volvemos al ojo abierto
+                    icono.classList.remove("bi-eye-slash");
+                    icono.classList.add("bi-eye");
+                }
+            });
+        }
+    }
+
+    // Registro
+    asociarTogglePassword("toggle-password", "input-password");
+    asociarTogglePassword("toggle-confirmPassword", "input-confirmPassword");
+    // Login
+    asociarTogglePassword("toggle-login-password", "login-password");
+});
+
 
 // ESCUCHA DEL BOTÓN CERRAR SESIÓN
 if (btnLogout) {
@@ -1321,6 +1474,7 @@ if (btnLogout) {
 
                 localStorage.setItem("usuarios", JSON.stringify(usuariosCargados));
                 localStorage.removeItem("usuarioLogeado");
+                if (enPerfil) document.title = "Watchealo! - Login";
 
                 document.getElementById("contenedor-reseñas-perfil").innerHTML = "";
                 document.getElementById("contenedor-favoritos").innerHTML = "";
